@@ -1,0 +1,5380 @@
+#Mission Info
+
+$Version: 0.10
+$Name:  XSTR("Brimstone 1", -1)
+$Author: Romanyuk, Schmitt
+$Created: 03/26/06 at 10:42:26
+$Modified: 02/13/12 at 21:01:10
+$Notes:
+Story by Nick Huynh and Brian Swift$End Notes:
+
+$Mission Desc:
+ XSTR("Wing Commander Saga, Hermes Campaign, Mission 1
+", -1)
+$end_multi_text
+
++Game Type Flags: 1
+
++Flags: 4587520
+
++Disallow Support: 1
+
++Hull Repair Ceiling: 0.000000
+
++Subsystem Repair Ceiling: 100.000000
+
++Viewer pos: 815.972656, 837.192932, -896.720947
++Viewer orient:
+	0.739623, -0.000000, 0.673021,
+	-0.382422, 0.822879, 0.420267,
+	-0.553815, -0.568217, 0.608620
++SquadReassignName: 811th Blood Hounds
++SquadReassignLogo: Bloodhounds.pcx
+
+$Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
+$Squadron wing names: ( "Alpha" "BravoX" "CharlieX" "DeltaX" "EchoX" )
+$Team-versus-team wing names: ( "Alpha" "ZetaX" )
+
+$Skybox Model: sky_brimstone.pof
++Skybox Flags: 672923904
+
+$AI Profile: SAGA RETAIL
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"AutoAllowed"		"0"		"number"
+		1		"AutoNavCamera"		"0"		"number"
+		2		"AutoNavCamTime"		"10"		"number"
+		3		"AutoNavCapshipSpeed"		"40"		"number"
+		4		"AutoNavDirX"		"0"		"number"
+		5		"AutoNavDirY"		"0"		"number"
+		6		"AutoNavDirZ"		"1"		"number"
+		7		"AutoNavFighterSpeed"		"65"		"number"
+		8		"AutoNavPhase"		"0"		"number"
+		9		"AutoNavTime"		"0"		"number"
+		10		"CamSpeed"		"0"		"number"
+		11		"EscortBravo"		"0"		"number"
+		12		"EscortCap1"		"0"		"number"
+		13		"EscortCap2"		"0"		"number"
+		14		"EscortCharlie"		"0"		"number"
+		15		"PlanetSizeAfter"		"200"		"number"
+		16		"PlanetSizeBefore"		"150"		"number"
+		17		"PlanetVariable"		"0"		"number"
+		18		"TauntTimer"		"0"		"number"
+)
+
+#Cutscenes
+$Briefing Cutscene: episode_01_briefing_01.ogg
++formula: ( true ) 
+
+#end
+#Fiction Viewer
+
+$File: m1fiction.txt
+
+#Command Briefing
+
+$Stage Text:
+ XSTR("$BWelcome $Bto $Bthe $BTCS $BHermes
+
+
+This is Captain Moran. Those pilots and crew joining the Hermes from various venues, welcome aboard. Those from the Wellington, our condolences for the loss of your vessel. She was a good ship.
+
+You join four thousand of the finest crew and pilots anywhere in the Terran fleet. With nine combat squadrons and six escorting warships, the Hermes battle group is one of the most powerful strike groups in the Vega Sector. Our battle record and reputation speak for us. Our comrades respect us, our enemies fear us.", -1)
+$end_multi_text
+$Ani Filename: h_01_command_ani_01.eff
++Wave Filename: 01_captain_moran_01.ogg
+
+$Stage Text:
+ XSTR("$BThe $BFront $BLine
+
+
+I do not know what the news networks have been broadcasting, but I will be frank with you, the War is at a stalemate. The Navy has been forced to deploy outdated light carriers to the front in an effort to replace the recently sustained losses, most notably among them, the carriers lost during the Battle of Earth.
+
+Being one of the few Confed fleet carriers in this quadrant, we make a big and juicy target. Needless to say, the Kilrathi have placed a high priority on the destruction of our carrier. They enjoy an overwhelming advantage in numbers of fighters of all classes and capital ships. Kilrathi have the upper hand, and they know it.", -1)
+$end_multi_text
+$Ani Filename: h_01_command_ani_02.eff
++Wave Filename: 01_captain_moran_02.ogg
+
+$Stage Text:
+ XSTR("$BShadowing
+
+
+During the past two weeks, we've been in the Chang Du system battling a Kilrathi battle group centered around the heavy carrier KIS Gap'thrak. During our skirmishes, we have taken out a heavy cruiser, two destroyers and half of her fighter complement. We've also put three torpedoes into the Gap'thrak, forcing her to retreat back to a Kilrathi naval base. We're now positioned in the Brimstone system, to hunt down a few Kilrathi raiders.
+
+Sadly at 0414 hours today, Rear Admiral Callahan, our battle group commander, succumbed to injuries he received during the last attack on our ship. Funeral proceedings will be announced at a later date. We can all honor his memory by continuing to carry out our duties effectively and efficiently, always a point of pride for Admiral Callahan.", -1)
+$end_multi_text
+$Ani Filename: h_01_command_ani_03.eff
++Wave Filename: 01_captain_moran_03.ogg
+
+$Stage Text:
+ XSTR("$BReinforcements
+
+
+One more thing. A note to the current members of the 811th Blood Hounds. Colonel Walker has appointed Major Kenny Baws to your vacant squadron leader position. Even our most experienced pilots will no doubt learn much under the tutelage of such a decorated combat veteran. 
+
+Moran out.", -1)
+$end_multi_text
+$Ani Filename: h_01_command_ani_04.eff
++Wave Filename: 01_captain_moran_04.ogg
+
+#Briefing
+$start_briefing
+$num_stages: 0
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 4
+
+$Formula: ( is-goal-true-delay "Patrol Area" 0 ) 
+$Multi text
+    XSTR("Good job on the patrol work, Lieutenants. Not only did you sweep all the nav points of Kilrathi fighters, you stumbled upon the location of a Kilrathi light carrier and brought that information back alive.", -1)
+$end_multi_text
+$Voice: 01_db_kettle_01.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( is-goal-true-delay "Patrol Area" 0 ) 
+$Multi text
+    XSTR("Intel has identified the Kilrathi light carrier as the KIS Thark'mahr and the destroyer as the KIS Ndagyug.
+
+These two have been driving the local defense forces up the wall. Rest assured, we'll be planning offensive operations in the next few hours. Dismissed.", -1)
+$end_multi_text
+$Voice: none.wav
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( is-goal-false-delay "Patrol Area" 0 ) 
+$Multi text
+    XSTR("Sandman, I thought after your performance in Oberan that you would be one of the few newbies who actually 'got it'. Apparently, I was wrong. Not only did you disobey my direct order to not engage any capships, you got Greywolf killed and put the Hermes in jeopardy by running directly back here with your tail between your legs.", -1)
+$end_multi_text
+$Voice: 01_db_kettle_02.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( is-goal-false-delay "Patrol Area" 0 ) 
+$Multi text
+    XSTR("We're gearing up for a rushed strike against that light carrier before it can return the favor, but you won't be. Both Colonel Walker and I feel we can't have pilots in our wing who don't follow orders, no matter how short we are on bodies to put in a cockpit. You're damn lucky your ass won't stand in front of a court martial for this. Instead, you're being transferred to Fort Crockett's ISS for a second chance at a career in a fighter. You're their problem now, not mine. Now get out of my sight.", -1)
+$end_multi_text
+$Voice: none.wav
+$Recommendation text:
+    XSTR("Disobeying orders can cost lives. Listen to your flight leader.", -1)
+$end_multi_text
+
+#Callsigns:
+$Callsign: Sandman
+$Callsign: Greywolf
+$Callsign: Viper
+$Callsign: Catkiller
+$Callsign: Orator
+$Callsign: Scarlet
+$Callsign: Twilight
+$Callsign: Rendar
+$Callsign: Bandit
+
+#end
+
+
+#Players		;! 1 total
+
+$Starting Shipname: Alpha 2
+$Ship Choices: (
+)
+
++Weaponry Pool: (
+	"Ion"	2
+	"Neutron"	2
+	"Spiculum IR"	12
+)
+
+#Objects		;! 48 total
+
+$Name: Alpha 2		;! Object #0
+$Class: F-86C Hellcat V
+$Callsign: Sandman
+
+$Team: Friendly
+$Location: 12.000000, 3.000000, 100.000000
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	-0.000000, 0.999973, -0.007387,
+	0.000000, 0.007387, 0.999973
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 80 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" "no-arrival-warp" "no-departure-warp" "locked" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 15
++Persona Index: 0
+
+$Name: Alpha 1		;! Object #1
+$Class: F-86C Hellcat V
+$Callsign: Greywolf
+
+$Team: Friendly
+$Location: -18.000000, 3.000000, 200.000000
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	-0.000000, 0.999972, -0.007424,
+	0.000000, 0.007424, 0.999972
+$AI Behavior: None
++AI Class: Wingman
+$AI Goals: ( goals ( ai-play-dead 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "locked" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
++Persona Index: 47
+
+$Name: Delta 1		;! Object #2
+$Class: F-86C Hellcat V
+$Callsign: Catkiller
+
+$Team: Friendly
+$Location: 53672.601563, 100.000000, 100376.601563
+$Orientation:
+	0.420161, 0.461779, 0.781168,
+	-0.218741, 0.886995, -0.406685,
+	-0.880691, 0.000000, 0.473691
+$AI Behavior: None
++AI Class: Wingman
+$AI Goals: ( goals ( ai-waypoints-once "Delta1 way" 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
++Persona Index: 30
+
+$Name: Delta 2		;! Object #3
+$Class: F-86C Hellcat V
+$Callsign: Viper
+
+$Team: Friendly
+$Location: 53747.199219, 100.000000, 100271.796875
+$Orientation:
+	0.420161, 0.461779, 0.781168,
+	-0.218741, 0.886995, -0.406685,
+	-0.880691, 0.000000, 0.473691
+$AI Behavior: None
++AI Class: Wingman
+$AI Goals: ( goals ( ai-waypoints-once "Delta2 way" 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
++Persona Index: 113
+
+$Name: Hotel 1		;! Object #4
+$Class: F-27B Arrow
+$Callsign: Orator
+
+$Team: Friendly
+$Location: 3511.855225, -0.000000, 4863.563965
+$Orientation:
+	0.453994, 0.000000, 0.891005,
+	0.000000, 1.000000, -0.000000,
+	-0.891005, 0.000000, 0.453994
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "locked" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 93
+
+$Name: Hotel 2		;! Object #5
+$Class: F-27B Arrow
+$Callsign: Scarlet
+
+$Team: Friendly
+$Location: 3521.815918, -0.000271, 4811.810059
+$Orientation:
+	0.485998, 0.000000, 0.873960,
+	0.000000, 1.000000, -0.000000,
+	-0.873960, 0.000000, 0.485998
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "locked" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 73
+
+$Name: Hotel 3		;! Object #6
+$Class: F-27B Arrow
+$Callsign: Twilight
+
+$Team: Friendly
+$Location: 3562.042725, -0.000248, 4863.666016
+$Orientation:
+	0.471108, 0.000000, 0.882076,
+	0.000000, 1.000000, -0.000000,
+	-0.882076, 0.000000, 0.471108
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "locked" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 106
+
+$Name: Hotel 4		;! Object #7
+$Class: F-27B Arrow
+$Callsign: Rendar
+
+$Team: Friendly
+$Location: 3542.075928, -0.000173, 4761.558105
+$Orientation:
+	0.490273, 0.000000, 0.871569,
+	0.000000, 1.000000, -0.000000,
+	-0.871569, 0.000000, 0.490273
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "locked" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 37
+
+$Name: WB253		;! Object #8
+$Class: Shuttle
+$Callsign: Bandit
+
+$Team: Friendly
+$Location: 0.000000, 0.000000, 1000.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-waypoints-once "Shuttle path" 70 ) ( ai-waypoints-once "Shuttle Departure" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( are-waypoints-done-delay 
+   "WB253" 
+   "Shuttle Departure" 
+   0 
+)
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 6
++Persona Index: 94
+
+$Name: TCS Hermes		;! Object #9
+$Class: Jutland-class
+$Team: Friendly
+$Location: 0.000000, 0.000000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret16
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 700
+
+$Name: TCS Astoria		;! Object #10
+$Class: Tallahassee-class
+$Team: Friendly
+$Location: 1105.541992, -1666.666992, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret06
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 1000
+
+$Name: TCS Olympia		;! Object #11
+$Class: Tallahassee-class
+$Team: Friendly
+$Location: -1705.573975, 1000.000000, -301.691986
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret06
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 1000
+
+$Name: TCS John Paul Jones		;! Object #12
+$Class: Southampton-class
+$Team: Friendly
+$Location: -2554.321289, -2000.000000, 2339.967041
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Fletcher		;! Object #13
+$Class: Southampton-class
+$Team: Friendly
+$Location: 344.811768, -666.666687, -3928.952148
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Bentley		;! Object #14
+$Class: Southampton-class
+$Team: Friendly
+$Location: 2399.715088, 666.666687, 3130.004150
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Vaillancourt		;! Object #15
+$Class: Southampton-class
+$Team: Friendly
+$Location: 1865.613037, 3333.333008, -1186.750000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Hermes#1		;! Object #16
+$Class: Jutland-class
+$Team: Friendly
+$Location: 0.000000, 0.000000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret16
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 1000
+
+$Name: TCS Astoria#1		;! Object #17
+$Class: Tallahassee-class
+$Team: Friendly
+$Location: 1105.541992, -1666.666992, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret06
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 600
+
+$Name: TCS Olympia#1		;! Object #18
+$Class: Tallahassee-class
+$Team: Friendly
+$Location: -1705.573975, 1000.000000, -301.691986
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret06
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 600
+
+$Name: TCS John Paul Jones#1		;! Object #19
+$Class: Southampton-class
+$Team: Friendly
+$Location: -2554.321289, -2000.000000, 2339.967041
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Fletcher#1		;! Object #20
+$Class: Southampton-class
+$Team: Friendly
+$Location: 344.811768, -666.666687, -3928.952148
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Bentley#1		;! Object #21
+$Class: Southampton-class
+$Team: Friendly
+$Location: 2399.715088, 666.666687, 3130.004150
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Vaillancourt#1		;! Object #22
+$Class: Southampton-class
+$Team: Friendly
+$Location: 1865.613037, 3333.333008, -1186.750000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Constantin		;! Object #23
+$Class: Clarkson-class
+$Team: Friendly
+$Location: 53553.699219, 0.000000, 100346.398438
+$Orientation:
+	0.420161, 0.461779, 0.781168,
+	-0.218741, 0.886995, -0.406685,
+	-0.880691, 0.000000, 0.473691
+$AI Behavior: None
+$AI Goals: ( goals ( ai-waypoints-once "Constantin Way" 50 ) )
+$Cargo 1:  XSTR("unknown", -1)
++Initial Velocity: 80
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( is-event-true-delay 
+      "Activate Nav 2" 
+      0 
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 50
+
+$Name: Zulu 1		;! Object #24
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 157688.968750, -169.011398, -7154.679688
+$Orientation:
+	0.978031, -0.208460, 0.000000,
+	0.208460, 0.978031, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Lieutenant
+$AI Goals: ( goals ( ai-chase "Alpha 2" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Zulu 2		;! Object #25
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 157619.500000, -162.084534, -7221.671875
+$Orientation:
+	0.978031, -0.208460, 0.000000,
+	0.208460, 0.978031, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Lieutenant
+$AI Goals: ( goals ( ai-chase "Alpha 1" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Zulu 3		;! Object #26
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 157750.109375, -186.916855, -7220.511719
+$Orientation:
+	0.978031, -0.208460, 0.000000,
+	0.208460, 0.978031, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Lieutenant
+$AI Goals: ( goals ( ai-chase-wing "Alpha" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Yankee 1		;! Object #27
+$Class: Darket
+$Team: Hostile
+$Location: 20352.000000, 0.000000, 53795.000000
+$Orientation:
+	-0.999211, 0.000000, -0.039726,
+	0.000000, 1.000000, 0.000000,
+	0.039726, 0.000000, -0.999211
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 2" 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 20
+
+$Name: Yankee 2		;! Object #28
+$Class: Darket
+$Team: Hostile
+$Location: 20463.080078, 0.000058, 53803.500000
+$Orientation:
+	-0.999816, 0.000000, -0.019185,
+	0.000000, 1.000000, 0.000000,
+	0.019185, 0.000000, -0.999816
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 1" 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 20
+
+$Name: X-ray 1		;! Object #29
+$Class: Darket
+$Team: Hostile
+$Location: 154634.703125, 500.000000, -3174.500000
+$Orientation:
+	0.752879, 0.000000, 0.658159,
+	0.000000, 1.000000, -0.000000,
+	-0.658159, 0.000000, 0.752879
+$AI Behavior: None
++AI Class: Lieutenant
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: X-ray 2		;! Object #30
+$Class: Darket
+$Team: Hostile
+$Location: 154630.718750, 500.000000, -3229.532471
+$Orientation:
+	0.747652, 0.000000, 0.664091,
+	0.000000, 1.000000, -0.000000,
+	-0.664091, 0.000000, 0.747652
+$AI Behavior: None
++AI Class: Lieutenant
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: X-ray 3		;! Object #31
+$Class: Darket
+$Team: Hostile
+$Location: 154696.968750, 500.000000, -3190.419189
+$Orientation:
+	0.741316, 0.000000, 0.671156,
+	0.000000, 1.000000, -0.000000,
+	-0.671156, 0.000000, 0.741316
+$AI Behavior: None
++AI Class: Lieutenant
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: X-ray 4		;! Object #32
+$Class: Darket
+$Team: Hostile
+$Location: 154629.859375, 500.000000, -3295.250732
+$Orientation:
+	0.742249, 0.000000, 0.670124,
+	0.000000, 1.000000, -0.000000,
+	-0.670124, 0.000000, 0.742249
+$AI Behavior: None
++AI Class: Lieutenant
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: X-ray 5		;! Object #33
+$Class: Darket
+$Team: Hostile
+$Location: 154788.875000, 500.000000, -3216.010010
+$Orientation:
+	0.742922, 0.000000, 0.669378,
+	0.000000, 1.000000, -0.000000,
+	-0.669378, 0.000000, 0.742922
+$AI Behavior: None
++AI Class: Lieutenant
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Whiskey 1		;! Object #34
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 153688.750000, 0.000000, -4220.226074
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Ace
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Whiskey 2		;! Object #35
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 153788.000000, 0.000000, -4161.844238
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Ace
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Whiskey 3		;! Object #36
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 153912.625000, 0.000000, -4096.086426
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Ace
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Whiskey 4		;! Object #37
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 153973.734375, 0.000000, -4238.469727
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Ace
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Whiskey 5		;! Object #38
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 154049.515625, 0.000000, -4365.958496
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Ace
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Light Carrier#1		;! Object #39
+$Class: Dubav-class
+$Team: Hostile
+$Location: 156803.343750, 0.005349, -7155.992188
+$Orientation:
+	0.876368, -0.208460, -0.434196,
+	0.186791, 0.978031, -0.092546,
+	0.443949, 0.000000, 0.896053
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( is-event-true-delay 
+      "Activate Nav 4" 
+      0 
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 750
++Persona Index: 13
+
+$Name: Light Destroyer#1		;! Object #40
+$Class: Ralarrad-class
+$Team: Hostile
+$Location: 158490.062500, 221.041290, -6818.351563
+$Orientation:
+	0.818086, -0.208460, -0.535984,
+	0.174369, 0.978031, -0.114241,
+	0.548024, 0.000000, 0.836463
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Initial Shields: 100
++Subsystem: Pilot
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret01
++Subsystem: turret09
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( is-event-true-delay 
+      "Activate Nav 4" 
+      0 
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-shields" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 250
+
+$Name: Ghost 1		;! Object #41
+$Class: Ghost
+$Team: Unknown
+$Location: 120467.257813, 0.045867, 50201.957031
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Destroy Yankee" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance "Alpha 2" "Ghost 1" ) 
+   5000 
+)
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Ghost 2		;! Object #42
+$Class: Ghost
+$Team: Unknown
+$Location: 121734.835938, 0.019372, 50273.425781
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Destroy Yankee" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance "Alpha 2" "Ghost 2" ) 
+   5000 
+)
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Ghost 3		;! Object #43
+$Class: Ghost
+$Team: Unknown
+$Location: 137987.468750, -0.003372, 22173.580078
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Destroy Yankee" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance "Alpha 2" "Ghost 3" ) 
+   5000 
+)
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Ghost 4		;! Object #44
+$Class: Ghost
+$Team: Unknown
+$Location: 138729.281250, 0.003960, 22492.638672
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Destroy Yankee" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance "Alpha 2" "Ghost 4" ) 
+   5000 
+)
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Ghost 5		;! Object #45
+$Class: Ghost
+$Team: Unknown
+$Location: 150024.328125, 0.003026, 169.847656
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Destroy Yankee" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance "Alpha 2" "Ghost 5" ) 
+   5000 
+)
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Ghost 6		;! Object #46
+$Class: Ghost
+$Team: Unknown
+$Location: 150448.171875, 0.008688, 814.906250
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Destroy Yankee" 
+   5 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( < 
+   ( distance "Alpha 2" "Ghost 6" ) 
+   5000 
+)
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Cam Ghost		;! Object #47
+$Class: Ghost
+$Team: Neutral
+$Location: 50552.000000, -100000.000000, 49995.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "protect-ship" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "guardian" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" "is_harmless" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+#Wings		;! 7 total
+
+$Name: Alpha
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Alpha 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Docking Bay
+$Departure Anchor: TCS Hermes
++Departure Paths: ( "$bay05" "$bay06" "$bay07" "$bay08" )
+$Departure Cue: ( is-event-true-delay 
+   "Landing clearance" 
+   0 
+)
+$Ships: (		;! 2 total
+	"Alpha 1"
+	"Alpha 2"
+)
++Hotkey: 0
++Flags: ( "no-arrival-warp" "no-departure-warp" "no-arrival-log" )
+
+$Name: Delta
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Delta 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( is-event-true-delay 
+      "Activate Nav 2" 
+      0 
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 2 total
+	"Delta 1"
+	"Delta 2"
+)
++Hotkey: 3
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" "no-dynamic" )
+
+$Name: Hotel
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Hotel 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Hotel 1"
+	"Hotel 2"
+	"Hotel 3"
+	"Hotel 4"
+)
+$AI Goals: ( goals ( ai-waypoints "Cap-way" 50 ) )
++Hotkey: 7
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Zulu
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Zulu 1
+
+$Arrival Location: In front of ship
++Arrival Distance: 5000
+$Arrival Anchor: Alpha 2
+$Arrival Cue: ( is-event-true-delay 
+   "Zulu shows up" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Zulu 1"
+	"Zulu 2"
+	"Zulu 3"
+)
++Flags: ( "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Yankee
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Yankee 1
+
+$Arrival Location: In front of ship
++Arrival Distance: 5000
+$Arrival Anchor: Alpha 2
+$Arrival Cue: ( is-event-true-delay 
+   "Yankee shows up" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 2 total
+	"Yankee 1"
+	"Yankee 2"
+)
++Flags: ( "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: X-ray
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! X-ray 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 4" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 5" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Ships: (		;! 5 total
+	"X-ray 1"
+	"X-ray 2"
+	"X-ray 3"
+	"X-ray 4"
+	"X-ray 5"
+)
+$AI Goals: ( goals ( ai-chase-wing "Alpha" 50 ) )
++Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Whiskey
+$Waves: 95
+$Wave Threshold: 1
+$Special Ship: 0		;! Whiskey 1
+
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: Light Carrier#1
++Arrival Paths: ( "$bay01" "$bay02" "$bay03" "$bay04" )
+$Arrival Cue: ( is-event-true-delay 
+   "Whiskey wing is launched" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( and 
+   ( or 
+      ( is-event-true-delay 
+         "Activate Nav 5" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+      )
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Ships: (		;! 5 total
+	"Whiskey 1"
+	"Whiskey 2"
+	"Whiskey 3"
+	"Whiskey 4"
+	"Whiskey 5"
+)
+$AI Goals: ( goals ( ai-guard "Light Carrier#1" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" )
+
+#Events		;! 90 total
+
+$Formula: ( when 
+   ( true ) 
+   ( add-nav-waypoint 
+      "Nav 1" 
+      "Waypoint Nav 1" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 2" 
+      "Waypoint Nav 2" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 3" 
+      "Waypoint Nav 3" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 4" 
+      "Waypoint Nav 4" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 5" 
+      "Waypoint Nav 5" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 6" 
+      "Waypoint Nav 6" 
+      0 
+   )
+   ( ship-guardian-threshold 
+      ( rand-multiple 13 79 ) 
+      "Alpha 1" 
+   )
+   ( play-sound-from-table 0 0 0 162 ) 
+   ( tech-add-ships 
+      "Jutland-class" 
+      "Lexington-class" 
+      "Razor" 
+      "Demon" 
+      "Dubav-class" 
+      "Gothri" 
+      "Zartoth" 
+   )
+   ( tech-add-intel 
+      "STAR SYSTEM: Brimstone" 
+      "CARRIER: TCS Wellington" 
+      "INTEL FILE: Zartoth" 
+   )
+)
++Name: Init Mission
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Alpha 1" 
+      "<all engines>" 
+      "communication" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Alpha 2" 
+      "communication" 
+   )
+   ( lock-afterburner "Alpha 1" ) 
+)
++Name: Guard wingmen subsystems
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( modify-variable 
+      @AutoNavFighterSpeed[65] 
+      66 
+   )
+   ( hud-set-max-targeting-range 30000 ) 
+   ( hud-set-frame "Autopilot" 0 ) 
+)
++Name: AutoNav and radarrange
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( restrict-nav "Nav 1" ) 
+   ( restrict-nav "Nav 2" ) 
+   ( restrict-nav "Nav 3" ) 
+   ( restrict-nav "Nav 4" ) 
+   ( restrict-nav "Nav 5" ) 
+   ( restrict-nav "Nav 6" ) 
+)
++Name: Restrict Navs
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( has-time-elapsed 3 ) 
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 1" 
+      0 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 2" 
+      12152 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 1" 
+      4864 
+   )
+)
++Name: M_Hermes 1 to Greywolf 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( add-goal 
+      "Alpha 1" 
+      ( ai-waypoints-once 
+         "Waypoint Alpha 1" 
+         60 
+      )
+   )
+)
++Name: Launch Alpha 1
++Repeat Count: 1
++Interval: 1
++Chained: 12
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( > 
+         ( get-object-x "Alpha 2" ) 
+         ( + ( get-object-x "TCS Hermes" ) 75 ) 
+      )
+      ( < 
+         ( get-object-x "Alpha 2" ) 
+         ( - ( get-object-x "TCS Hermes" ) 75 ) 
+      )
+      ( > 
+         ( get-object-y "Alpha 2" ) 
+         ( + ( get-object-y "TCS Hermes" ) 35 ) 
+      )
+      ( < 
+         ( get-object-y "Alpha 2" ) 
+         ( - ( get-object-x "TCS Hermes" ) 15 ) 
+      )
+      ( > 
+         ( get-object-z "Alpha 2" ) 
+         ( + ( get-object-z "TCS Hermes" ) 600 ) 
+      )
+      ( < 
+         ( get-object-z "Alpha 2" ) 
+         ( - ( get-object-x "TCS Hermes" ) 500 ) 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Player outside of hangar
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Launch Alpha 1" 
+         0 
+      )
+      ( or 
+         ( > 
+            ( get-object-z "Alpha 1" ) 
+            ( + ( get-object-z "TCS Hermes" ) 700 ) 
+         )
+         ( > @AutoNavPhase[0] 1 ) 
+      )
+      ( is-event-true-delay 
+         "M_Hermes 1 to Greywolf 1" 
+         26 
+      )
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 1" 
+         50 
+      )
+   )
+   ( unlock-afterburner "Alpha 1" ) 
+)
++Name: Orders Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Orders Alpha" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Player outside of hangar" 
+         0 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Player and wingmen launched
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 1 to Greywolf 1" 
+      21 
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 1" 
+      0 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 2" 
+      2202 
+      "#Sandman" 
+      "High" 
+      "Sandman 2" 
+      2386 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 3" 
+      2937 
+      "#Sandman" 
+      "High" 
+      "Sandman 3" 
+      2514 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 4" 
+      3029 
+   )
+)
++Name: M_Sandman 1 to Greywolf 4
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Sandman 1 to Greywolf 4" 
+      17 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 1:1" ) 
+      ( get-object-y "Waypoint Nav 1:1" ) 
+      ( get-object-z "Waypoint Nav 1:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 0 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      150 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      200 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 1" ) 
+   ( select-nav "Nav 1" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 1" ) 5000 ) 
+   ( ship-vanish 
+      "TCS Hermes" 
+      "TCS Astoria" 
+      "TCS Olympia" 
+      "TCS John Paul Jones" 
+      "TCS Fletcher" 
+      "TCS Bentley" 
+      "TCS Vaillancourt" 
+      "Hotel 1" 
+      "Hotel 2" 
+      "Hotel 3" 
+      "Hotel 4" 
+   )
+   ( unset-nav-visited "Nav 6" ) 
+   ( unset-nav-visited "Nav 5" ) 
+)
++Name: Proceed to Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 1", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Zulu" 75 ) 
+   )
+)
++Name: AI Goals Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 1" 
+      3 
+   )
+   ( restrict-nav "Nav 1" ) 
+)
++Name: Restrict Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 1" 
+      0 
+   )
+   ( do-nothing ) 
+)
++Name: Zulu shows up
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Zulu destroyed" 
+      0 
+      ( true ) 
+   )
+   ( remove-goal 
+      "Alpha" 
+      ( ai-chase "Zulu" 75 ) 
+   )
+)
++Name: Destroy Zulu
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Destroy Kilrathi Fighters", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "Zulu" ) 
+   ( do-nothing ) 
+)
++Name: Zulu destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 6 "Zulu" ) 
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 5" 
+   )
+)
++Name: M_Greywolf 5
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 2" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 2" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Greywolf 5" 
+      3 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 2:1" ) 
+      ( get-object-y "Waypoint Nav 2:1" ) 
+      ( get-object-z "Waypoint Nav 2:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 4 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      250 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      300 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 2" ) 
+   ( select-nav "Nav 2" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 2" ) 5000 ) 
+   ( do-nothing ) 
+)
++Name: Proceed to Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 2", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: AI Goals Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 2" 
+      3 
+   )
+   ( restrict-nav "Nav 2" ) 
+)
++Name: Restrict Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "TCS Constantin" 
+      "Delta" 
+   )
+   ( cap-waypoint-speed 
+      "TCS Constantin" 
+      15 
+   )
+   ( cap-waypoint-speed "Delta 1" 15 ) 
+   ( cap-waypoint-speed "Delta 2" 15 ) 
+)
++Name: Speed Delta & Constantine
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 2" 
+      3 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 6" 
+      0 
+      "Delta 2" 
+      "High" 
+      "Viper 1" 
+      2111 
+      "Delta 1" 
+      "High" 
+      "Catkiller 1" 
+      5874 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 7" 
+      2570 
+      "Delta 2" 
+      "High" 
+      "Viper 2" 
+      5645 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 8" 
+      2560 
+   )
+)
++Name: M_Greywolf 6 to Greywolf 8
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 3" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 3" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Greywolf 6 to Greywolf 8" 
+      22 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 3:1" ) 
+      ( get-object-y "Waypoint Nav 3:1" ) 
+      ( get-object-z "Waypoint Nav 3:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 1 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      260 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      220 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 3" ) 
+   ( select-nav "Nav 3" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 3" ) 5000 ) 
+   ( ship-vanish 
+      "TCS Constantin" 
+      "Delta 1" 
+      "Delta 2" 
+   )
+)
++Name: Proceed to Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 3", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Yankee" 75 ) 
+   )
+)
++Name: AI Goals Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 3" 
+      3 
+   )
+   ( restrict-nav "Nav 3" ) 
+)
++Name: Restrict Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 3" 
+      0 
+   )
+   ( do-nothing ) 
+)
++Name: Yankee shows up
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Yankee destroyed" 
+      0 
+      ( true ) 
+   )
+   ( remove-goal 
+      "Alpha" 
+      ( ai-chase "Yankee" 75 ) 
+   )
+)
++Name: Destroy Yankee
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Destroy Kilrathi Fighters", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "Yankee" ) 
+   ( do-nothing ) 
+)
++Name: Yankee destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Destroy Yankee" 
+      5 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 9" 
+      0 
+      "#Sandman" 
+      "High" 
+      "Sandman 4" 
+      5084 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 10" 
+      1927 
+   )
+)
++Name: M_Greywolf 9 to Greywolf 10
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 4" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 4" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Greywolf 9 to Greywolf 10" 
+      14 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 4:1" ) 
+      ( get-object-y "Waypoint Nav 4:1" ) 
+      ( get-object-z "Waypoint Nav 4:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 4 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      160 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      100 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 4" ) 
+   ( select-nav "Nav 4" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 4
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 4" ) 5000 ) 
+   ( ship-vanish 
+      "Ghost 1" 
+      "Ghost 2" 
+      "Ghost 3" 
+      "Ghost 4" 
+      "Ghost 5" 
+      "Ghost 6" 
+   )
+)
++Name: Proceed to Nav 4
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 4", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: AI Goals Nav 4
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 4" 
+      3 
+   )
+   ( restrict-nav "Nav 4" ) 
+)
++Name: Restrict Nav 4
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 4" 
+      2 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 11" 
+      0 
+      "#Sandman" 
+      "High" 
+      "Sandman 5" 
+      2386 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 12" 
+      4268 
+   )
+)
++Name: M_Greywolf 11 to Greywolf 12
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Greywolf 11 to Greywolf 12" 
+      13 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "X-ray" 75 ) 
+   )
+)
++Name: Alpha engage
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "X-Ray destroyed" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Destroy X-Ray
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Destroy Kilrathi Fighters", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "X-ray" ) 
+   ( do-nothing ) 
+)
++Name: X-Ray destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Alpha engage" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "M_Greywolf 13 A" 
+            0 
+         )
+      )
+      ( or 
+         ( < 
+            ( distance 
+               "Alpha 2" 
+               "Light Carrier#1" 
+            )
+            5500 
+         )
+         ( < 
+            ( distance 
+               "Alpha 2" 
+               "Light Destroyer#1" 
+            )
+            5500 
+         )
+      )
+   )
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 14" 
+   )
+)
++Name: M_Greywolf 14 A
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Alpha engage" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "M_Greywolf 14 A" 
+            0 
+         )
+      )
+      ( is-event-true-delay 
+         "Destroy X-Ray" 
+         0 
+      )
+   )
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 13" 
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 5" 
+         50 
+      )
+   )
+)
++Name: M_Greywolf 13 A
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Activate Nav 5" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 5" 
+            0 
+         )
+      )
+      ( or 
+         ( < 
+            ( distance 
+               "Alpha 2" 
+               "Light Carrier#1" 
+            )
+            5500 
+         )
+         ( < 
+            ( distance 
+               "Alpha 2" 
+               "Light Destroyer#1" 
+            )
+            5500 
+         )
+      )
+   )
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 14" 
+   )
+)
++Name: M_Greywolf 14 B
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( or 
+         ( and 
+            ( is-event-true-delay 
+               "M_Greywolf 14 A" 
+               0 
+            )
+            ( not 
+               ( is-event-true-delay 
+                  "Player was warned during combat" 
+                  0 
+               )
+            )
+            ( and 
+               ( or 
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Carrier#1" 
+                     )
+                     5500 
+                  )
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Destroyer#1" 
+                     )
+                     5500 
+                  )
+               )
+               ( is-event-true-delay 
+                  "M_Greywolf 14 A" 
+                  15 
+               )
+            )
+         )
+         ( and 
+            ( is-event-true-delay 
+               "Player was warned during combat" 
+               0 
+            )
+            ( not 
+               ( is-event-true-delay 
+                  "Player was warned after combat" 
+                  0 
+               )
+            )
+            ( and 
+               ( or 
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Carrier#1" 
+                     )
+                     5500 
+                  )
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Destroyer#1" 
+                     )
+                     5500 
+                  )
+               )
+               ( is-event-true-delay 
+                  "Player was warned during combat" 
+                  15 
+               )
+            )
+         )
+         ( and 
+            ( is-event-true-delay 
+               "Player was warned after combat" 
+               0 
+            )
+            ( not 
+               ( is-event-true-delay 
+                  "Proceed to Nav 5" 
+                  0 
+               )
+            )
+            ( and 
+               ( or 
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Carrier#1" 
+                     )
+                     5500 
+                  )
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Destroyer#1" 
+                     )
+                     5500 
+                  )
+               )
+               ( is-event-true-delay 
+                  "Player was warned after combat" 
+                  15 
+               )
+            )
+         )
+         ( and 
+            ( is-event-true-delay 
+               "M_Greywolf 14 B" 
+               0 
+            )
+            ( not 
+               ( is-event-true-delay 
+                  "Player was warned after combat" 
+                  0 
+               )
+            )
+            ( and 
+               ( or 
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Carrier#1" 
+                     )
+                     5500 
+                  )
+                  ( < 
+                     ( distance 
+                        "Alpha 2" 
+                        "Light Destroyer#1" 
+                     )
+                     5500 
+                  )
+               )
+               ( is-event-true-delay 
+                  "M_Greywolf 14 B" 
+                  15 
+               )
+            )
+         )
+      )
+      ( not 
+         ( and 
+            ( is-event-true-delay 
+               "Activate Nav 5" 
+               0 
+            )
+            ( > @AutoNavPhase[0] 1 ) 
+         )
+      )
+   )
+   ( restrict-nav "Nav 5" ) 
+   ( modify-variable @AutoAllowed[0] 0 ) 
+   ( hud-set-frame "Autopilot" 0 ) 
+)
++Name: Whiskey wing is launched
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "M_Greywolf 14 A" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Whiskey wing is launched" 
+            0 
+         )
+      )
+      ( and 
+         ( > 
+            ( distance 
+               "Alpha 2" 
+               "Light Carrier#1" 
+            )
+            5500 
+         )
+         ( > 
+            ( distance 
+               "Alpha 2" 
+               "Light Destroyer#1" 
+            )
+            5500 
+         )
+         ( is-event-true-delay 
+            "M_Greywolf 14 A" 
+            15 
+         )
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Player was warned during combat
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( and 
+         ( is-event-true-delay 
+            "Player was warned during combat" 
+            0 
+         )
+         ( not 
+            ( is-event-true-delay 
+               "Whiskey wing is launched" 
+               0 
+            )
+         )
+         ( is-event-true-delay 
+            "Destroy X-Ray" 
+            0 
+         )
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Greywolf 14 B" 
+            0 
+         )
+         ( not 
+            ( is-event-true-delay 
+               "Whiskey wing is launched" 
+               0 
+            )
+         )
+         ( and 
+            ( > 
+               ( distance 
+                  "Alpha 2" 
+                  "Light Carrier#1" 
+               )
+               5500 
+            )
+            ( > 
+               ( distance 
+                  "Alpha 2" 
+                  "Light Destroyer#1" 
+               )
+               5500 
+            )
+            ( is-event-true-delay 
+               "M_Greywolf 14 B" 
+               15 
+            )
+         )
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Player was warned after combat
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Player was warned after combat" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "M_Greywolf 13 A" 
+            0 
+         )
+      )
+   )
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 13" 
+   )
+)
++Name: M_Greywolf 13 B
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Whiskey wing is launched" 
+      15 
+   )
+   ( clear-goals "Alpha 1" ) 
+   ( add-goal 
+      "Alpha 1" 
+      ( ai-chase "Whiskey" 75 ) 
+   )
+   ( clear-goals "X-ray" ) 
+   ( clear-goals "Whiskey" ) 
+   ( add-goal 
+      "X-ray" 
+      ( ai-chase "Alpha 1" 50 ) 
+   )
+   ( add-goal 
+      "Whiskey" 
+      ( ai-chase "Alpha 1" 50 ) 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 15" 
+      0 
+      "#Sandman" 
+      "High" 
+      "Sandman 6" 
+      2799 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 16" 
+      2973 
+   )
+)
++Name: M_Greywolf 15 to Greywolf 16
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( and 
+         ( is-event-true-delay 
+            "M_Greywolf 15 to Greywolf 16" 
+            25 
+         )
+         ( < 
+            ( distance "Alpha 1" "<any hostile>" ) 
+            1000 
+         )
+      )
+      ( is-event-true-delay 
+         "M_Greywolf 15 to Greywolf 16" 
+         60 
+      )
+   )
+   ( self-destruct "Alpha 1" ) 
+   ( clear-goals "X-ray" ) 
+   ( clear-goals "Whiskey" ) 
+   ( add-goal 
+      "X-ray" 
+      ( ai-guard "Light Carrier#1" 50 ) 
+   )
+   ( add-goal 
+      "Whiskey" 
+      ( ai-guard "Light Carrier#1" 50 ) 
+   )
+)
++Name: Greywolf dies
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Greywolf dies" 
+      7 
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 7" 
+      0 
+      "#TCS Hermes" 
+      "High" 
+      "Hermes 3" 
+      8123 
+      "#Sandman" 
+      "High" 
+      "Sandman 8" 
+      3579 
+      "#TCS Hermes" 
+      "High" 
+      "Hermes 4" 
+      2294 
+   )
+   ( clear-goals "X-ray" "Whiskey" ) 
+   ( add-goal 
+      "X-ray" 
+      ( ai-guard "Light Carrier#1" 50 ) 
+   )
+   ( add-goal 
+      "Whiskey" 
+      ( ai-guard "Light Destroyer#1" 50 ) 
+   )
+)
++Name: M_Sandman 7 to Hermes 4
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Greywolf 13 A" 
+         7 
+      )
+      ( is-event-true-delay 
+         "M_Greywolf 13 B" 
+         7 
+      )
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 5:1" ) 
+      ( get-object-y "Waypoint Nav 5:1" ) 
+      ( get-object-z "Waypoint Nav 5:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 5 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      75 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      50 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 5" ) 
+   ( select-nav "Nav 5" ) 
+   ( modify-variable @AutoAllowed[0] 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 5
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( < ( distance-to-nav "Nav 5" ) 5000 ) 
+      ( not 
+         ( has-arrived-delay 0 "Whiskey" ) 
+      )
+   )
+   ( ship-vanish 
+      "Light Carrier#1" 
+      "Light Destroyer#1" 
+      "Whiskey 1" 
+      "Whiskey 2" 
+      "Whiskey 3" 
+      "Whiskey 4" 
+      "Whiskey 5" 
+   )
+)
++Name: Proceed to Nav 5
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Retreat to Nav 5", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: AI Goals Nav 5
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 5" 
+      3 
+   )
+   ( restrict-nav "Nav 5" ) 
+)
++Name: Restrict Nav 5
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 5" 
+      2 
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 9" 
+      0 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 18" 
+      1606 
+   )
+)
++Name: M_Sandman 9 to Greywolf 18
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 6 S" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 6" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 5
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Sandman 7 to Hermes 4" 
+      20 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 6:1" ) 
+      ( get-object-y "Waypoint Nav 6:1" ) 
+      ( get-object-z "Waypoint Nav 6:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 6 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      75 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      100 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 6" ) 
+   ( select-nav "Nav 6" ) 
+   ( modify-variable @AutoAllowed[0] 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 6 F
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( < ( distance-to-nav "Nav 6" ) 5000 ) 
+      ( is-event-true-delay 
+         "Activate Nav 6 F" 
+         0 
+         ( true ) 
+      )
+   )
+   ( ship-vanish 
+      "Light Carrier#1" 
+      "Light Destroyer#1" 
+   )
+)
++Name: Proceed to Nav 6 F
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Retreat to Nav 6", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: AI Goals Nav 6 F
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 6 F" 
+      3 
+   )
+   ( restrict-nav "Nav 6" ) 
+)
++Name: Restrict Nav 6 F
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 6 F" 
+      2 
+   )
+   ( send-message 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 5" 
+   )
+)
++Name: M_Hermes 5
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Sandman 9 to Greywolf 18" 
+      6 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 6:1" ) 
+      ( get-object-y "Waypoint Nav 6:1" ) 
+      ( get-object-z "Waypoint Nav 6:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 7 ) 
+   ( modify-variable 
+      @PlanetSizeBefore[150] 
+      75 
+   )
+   ( modify-variable 
+      @PlanetSizeAfter[200] 
+      100 
+   )
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 6" ) 
+   ( select-nav "Nav 6" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 6 S
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( < ( distance-to-nav "Nav 6" ) 5000 ) 
+      ( is-event-true-delay 
+         "Activate Nav 6 S" 
+         0 
+         ( true ) 
+      )
+   )
+   ( ship-vanish 
+      "Light Carrier#1" 
+      "Light Destroyer#1" 
+   )
+)
++Name: Proceed to Nav 6 S
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 6", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha" "Alpha 1" ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: AI Goals Nav 6 S
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 6 S" 
+      3 
+   )
+   ( restrict-nav "Nav 6" ) 
+)
++Name: Restrict Nav 6 S
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Mission Complete" 
+      3 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 19" 
+      0 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 6" 
+      5278 
+      "Alpha 1" 
+      "High" 
+      "Greywolf 20" 
+      4956 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 7" 
+      3212 
+   )
+)
++Name: M_Greywolf 19 to Hermes 7
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 6 S" 
+      2 
+   )
+   ( training-msg 
+      "Mission complete message" 
+   )
+)
++Name: Mission Complete
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Sandman 7 to Hermes 4" 
+      25 
+   )
+   ( training-msg 
+      "Mission failed message" 
+   )
+   ( change-soundtrack "Mission Failed" ) 
+)
++Name: Mission Failed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay "M_Hermes 5" 3 ) 
+      ( is-event-true-delay 
+         "M_Greywolf 19 to Hermes 7" 
+         18 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Landing clearance
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < 
+      ( distance-ship-subsystem 
+         "Alpha 2" 
+         "TCS Hermes#1" 
+         "fighterbay02" 
+      )
+      50 
+   )
+   ( end-mission ) 
+)
++Name: End mission
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Land on the TCS Hermes", -1)
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( key-pressed "Alt-A" ) 
+      ( < 
+         ( distance "Alpha 2" "<any hostile>" ) 
+         5500 
+      )
+   )
+   ( key-reset "Alt-A" ) 
+   ( training-msg "Enemy near message" ) 
+)
++Name: Autopilot Reset
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoAllowed[0] 1 ) 
+      ( < 
+         ( distance "Alpha 2" "<any hostile>" ) 
+         5500 
+      )
+   )
+   ( hud-set-frame "Autopilot" 0 ) 
+)
++Name: Autopilot Gauge Off
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoAllowed[0] 1 ) 
+      ( > 
+         ( distance "Alpha 2" "<any hostile>" ) 
+         5500 
+      )
+   )
+   ( hud-set-frame "Autopilot" 1 ) 
+)
++Name: Autopilot Gauge On
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( key-pressed "Alt-A" ) 
+      ( = @AutoNavPhase[0] 1 ) 
+      ( not 
+         ( < 
+            ( distance "Alpha 2" "<any hostile>" ) 
+            5500 
+         )
+      )
+   )
+   ( modify-variable 
+      @AutoNavDirX[0] 
+      ( / 
+         ( * 
+            ( - 
+               ( get-object-x "NextNav:1" ) 
+               ( get-object-x "Alpha 2" ) 
+            )
+            1000 
+         )
+         ( distance "NextNav:1" "Alpha 2" ) 
+      )
+   )
+   ( modify-variable 
+      @AutoNavDirY[0] 
+      ( / 
+         ( * 
+            ( - 
+               ( get-object-y "NextNav:1" ) 
+               ( get-object-y "Alpha 2" ) 
+            )
+            1000 
+         )
+         ( distance "NextNav:1" "Alpha 2" ) 
+      )
+   )
+   ( modify-variable 
+      @AutoNavDirZ[1] 
+      ( / 
+         ( * 
+            ( - 
+               ( get-object-z "NextNav:1" ) 
+               ( get-object-z "Alpha 2" ) 
+            )
+            1000 
+         )
+         ( distance "NextNav:1" "Alpha 2" ) 
+      )
+   )
+   ( modify-variable 
+      @AutoNavPhase[0] 
+      ( + @AutoNavPhase[0] 1 ) 
+   )
+   ( modify-variable 
+      @AutoNavTime[0] 
+      ( mission-time ) 
+   )
+   ( set-cutscene-bars ) 
+   ( lock-primary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( lock-secondary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( lock-afterburner 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( remove-background-bitmap 
+      @PlanetVariable[0] 
+   )
+   ( add-background-bitmap 
+      "planet_brimstone_ii" 
+      0 
+      200 
+      338 
+      @PlanetSizeBefore[150] 
+      @PlanetSizeBefore[150] 
+      1 
+      1 
+      @PlanetVariable[0] 
+   )
+   ( hud-set-max-targeting-range 1 ) 
+   ( lock-controls ( true ) ) 
+   ( player-use-ai ) 
+)
++Name: AutoNav Initialize
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( = @AutoNavPhase[0] 2 ) 
+   ( set-object-position 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "Alpha 2" ) 
+         ( / 
+            ( * 
+               @AutoNavDirX[0] 
+               ( distance "Alpha 2" "NextNav:1" ) 
+            )
+            2000 
+         )
+      )
+      ( + 
+         ( get-object-y "Alpha 2" ) 
+         ( / 
+            ( * 
+               @AutoNavDirY[0] 
+               ( distance "Alpha 2" "NextNav:1" ) 
+            )
+            2000 
+         )
+      )
+      ( + 
+         ( get-object-z "Alpha 2" ) 
+         ( / 
+            ( * 
+               @AutoNavDirZ[1] 
+               ( distance "Alpha 2" "NextNav:1" ) 
+            )
+            2000 
+         )
+      )
+   )
+   ( set-object-facing-object 
+      "Alpha 2" 
+      "NextNav:1" 
+   )
+)
++Name: AutoNav Position Sandman
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of "Alpha 1" ) 
+   ( = @AutoNavPhase[0] 2 ) 
+   ( set-object-position 
+      "Alpha 1" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+   )
+   ( set-object-facing 
+      "<argument>" 
+      ( + 
+         ( get-object-x "<argument>" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "<argument>" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "<argument>" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+)
++Name: AutoNav Position Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 2 ) 
+      ( < @AutoNavCamera[0] 6 ) 
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 0 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -10 
+            5 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -10 
+            5 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -10 
+            5 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 1 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            10 
+            5 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            10 
+            5 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            10 
+            5 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 2 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -750 
+            250 
+            1000 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -750 
+            250 
+            1000 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -750 
+            250 
+            1000 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         15 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 3 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            750 
+            250 
+            1000 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            750 
+            250 
+            1000 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            750 
+            250 
+            1000 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         15 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 4 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -100 
+            150 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -100 
+            150 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -100 
+            150 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 5 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            100 
+            150 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            100 
+            150 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            100 
+            150 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( set-camera-target "Alpha 2" ) 
+   ( modify-variable 
+      @AutoNavPhase[0] 
+      ( + @AutoNavPhase[0] 1 ) 
+   )
+)
++Name: AutoNav Position Camera 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 2 ) 
+      ( > @AutoNavCamera[0] 5 ) 
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 6 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -25 
+            -10 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -25 
+            -10 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -25 
+            -10 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 7 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            25 
+            -10 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            25 
+            -10 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            25 
+            -10 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 8 ) 
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            50 
+            0 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            50 
+            0 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            50 
+            0 
+         )
+      )
+      ( set-object-facing-object 
+         "Cam Ghost" 
+         "Alpha 2" 
+      )
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            300 
+            750 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            300 
+            750 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            300 
+            750 
+         )
+      )
+      ( set-camera-position 
+         ( get-object-x "Cam Ghost" ) 
+         ( get-object-y "Cam Ghost" ) 
+         ( get-object-z "Cam Ghost" ) 
+      )
+      ( modify-variable @CamSpeed[0] -75 ) 
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         20 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 9 ) 
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            50 
+            0 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            50 
+            0 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            50 
+            0 
+         )
+      )
+      ( set-object-facing-object 
+         "Cam Ghost" 
+         "Alpha 2" 
+      )
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            300 
+            750 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            300 
+            750 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            300 
+            750 
+         )
+      )
+      ( set-camera-position 
+         ( get-object-x "Cam Ghost" ) 
+         ( get-object-y "Cam Ghost" ) 
+         ( get-object-z "Cam Ghost" ) 
+      )
+      ( modify-variable @CamSpeed[0] -75 ) 
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         20 
+      )
+   )
+   ( set-camera-target "Alpha 2" ) 
+   ( modify-variable 
+      @AutoNavPhase[0] 
+      ( + @AutoNavPhase[0] 1 ) 
+   )
+)
++Name: AutoNav Position Camera 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( = @AutoNavPhase[0] 3 ) 
+   ( set-object-facing 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "Alpha 2" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 2" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 2" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+   ( set-object-speed-x 
+      "Alpha 2" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "Alpha 2" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-z 
+      "Alpha 2" 
+      @AutoNavFighterSpeed[65] 
+      ( true ) 
+   )
+   ( reset-time-compression ) 
+   ( when 
+      ( not ( = @CamSpeed[0] 0 ) ) 
+      ( set-object-speed-z 
+         "Cam Ghost" 
+         @CamSpeed[0] 
+         ( true ) 
+      )
+      ( set-camera-position 
+         ( get-object-x "Cam Ghost" ) 
+         ( get-object-y "Cam Ghost" ) 
+         ( get-object-z "Cam Ghost" ) 
+      )
+   )
+)
++Name: AutoNav Update Sandman & Camera
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of "Alpha 1" ) 
+   ( = @AutoNavPhase[0] 3 ) 
+   ( set-object-facing 
+      "<argument>" 
+      ( + 
+         ( get-object-x "<argument>" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "<argument>" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "<argument>" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+   ( set-object-speed-x 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-z 
+      "<argument>" 
+      @AutoNavFighterSpeed[65] 
+      ( true ) 
+   )
+)
++Name: AutoNav Update Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + 
+            @AutoNavTime[0] 
+            @AutoNavCamTime[10] 
+         )
+      )
+   )
+   ( set-object-position 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "NextNav:1" ) 
+         ( / ( * @AutoNavDirX[0] -1000 ) 1000 ) 
+      )
+      ( + 
+         ( get-object-y "NextNav:1" ) 
+         ( / ( * @AutoNavDirY[0] -1000 ) 1000 ) 
+      )
+      ( + 
+         ( get-object-z "NextNav:1" ) 
+         ( / ( * @AutoNavDirZ[1] -1000 ) 1000 ) 
+      )
+   )
+   ( set-object-facing 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "Alpha 2" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 2" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 2" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+)
++Name: AutoNav Deactivate Sandman
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + 
+            @AutoNavTime[0] 
+            @AutoNavCamTime[10] 
+         )
+      )
+   )
+   ( set-object-position 
+      "Alpha 1" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+   )
+   ( set-object-facing 
+      "Alpha 1" 
+      ( + 
+         ( get-object-x "Alpha 1" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 1" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 1" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+)
++Name: AutoNav Deactivate Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + 
+            @AutoNavTime[0] 
+            @AutoNavCamTime[10] 
+         )
+      )
+   )
+   ( modify-variable @AutoNavPhase[0] 0 ) 
+   ( modify-variable @CamSpeed[0] 0 ) 
+   ( key-reset "Alt-A" ) 
+   ( remove-background-bitmap 
+      @PlanetVariable[0] 
+   )
+   ( add-background-bitmap 
+      "planet_brimstone_ii" 
+      0 
+      200 
+      338 
+      @PlanetSizeAfter[200] 
+      @PlanetSizeAfter[200] 
+      1 
+      1 
+      @PlanetVariable[0] 
+   )
+   ( unset-cutscene-bars ) 
+   ( reset-camera ) 
+   ( unlock-primary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( unlock-secondary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( unlock-afterburner 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( hud-set-frame "Autopilot" 0 ) 
+   ( modify-variable @AutoAllowed[0] 0 ) 
+   ( hud-set-max-targeting-range 30000 ) 
+   ( lock-controls ( false ) ) 
+   ( player-not-use-ai ) 
+)
++Name: AutoNav Reset
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( true ) 
+   ( reset-time-compression ) 
+)
++Name: Reset time compression
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of "Alpha 1" ) 
+   ( and 
+      ( > 
+         ( distance 
+            "<argument>" 
+            "Waypoint Alpha 1:1" 
+         )
+         250 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+      ( = @AutoNavPhase[0] 0 ) 
+      ( not 
+         ( is-event-true-delay 
+            "Orders Alpha" 
+            0 
+         )
+      )
+   )
+   ( set-object-facing-object 
+      "<argument>" 
+      "Waypoint Alpha 1:1" 
+   )
+   ( set-object-speed-x 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+)
++Name: Launch Helper Alp 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( random-multiple-of 
+      "Zulu 1" 
+      "Zulu 2" 
+      "Zulu 3" 
+      "Yankee 1" 
+      "Yankee 2" 
+      "X-ray 1" 
+      "X-ray 2" 
+      "X-ray 3" 
+      "X-ray 4" 
+      "X-ray 5" 
+      "Whiskey 1" 
+      "Whiskey 2" 
+      "Whiskey 3" 
+      "Whiskey 4" 
+      "Whiskey 5" 
+   )
+   ( and 
+      ( has-arrived-delay 3 "<argument>" ) 
+      ( not 
+         ( is-destroyed-delay 0 "<argument>" ) 
+      )
+      ( > 
+         ( mission-time ) 
+         ( + @TauntTimer[0] 23 ) 
+      )
+      ( or 
+         ( not 
+            ( is-event-true-delay 
+               "Proceed to Nav 4" 
+               0 
+            )
+         )
+         ( is-event-true-delay 
+            "Alpha engage" 
+            3 
+         )
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Greywolf dies" 
+            0 
+         )
+      )
+   )
+   ( modify-variable 
+      @TauntTimer[0] 
+      ( mission-time ) 
+   )
+   ( send-random-message 
+      "<argument>" 
+      "Low" 
+      "KTaunt 01" 
+      "KTaunt 02" 
+      "KTaunt 03" 
+      "KTaunt 04" 
+      "KTaunt 05" 
+      "KTaunt 06" 
+      "KTaunt 07" 
+      "KTaunt 08" 
+      "KTaunt 09" 
+      "KTaunt 10" 
+      "KTaunt 11" 
+      "KTaunt 12" 
+   )
+)
++Name: Taunt
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-iff "Traitor" "Alpha 2" ) 
+   ( end-mission ) 
+)
++Name: Player turned traitor
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+#Goals		;! 1 total
+
+$Type: Primary
++Name: Patrol Area
+$MessageNew:  XSTR("Sweep three nav points in a standard diamond patrol. If you encounter any capital ships, report back with the information.", -1)
+$end_multi_text
+$Formula: ( and 
+   ( is-event-true-delay 
+      "Proceed to Nav 6 S" 
+      0 
+      ( true ) 
+   )
+   ( not 
+      ( is-event-true-delay 
+         "Proceed to Nav 6 F" 
+         0 
+         ( true ) 
+      )
+   )
+)
+
+#Waypoints		;! 18 lists total
+
+$Name: NextNav
+$List: (		;! 1 points in list
+	( 50552.000000, 0.000000, 51995.000000 )
+)
+
+$Name: Cap-way
+$List: (		;! 20 points in list
+	( 1854.102051, 0.000000, 5706.338867 )
+	( 0.000000, 0.000000, 6000.000000 )
+	( -1854.102051, 0.000000, 5706.338867 )
+	( -3526.710938, 0.000000, 4854.102051 )
+	( -4854.102051, 0.000000, 3526.710938 )
+	( -5706.338867, 0.000000, 1854.102051 )
+	( -6000.000000, 0.000000, 0.000000 )
+	( -5706.338867, 0.000000, -1854.102051 )
+	( -4854.102051, 0.000000, -3526.710938 )
+	( -3526.710938, 0.000000, -4854.102051 )
+	( -1854.102051, 0.000000, -5706.338867 )
+	( 0.000000, 0.000000, -6000.000000 )
+	( 1854.102051, 0.000000, -5706.338867 )
+	( 3526.710938, 0.000000, -4854.102051 )
+	( 4854.102051, 0.000000, -3526.710938 )
+	( 5706.338867, 0.000000, -1854.102051 )
+	( 6000.000000, 0.000000, 0.000000 )
+	( 5706.338867, 0.000000, 1854.102051 )
+	( 4854.102051, 0.000000, 3526.710938 )
+	( 3526.710938, 0.000000, 4854.102051 )
+)
+
+$Name: Waypoint Nav 1
+$List: (		;! 1 points in list
+	( 20552.000000, 0.000000, 49995.000000 )
+)
+
+$Name: Waypoint Nav 2
+$List: (		;! 1 points in list
+	( 52552.000000, 0.000000, 99995.000000 )
+)
+
+$Name: Waypoint Nav 3
+$List: (		;! 1 points in list
+	( 110552.000000, 0.000000, 68995.000000 )
+)
+
+$Name: Waypoint Nav 4
+$List: (		;! 1 points in list
+	( 150552.000000, 0.000000, -5.000000 )
+)
+
+$Name: Waypoint Nav 5
+$List: (		;! 1 points in list
+	( 50552.000000, 0.000000, -50005.000000 )
+)
+
+$Name: Waypoint Nav 6
+$List: (		;! 1 points in list
+	( 1066.399902, 0.000000, -1054.900024 )
+)
+
+$Name: Waypoint Alpha 1
+$List: (		;! 1 points in list
+	( -18.000000, 150.000000, 20000.000000 )
+)
+
+$Name: Waypoint Alpha 2
+$List: (		;! 1 points in list
+	( 12.000000, 150.000000, 20000.000000 )
+)
+
+$Name: Constantin Way
+$List: (		;! 1 points in list
+	( -34.699219, 0.000000, 129169.601563 )
+)
+
+$Name: Zulu-Way
+$List: (		;! 1 points in list
+	( 155939.468750, 0.005457, -7014.773438 )
+)
+
+$Name: Yankee-Way
+$List: (		;! 1 points in list
+	( 157352.906250, 0.005390, -7724.410156 )
+)
+
+$Name: Victor-Way
+$List: (		;! 1 points in list
+	( 156744.781250, 499.999054, -7229.226563 )
+)
+
+$Name: Delta1 way
+$List: (		;! 1 points in list
+	( 84.200012, 100.000000, 129199.796875 )
+)
+
+$Name: Delta2 way
+$List: (		;! 1 points in list
+	( 158.800003, 100.000000, 129095.000000 )
+)
+
+$Name: Shuttle Path
+$List: (		;! 1 points in list
+	( 0.000000, 0.000000, 4000.000000 )
+)
+
+$Name: Shuttle Departure
+$List: (		;! 1 points in list
+	( -100000.000000, 50000.000000, -10000.000000 )
+)
+
+#Messages		;! 64 total
+
+
+$Name: ========== Nav 0 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
++AVI Name: Head-HERMES
+
+$Name: Hermes 1
+$Team: -1
+$MessageNew:  XSTR("Greetings Lieutenant. Lieutenant Commander Kate Sweeney here, I run the switchboard. Listen to what I say, don't give me attitude, and we'll get along just fine. Alpha Wing, you have clearance for launch.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 01_hermes_control_01.wav
+
+$Name: Hermes 2
+$Team: -1
+$MessageNew:  XSTR("Be wary of nearby traffic, four Arrows on CAP and one shuttle outbound.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 01_hermes_control_02.wav
+
+$Name: Greywolf 1
+$Team: -1
+$MessageNew:  XSTR("Confirming, establishing flight coordinates now.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_01.wav
+
+$Name: Sandman 1
+$Team: -1
+$MessageNew:  XSTR("Routine patrol, ready to go.", -1)
+$end_multi_text
++Wave Name: 01_sandman_01.wav
+
+$Name: Greywolf 2
+$Team: -1
+$MessageNew:  XSTR("No patrol is routine, Dorothy.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_02.wav
+
+$Name: Sandman 2
+$Team: -1
+$MessageNew:  XSTR("I would prefer if you didn't call me that.", -1)
+$end_multi_text
++Wave Name: 01_sandman_02.wav
+
+$Name: Greywolf 3
+$Team: -1
+$MessageNew:  XSTR("Suit yourself, Toto.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_03.wav
+
+$Name: Sandman 3
+$Team: -1
+$MessageNew:  XSTR("... I think I'd prefer Dorothy after all.", -1)
+$end_multi_text
++Wave Name: 01_sandman_03.wav
+
+$Name: Greywolf 4
+$Team: -1
+$MessageNew:  XSTR("That a boy. Now, set a course for the next waypoint.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_04.wav
+
+$Name: ========== Nav 1 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Greywolf 5
+$Team: -1
+$MessageNew:  XSTR("Alright, let's move!", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_05.wav
+
+$Name: ========== Nav 2 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Greywolf 6
+$Team: -1
+$MessageNew:  XSTR("Hey Viper, what's going on?", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_06.wav
+
+$Name: Viper 1
+$Team: -1
+$MessageNew:  XSTR("Same old, same old. Making sure this flying bullseye gets out of the system okay.", -1)
+$end_multi_text
++AVI Name: Head-VIPER
++Wave Name: 01_viper_01.wav
+
+$Name: Catkiller 1
+$Team: -1
+$MessageNew:  XSTR("Like playing guard dog in a gated community.", -1)
+$end_multi_text
++AVI Name: Head-CATKILLER
++Wave Name: 01_catkiller_01.wav
+
+$Name: Greywolf 7
+$Team: -1
+$MessageNew:  XSTR("Well apparently this suburb is going downhill. We ran into some Cats at our last nav point.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_07.wav
+
+$Name: Viper 2
+$Team: -1
+$MessageNew:  XSTR("Thanks for the heads up.", -1)
+$end_multi_text
++AVI Name: Head-VIPER
++Wave Name: 01_viper_02.wav
+
+$Name: Greywolf 8
+$Team: -1
+$MessageNew:  XSTR("Dorothy, set course for Nav 3.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_08.wav
+
+$Name: ========== Nav 3 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Greywolf 9
+$Team: -1
+$MessageNew:  XSTR("Picking up some funky signals on the edge of my scope. You detecting that?", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_09.wav
+
+$Name: Sandman 4
+$Team: -1
+$MessageNew:  XSTR("Yes sir, I am.", -1)
+$end_multi_text
++Wave Name: 01_sandman_04.wav
+
+$Name: Greywolf 10
+$Team: -1
+$MessageNew:  XSTR("Very well, better check it out. I'm updating your nav computer with a new location for Nav 4.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_10.wav
+
+$Name: ========== Nav 4 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Greywolf 11
+$Team: -1
+$MessageNew:  XSTR("Well, looky what we got here.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_11.wav
+
+$Name: Sandman 5
+$Team: -1
+$MessageNew:  XSTR("Sensors say one light carrier and one destroyer.", -1)
+$end_multi_text
++Wave Name: 01_sandman_05.wav
+
+$Name: Greywolf 12
+$Team: -1
+$MessageNew:  XSTR("Dorothy, do not attack those capships! Fighters are fair game!", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_12.wav
+
+$Name: Greywolf 13
+$Team: -1
+$MessageNew:  XSTR("Dorothy, time to get the hell out of here. We're extracting to Nav 5, so the Cats won't find the Hermes' position.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_13.wav
+
+$Name: Greywolf 14
+$Team: -1
+$MessageNew:  XSTR("Sandman, what the hell are you doing? You trying to kill us?", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_14.wav
+
+$Name: Greywolf 15
+$Team: -1
+$MessageNew:  XSTR("Damn it, they're swarming us! We've gotta get the hell out of 
+here!", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_15.wav
+
+$Name: Sandman 6
+$Team: -1
+$MessageNew:  XSTR("I can't! They're all over me!", -1)
+$end_multi_text
++Wave Name: 01_sandman_06.wav
+
+$Name: Greywolf 16
+$Team: -1
+$MessageNew:  XSTR("To hell with it. I'm coming in!", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_16.wav
+
+$Name: Sandman 7
+$Team: -1
+$MessageNew:  XSTR("Hermes Control, I've run into a light carrier and escort! Greywolf is down! I repeat, my flight leader is down! Please advise!", -1)
+$end_multi_text
++Wave Name: 01_sandman_07.wav
+
+$Name: Hermes 3
+$Team: -1
+$MessageNew:  XSTR("Sandman, just punch the burners and get the hell home!", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 01_hermes_control_03.wav
+
+$Name: Sandman 8
+$Team: -1
+$MessageNew:  XSTR("They'll figure out where the Hermes is!", -1)
+$end_multi_text
++Wave Name: 01_sandman_08.wav
+
+$Name: Hermes 4
+$Team: -1
+$MessageNew:  XSTR("Your transmissions have already done an admirable job with that, Lieutenant. Just get back here.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 01_hermes_control_04.wav
+
+$Name: ========== Nav 5 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Sandman 9
+$Team: -1
+$MessageNew:  XSTR("Are they still on our tail?", -1)
+$end_multi_text
++Wave Name: 01_sandman_09.wav
+
+$Name: Greywolf 18
+$Team: -1
+$MessageNew:  XSTR("I doubt it. Anyways, set course back for the Hermes.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_18.wav
+
+$Name: ========= Nav 6 F =========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Hermes 5
+$Team: -1
+$MessageNew:  XSTR("You are cleared to land, Lieutenant. ", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 01_hermes_control_05.wav
+
+$Name: ========= Nav 6 S =========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Greywolf 19
+$Team: -1
+$MessageNew:  XSTR("Hermes Control, this is Alpha Flight. We've come across a light carrier and her destroyer escort.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_19.wav
+
+$Name: Hermes 6
+$Team: -1
+$MessageNew:  XSTR("Roger that, Lieutenant, I'm relaying your report to the Colonel. How did the new pilot do?", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 01_hermes_control_06.wav
+
+$Name: Greywolf 20
+$Team: -1
+$MessageNew:  XSTR("Well, he came back alive. 'Nuff said.", -1)
+$end_multi_text
++AVI Name: Head-GREYWOLF
++Wave Name: 01_greywolf_20.wav
+
+$Name: Hermes 7
+$Team: -1
+$MessageNew:  XSTR("Very well. Alpha Wing, you have clearance to land.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 01_hermes_control_07.wav
+
+$Name: ========= Computer ========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Mission complete message
+$Team: -1
+$MessageNew:  XSTR("Mission complete", -1)
+$end_multi_text
++Wave Name: ge_computer_01.wav
+
+$Name: Mission failed message
+$Team: -1
+$MessageNew:  XSTR("Unable to complete mission", -1)
+$end_multi_text
++Wave Name: ge_computer_02.wav
+
+$Name: Enemy near message
+$Team: -1
+$MessageNew:  XSTR("Enemy near - autopilot not allowed", -1)
+$end_multi_text
++Wave Name: ge_computer_03.wav
+
+$Name: Proceed to waypoint message
+$Team: -1
+$MessageNew:  XSTR("Proceed to next waypoint", -1)
+$end_multi_text
++Wave Name: ge_computer_11.wav
+
+$Name: ========== Taunts =========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: KTaunt 01
+$Team: -1
+$MessageNew:  XSTR("You fly like the ape that you are.", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_01.wav
+
+$Name: KTaunt 02
+$Team: -1
+$MessageNew:  XSTR("You pathetic descendant of monkeys.", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_02.wav
+
+$Name: KTaunt 03
+$Team: -1
+$MessageNew:  XSTR("You will not survive this battle, ape scum!", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_03.wav
+
+$Name: KTaunt 04
+$Team: -1
+$MessageNew:  XSTR("I shall eat your heart and spit it out, terran.", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_04.wav
+
+$Name: KTaunt 05
+$Team: -1
+$MessageNew:  XSTR("Die, you furless freak!", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_05.wav
+
+$Name: KTaunt 06
+$Team: -1
+$MessageNew:  XSTR("The confed ape dares to attack?!", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_06.wav
+
+$Name: KTaunt 07
+$Team: -1
+$MessageNew:  XSTR("(laughter)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_07.wav
+
+$Name: KTaunt 08
+$Team: -1
+$MessageNew:  XSTR("(snarling)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_08.wav
+
+$Name: KTaunt 09
+$Team: -1
+$MessageNew:  XSTR("(laughter)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_09.wav
+
+$Name: KTaunt 10
+$Team: -1
+$MessageNew:  XSTR("(laughter)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_10.wav
+
+$Name: KTaunt 11
+$Team: -1
+$MessageNew:  XSTR("(snarling)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_11.wav
+
+$Name: KTaunt 12
+$Team: -1
+$MessageNew:  XSTR("(snarling)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_12.wav
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps		;! 1 total
+
+$Num stars: 0
+$Ambient light level: 7895139
+
+$Bitmap List:
+$Sun: SunG5
++Angles: 0.122173 0.034907 0.541052
++Scale: 0.915000
+$Starbitmap: planet_brimstone_ii
++Angles: 0.000000 3.490656 5.899208
++ScaleX: 1.000000
++ScaleY: 1.000000
++DivX: 1
++DivY: 1
+
+#Asteroid Fields
+
+#Music
+
+$Event Music: Brimstone
+$Briefing Music: Brief2
+
+#End
+

@@ -1,0 +1,7245 @@
+#Mission Info
+
+$Version: 0.10
+$Name:  XSTR("Loki 1", -1)
+$Author: Budd, Romanyuk, Schmitt
+$Created: 03/26/06 at 10:42:26
+$Modified: 01/28/12 at 23:09:05
+$Notes:
+Mission Designer Christian <Mustanger> Budd, tweaked by Tolwyn and Vidmaster, Original Story by Nick Huynh and Brian Swift$End Notes:
+
+$Mission Desc:
+ XSTR("Wing Commander Saga , Hermes Campaign, Mission 14
+", -1)
+$end_multi_text
+
++Game Type Flags: 1
+
++Flags: 4587520
+
++Disallow Support: 1
+
++Hull Repair Ceiling: 0.000000
+
++Subsystem Repair Ceiling: 100.000000
+
++Viewer pos: 769.349121, 443.100372, -1175.850830
++Viewer orient:
+	0.836799, -0.000000, 0.547511,
+	-0.164656, 0.953708, 0.251656,
+	-0.522165, -0.300736, 0.798061
+
+$Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
+$Squadron wing names: ( "Alpha" "Bravo" "CharlieX" "Foxtrot" "Golf" )
+$Team-versus-team wing names: ( "Alpha" "Zulu" )
+
+$Skybox Model: sky_default.pof
++Skybox Flags: 672923904
+
+$AI Profile: SAGA RETAIL
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"AsteroidsNav3"		"0"		"number"
+		1		"AutoNavCamera"		"0"		"number"
+		2		"AutoNavCamTime"		"10"		"number"
+		3		"AutoNavCapshipSpeed"		"40"		"number"
+		4		"AutoNavDirX"		"0"		"number"
+		5		"AutoNavDirY"		"0"		"number"
+		6		"AutoNavDirZ"		"1"		"number"
+		7		"AutoNavFighterSpeed"		"65"		"number"
+		8		"AutoNavPhase"		"0"		"number"
+		9		"AutoNavTime"		"0"		"number"
+		10		"BitmapVar"		"0"		"number"
+		11		"CamSpeed"		"0"		"number"
+		12		"EscortBravo"		"0"		"number"
+		13		"EscortCap1"		"0"		"number"
+		14		"EscortCap2"		"0"		"number"
+		15		"FightersNav1"		"0"		"number"
+		16		"FightersNav2"		"0"		"number"
+		17		"FightersNav3"		"0"		"number"
+		18		"GoalNav0"		"0"		"number"
+		19		"HermesHP"		"100"		"number"
+		20		"JpjHP"		"100"		"number"
+		21		"JumpCamTime"		"0"		"number"
+		22		"JumpPhase"		"0"		"number"
+		23		"JumpSubtitle"		"Jumping into..."		"string"
+		24		"JumpTimer"		"0"		"number"
+		25		"LokiScore"		"0"		"number"		"campaign-persistent"
+		26		"TauntTimer"		"0"		"number"
+)
+
+#Cutscenes
+$Briefing Cutscene: episode_02_briefing_05.ogg
++formula: ( true ) 
+#end
+
+#Command Briefing
+
+$Stage Text:
+ XSTR("$BWhy $Bwe $Bfight
+
+
+It appears that the rumor mill has been producing a rather bleak view of our current situation as of late. Especially after the latest news on the Kilrathi blitzkrieg attack against Bistango X.
+
+You all know what I think of rumors and those who spread them. However, I do think it is my responsibility to help set the record straight on issues that may affect your morale.
+
+I want you to keep something in mind: none of you know exactly how the war is going. In truth, things may be worse than you imagine, or they may be better. The only thing you have any certain knowledge of, and any control over, is the part of the war that is in front of you now, and the missions and objectives that are given to you.
+
+If you cave to the rumors and approach the war as if it was already lost, then rest assured, you will lose and let down not only your fellow comrades here but also many good people back home who need us to turn things around.", -1)
+$end_multi_text
+$Ani Filename: h_14_command_ani_01.eff
++Wave Filename: 14_captain_moran_01.ogg
+
+$Stage Text:
+ XSTR("$BOperation $BProwl $BGrowl
+
+
+As some of you might already know, we had a visit from a courier ship from Sector HQ today. Onboard was a special envoy carrying new orders. The Kilrathi's escalation to the use of bioweapons has been a wake-up call to all of us, and Confed is not turning a deaf ear to that call. Rest assured, we shall retaliate.
+
+The specifics of our counterstrike are still classified. What I can tell you is that our orders are to survey the sector for a suitable target planet. This means extensive recon work, checking defenses, and surveying planets. This must all be done discretely, in order not to tip our hand to the Cats. Therefore, rather than utilizing a large strike force, five individual carriers will be sent to recon the prospective systems.
+
+Our friends from the Bradshaw will go to the Hawkins system while the Kinney will deploy to Nifelheim. The Victory and Ticonderoga will do reconnaissance in Ariel and T'Rel Meh using the Caliban and Silenos nebulas for a covert approach, which the light carriers are well suited to carry out. The Hermes has been assigned to the Loki system. We are already under way.
+
+Stay sharp, people, and keep your eyes open. We are operating behind enemy lines with minimal support on this one and every bit of intel we bring back has the potential to help us finally end this war.", -1)
+$end_multi_text
+$Ani Filename: h_14_command_ani_02.eff
++Wave Filename: 14_captain_moran_02.ogg
+
+$Stage Text:
+ XSTR("$BJim $BBowie
+
+
+One more thing. The scout ship Jim Bowie is joining us for this operation on loan from Fleet Intel. She has a Special Operations team onboard should the situation call for their assets. They have the highest security clearance and even I do not know their true names and military background. If they ask for your assistance, you need to drop whatever you're doing and comply.
+
+Moran out.", -1)
+$end_multi_text
+$Ani Filename: h_14_command_ani_03.eff
++Wave Filename: 14_captain_moran_03.ogg
+
+#Briefing
+$start_briefing
+$num_stages: 0
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 3
+
+$Formula: ( true ) 
+$Multi text
+    XSTR("Excellent work, Alpha flight. Recon missions are right in the Arrow's sweet spot, aren't they? Their low RCS is better than all the armor in the world on these clandestine operations.", -1)
+$end_multi_text
+$Voice: 14_db_little_john_01.ogg
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( true ) 
+$Multi text
+    XSTR("We just received word that our forces slipped in behind the distracted Cats and decimated the enemy force, taking out three corvettes and a destroyer. Our escorts are en-route to rendezvous with the Hermes now.", -1)
+$end_multi_text
+$Voice: none.wav
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+$Formula: ( true ) 
+$Multi text
+    XSTR("We don't want to stay in Loki any longer than we need to so expect a lot of sorties in a very short amount of time. Being one of the Arrow squads onboard, we're going to get most of the work. Dismissed.", -1)
+$end_multi_text
+$Voice: none.wav
+$Recommendation text:
+    XSTR("", -1)
+$end_multi_text
+
+#Callsigns:
+$Callsign: Ninja
+$Callsign: Phalanx
+$Callsign: Greywolf
+$Callsign: Assassin
+$Callsign: Stingray
+$Callsign: Sandman
+$Callsign: Isis
+$Callsign: Joker
+$Callsign: Shy Foal
+$Callsign: Suly
+$Callsign: Bobbler
+$Callsign: Elvis
+$Callsign: Vigilante
+$Callsign: Cutie Pie
+$Callsign: Razor Wire
+$Callsign: Crusher
+$Callsign: Nighteyes
+$Callsign: Mindcrusher
+
+#end
+
+
+#Players		;! 1 total
+
+$Starting Shipname: Alpha 2
+$Ship Choices: (
+)
+
++Weaponry Pool: (
+	"Ion"	4
+	"Laser"	4
+	"Javelin HS"	16
+	"Spiculum IR"	16
+)
+
+#Objects		;! 97 total
+
+$Name: Alpha 2		;! Object #0
+$Class: F-27B Arrow
+$Callsign: Sandman
+
+$Team: Friendly
+$Location: 12.000000, 3.500000, 100.000000
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	-0.000000, 0.999973, -0.007362,
+	0.000000, 0.007362, 0.999973
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" "no-arrival-warp" "no-departure-warp" "locked" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 15
++Persona Index: 0
+
+$Name: Alpha 1		;! Object #1
+$Class: F-27B Arrow
+$Callsign: Stingray
+
+$Team: Friendly
+$Location: -18.000000, 3.500000, 200.000000
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	-0.000000, 0.999973, -0.007399,
+	0.000000, 0.007399, 0.999973
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "locked" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Special Hitpoints: 1306
++Special Shield Points: 1600
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 12
++Persona Index: 101
+
+$Name: Alpha 3		;! Object #2
+$Class: F-27B Arrow
+$Callsign: Ninja
+
+$Team: Friendly
+$Location: -18.000000, 3.500000, 0.000000
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	-0.000000, 0.999973, -0.007325,
+	0.000000, 0.007325, 0.999973
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "locked" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Special Hitpoints: 1306
++Special Shield Points: 1800
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 12
++Persona Index: 76
+
+$Name: Alpha 4		;! Object #3
+$Class: F-27B Arrow
+$Callsign: Assassin
+
+$Team: Friendly
+$Location: 12.000000, 3.500000, -100.000000
+$Orientation:
+	1.000000, 0.000000, -0.000000,
+	-0.000000, 0.999973, -0.007288,
+	0.000000, 0.007288, 0.999973
+$AI Behavior: None
+$AI Goals: ( goals ( ai-play-dead 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-warp" "no-departure-warp" "locked" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Special Hitpoints: 800
++Special Shield Points: 800
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 12
++Persona Index: 24
+
+$Name: Bravo 1		;! Object #4
+$Class: F-27B Arrow
+$Callsign: Razor Wire
+
+$Team: Friendly
+$Location: 49787.488281, -0.001179, 699.966309
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 82
+
+$Name: Bravo 2		;! Object #5
+$Class: F-27B Arrow
+$Callsign: Nighteyes
+
+$Team: Friendly
+$Location: 49782.050781, -0.001190, 662.172729
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 33
+
+$Name: Bravo 3		;! Object #6
+$Class: F-27B Arrow
+$Callsign: Crusher
+
+$Team: Friendly
+$Location: 49816.894531, -0.001180, 669.385925
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 115
+
+$Name: Bravo 4		;! Object #7
+$Class: F-27B Arrow
+$Callsign: Mindcrusher
+
+$Team: Friendly
+$Location: 49773.253906, -0.001199, 618.304688
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
++Persona Index: 68
+
+$Name: Foxtrot 1		;! Object #8
+$Class: F-86C Hellcat V
+$Callsign: Joker
+
+$Team: Friendly
+$Location: 1200.000000, 0.000000, -650.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 12
++Persona Index: 59
+
+$Name: Foxtrot 2		;! Object #9
+$Class: F-86C Hellcat V
+$Callsign: Shy Foal
+
+$Team: Friendly
+$Location: 1166.000000, 25.000000, -700.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 12
++Persona Index: 46
+
+$Name: Foxtrot 3		;! Object #10
+$Class: F-86C Hellcat V
+$Callsign: Suly
+
+$Team: Friendly
+$Location: 1233.000000, 25.000000, -700.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
++Persona Index: 93
+
+$Name: Foxtrot 4		;! Object #11
+$Class: F-86C Hellcat V
+$Callsign: Bobbler
+
+$Team: Friendly
+$Location: 1133.000000, 50.000000, -750.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Wingman
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
++Persona Index: 37
+
+$Name: Golf 1		;! Object #12
+$Class: F/A-76A Longbow
+$Callsign: Isis
+
+$Team: Friendly
+$Location: 1400.000000, 0.000000, -650.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Bomber
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 10
++Persona Index: 56
+
+$Name: Golf 2		;! Object #13
+$Class: F/A-76A Longbow
+$Callsign: Elvis
+
+$Team: Friendly
+$Location: 1366.000000, 25.000002, -700.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Bomber
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 10
++Persona Index: 45
+
+$Name: Golf 3		;! Object #14
+$Class: F/A-76A Longbow
+$Callsign: Vigilante
+
+$Team: Friendly
+$Location: 1433.000000, 25.000002, -700.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Bomber
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 10
++Persona Index: 52
+
+$Name: Golf 4		;! Object #15
+$Class: F/A-76A Longbow
+$Callsign: Cutie Pie
+
+$Team: Friendly
+$Location: 1333.000000, 50.000008, -750.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Bomber
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-warp" "no-departure-warp" "locked" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 10
++Persona Index: 107
+
+$Name: TCS Hermes		;! Object #16
+$Class: Jutland-class
+$Team: Friendly
+$Location: 0.000000, 0.000000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++AI Class: Lieutenant
++Subsystem: turret02
++AI Class: Lieutenant
++Subsystem: turret03
++Sbank Ammo: ( 0 )
++Subsystem: turret04
++Sbank Ammo: ( 0 )
++Subsystem: turret16
+$Damage: 100
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 100
++Special Hitpoints: 127500
++Special Shield Points: 60000
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 700
+
+$Name: TCS John Paul Jones		;! Object #17
+$Class: Southampton-class
+$Team: Friendly
+$Location: 250.000000, 250.000000, 750.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 90
++Special Hitpoints: 37500
++Special Shield Points: 30000
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Jim Bowie		;! Object #18
+$Class: Prowler-class
+$Team: Friendly
+$Location: -500.000000, 50.000000, -25.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 80
++Special Hitpoints: 8000
++Special Shield Points: 6000
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: TCS Hermes#1		;! Object #19
+$Class: Jutland-class
+$Team: Friendly
+$Location: 45142.898438, 0.000000, 8174.200195
+$Orientation:
+	-0.563389, 0.751281, -0.343761,
+	0.641324, 0.659984, 0.391314,
+	0.520862, 0.000000, -0.853641
+$AI Behavior: None
+$AI Goals: ( goals ( ai-waypoints-once "Asteroid Path Hermes" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret16
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 2
++Special Hitpoints: 170000
++Special Shield Points: 80000
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 1000
+
+$Name: TCS John Paul Jones#1		;! Object #20
+$Class: Southampton-class
+$Team: Friendly
+$Location: 45116.898438, 700.000000, 8941.200195
+$Orientation:
+	-0.558544, 0.751281, -0.351579,
+	0.635808, 0.659983, 0.400213,
+	0.532708, 0.000000, -0.846299
+$AI Behavior: None
+$AI Goals: ( goals ( ai-waypoints-once "Asteroid Path JPJ" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 3" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 2
++Special Hitpoints: 50000
++Special Shield Points: 40000
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Hermes#JP		;! Object #21
+$Class: Jutland-class
+$Team: Friendly
+$Location: 0.000000, 0.000000, -300000.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Sbank Ammo: ( 0 )
++Subsystem: turret16
+$Damage: 100
++Secondary Banks: ( "" )
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 700
+
+$Name: TCS John Paul Jones#JP		;! Object #22
+$Class: Southampton-class
+$Team: Friendly
+$Location: 250.000000, 250.000000, -299250.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret01
++Subsystem: turret02
++Secondary Banks: ( "" )
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 300
+
+$Name: TCS Jim Bowie#JP		;! Object #23
+$Class: Prowler-class
+$Team: Friendly
+$Location: -500.000000, 50.000000, -300025.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Sbank Ammo: ( 0 )
++Subsystem: turret05
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 150
+
+$Name: Zulu 1		;! Object #24
+$Class: Darket
+$Team: Hostile
+$Location: -1329.570190, -90.676109, 2925.155518
+$Orientation:
+	0.779682, 0.603918, 0.165467,
+	0.590761, -0.797047, 0.125373,
+	0.207600, 0.000000, -0.978214
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase-any 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Zulu 2		;! Object #25
+$Class: Darket
+$Team: Hostile
+$Location: 173.614014, -90.675980, 3586.811768
+$Orientation:
+	-0.991701, 0.000000, -0.128565,
+	0.000000, 1.000000, 0.000000,
+	0.128565, 0.000000, -0.991701
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase-any 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Zulu 3		;! Object #26
+$Class: Darket
+$Team: Hostile
+$Location: 1100.460693, 61.954632, 1754.810669
+$Orientation:
+	-0.999229, 0.000000, -0.039267,
+	0.000000, 1.000000, 0.000000,
+	0.039267, 0.000000, -0.999229
+$AI Behavior: None
+$AI Goals: ( goals ( ai-guard "Corvette#1" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Zulu 4		;! Object #27
+$Class: Darket
+$Team: Hostile
+$Location: -419.649536, -144.099014, 2930.793457
+$Orientation:
+	-0.991590, 0.000000, 0.129421,
+	0.000000, 1.000000, 0.000000,
+	-0.129421, 0.000000, -0.991590
+$AI Behavior: None
+$AI Goals: ( goals ( ai-guard "Corvette#1" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Zulu 5		;! Object #28
+$Class: Darket
+$Team: Hostile
+$Location: 334.591919, 601.017578, 2695.318848
+$Orientation:
+	0.797046, 0.603918, 0.001251,
+	0.603917, -0.797047, 0.000948,
+	0.001570, 0.000000, -0.999999
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "TCS John Paul Jones" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Zulu 6		;! Object #29
+$Class: Darket
+$Team: Hostile
+$Location: 714.630249, 740.570984, 1843.272583
+$Orientation:
+	0.786601, 0.603918, -0.128618,
+	0.596003, -0.797047, -0.097453,
+	-0.161368, 0.000000, -0.986894
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Yankee 1		;! Object #30
+$Class: Vaktoth
+$Team: Hostile
+$Location: -778.700012, 0.000000, -2656.399902
+$Orientation:
+	0.959619, 0.000000, -0.281304,
+	0.000000, 1.000000, 0.000000,
+	0.281304, 0.000000, 0.959619
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "TCS Hermes" 80 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: Yankee 2		;! Object #31
+$Class: Vaktoth
+$Team: Hostile
+$Location: -276.274841, 0.000190, 316.280090
+$Orientation:
+	-0.498405, 0.000000, -0.866944,
+	0.000000, 1.000000, 0.000000,
+	0.866944, 0.000000, -0.498405
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase-any 89 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: Yankee 3		;! Object #32
+$Class: Vaktoth
+$Team: Hostile
+$Location: -836.158691, 41.154888, -1098.364136
+$Orientation:
+	-0.358245, 0.000000, -0.933628,
+	0.000000, 1.000000, 0.000000,
+	0.933628, 0.000000, -0.358245
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "TCS Hermes" 80 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: Yankee 4		;! Object #33
+$Class: Vaktoth
+$Team: Hostile
+$Location: 713.700012, 0.000000, -318.200012
+$Orientation:
+	0.407207, 0.000000, 0.913336,
+	0.000000, 1.000000, 0.000000,
+	-0.913336, 0.000000, 0.407207
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "TCS Hermes" 80 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: Yankee 5		;! Object #34
+$Class: Vaktoth
+$Team: Hostile
+$Location: -1196.929443, -0.000088, -322.197968
+$Orientation:
+	-0.265058, 0.000000, -0.964232,
+	0.000000, 1.000000, 0.000000,
+	0.964232, 0.000000, -0.265058
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "TCS Hermes" 80 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: Yankee 6		;! Object #35
+$Class: Vaktoth
+$Team: Hostile
+$Location: 843.700012, 0.000000, 579.599976
+$Orientation:
+	0.278464, 0.000000, 0.960447,
+	0.000000, 1.000000, 0.000000,
+	-0.960447, 0.000000, 0.278464
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "TCS Jim Bowie" 80 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 8
+
+$Name: X-ray 1		;! Object #36
+$Class: Darket
+$Team: Hostile
+$Location: -29187.148438, -14686.375977, 42555.902344
+$Orientation:
+	-0.823185, 0.000000, -0.567773,
+	0.000202, 1.000000, -0.000293,
+	0.567773, -0.000356, -0.823185
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 3" 70 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: X-ray 2		;! Object #37
+$Class: Darket
+$Team: Hostile
+$Location: -29332.107422, -14752.204102, 42577.812500
+$Orientation:
+	-0.822006, 0.000000, -0.569479,
+	-0.000525, 1.000000, 0.000758,
+	0.569479, 0.000922, -0.822006
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 2" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Whiskey 1		;! Object #38
+$Class: Dralthi IV
+$Team: Hostile
+$Location: -29216.125000, -14238.185547, 42658.820313
+$Orientation:
+	-0.823580, 0.000000, -0.567201,
+	0.000242, 1.000000, -0.000352,
+	0.567201, -0.000427, -0.823580
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 1" 70 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Whiskey 2		;! Object #39
+$Class: Dralthi IV
+$Team: Hostile
+$Location: -29283.718750, -14223.570313, 42679.207031
+$Orientation:
+	-0.823095, 0.000000, -0.567904,
+	0.000403, 1.000000, -0.000584,
+	0.567904, -0.000710, -0.823094
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 2" 60 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Whiskey 3		;! Object #40
+$Class: Dralthi IV
+$Team: Hostile
+$Location: -29287.810547, -14960.169922, 42803.492188
+$Orientation:
+	-0.823819, 0.000000, -0.566854,
+	0.000470, 1.000000, -0.000682,
+	0.566853, -0.000828, -0.823818
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 4" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Victor 1		;! Object #41
+$Class: Vaktoth
+$Team: Hostile
+$Location: -29397.099609, -15000.000000, 42708.199219
+$Orientation:
+	-0.822236, 0.000000, -0.569148,
+	0.000033, 1.000000, -0.000048,
+	0.569147, -0.000058, -0.822235
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 1" 75 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Victor 2		;! Object #42
+$Class: Vaktoth
+$Team: Hostile
+$Location: -29365.806641, -14973.173828, 42756.105469
+$Orientation:
+	-0.822818, 0.000000, -0.568304,
+	0.000328, 1.000000, -0.000475,
+	0.568304, -0.000577, -0.822818
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 3" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Uniform 1		;! Object #43
+$Class: Vaktoth
+$Team: Hostile
+$Location: 32133.742188, 1046.372192, 40419.148438
+$Orientation:
+	-0.978363, 0.206902, 0.000000,
+	-0.206902, -0.978363, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 1" 75 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Uniform 2		;! Object #44
+$Class: Vaktoth
+$Team: Hostile
+$Location: 32340.814453, 1168.033081, 40267.519531
+$Orientation:
+	0.674876, -0.737932, 0.000000,
+	0.737932, 0.674876, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$AI Goals: ( goals ( ai-chase "Alpha 2" 75 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 12
+
+$Name: Tango 1		;! Object #45
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 32907.582031, 1065.153076, 40713.902344
+$Orientation:
+	0.674876, -0.737932, 0.000000,
+	0.737932, 0.674876, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Tango 2		;! Object #46
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 32775.738281, 1000.548157, 40791.988281
+$Orientation:
+	-0.978363, 0.206902, 0.000000,
+	-0.206902, -0.978363, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Tango 3		;! Object #47
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 32453.982422, 923.798767, 40925.476563
+$Orientation:
+	0.674876, -0.737932, 0.000000,
+	0.737932, 0.674876, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Tango 4		;! Object #48
+$Class: Dralthi IV
+$Team: Hostile
+$Location: 32590.720703, 962.263916, 40863.500000
+$Orientation:
+	-0.978363, 0.206902, 0.000000,
+	-0.206902, -0.978363, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 10
+
+$Name: Sierra 1		;! Object #49
+$Class: Paktahn
+$Team: Hostile
+$Location: 49391.769531, 0.000185, -1881.038208
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "TCS John Paul Jones" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 14
+
+$Name: Sierra 2		;! Object #50
+$Class: Paktahn
+$Team: Hostile
+$Location: 49279.843750, 0.000193, -1938.248169
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "TCS Hermes#1" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 14
+
+$Name: Sierra 3		;! Object #51
+$Class: Paktahn
+$Team: Hostile
+$Location: 49171.019531, 0.000286, -1968.360107
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase-any 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 14
+
+$Name: Romeo 1		;! Object #52
+$Class: Darket
+$Team: Hostile
+$Location: 49242.851563, 0.000109, -1231.965210
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 2" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Romeo 2		;! Object #53
+$Class: Darket
+$Team: Hostile
+$Location: 49134.449219, 0.000149, -1255.150757
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 1" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Romeo 3		;! Object #54
+$Class: Darket
+$Team: Hostile
+$Location: 49022.695313, 0.000176, -1295.595581
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 3" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Romeo 4		;! Object #55
+$Class: Darket
+$Team: Hostile
+$Location: 48905.078125, 0.000170, -1351.564819
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 4" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Romeo 5		;! Object #56
+$Class: Darket
+$Team: Hostile
+$Location: 49332.996094, 0.000181, -1208.268433
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 1" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Romeo 6		;! Object #57
+$Class: Darket
+$Team: Hostile
+$Location: 48751.527344, 0.000179, -1403.930542
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
++AI Class: Captain
+$AI Goals: ( goals ( ai-chase "Alpha 2" 50 ) )
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 8
+
+$Name: Sentry Gun#1		;! Object #58
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 347.985291, -937.500000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#2		;! Object #59
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -429.857513, -812.500000, 393.784607
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#3		;! Object #60
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 63.487190, -687.500000, -723.403870
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#4		;! Object #61
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 503.055603, -562.500000, 656.146973
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#5		;! Object #62
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -885.472473, -437.500000, -156.627594
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#6		;! Object #63
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 801.498230, -312.500000, -509.847504
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#7		;! Object #64
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -255.000107, -187.500000, 948.587708
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#8		;! Object #65
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -460.005890, -62.500000, -885.713379
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#9		;! Object #66
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 937.484924, 62.500000, 342.368011
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#10		;! Object #67
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -907.951843, 187.500000, 374.789398
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#11		;! Object #68
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 402.618774, 312.500000, -860.372986
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#12		;! Object #69
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 269.121613, 437.500000, 858.002014
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#13		;! Object #70
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -715.354309, 562.500000, -414.562439
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#14		;! Object #71
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 709.246704, 687.500000, -155.925903
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#15		;! Object #72
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -335.278137, 812.500000, 476.898743
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#16		;! Object #73
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -44.719849, 937.500000, -345.093750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP1		;! Object #74
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 347.985291, -937.500000, -300000.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP2		;! Object #75
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -429.857513, -812.500000, -299606.218750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP3		;! Object #76
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 63.487190, -687.500000, -300723.406250
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP4		;! Object #77
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 503.055603, -562.500000, -299343.843750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP5		;! Object #78
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -885.472473, -437.500000, -300156.625000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP6		;! Object #79
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 801.498230, -312.500000, -300509.843750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP7		;! Object #80
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -255.000107, -187.500000, -299051.406250
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP8		;! Object #81
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -460.005890, -62.500000, -300885.718750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP9		;! Object #82
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 937.484924, 62.500000, -299657.625000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP10		;! Object #83
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -907.951843, 187.500000, -299625.218750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP11		;! Object #84
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 402.618774, 312.500000, -300860.375000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP12		;! Object #85
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 269.121613, 437.500000, -299142.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP13		;! Object #86
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -715.354309, 562.500000, -300414.562500
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP14		;! Object #87
+$Class: Sentry Gun
+$Team: Hostile
+$Location: 709.246704, 687.500000, -300155.937500
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP15		;! Object #88
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -335.278137, 812.500000, -299523.093750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Sentry Gun#JP16		;! Object #89
+$Class: Sentry Gun
+$Team: Hostile
+$Location: -44.719849, 937.500000, -300345.093750
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 6
+
+$Name: Corvette#1		;! Object #90
+$Class: Kamrani-class
+$Team: Hostile
+$Location: 750.000000, -400.000000, 1500.000000
+$Orientation:
+	0.800000, 0.000000, 0.600000,
+	0.182865, 0.952424, -0.243821,
+	-0.571455, 0.304776, 0.761939
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++AI Class: Major
++Subsystem: turret02
++AI Class: Major
++Subsystem: turret03
++AI Class: Major
++Subsystem: turret04
++AI Class: Major
++Subsystem: turret05
++AI Class: Lieutenant
++Subsystem: turret06
++AI Class: Ace
++Sbank Ammo: ( 0 )
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "secondaries-locked" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 70
++Special Hitpoints: 10000
++Special Shield Points: 10000
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 20
+
+$Name: Corvette#JP		;! Object #91
+$Class: Kamrani-class
+$Team: Hostile
+$Location: 750.000000, -400.000000, -298500.000000
+$Orientation:
+	0.800000, 0.000000, 0.600000,
+	0.182865, 0.952424, -0.243821,
+	-0.571455, 0.304776, 0.761939
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Jump Reposition Camera" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 150
+
+$Name: Transport#1		;! Object #92
+$Class: Sha'kar-class
+$Team: Hostile
+$Location: 32375.199219, 600.000000, 40900.000000
+$Orientation:
+	0.921061, -0.389415, -0.001525,
+	0.389418, 0.921054, 0.003608,
+	-0.000001, -0.003917, 0.999992
+$AI Behavior: None
+$AI Goals: ( goals ( ai-waypoints-once "Path Transport 1" 89 ) )
+$Cargo 1:  XSTR("Fuel", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( is-event-true-delay 
+      "Activate Nav 2" 
+      0 
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "scannable" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 100
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 50
+
+$Name: Transport#2		;! Object #93
+$Class: Sha'kar-class
+$Team: Hostile
+$Location: 32702.900391, 1218.699951, 40623.398438
+$Orientation:
+	0.921061, -0.389415, -0.001524,
+	0.389418, 0.921054, 0.003611,
+	-0.000003, -0.003919, 0.999992
+$AI Behavior: None
+$AI Goals: ( goals ( ai-waypoints-once "Path Transport 2" 89 ) )
+$Cargo 1:  XSTR("Fuel", -1)
++Initial Velocity: 100
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
++Subsystem: turret02
+$Arrival Location: Hyperspace
+$Arrival Cue: ( and 
+   ( is-event-true-delay 
+      "Activate Nav 2" 
+      0 
+   )
+   ( > @AutoNavPhase[0] 1 ) 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "scannable" )
++Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Escort priority: 90
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 50
+
+$Name: Blackmane Jump Point#		;! Object #94
+$Class: Jump Point Buoy#Kilrathi
+$Team: Unknown
+$Location: -350.000000, 500.000000, -4250.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Shields: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "no-shields" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "no-dynamic" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "no-arrival-log" "no-departure-log" "is_harmless" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Blackmane Jump Point#JP		;! Object #95
+$Class: Jump Point Buoy#Kilrathi
+$Team: Unknown
+$Location: -350.000000, 500.000000, -303250.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Shields: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-shields" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "no-dynamic" "beam-protect-ship" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "no-arrival-log" "no-departure-log" "is_harmless" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Cam Ghost		;! Object #96
+$Class: Ghost
+$Team: Neutral
+$Location: 0.000000, -10000.000000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "invulnerable" "hidden-from-sensors" "no-dynamic" "beam-protect-ship" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "is_harmless" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+#Wings		;! 13 total
+
+$Name: Alpha
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Alpha 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Alpha 1"
+	"Alpha 2"
+	"Alpha 3"
+	"Alpha 4"
+)
++Hotkey: 0
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Bravo
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Bravo 1
+
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: TCS Hermes#1
++Arrival Paths: ( "$bay01" "$bay02" "$bay03" "$bay04" )
+$Arrival Cue: ( is-event-true-delay 
+   "Bravo launching" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Bravo 1"
+	"Bravo 2"
+	"Bravo 3"
+	"Bravo 4"
+)
+$AI Goals: ( goals ( ai-waypoints "CAP Path" 50 ) )
++Hotkey: 1
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" "no-dynamic" )
+
+$Name: Foxtrot
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Foxtrot 1
+
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: TCS Hermes#1
++Arrival Paths: ( "$bay01" "$bay02" "$bay03" "$bay04" )
+$Arrival Cue: ( is-event-true-delay 
+   "Foxtrot launching" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Foxtrot 1"
+	"Foxtrot 2"
+	"Foxtrot 3"
+	"Foxtrot 4"
+)
++Hotkey: 5
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" "no-dynamic" )
+
+$Name: Golf
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Golf 1
+
+$Arrival Location: Docking Bay
++Arrival Distance: 0
+$Arrival Anchor: TCS Hermes#1
++Arrival Paths: ( "$bay01" "$bay02" "$bay03" "$bay04" )
+$Arrival Cue: ( is-event-true-delay 
+   "Golf launching" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Golf 1"
+	"Golf 2"
+	"Golf 3"
+	"Golf 4"
+)
+$AI Goals: ( goals ( ai-waypoints-once "Waypoint Blackmane JP" 50 ) )
++Hotkey: 6
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" "no-dynamic" )
+
+$Name: Zulu
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Zulu 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Zulu 1"
+	"Zulu 2"
+	"Zulu 3"
+	"Zulu 4"
+	"Zulu 5"
+	"Zulu 6"
+)
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Yankee
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Yankee 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay "Jump Reset" 0 ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Yankee 1"
+	"Yankee 2"
+	"Yankee 3"
+	"Yankee 4"
+	"Yankee 5"
+	"Yankee 6"
+)
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: X-ray
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! X-ray 1
+
+$Arrival Location: In front of ship
++Arrival Distance: 4500
+$Arrival Anchor: Alpha 2
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 2 total
+	"X-ray 1"
+	"X-ray 2"
+)
++Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Whiskey
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Whiskey 1
+
+$Arrival Location: In front of ship
++Arrival Distance: 5600
+$Arrival Anchor: Alpha 2
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Whiskey 1"
+	"Whiskey 2"
+	"Whiskey 3"
+)
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Victor
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Victor 1
+
+$Arrival Location: In front of ship
++Arrival Distance: 5000
+$Arrival Anchor: Alpha 2
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 1" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 2 total
+	"Victor 1"
+	"Victor 2"
+)
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Uniform
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Uniform 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 2 total
+	"Uniform 1"
+	"Uniform 2"
+)
++Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Tango
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Tango 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "Proceed to Nav 2" 
+   0 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Tango 1"
+	"Tango 2"
+	"Tango 3"
+	"Tango 4"
+)
+$AI Goals: ( goals ( ai-guard "Transport#1" 50 ) ( ai-guard "Transport#2" 50 ) )
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Sierra
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Sierra 1
+
+$Arrival Location: In front of ship
++Arrival Distance: 7500
+$Arrival Anchor: TCS Hermes#1
+$Arrival Cue: ( is-event-true-delay 
+   "Entering asteroid field" 
+   10 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 3 total
+	"Sierra 1"
+	"Sierra 2"
+	"Sierra 3"
+)
++Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+$Name: Romeo
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 2		;! Romeo 3
+
+$Arrival Location: Near Ship
++Arrival Distance: 500
+$Arrival Anchor: Sierra 1
+$Arrival Cue: ( has-arrived-delay 0 "Sierra" ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 6 total
+	"Romeo 1"
+	"Romeo 2"
+	"Romeo 3"
+	"Romeo 4"
+	"Romeo 5"
+	"Romeo 6"
+)
++Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
+
+#Events		;! 104 total
+
+$Formula: ( when 
+   ( true ) 
+   ( add-nav-waypoint 
+      "Nav 1" 
+      "Waypoint Nav 1" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 2" 
+      "Waypoint Nav 2" 
+      0 
+   )
+   ( add-nav-waypoint 
+      "Nav 3" 
+      "Waypoint Nav 3" 
+      0 
+   )
+   ( ship-guardian-threshold 
+      ( rand-multiple 44 59 ) 
+      "Alpha 1" 
+      "TCS Hermes" 
+   )
+   ( ship-guardian-threshold 
+      ( rand-multiple 17 39 ) 
+      "Alpha 4" 
+      "TCS John Paul Jones" 
+   )
+   ( ship-guardian-threshold 
+      ( rand-multiple 20 64 ) 
+      "Alpha 3" 
+      "TCS Jim Bowie" 
+   )
+   ( hide-jumpnode 
+      "Blackmane Jump Point" 
+   )
+   ( tech-add-ships 
+      "Prowler-class" 
+      "Sentry Gun" 
+   )
+   ( tech-add-intel "STAR SYSTEM: Loki" ) 
+)
++Name: Init Mission
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Alpha 1" 
+      "<all engines>" 
+      "communication" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Alpha 3" 
+      "<all engines>" 
+      "communication" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Alpha 4" 
+      "<all engines>" 
+      "communication" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      55 
+      "TCS Hermes" 
+      "<all engines>" 
+      "<all turrets>" 
+      "communication01" 
+      "communication02" 
+      "fighterbay01" 
+      "fighterbay02" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      49 
+      "TCS John Paul Jones" 
+      "<all engines>" 
+      "<all turrets>" 
+      "communication" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      49 
+      "TCS Jim Bowie" 
+      "<all engines>" 
+      "<all turrets>" 
+      "communication" 
+   )
+   ( ship-subsys-guardian-threshold 
+      100 
+      "Alpha 2" 
+      "communication" 
+   )
+   ( lock-afterburner 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( turret-lock 
+      "TCS Hermes" 
+      "turret01" 
+      "turret02" 
+   )
+   ( turret-lock 
+      "TCS John Paul Jones" 
+      "turret01" 
+   )
+)
++Name: Guard wingmen subsystems
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( modify-variable 
+      @AutoNavFighterSpeed[65] 
+      82 
+   )
+   ( hud-set-max-targeting-range 30000 ) 
+   ( hud-set-frame "Autopilot" 0 ) 
+)
++Name: AutoNav and radarrange
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( restrict-nav "Nav 1" ) 
+   ( restrict-nav "Nav 2" ) 
+   ( restrict-nav "Nav 3" ) 
+)
++Name: Restrict Navs
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( set-camera-position 
+      ( get-object-x 
+         "TCS Hermes#JP" 
+         "<none>" 
+         1000 
+         200 
+         2000 
+      )
+      ( get-object-y 
+         "TCS Hermes#JP" 
+         "<none>" 
+         1000 
+         200 
+         2000 
+      )
+      ( get-object-z 
+         "TCS Hermes#JP" 
+         "<none>" 
+         1000 
+         200 
+         2000 
+      )
+   )
+   ( set-camera-facing-object 
+      "TCS Hermes#JP" 
+   )
+   ( modify-variable @JumpPhase[0] 2 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+   ( set-cutscene-bars ) 
+   ( hide-jumpnode 
+      "Blackmane Jump Point" 
+   )
+   ( player-use-ai ) 
+   ( clear-goals "Alpha 2" ) 
+   ( add-goal 
+      "Alpha 2" 
+      ( ai-play-dead 89 ) 
+   )
+   ( lock-primary-weapon "Alpha 2" ) 
+   ( lock-secondary-weapon "Alpha 2" ) 
+   ( lock-afterburner "Alpha 2" ) 
+   ( turret-lock 
+      "TCS Hermes#JP" 
+      "turret01" 
+      "turret02" 
+   )
+   ( turret-lock 
+      "TCS John Paul Jones#JP" 
+      "turret01" 
+   )
+   ( lock-controls ( true ) ) 
+)
++Name: Jump Init
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( every-time 
+   ( > @JumpPhase[0] 1 ) 
+   ( set-object-facing 
+      "TCS Hermes#JP" 
+      ( get-object-x "TCS Hermes#JP" ) 
+      ( get-object-y "TCS Hermes#JP" ) 
+      ( + 
+         ( get-object-z "TCS Hermes#JP" ) 
+         10000 
+      )
+   )
+   ( set-object-speed-x 
+      "TCS Hermes#JP" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "TCS Hermes#JP" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-z 
+      "TCS Hermes#JP" 
+      500 
+      ( true ) 
+   )
+)
++Name: Jump Update Hermes
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of 
+      "TCS John Paul Jones#JP" 
+      "TCS Jim Bowie#JP" 
+   )
+   ( > @JumpPhase[0] 1 ) 
+   ( set-object-facing 
+      "<argument>" 
+      ( get-object-x "<argument>" ) 
+      ( get-object-y "<argument>" ) 
+      ( + 
+         ( get-object-z "<argument>" ) 
+         10000 
+      )
+   )
+   ( set-object-speed-x 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-z 
+      "<argument>" 
+      500 
+      ( true ) 
+   )
+)
++Name: Jump Update Battlegroup
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( or 
+      ( = @JumpPhase[0] 2 ) 
+      ( = @JumpPhase[0] 8 ) 
+   )
+   ( set-camera-facing-object 
+      "TCS Hermes#JP" 
+   )
+   ( show-subtitle 
+      30 
+      624 
+      "@JumpSubtitle[Jumping into...]" 
+      0 
+   )
+)
++Name: Jump Update Camera
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @JumpPhase[0] 2 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 5 ) 
+      )
+   )
+   ( warp-effect 
+      ( get-object-x 
+         "Jump Point Going In:1" 
+      )
+      ( get-object-y 
+         "Jump Point Going In:1" 
+      )
+      ( get-object-z 
+         "Jump Point Going In:1" 
+      )
+      ( get-object-x "TCS Hermes#JP" ) 
+      ( get-object-y "TCS Hermes#JP" ) 
+      ( get-object-z "TCS Hermes#JP" ) 
+      3000 
+      10 
+      69 
+      70 
+      0 
+      0 
+   )
+)
++Name: Jump JumpPoint Opens
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @JumpPhase[0] 2 ) 
+      ( < 
+         ( distance 
+            "TCS Hermes#JP" 
+            "Jump Point Going In:1" 
+         )
+         50 
+      )
+   )
+   ( modify-variable @JumpPhase[0] 3 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+)
++Name: Jump Battlegroup at JP Loki
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @JumpPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 3 ) 
+      )
+   )
+   ( set-object-position 
+      "TCS Hermes#JP" 
+      0 
+      0 
+      -350000 
+   )
+   ( set-object-facing 
+      "TCS Hermes#JP" 
+      ( get-object-x "TCS Hermes#JP" ) 
+      ( get-object-y "TCS Hermes#JP" ) 
+      ( + 
+         ( get-object-z "TCS Hermes#JP" ) 
+         10000 
+      )
+   )
+)
++Name: Jump Reposition Hermes
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of 
+      "TCS John Paul Jones#JP" 
+      "TCS Jim Bowie#JP" 
+   )
+   ( and 
+      ( = @JumpPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 3 ) 
+      )
+   )
+   ( set-object-position 
+      "TCS John Paul Jones#JP" 
+      ( get-object-x 
+         "TCS Hermes#JP" 
+         "<none>" 
+         250 
+         250 
+         750 
+      )
+      ( get-object-y 
+         "TCS Hermes#JP" 
+         "<none>" 
+         250 
+         250 
+         750 
+      )
+      ( get-object-z 
+         "TCS Hermes#JP" 
+         "<none>" 
+         250 
+         250 
+         750 
+      )
+   )
+   ( set-object-position 
+      "TCS Jim Bowie#JP" 
+      ( get-object-x 
+         "TCS Hermes#JP" 
+         "<none>" 
+         -500 
+         50 
+         -25 
+      )
+      ( get-object-y 
+         "TCS Hermes#JP" 
+         "<none>" 
+         -500 
+         50 
+         -25 
+      )
+      ( get-object-z 
+         "TCS Hermes#JP" 
+         "<none>" 
+         -500 
+         50 
+         -25 
+      )
+   )
+   ( set-object-facing 
+      "<argument>" 
+      ( get-object-x "<argument>" ) 
+      ( get-object-y "<argument>" ) 
+      ( + 
+         ( get-object-z "<argument>" ) 
+         10000 
+      )
+   )
+   ( modify-variable @JumpPhase[0] 4 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+)
++Name: Jump Reposition Battlegroup
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @JumpPhase[0] 4 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 4 ) 
+      )
+   )
+   ( set-camera-position 
+      ( get-object-x 
+         "Jump Point Coming Out:1" 
+         "<none>" 
+         1000 
+         200 
+         3000 
+      )
+      ( get-object-y 
+         "Jump Point Coming Out:1" 
+         "<none>" 
+         1000 
+         200 
+         3000 
+      )
+      ( get-object-z 
+         "Jump Point Coming Out:1" 
+         "<none>" 
+         1000 
+         200 
+         3000 
+      )
+   )
+   ( set-camera-facing-object 
+      "Jump Point Coming Out:1" 
+   )
+   ( modify-variable @JumpPhase[0] 5 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+   ( remove-sun-bitmap 0 ) 
+   ( add-sun-bitmap 
+      "SunM5" 
+      280 
+      0 
+      219 
+      600 
+      @BitmapVar[0] 
+   )
+   ( add-background-bitmap 
+      "planet_loki_viii" 
+      5 
+      10 
+      345 
+      50 
+      50 
+      1 
+      1 
+      @BitmapVar[0] 
+   )
+   ( set-skybox-model "sky_loki.pof" ) 
+   ( set-ambient-light 120 56 32 ) 
+   ( modify-variable 
+      "@JumpSubtitle[Jumping into...]" 
+      "...Loki System" 
+   )
+   ( change-soundtrack "Loki" ) 
+)
++Name: Jump Reposition Camera
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @JumpPhase[0] 5 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 3 ) 
+      )
+   )
+   ( warp-effect 
+      ( get-object-x 
+         "Jump Point Coming Out:1" 
+      )
+      ( get-object-y 
+         "Jump Point Coming Out:1" 
+      )
+      ( get-object-z 
+         "Jump Point Coming Out:1" 
+      )
+      ( get-object-x 
+         "Jump Point Coming Out:1" 
+      )
+      ( get-object-y 
+         "Jump Point Coming Out:1" 
+      )
+      ( + 
+         ( get-object-z 
+            "Jump Point Coming Out:1" 
+         )
+         10000 
+      )
+      3000 
+      10 
+      69 
+      70 
+      0 
+      0 
+   )
+   ( modify-variable @JumpPhase[0] 6 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+)
++Name: Jump Open JP
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @JumpPhase[0] 6 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 2 ) 
+      )
+   )
+   ( set-object-position 
+      "TCS Hermes#JP" 
+      ( get-object-x 
+         "Jump Point Coming Out:1" 
+      )
+      ( get-object-y 
+         "Jump Point Coming Out:1" 
+      )
+      ( - 
+         ( get-object-z 
+            "Jump Point Coming Out:1" 
+         )
+         1000 
+      )
+   )
+   ( set-object-facing 
+      "TCS Hermes#JP" 
+      ( get-object-x "TCS Hermes#JP" ) 
+      ( get-object-y "TCS Hermes#JP" ) 
+      ( + 
+         ( get-object-z "TCS Hermes#JP" ) 
+         10000 
+      )
+   )
+)
++Name: Jump Hermes at 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of 
+      "TCS John Paul Jones#JP" 
+      "TCS Jim Bowie#JP" 
+   )
+   ( and 
+      ( = @JumpPhase[0] 6 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 3 ) 
+      )
+   )
+   ( set-object-position 
+      "TCS John Paul Jones#JP" 
+      ( get-object-x 
+         "TCS Hermes#JP" 
+         "<none>" 
+         250 
+         250 
+         750 
+      )
+      ( get-object-y 
+         "TCS Hermes#JP" 
+         "<none>" 
+         250 
+         250 
+         750 
+      )
+      ( get-object-z 
+         "TCS Hermes#JP" 
+         "<none>" 
+         250 
+         250 
+         750 
+      )
+   )
+   ( set-object-position 
+      "TCS Jim Bowie#JP" 
+      ( get-object-x 
+         "TCS Hermes#JP" 
+         "<none>" 
+         -500 
+         50 
+         -25 
+      )
+      ( get-object-y 
+         "TCS Hermes#JP" 
+         "<none>" 
+         -500 
+         50 
+         -25 
+      )
+      ( get-object-z 
+         "TCS Hermes#JP" 
+         "<none>" 
+         -500 
+         50 
+         -25 
+      )
+   )
+   ( set-object-facing 
+      "<argument>" 
+      ( get-object-x "<argument>" ) 
+      ( get-object-y "<argument>" ) 
+      ( + 
+         ( get-object-z "<argument>" ) 
+         10000 
+      )
+   )
+   ( modify-variable @JumpPhase[0] 7 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+)
++Name: Jump Battlegroup at 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @JumpPhase[0] 7 ) 
+      ( < 
+         ( distance 
+            "TCS Hermes#JP" 
+            "Jump Point Coming Out:1" 
+         )
+         50 
+      )
+   )
+   ( modify-variable @JumpPhase[0] 8 ) 
+   ( modify-variable 
+      @JumpTimer[0] 
+      ( mission-time ) 
+   )
+)
++Name: Jump Battlegroup at JP 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( = @JumpPhase[0] 8 ) 
+      ( > 
+         ( mission-time ) 
+         ( + @JumpTimer[0] 13 ) 
+      )
+   )
+   ( modify-variable @JumpPhase[0] 0 ) 
+   ( unset-cutscene-bars ) 
+   ( reset-camera ) 
+   ( unlock-primary-weapon "Alpha 2" ) 
+   ( unlock-secondary-weapon "Alpha 2" ) 
+   ( clear-goals "Alpha 2" ) 
+   ( player-not-use-ai ) 
+   ( ship-vanish 
+      "TCS Hermes#JP" 
+      "TCS Jim Bowie#JP" 
+      "TCS John Paul Jones#JP" 
+      "Blackmane Jump Point#JP" 
+      "Sentry Gun#JP1" 
+      "Sentry Gun#JP2" 
+      "Sentry Gun#JP3" 
+      "Sentry Gun#JP4" 
+      "Sentry Gun#JP5" 
+      "Sentry Gun#JP6" 
+      "Sentry Gun#JP7" 
+      "Sentry Gun#JP8" 
+      "Sentry Gun#JP9" 
+      "Sentry Gun#JP10" 
+      "Sentry Gun#JP11" 
+      "Sentry Gun#JP12" 
+      "Sentry Gun#JP13" 
+      "Sentry Gun#JP14" 
+      "Sentry Gun#JP15" 
+      "Sentry Gun#JP16" 
+      "Corvette#JP" 
+   )
+   ( unlock-afterburner "Alpha 2" ) 
+   ( show-jumpnode 
+      "Blackmane Jump Point" 
+   )
+   ( play-sound-from-table 0 0 0 162 ) 
+   ( lock-controls ( false ) ) 
+)
++Name: Jump Reset
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 1" 
+      0 
+      "TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 1" 
+      5140 
+   )
+)
++Name: M_Hermes 1 to Jim Bowie 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha 1" ) 
+   ( add-goal 
+      "Alpha 1" 
+      ( ai-waypoints-once 
+         "Waypoint Alpha 1" 
+         60 
+      )
+   )
+)
++Name: Launch Alpha 1
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals "Alpha 3" ) 
+   ( add-goal 
+      "Alpha 3" 
+      ( ai-waypoints-once 
+         "Waypoint Alpha 1" 
+         60 
+      )
+   )
+)
++Name: Launch Alpha 3
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Player outside of hangar" 
+      0 
+   )
+   ( clear-goals "Alpha 4" ) 
+   ( add-goal 
+      "Alpha 4" 
+      ( ai-waypoints-once 
+         "Waypoint Alpha 2" 
+         60 
+      )
+   )
+)
++Name: Launch Alpha 4
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( > 
+         ( get-object-x "Alpha 2" ) 
+         ( + ( get-object-x "TCS Hermes" ) 75 ) 
+      )
+      ( < 
+         ( get-object-x "Alpha 2" ) 
+         ( - ( get-object-x "TCS Hermes" ) 75 ) 
+      )
+      ( > 
+         ( get-object-y "Alpha 2" ) 
+         ( + ( get-object-y "TCS Hermes" ) 35 ) 
+      )
+      ( < 
+         ( get-object-y "Alpha 2" ) 
+         ( - ( get-object-x "TCS Hermes" ) 15 ) 
+      )
+      ( > 
+         ( get-object-z "Alpha 2" ) 
+         ( + ( get-object-z "TCS Hermes" ) 600 ) 
+      )
+      ( < 
+         ( get-object-z "Alpha 2" ) 
+         ( - ( get-object-x "TCS Hermes" ) 500 ) 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Player outside of hangar
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Launch Alpha 4" 
+         0 
+      )
+      ( or 
+         ( > 
+            ( get-object-z "Alpha 4" ) 
+            ( + ( get-object-z "TCS Hermes" ) 700 ) 
+         )
+         ( > @AutoNavPhase[0] 1 ) 
+      )
+   )
+   ( clear-goals 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+      "Alpha" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Zulu" 50 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Yankee" 67 ) 
+   )
+   ( unlock-afterburner 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+)
++Name: Orders Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Orders Alpha" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Player outside of hangar" 
+         0 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Player and wingmen launched
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Jump Point secured" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Secure the Jump Point
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Secure the jump point", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 
+      0 
+      "Zulu" 
+      "Yankee" 
+      "Sentry Gun#1" 
+      "Sentry Gun#2" 
+      "Sentry Gun#3" 
+      "Sentry Gun#4" 
+      "Sentry Gun#5" 
+      "Sentry Gun#6" 
+      "Sentry Gun#7" 
+      "Sentry Gun#8" 
+      "Sentry Gun#9" 
+      "Sentry Gun#10" 
+      "Sentry Gun#11" 
+      "Sentry Gun#12" 
+      "Sentry Gun#13" 
+      "Sentry Gun#13" 
+      "Sentry Gun#14" 
+      "Sentry Gun#15" 
+      "Sentry Gun#16" 
+      "Corvette#1" 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: Jump Point secured
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 1 to Jim Bowie 1" 
+      9 
+   )
+   ( add-goal 
+      "Corvette#1" 
+      ( ai-waypoints-once 
+         "Escape Corvette" 
+         75 
+      )
+   )
+)
++Name: Corvette tries to escape
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Player and wingmen launched" 
+      5 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Stingray 1" 
+      0 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 2" 
+      4635 
+   )
+)
++Name: M_Stingray 1 to Hermes 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( turret-free-all 
+      "TCS Hermes" 
+      "TCS John Paul Jones" 
+   )
+)
++Name: Hermes and JPJ open fire
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Corvette#1" 75 ) 
+   )
+)
++Name: Alpha attacks corvette
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( ship-vulnerable "Corvette#1" ) 
+)
++Name: Make Corvette Vulnerable
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Kilrathi corvette intercepted" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Intercept Kilrathi corvette
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Intercept Kilrathi corvette", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "Corvette#1" ) 
+   ( do-nothing ) 
+)
++Name: Kilrathi corvette intercepted
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "M_Stingray 1 to Hermes 2" 
+         9 
+      )
+      ( is-event-true-delay 
+         "Jump Point secured" 
+         5 
+      )
+   )
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 3" 
+      0 
+      "TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 2" 
+      5186 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 4" 
+      3166 
+   )
+)
++Name: M_Hermes 3 to Hermes 4
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Activate Nav 1" 
+         0 
+      )
+      ( > @AutoNavPhase[0] 1 ) 
+   )
+   ( hide-jumpnode 
+      "Blackmane Jump Point" 
+   )
+)
++Name: Hide Jump Node
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 1" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 1" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 0
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 3 to Hermes 4" 
+      16 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 1:1" ) 
+      ( get-object-y "Waypoint Nav 1:1" ) 
+      ( get-object-z "Waypoint Nav 1:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 1 ) 
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 1" ) 
+   ( select-nav "Nav 1" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 1" ) 5000 ) 
+   ( ship-copy-damage 
+      "TCS Hermes" 
+      "TCS Hermes#1" 
+   )
+   ( ship-copy-damage 
+      "TCS John Paul Jones" 
+      "TCS John Paul Jones#1" 
+   )
+   ( ship-vanish 
+      "TCS Hermes" 
+      "TCS John Paul Jones" 
+      "TCS Jim Bowie" 
+      "Blackmane Jump Point#" 
+   )
+)
++Name: Proceed to Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 1", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: Ai Goals Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( restrict-nav "Nav 1" ) 
+)
++Name: Restrict Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 1" 
+      2 
+   )
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Stingray 2" 
+   )
+)
++Name: M_Stingray 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "X-ray" 
+      "Whiskey" 
+      "Victor" 
+   )
+   ( do-nothing ) 
+)
++Name: Fighters Nav 1 arrived
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Fighters Nav 1 destroyed" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Destroy Fighters Nav 1
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Destroy Kilrathi fighters", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 
+      0 
+      "X-ray" 
+      "Whiskey" 
+      "Victor" 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: Fighters Nav 1 destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "M_Stingray 2" 
+         4 
+      )
+      ( is-event-true-delay 
+         "Fighters Nav 1 destroyed" 
+         4 
+      )
+   )
+   ( send-message 
+      "#Sandman" 
+      "High" 
+      "Sandman 1" 
+   )
+)
++Name: M_Sandman 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 2" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 2" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay "M_Sandman 1" 2 ) 
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 2:1" ) 
+      ( get-object-y "Waypoint Nav 2:1" ) 
+      ( get-object-z "Waypoint Nav 2:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 4 ) 
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 2" ) 
+   ( select-nav "Nav 2" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 2" ) 5000 ) 
+   ( do-nothing ) 
+)
++Name: Proceed to Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 2", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Uniform" 75 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Tango" 50 ) 
+   )
+)
++Name: Ai Goals Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( restrict-nav "Nav 2" ) 
+)
++Name: Restrict Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 2" 
+      2 
+   )
+   ( send-message-list 
+      "Alpha 3" 
+      "High" 
+      "Ninja 1" 
+      0 
+      "Alpha 4" 
+      "High" 
+      "Assassin 1" 
+      4268 
+      "Alpha 3" 
+      "High" 
+      "Ninja 2" 
+      1744 
+   )
+)
++Name: M_Ninja 1 to Ninja 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Transport#1" 
+      "Transport#2" 
+   )
+   ( do-nothing ) 
+)
++Name: Convoy has arrived
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Kilrathi convoy destroyed" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Destroy Kilrathi convoy
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Destroy Kilrathi convoy", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 
+      0 
+      "Transport#1" 
+      "Transport#2" 
+   )
+   ( do-nothing ) 
+)
++Name: Kilrathi convoy destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Uniform" 
+      "Tango" 
+   )
+   ( do-nothing ) 
+)
++Name: Fighters Nav 2 arrived
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Fighters Nav 2 destroyed" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Destroy Fighters Nav 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Destroy Kilrathi fighters", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 
+      0 
+      "Uniform" 
+      "Tango" 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Transport#1" 50 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Transport#2" 50 ) 
+   )
+)
++Name: Fighters Nav 2 destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-destroyed-delay 0 "Uniform" ) 
+      ( is-destroyed-delay 
+         0 
+         "Transport#1" 
+         "Transport#2" 
+      )
+   )
+   ( clear-goals 
+      "Tango" 
+      "Tango 1" 
+      "Tango 2" 
+      "Tango 3" 
+      "Tango 4" 
+   )
+   ( add-goal 
+      "Tango 1" 
+      ( ai-chase "Alpha 1" 50 ) 
+   )
+   ( add-goal 
+      "Tango 2" 
+      ( ai-chase "Alpha 2" 50 ) 
+   )
+   ( add-goal 
+      "Tango 3" 
+      ( ai-chase "Alpha 3" 50 ) 
+   )
+   ( add-goal 
+      "Tango 4" 
+      ( ai-chase "Alpha 4" 50 ) 
+   )
+)
++Name: Tango engages Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Kilrathi convoy destroyed" 
+         0 
+      )
+      ( is-event-true-delay 
+         "Fighters Nav 2 destroyed" 
+         0 
+      )
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "Alpha 2" 50 ) 
+   )
+)
++Name: Alpha stand down Nav 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-cargo-known-delay 
+      0 
+      "Transport#1" 
+      "Transport#2" 
+   )
+   ( send-message 
+      "Alpha 1" 
+      "High" 
+      "Stingray 3" 
+   )
+)
++Name: M_Stingray 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Alpha stand down Nav 2" 
+      5 
+   )
+   ( send-message 
+      "Alpha 4" 
+      "High" 
+      "Assassin 2" 
+   )
+)
++Name: M_Assassin 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Activate Nav 3" 
+      0 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-waypoints-once 
+         "Waypoint Nav 3" 
+         50 
+      )
+   )
+)
++Name: Alpha resume course Nav 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Assassin 2" 
+      2 
+   )
+   ( set-object-position 
+      "NextNav:1" 
+      ( get-object-x "Waypoint Nav 3:1" ) 
+      ( get-object-y "Waypoint Nav 3:1" ) 
+      ( get-object-z "Waypoint Nav 3:1" ) 
+   )
+   ( modify-variable @AutoNavPhase[0] 1 ) 
+   ( modify-variable @AutoNavCamera[0] 1 ) 
+   ( key-reset "Alt-A" ) 
+   ( unrestrict-nav "Nav 3" ) 
+   ( select-nav "Nav 3" ) 
+   ( hud-set-frame "Autopilot" 1 ) 
+   ( training-msg 
+      "Proceed to waypoint message" 
+   )
+)
++Name: Activate Nav 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < ( distance-to-nav "Nav 3" ) 5000 ) 
+   ( do-nothing ) 
+)
++Name: Proceed to Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Proceed to Nav 3", -1)
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-guard "TCS Hermes#1" 50 ) 
+   )
+)
++Name: Ai Goals Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( restrict-nav "Nav 3" ) 
+)
++Name: Restrict Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( ship-guardian-threshold 
+      ( rand-multiple 56 73 ) 
+      "TCS Hermes#1" 
+   )
+   ( ship-guardian-threshold 
+      ( rand-multiple 56 73 ) 
+      "TCS John Paul Jones#1" 
+   )
+   ( ship-subsys-guardian-threshold 
+      ( rand-multiple 56 73 ) 
+      "TCS Hermes#1" 
+      "<all engines>" 
+      "<all turrets>" 
+      "communication01" 
+      "communication02" 
+      "fighterbay01" 
+      "fighterbay02" 
+      "weapons" 
+   )
+   ( ship-subsys-guardian-threshold 
+      ( rand-multiple 56 73 ) 
+      "TCS John Paul Jones#1" 
+      "<all engines>" 
+      "<all turrets>" 
+      "communication" 
+      "weapons" 
+   )
+)
++Name: Guard Hermes and JPJ
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 3" 
+      2 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Stingray 4" 
+      0 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 5" 
+      5094 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 6" 
+      9270 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 3" 
+      3901 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 7" 
+      1652 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 4" 
+      3992 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 5" 
+      7599 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 6" 
+      7966 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 8" 
+      5920 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 7" 
+      1881 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 8" 
+      6451 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 9" 
+      7480 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 9" 
+      2661 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 10" 
+      4956 
+      "#Joker" 
+      "High" 
+      "Joker 1" 
+      9913 
+      "#Isis" 
+      "High" 
+      "Isis 1" 
+      1193 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 11" 
+      3579 
+      "#Sandman" 
+      "High" 
+      "Sandman 2" 
+      9536 
+      "Alpha 3" 
+      "High" 
+      "Ninja 3" 
+      1744 
+   )
+)
++Name: M_Stingray 4 to Ninja 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: Foxtrot launching
++Repeat Count: 1
++Interval: 1
++Chained: 79
++Team: 0
+
+$Formula: ( when ( true ) ( do-nothing ) ) 
++Name: Golf launching
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( and 
+         ( > 
+            ( distance "Foxtrot" "Alpha 2" ) 
+            10000 
+         )
+         ( > 
+            ( distance "Golf" "Alpha 2" ) 
+            10000 
+         )
+      )
+      ( is-event-true-delay 
+         "M_Hermes 13 to Hermes 15" 
+         0 
+      )
+   )
+   ( ship-vanish 
+      "Foxtrot 1" 
+      "Foxtrot 2" 
+      "Foxtrot 3" 
+      "Foxtrot 4" 
+      "Golf 1" 
+      "Golf 2" 
+      "Golf 3" 
+      "Golf 4" 
+   )
+)
++Name: Vanish Foxtrot and Golf
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 15 "Foxtrot" ) 
+   ( clear-goals 
+      "Foxtrot" 
+      "Foxtrot 1" 
+      "Foxtrot 2" 
+      "Foxtrot 3" 
+      "Foxtrot 4" 
+   )
+   ( add-goal 
+      "Foxtrot" 
+      ( ai-guard "Golf" 89 ) 
+   )
+)
++Name: Change orders Foxtrot
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Stingray 4 to Ninja 3" 
+      98 
+   )
+   ( do-nothing ) 
+)
++Name: Entering asteroid field
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Hermes protected" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Protect Hermes
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Protect TCS Hermes", -1)
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-destroyed-delay 
+         3 
+         "Sierra" 
+         "Romeo" 
+      )
+      ( are-waypoints-done-delay 
+         "TCS Hermes#1" 
+         "Asteroid Path Hermes" 
+         3 
+      )
+   )
+   ( do-nothing ) 
+)
++Name: Hermes protected
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Sierra" 
+      "Romeo" 
+   )
+   ( do-nothing ) 
+)
++Name: Fighters emerge from asteroids
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Fighters Nav 3 destroyed" 
+      0 
+      ( true ) 
+   )
+   ( do-nothing ) 
+)
++Name: Destroy Fighters Nav 3
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Intercept Kilrathi fighters", -1)
++Team: 0
+
+$Formula: ( when 
+   ( is-destroyed-delay 
+      0 
+      "Sierra" 
+      "Romeo" 
+   )
+   ( do-nothing ) 
+)
++Name: Fighters Nav 3 destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Fighters emerge from asteroids" 
+      2 
+   )
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 12" 
+      0 
+      "Alpha 1" 
+      "High" 
+      "Stingray 5" 
+      5094 
+   )
+)
++Name: M_Hermes 12 to Stingray 5
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Romeo" 67 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Sierra" 75 ) 
+   )
+)
++Name: Alpha engages fighters
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Hermes protected" 
+      3 
+   )
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 13" 
+      0 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 10" 
+      10418 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 14" 
+      7343 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 11" 
+      5415 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 15" 
+      3258 
+   )
+)
++Name: M_Hermes 13 to Hermes 15
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 13 to Hermes 15" 
+      30 
+   )
+   ( do-nothing ) 
+)
++Name: Bravo launching
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 13 to Hermes 15" 
+      11 
+   )
+   ( shields-off 
+      "TCS Hermes#1" 
+      "TCS John Paul Jones#1" 
+   )
+)
++Name: Hermes and JPJ powering down
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Landing clearance" 
+      0 
+   )
+   ( training-msg 
+      "Mission complete message" 
+   )
+)
++Name: Mission Complete
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 13 to Hermes 15" 
+      33 
+   )
+   ( clear-goals 
+      "Alpha" 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-stay-near-ship "TCS Hermes#1" 50 ) 
+   )
+)
++Name: Landing clearance
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( < 
+      ( distance-ship-subsystem 
+         "Alpha 2" 
+         "TCS Hermes#1" 
+         "fighterbay02" 
+      )
+      50 
+   )
+   ( when 
+      ( is-goal-true-delay 
+         "Scan Transports" 
+         0 
+      )
+      ( modify-variable 
+         @LokiScore[0] 
+         ( + @LokiScore[0] 1 ) 
+      )
+   )
+   ( end-mission ) 
+)
++Name: End mission
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Objective:  XSTR("Land on the TCS Hermes", -1)
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( key-pressed "Alt-A" ) 
+      ( < 
+         ( distance "Alpha 2" "<any hostile>" ) 
+         5500 
+      )
+   )
+   ( key-reset "Alt-A" ) 
+   ( training-msg "Enemy near message" ) 
+)
++Name: Autopilot Reset
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( every-time 
+   ( and 
+      ( key-pressed "Alt-A" ) 
+      ( = @AutoNavPhase[0] 1 ) 
+      ( not 
+         ( < 
+            ( distance "Alpha 2" "<any hostile>" ) 
+            5500 
+         )
+      )
+   )
+   ( modify-variable 
+      @AutoNavDirX[0] 
+      ( / 
+         ( * 
+            ( - 
+               ( get-object-x "NextNav:1" ) 
+               ( get-object-x "Alpha 2" ) 
+            )
+            1000 
+         )
+         ( distance "NextNav:1" "Alpha 2" ) 
+      )
+   )
+   ( modify-variable 
+      @AutoNavDirY[0] 
+      ( / 
+         ( * 
+            ( - 
+               ( get-object-y "NextNav:1" ) 
+               ( get-object-y "Alpha 2" ) 
+            )
+            1000 
+         )
+         ( distance "NextNav:1" "Alpha 2" ) 
+      )
+   )
+   ( modify-variable 
+      @AutoNavDirZ[1] 
+      ( / 
+         ( * 
+            ( - 
+               ( get-object-z "NextNav:1" ) 
+               ( get-object-z "Alpha 2" ) 
+            )
+            1000 
+         )
+         ( distance "NextNav:1" "Alpha 2" ) 
+      )
+   )
+   ( modify-variable 
+      @AutoNavPhase[0] 
+      ( + @AutoNavPhase[0] 1 ) 
+   )
+   ( modify-variable 
+      @AutoNavTime[0] 
+      ( mission-time ) 
+   )
+   ( set-cutscene-bars ) 
+   ( lock-primary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( lock-secondary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( lock-afterburner 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( hud-set-max-targeting-range 1 ) 
+   ( lock-controls ( true ) ) 
+   ( player-use-ai ) 
+)
++Name: AutoNav Initialize
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( = @AutoNavPhase[0] 2 ) 
+   ( set-object-position 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "Alpha 2" ) 
+         ( / 
+            ( * 
+               @AutoNavDirX[0] 
+               ( distance "Alpha 2" "NextNav:1" ) 
+            )
+            2000 
+         )
+      )
+      ( + 
+         ( get-object-y "Alpha 2" ) 
+         ( / 
+            ( * 
+               @AutoNavDirY[0] 
+               ( distance "Alpha 2" "NextNav:1" ) 
+            )
+            2000 
+         )
+      )
+      ( + 
+         ( get-object-z "Alpha 2" ) 
+         ( / 
+            ( * 
+               @AutoNavDirZ[1] 
+               ( distance "Alpha 2" "NextNav:1" ) 
+            )
+            2000 
+         )
+      )
+   )
+   ( set-object-facing-object 
+      "Alpha 2" 
+      "NextNav:1" 
+   )
+)
++Name: AutoNav Position Sandman
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( = @AutoNavPhase[0] 2 ) 
+   ( set-object-position 
+      "Alpha 1" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+   )
+   ( set-object-position 
+      "Alpha 3" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         66 
+         0 
+         0 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         66 
+         0 
+         0 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         66 
+         0 
+         0 
+      )
+   )
+   ( set-object-position 
+      "Alpha 4" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         -33 
+         25 
+         -50 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         -33 
+         25 
+         -50 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         -33 
+         25 
+         -50 
+      )
+   )
+   ( set-object-facing 
+      "<argument>" 
+      ( + 
+         ( get-object-x "<argument>" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "<argument>" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "<argument>" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+)
++Name: AutoNav Position Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 2 ) 
+      ( < @AutoNavCamera[0] 6 ) 
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 0 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -10 
+            5 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -10 
+            5 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -10 
+            5 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 1 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            10 
+            5 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            10 
+            5 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            10 
+            5 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 2 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -750 
+            250 
+            1000 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -750 
+            250 
+            1000 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -750 
+            250 
+            1000 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         15 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 3 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            750 
+            250 
+            1000 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            750 
+            250 
+            1000 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            750 
+            250 
+            1000 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         15 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 4 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -100 
+            150 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -100 
+            150 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -100 
+            150 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 5 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            100 
+            150 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            100 
+            150 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            100 
+            150 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( modify-variable 
+      @AutoNavPhase[0] 
+      ( + @AutoNavPhase[0] 1 ) 
+   )
+)
++Name: AutoNav Position Camera 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 2 ) 
+      ( > @AutoNavCamera[0] 5 ) 
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 6 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -25 
+            -10 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -25 
+            -10 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -25 
+            -10 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 7 ) 
+      ( set-camera-position 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            25 
+            -10 
+            300 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            25 
+            -10 
+            300 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            25 
+            -10 
+            300 
+         )
+      )
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         13 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 8 ) 
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            50 
+            0 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            50 
+            0 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            50 
+            0 
+         )
+      )
+      ( set-object-facing-object 
+         "Cam Ghost" 
+         "Alpha 2" 
+      )
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            300 
+            750 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            300 
+            750 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            -20 
+            300 
+            750 
+         )
+      )
+      ( set-camera-position 
+         ( get-object-x "Cam Ghost" ) 
+         ( get-object-y "Cam Ghost" ) 
+         ( get-object-z "Cam Ghost" ) 
+      )
+      ( modify-variable @CamSpeed[0] -75 ) 
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         20 
+      )
+   )
+   ( when 
+      ( = @AutoNavCamera[0] 9 ) 
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            50 
+            0 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            50 
+            0 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            50 
+            0 
+         )
+      )
+      ( set-object-facing-object 
+         "Cam Ghost" 
+         "Alpha 2" 
+      )
+      ( set-object-position 
+         "Cam Ghost" 
+         ( get-object-x 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            300 
+            750 
+         )
+         ( get-object-y 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            300 
+            750 
+         )
+         ( get-object-z 
+            "Alpha 2" 
+            "<none>" 
+            20 
+            300 
+            750 
+         )
+      )
+      ( set-camera-position 
+         ( get-object-x "Cam Ghost" ) 
+         ( get-object-y "Cam Ghost" ) 
+         ( get-object-z "Cam Ghost" ) 
+      )
+      ( modify-variable @CamSpeed[0] -75 ) 
+      ( modify-variable 
+         @AutoNavCamTime[10] 
+         20 
+      )
+   )
+   ( modify-variable 
+      @AutoNavPhase[0] 
+      ( + @AutoNavPhase[0] 1 ) 
+   )
+)
++Name: AutoNav Position Camera 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( = @AutoNavPhase[0] 3 ) 
+   ( set-object-facing 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "Alpha 2" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 2" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 2" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+   ( set-object-speed-x 
+      "Alpha 2" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "Alpha 2" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-z 
+      "Alpha 2" 
+      @AutoNavFighterSpeed[65] 
+      ( true ) 
+   )
+   ( reset-time-compression ) 
+   ( when 
+      ( not ( = @CamSpeed[0] 0 ) ) 
+      ( set-object-speed-z 
+         "Cam Ghost" 
+         @CamSpeed[0] 
+         ( true ) 
+      )
+      ( set-camera-position 
+         ( get-object-x "Cam Ghost" ) 
+         ( get-object-y "Cam Ghost" ) 
+         ( get-object-z "Cam Ghost" ) 
+      )
+   )
+   ( set-camera-facing-object "Alpha 2" ) 
+)
++Name: AutoNav Update Sandman & Camera
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( = @AutoNavPhase[0] 3 ) 
+   ( set-object-facing 
+      "<argument>" 
+      ( + 
+         ( get-object-x "<argument>" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "<argument>" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "<argument>" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+   ( set-object-speed-x 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-z 
+      "<argument>" 
+      @AutoNavFighterSpeed[65] 
+      ( true ) 
+   )
+)
++Name: AutoNav Update Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + 
+            @AutoNavTime[0] 
+            @AutoNavCamTime[10] 
+         )
+      )
+   )
+   ( set-object-position 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "NextNav:1" ) 
+         ( / ( * @AutoNavDirX[0] -1000 ) 1000 ) 
+      )
+      ( + 
+         ( get-object-y "NextNav:1" ) 
+         ( / ( * @AutoNavDirY[0] -1000 ) 1000 ) 
+      )
+      ( + 
+         ( get-object-z "NextNav:1" ) 
+         ( / ( * @AutoNavDirZ[1] -1000 ) 1000 ) 
+      )
+   )
+   ( set-object-facing 
+      "Alpha 2" 
+      ( + 
+         ( get-object-x "Alpha 2" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 2" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 2" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+)
++Name: AutoNav Deactivate Sandman
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + 
+            @AutoNavTime[0] 
+            @AutoNavCamTime[10] 
+         )
+      )
+   )
+   ( set-object-position 
+      "Alpha 1" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         33 
+         -25 
+         50 
+      )
+   )
+   ( set-object-position 
+      "Alpha 3" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         66 
+         0 
+         0 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         66 
+         0 
+         0 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         66 
+         0 
+         0 
+      )
+   )
+   ( set-object-position 
+      "Alpha 4" 
+      ( get-object-x 
+         "Alpha 2" 
+         "<none>" 
+         -33 
+         25 
+         -50 
+      )
+      ( get-object-y 
+         "Alpha 2" 
+         "<none>" 
+         -33 
+         25 
+         -50 
+      )
+      ( get-object-z 
+         "Alpha 2" 
+         "<none>" 
+         -33 
+         25 
+         -50 
+      )
+   )
+   ( set-object-facing 
+      "Alpha 1" 
+      ( + 
+         ( get-object-x "Alpha 1" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 1" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 1" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+   ( set-object-facing 
+      "Alpha 3" 
+      ( + 
+         ( get-object-x "Alpha 3" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 3" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 3" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+   ( set-object-facing 
+      "Alpha 4" 
+      ( + 
+         ( get-object-x "Alpha 4" ) 
+         @AutoNavDirX[0] 
+      )
+      ( + 
+         ( get-object-y "Alpha 4" ) 
+         @AutoNavDirY[0] 
+      )
+      ( + 
+         ( get-object-z "Alpha 4" ) 
+         @AutoNavDirZ[1] 
+      )
+   )
+)
++Name: AutoNav Deactivate Alpha
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( and 
+      ( = @AutoNavPhase[0] 3 ) 
+      ( > 
+         ( mission-time ) 
+         ( + 
+            @AutoNavTime[0] 
+            @AutoNavCamTime[10] 
+         )
+      )
+   )
+   ( modify-variable @AutoNavPhase[0] 0 ) 
+   ( modify-variable @CamSpeed[0] 0 ) 
+   ( key-reset "Alt-A" ) 
+   ( unset-cutscene-bars ) 
+   ( reset-camera ) 
+   ( unlock-primary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( unlock-secondary-weapon 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( unlock-afterburner 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Alpha 3" 
+      "Alpha 4" 
+   )
+   ( hud-set-frame "Autopilot" 0 ) 
+   ( hud-set-max-targeting-range 30000 ) 
+   ( lock-controls ( false ) ) 
+   ( player-not-use-ai ) 
+)
++Name: AutoNav Reset
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time 
+   ( true ) 
+   ( reset-time-compression ) 
+)
++Name: Reset time compression
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of "Alpha 1" "Alpha 3" ) 
+   ( and 
+      ( > 
+         ( distance 
+            "<argument>" 
+            "Waypoint Alpha 1:1" 
+         )
+         250 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+      ( = @AutoNavPhase[0] 0 ) 
+      ( not 
+         ( is-event-true-delay 
+            "Orders Alpha" 
+            0 
+         )
+      )
+   )
+   ( set-object-facing-object 
+      "<argument>" 
+      "Waypoint Alpha 1:1" 
+   )
+   ( set-object-speed-x 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+)
++Name: Launch Helper Alp 1 and Alp 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of "Alpha 4" ) 
+   ( and 
+      ( > 
+         ( distance 
+            "<argument>" 
+            "Waypoint Alpha 2:1" 
+         )
+         250 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+      ( = @AutoNavPhase[0] 0 ) 
+      ( not 
+         ( is-event-true-delay 
+            "Orders Alpha" 
+            0 
+         )
+      )
+   )
+   ( set-object-facing-object 
+      "<argument>" 
+      "Waypoint Alpha 2:1" 
+   )
+   ( set-object-speed-x 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+   ( set-object-speed-y 
+      "<argument>" 
+      0 
+      ( true ) 
+   )
+)
++Name: Launch Helper Alp 4
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( random-multiple-of 
+      "Zulu 1" 
+      "Zulu 2" 
+      "Zulu 3" 
+      "Zulu 4" 
+      "Zulu 5" 
+      "Zulu 6" 
+      "Yankee 1" 
+      "Yankee 2" 
+      "Yankee 3" 
+      "Yankee 4" 
+      "Yankee 5" 
+      "Yankee 6" 
+      "X-ray 1" 
+      "X-ray 2" 
+      "Whiskey 1" 
+      "Whiskey 2" 
+      "Whiskey 3" 
+      "Victor 1" 
+      "Victor 2" 
+      "Uniform 1" 
+      "Uniform 2" 
+      "Tango 1" 
+      "Tango 2" 
+      "Tango 3" 
+      "Tango 4" 
+      "Sierra 1" 
+      "Sierra 2" 
+      "Sierra 3" 
+      "Romeo 1" 
+      "Romeo 2" 
+      "Romeo 3" 
+      "Romeo 4" 
+      "Romeo 5" 
+      "Romeo 6" 
+   )
+   ( and 
+      ( has-arrived-delay 3 "<argument>" ) 
+      ( not 
+         ( is-destroyed-delay 0 "<argument>" ) 
+      )
+      ( > 
+         ( mission-time ) 
+         ( + @TauntTimer[0] 23 ) 
+      )
+   )
+   ( modify-variable 
+      @TauntTimer[0] 
+      ( mission-time ) 
+   )
+   ( send-random-message 
+      "<argument>" 
+      "Low" 
+      "KTaunt 01" 
+      "KTaunt 02" 
+      "KTaunt 03" 
+      "KTaunt 04" 
+      "KTaunt 05" 
+      "KTaunt 06" 
+      "KTaunt 07" 
+      "KTaunt 08" 
+      "KTaunt 09" 
+      "KTaunt 10" 
+      "KTaunt 11" 
+      "KTaunt 12" 
+   )
+)
++Name: Taunt
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-iff "Traitor" "Alpha 2" ) 
+   ( end-mission ) 
+)
++Name: Player turned traitor
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( every-time-argument 
+   ( any-of 
+      "Blackmane Jump Point#" 
+      "Blackmane Jump Point#JP" 
+   )
+   ( has-arrived-delay 0 "<argument>" ) 
+   ( change-iff-color 
+      "Friendly" 
+      "Unknown" 
+      236 
+      56 
+      24 
+      "<argument>" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Change jump buoys IFF color
++Repeat Count: 1
++Interval: 1
+
+#Goals		;! 4 total
+
+$Type: Primary
++Name: Secure Jump Point
+$MessageNew:  XSTR("Secure the Jump Point.", -1)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "Jump Point secured" 
+   0 
+)
++No music
+
+$Type: Primary
++Name: Clear a path for the Hermes
+$MessageNew:  XSTR("Clear a path so the Hermes can reach the asteroid field.", -1)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "Alpha stand down Nav 2" 
+   0 
+)
++No music
+
+$Type: Primary
++Name: Protect Hermes and JPJ
+$MessageNew:  XSTR("Protect the Hermes and John Paul Jones as they enter the Asteroid Field.", -1)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "Hermes protected" 
+   0 
+)
+
+$Type: Bonus
++Name: Scan Transports
+$MessageNew:  XSTR("Scan both Kilrathi transports convoy to gather intelligence.", -1)
+$end_multi_text
+$Formula: ( is-event-true-delay 
+   "M_Stingray 3" 
+   0 
+)
+
+#Waypoints		;! 17 lists total
+
+
+$Jump Node: 0.000000, 0.000000, -4000.000000
+$Jump Node Name: Blackmane Jump Point
+$Name: NextNav
+$List: (		;! 1 points in list
+	( 0.000000, 0.000000, 2000.000000 )
+)
+
+$Name: Waypoint Nav 1
+$List: (		;! 1 points in list
+	( -28000.048828, -14701.675781, 39598.003906 )
+)
+
+$Name: Waypoint Nav 2
+$List: (		;! 1 points in list
+	( 30000.000000, 0.000000, 40000.000000 )
+)
+
+$Name: Waypoint Nav 3
+$List: (		;! 1 points in list
+	( 44498.398438, 0.000000, 9528.700195 )
+)
+
+$Name: Waypoint Alpha 1
+$List: (		;! 1 points in list
+	( -18.000000, 150.000000, 20000.000000 )
+)
+
+$Name: Waypoint Alpha 2
+$List: (		;! 1 points in list
+	( 12.000000, 150.000000, 20000.000000 )
+)
+
+$Name: Asteroid Path Hermes
+$List: (		;! 1 points in list
+	( 49703.398438, 0.000000, 700.000000 )
+)
+
+$Name: Waypoint path 10
+$List: (		;! 1 points in list
+	( 458.466797, 300.001587, -296935.750000 )
+)
+
+$Name: Asteroid Path JPJ
+$List: (		;! 1 points in list
+	( 50272.898438, 700.000000, 750.000000 )
+)
+
+$Name: Path Transport 1
+$List: (		;! 1 points in list
+	( 32375.000000, -415.000000, 300000.000000 )
+)
+
+$Name: Path Transport 2
+$List: (		;! 1 points in list
+	( 32702.199219, 203.000000, 299764.000000 )
+)
+
+$Name: Escape Corvette
+$List: (		;! 1 points in list
+	( -10000.000000, 0.000000, 500.000000 )
+)
+
+$Name: Jump Point Going In
+$List: (		;! 1 points in list
+	( 0.000000, 0.000000, -295000.000000 )
+)
+
+$Name: Jump Point Coming Out
+$List: (		;! 1 points in list
+	( 0.000000, 0.000000, -303000.000000 )
+)
+
+$Name: Waypoint Blackmane JP
+$List: (		;! 1 points in list
+	( 0.000000, 0.000000, -6500.000000 )
+)
+
+$Name: Waypoint path 16
+$List: (		;! 1 points in list
+	( -2508.300049, -10000.000000, -2243.399902 )
+)
+
+$Name: CAP Path
+$List: (		;! 6 points in list
+	( 51703.398438, 0.000000, 700.000000 )
+	( 50703.398438, 0.000000, 2432.051025 )
+	( 48703.398438, 0.000000, 2432.051025 )
+	( 47703.398438, 0.000000, 700.000000 )
+	( 48703.398438, 0.000000, -1032.051025 )
+	( 50703.398438, 0.000000, -1032.051147 )
+)
+
+#Messages		;! 65 total
+
+
+$Name: ========== Nav 0 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Hermes 1
+$Team: -1
+$MessageNew:  XSTR("As expected, a welcome committee. Alpha Wing, you have clearance to launch!", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_01.wav
+
+$Name: Jim Bowie 1
+$Team: -1
+$MessageNew:  XSTR("Jamming initiated, communication blackout successful.", -1)
+$end_multi_text
++AVI Name: Head-VENOM2
++Wave Name: 14_venom_01.wav
+
+$Name: Stingray 1
+$Team: -1
+$MessageNew:  XSTR("Corvette is making a run for it. Stop it before it leaves the jamming field!", -1)
+$end_multi_text
++AVI Name: Head-STINGRAY
++Wave Name: 14_stingray_01.wav
+
+$Name: Hermes 2
+$Team: -1
+$MessageNew:  XSTR("All batteries, lock on that picket ship and open fire!", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_02.wav
+
+$Name: Hermes 3
+$Team: -1
+$MessageNew:  XSTR("Jump point secure. Jim Bowie, were any Kilrathi notified to our presence?", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_03.wav
+
+$Name: Jim Bowie 2
+$Team: -1
+$MessageNew:  XSTR("Negative. The Cats were unable to penetrate the jamming field.", -1)
+$end_multi_text
++AVI Name: Head-VENOM2
++Wave Name: 14_venom_02.wav
+
+$Name: Hermes 4
+$Team: -1
+$MessageNew:  XSTR("Understood. We are proceeding with our mission. Alpha Wing, proceed to Nav 1 and start your sweep.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_04.wav
+
+$Name: ========== Nav 1 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Stingray 2
+$Team: -1
+$MessageNew:  XSTR("Multiple fighter contacts ... all fighters, break and attack!", -1)
+$end_multi_text
++AVI Name: Head-STINGRAY
++Wave Name: 14_stingray_02.wav
+
+$Name: Sandman 1
+$Team: -1
+$MessageNew:  XSTR("Area secure.", -1)
+$end_multi_text
++Wave Name: 14_sandman_01.wav
+
+$Name: ========== Nav 2 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Ninja 1
+$Team: -1
+$MessageNew:  XSTR("More fighters, looks like they're escorting a couple of transports as well.", -1)
+$end_multi_text
++AVI Name: Head-NINJA
++Wave Name: 14_ninja_01.wav
+
+$Name: Assassin 1
+$Team: -1
+$MessageNew:  XSTR("I wonder what they're haulin'?", -1)
+$end_multi_text
++AVI Name: Head-ASSASSIN
++Wave Name: 14_assassin_01.wav
+
+$Name: Ninja 2
+$Team: -1
+$MessageNew:  XSTR("Who knows? Let's make sure they don't get to their destination.", -1)
+$end_multi_text
++AVI Name: Head-NINJA
++Wave Name: 14_ninja_02.wav
+
+$Name: Stingray 3
+$Team: -1
+$MessageNew:  XSTR("Good thinking, Sandman. Intel will want to get their hands on these scans.", -1)
+$end_multi_text
++AVI Name: Head-STINGRAY
++Wave Name: 14_stingray_03.wav
+
+$Name: Assassin 2
+$Team: -1
+$MessageNew:  XSTR("That's the last of them!", -1)
+$end_multi_text
++AVI Name: Head-ASSASSIN
++Wave Name: 14_assassin_02.wav
+
+$Name: ========== Nav 3 ==========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Stingray 4
+$Team: -1
+$MessageNew:  XSTR("Hermes, Archer Alpha reporting in, on station at Nav 3.", -1)
+$end_multi_text
++AVI Name: Head-STINGRAY
++Wave Name: 14_stingray_04.wav
+
+$Name: Hermes 5
+$Team: -1
+$MessageNew:  XSTR("Roger, Alpha. Everything's going according to plan. We're proceeding toward the asteroid field. The clutter from the asteroids should help mask our radar signature.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_05.wav
+
+$Name: Hermes 6
+$Team: -1
+$MessageNew:  XSTR("We should be ready for phase 2. Jim Bowie, are you in position?", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_06.wav
+
+$Name: Jim Bowie 3
+$Team: -1
+$MessageNew:  XSTR("We have reached our station.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_03.wav
+
+$Name: Hermes 7
+$Team: -1
+$MessageNew:  XSTR("Proceed with the next phase. Inform the rest of the battle group.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_07.wav
+
+$Name: Jim Bowie 4
+$Team: -1
+$MessageNew:  XSTR("Roger that. Activating jump probe ... Probe has entered the Blackmane jump point.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_04.wav
+
+$Name: Jim Bowie 5
+$Team: -1
+$MessageNew:  XSTR("Confed warships jumping in. IFF is consistent with the Olympia, Fletcher, and Bentley.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_05.wav
+
+$Name: Jim Bowie 6
+$Team: -1
+$MessageNew:  XSTR("We have ceased jamming and the new arrivals are pinging the system at maximum output. The Cats definitely see them now.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_06.wav
+
+$Name: Hermes 8
+$Team: -1
+$MessageNew:  XSTR("Are the Cats taking the bait?", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_08.wav
+
+$Name: Jim Bowie 7
+$Team: -1
+$MessageNew:  XSTR("This is as close to a 'kick me' sign as our ships can get. Standby.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_07.wav
+
+$Name: Jim Bowie 8
+$Team: -1
+$MessageNew:  XSTR("The Cats are taking the bait. We're now detecting vector changes of at least four vessels in the system. They are converging on our ships.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_08.wav
+
+$Name: Hermes 9
+$Team: -1
+$MessageNew:  XSTR("I take it the Cats don't know about the Hermes?", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_09.wav
+
+$Name: Jim Bowie 9
+$Team: -1
+$MessageNew:  XSTR("Negative, they are making no indication that they are aware a carrier has infiltrated the system.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_09.wav
+
+$Name: Hermes 10
+$Team: -1
+$MessageNew:  XSTR("It appears we have the enemy ships hook and line. Captain says its time to drop the sinker. Foxtrot, Golf, you are cleared for launch. Light up that killboard.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_10.wav
+
+$Name: Joker 1
+$Team: -1
+$MessageNew:  XSTR("Roger that.", -1)
+$end_multi_text
++AVI Name: Head-JOKER
++Wave Name: 14_joker_01.wav
+
+$Name: Isis 1
+$Team: -1
+$MessageNew:  XSTR("Confirmed. Longbow niner-zero-two, under power.", -1)
+$end_multi_text
++AVI Name: Head-ISIS
++Wave Name: 14_isis_01.wav
+
+$Name: Hermes 11
+$Team: -1
+$MessageNew:  XSTR("Hermes and John Paul Jones proceeding into asteroid field. Alpha Wing, maintain close escort and destroy any indigenous objects.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_11.wav
+
+$Name: Sandman 2
+$Team: -1
+$MessageNew:  XSTR("Indigenous objects?", -1)
+$end_multi_text
++Wave Name: 14_sandman_02.wav
+
+$Name: Ninja 3
+$Team: -1
+$MessageNew:  XSTR("You know ... asteroids.", -1)
+$end_multi_text
++AVI Name: Head-NINJA
++Wave Name: 14_ninja_03.wav
+
+$Name: ---------------------------
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Hermes 12
+$Team: -1
+$MessageNew:  XSTR("Alpha Wing, our sensors are picking up enemy fighters and bombers inside the asteroid field.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_12.wav
+
+$Name: Stingray 5
+$Team: -1
+$MessageNew:  XSTR("Got it, all fighters engage those bombers. Oh, and try not to run into any asteroids, guys...", -1)
+$end_multi_text
++AVI Name: Head-STINGRAY
++Wave Name: 14_stingray_05.wav
+
+$Name: ---------------------------
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Hermes 13
+$Team: -1
+$MessageNew:  XSTR("Helm is reporting all stop. We're powering down engines and all non-essential systems. Setting passive radar and detection systems array to maximum range and sensitivity.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_13.wav
+
+$Name: Jim Bowie 10
+$Team: -1
+$MessageNew:  XSTR("Hermes, the remainder of our battle group is playing chicken with the attacking vessels. Your fighters and bombers should enter the fray in a matter of minutes.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_10.wav
+
+$Name: Hermes 14
+$Team: -1
+$MessageNew:  XSTR("Roger, Jim Bowie. We have them on our scopes. You can now proceed with our main objective.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_14.wav
+
+$Name: Jim Bowie 11
+$Team: -1
+$MessageNew:  XSTR("Understood, Hermes. Entering communications blackout.", -1)
+$end_multi_text
++AVI Name: Head-LONGRANGE
++Wave Name: 14_venom_11.wav
+
+$Name: Hermes 15
+$Team: -1
+$MessageNew:  XSTR("Archer Alpha, Archer Bravo is cycling up to relieve you of CAP duty. You are cleared to land.", -1)
+$end_multi_text
++AVI Name: Head-HERMES
++Wave Name: 14_hermes_control_15.wav
+
+$Name: ========= Computer ========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: Mission complete message
+$Team: -1
+$MessageNew:  XSTR("Mission complete", -1)
+$end_multi_text
++Wave Name: ge_computer_01.wav
+
+$Name: Mission failed message
+$Team: -1
+$MessageNew:  XSTR("Unable to complete mission", -1)
+$end_multi_text
++Wave Name: ge_computer_02.wav
+
+$Name: Enemy near message
+$Team: -1
+$MessageNew:  XSTR("Enemy near - autopilot not allowed", -1)
+$end_multi_text
++Wave Name: ge_computer_03.wav
+
+$Name: Proceed to waypoint message
+$Team: -1
+$MessageNew:  XSTR("Proceed to next waypoint", -1)
+$end_multi_text
++Wave Name: ge_computer_11.wav
+
+$Name: Autopilot link message
+$Team: -1
+$MessageNew:  XSTR("Autopilot link established", -1)
+$end_multi_text
++Wave Name: ge_computer_07.wav
+
+$Name: ========== Taunts =========
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
+
+$Name: KTaunt 01
+$Team: -1
+$MessageNew:  XSTR("You fly like the ape that you are.", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_01.wav
+
+$Name: KTaunt 02
+$Team: -1
+$MessageNew:  XSTR("You pathetic descendant of monkeys.", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_02.wav
+
+$Name: KTaunt 03
+$Team: -1
+$MessageNew:  XSTR("You will not survive this battle, ape scum!", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_03.wav
+
+$Name: KTaunt 04
+$Team: -1
+$MessageNew:  XSTR("I shall eat your heart and spit it out, terran.", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_04.wav
+
+$Name: KTaunt 05
+$Team: -1
+$MessageNew:  XSTR("Die, you furless freak!", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_05.wav
+
+$Name: KTaunt 06
+$Team: -1
+$MessageNew:  XSTR("The confed ape dares to attack?!", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_06.wav
+
+$Name: KTaunt 07
+$Team: -1
+$MessageNew:  XSTR("(laughter)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_07.wav
+
+$Name: KTaunt 08
+$Team: -1
+$MessageNew:  XSTR("(snarling)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_08.wav
+
+$Name: KTaunt 09
+$Team: -1
+$MessageNew:  XSTR("(laughter)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_09.wav
+
+$Name: KTaunt 10
+$Team: -1
+$MessageNew:  XSTR("(laughter)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_10.wav
+
+$Name: KTaunt 11
+$Team: -1
+$MessageNew:  XSTR("(snarling)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_11.wav
+
+$Name: KTaunt 12
+$Team: -1
+$MessageNew:  XSTR("(snarling)", -1)
+$end_multi_text
++AVI Name: Head-KP1
++Wave Name: ge_kilrathi_taunt_12.wav
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps		;! 0 total
+
+$Num stars: 0
+$Ambient light level: 5263440
+
+$Bitmap List:
+$Sun: SunG5
++Angles: 0.994837 0.104720 4.886918
++Scale: 6.000000
+
+#Asteroid Fields
+
+$Density: 128
++Field Type: 0
++Debris Genre: 0
++Field Debris Type: 0
++Field Debris Type: 1
++Field Debris Type: 2
+$Average Speed: 5.000000
+$Minimum: 45000.000000, -3000.000000, -5000.000000
+$Maximum: 55000.000000, 3000.000000, 5000.000000
++Inner Bound:
+$Minimum: 49000.000000, -1000.000000, -1000.000000
+$Maximum: 52000.000000, 1000.000000, 1400.000000
+
+#Music
+
+$Event Music: Proxima
+$Briefing Music: Brief3
+
+#End
+
