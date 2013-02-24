@@ -18,7 +18,7 @@
 $Name:										@Ion
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.9
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -29,7 +29,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Laser
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.05
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -40,7 +40,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Light Tachyon
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.6
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -51,7 +51,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Mass Driver
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			1.0
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -62,7 +62,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Meson
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			1.65
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -73,7 +73,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Neutron
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			1.1
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -83,7 +83,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Particle
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			1.2
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -94,7 +94,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Photon
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.95
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -105,7 +105,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Plasma
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			1.5
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -116,7 +116,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Reaper
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.75
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -127,7 +127,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Tachyon
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.6
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -140,7 +140,7 @@ $Piercing Impact Particles: 		5
 $Name: 										@Anti-Mater Turret
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			7.5
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -155,7 +155,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Laser Turret
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			0.05
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -170,7 +170,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			@Tachyon Turret
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			5.0
 $Piercing Impact Velocity: 			30
 $Piercing Impact Splash Velocity: 	-2.5
@@ -188,7 +188,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Dart Dumbfire
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -199,7 +199,7 @@ $Piercing Impact Particles: 		5
 $Name:                                 		@Pilum FF
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -210,7 +210,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Javelin HS
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -221,7 +221,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Spiculum IR
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -232,7 +232,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Porcupine
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -243,7 +243,7 @@ $Piercing Impact Particles: 		5
 $Name:                          			Lance
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			22.5
 $Piercing Impact Velocity: 			200
 $Piercing Impact Splash Velocity: 	-2.5
@@ -254,7 +254,7 @@ $Piercing Impact Particles: 		5
 $Name:                        		    	Warhammer CSM
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			22.5
 $Piercing Impact Velocity: 			200
 $Piercing Impact Splash Velocity: 	-2.5
@@ -265,7 +265,7 @@ $Piercing Impact Particles: 		5
 $Name:                        		    	Warhammer CSM#long_range
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			22.5
 $Piercing Impact Velocity: 			200
 $Piercing Impact Splash Velocity: 	-2.5
@@ -277,7 +277,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Spiculum IR#turretSP
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -288,7 +288,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Spiculum IR#turretMP
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -299,7 +299,7 @@ $Piercing Impact Particles: 		5
 $Name:                                  	@Paw
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -310,7 +310,7 @@ $Piercing Impact Particles: 		5
 $Name:                                 	    @Fang
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -321,7 +321,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Stalker
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -332,7 +332,7 @@ $Piercing Impact Particles: 		5
 $Name:                              	    @Claw
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -342,7 +342,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Claw#turret
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -353,7 +353,7 @@ $Piercing Impact Particles: 		5
 $Name:                                 	    @Fang Ace
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -365,7 +365,7 @@ $Piercing Impact Particles: 		5
 $Name:                              	    @Claw Ace
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -376,7 +376,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Scratch
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -387,7 +387,7 @@ $Piercing Impact Particles: 		5
 $Name:                          		    Spear
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			22.5
 $Piercing Impact Velocity: 			200
 $Piercing Impact Splash Velocity: 	-2.5
@@ -399,7 +399,7 @@ $Piercing Impact Particles: 		5
 $Name:                          		    Predator  
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			22.5
 $Piercing Impact Velocity: 			200
 $Piercing Impact Splash Velocity: 	-2.5
@@ -411,7 +411,7 @@ $Piercing Impact Particles: 		5
 $Name:                          		    Predator#LongRange
 	+nocreate ;:
 $Damage Type: 						HugeWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			22.5
 $Piercing Impact Velocity: 			200
 $Piercing Impact Splash Velocity: 	-2.5
@@ -424,7 +424,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Pilum FF Child
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			100
 $Piercing Impact Splash Velocity: 	-2.5
@@ -435,7 +435,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Porcupine Child
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5
@@ -446,7 +446,7 @@ $Piercing Impact Particles: 		5
 $Name:                                      @Scratch Child
 	+nocreate ;:
 $Damage Type: 						NormalWeapon
-$Piercing Impact Explosion: 		exp06
+$Piercing Impact Explosion: 		exp04
 $Piercing Impact Radius: 			10.0
 $Piercing Impact Velocity: 			10
 $Piercing Impact Splash Velocity: 	-2.5

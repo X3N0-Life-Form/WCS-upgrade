@@ -1,0 +1,334 @@
+#Mission Info
+
+$Version: 0.10
+$Name:  XSTR("Testing Arena", -1)
+$Author: X3N0-Life-Form
+$Created: 02/24/13 at 22:09:12
+$Modified: 02/24/13 at 22:22:02
+$Notes:
+This is a FRED2_OPEN created mission.
+$End Notes:
+
+$Mission Desc:
+ XSTR("Put mission description here
+", -1)
+$end_multi_text
+
++Game Type Flags: 1
+
++Flags: 1024
+
++Disallow Support: 0
+
++Hull Repair Ceiling: 0.000000
+
++Subsystem Repair Ceiling: 100.000000
+
++Viewer pos: 0.000000, 496.120453, -0.167318
++Viewer orient:
+	0.993338, -0.000000, 0.115238,
+	-0.042972, 0.927871, 0.370417,
+	-0.106926, -0.372901, 0.921690
+
+
+$Skybox Model: Vega.pof
+
+$AI Profile: SAGA RETAIL
+
+#Command Briefing
+
+#Briefing
+$start_briefing
+$num_stages: 0
+$end_briefing
+
+#Debriefing_info
+
+$Num stages: 0
+
+#Callsigns:
+$Callsign: Pothead
+$Callsign: Psychopath
+$Callsign: Avatarr
+$Callsign: Mastermind
+$Callsign: Sandman
+$Callsign: Kettle
+$Callsign: Phalanx
+$Callsign: Greywolf
+$Callsign: WT RS 3
+$Callsign: Hipshot
+
+#end
+
+
+#Players		;! 1 total
+
+$Starting Shipname: Alpha 1
+$Ship Choices: (
+	"F-86C Hellcat V"	5
+)
+
++Weaponry Pool: (
+	"Ion"	16
+	"Laser"	16
+	"Light Tachyon"	16
+	"Mass Driver"	16
+	"Meson"	16
+	"Neutron"	20
+	"Particle"	16
+	"Photon"	16
+	"Plasma"	20
+	"Reaper"	16
+	"Tachyon"	16
+	"Dart Dumbfire"	500
+	"Pilum FF"	532
+	"Javelin HS"	532
+	"Spiculum IR"	500
+	"Porcupine"	500
+	"Lance"	516
+)
+
+#Objects		;! 6 total
+
+$Name: Alpha 1		;! Object #0
+$Class: F/A-76A Longbow
+$Team: Friendly
+$Location: 0.000000, 0.000000, 0.000000
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "player-start" )
++Flags2: ( "no-subspace-drive" )
++Respawn priority: 0
++Group: 0
++Score: 10
+
+$Name: Alpha 2		;! Object #1
+$Class: F/A-76A Longbow
+$Team: Friendly
+$Location: -50.943848, -0.000001, -27.603329
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( "no-subspace-drive" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 14
+
+$Name: Alpha 3		;! Object #2
+$Class: F/A-76A Longbow
+$Team: Friendly
+$Location: 53.413345, 0.000002, -21.718117
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( "no-subspace-drive" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 14
+
+$Name: Alpha 4		;! Object #3
+$Class: F/A-76A Longbow
+$Team: Friendly
+$Location: -70.177422, 0.000004, -65.699081
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret01
+$Arrival Location: Hyperspace
+$Arrival Cue: ( false ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" )
++Flags2: ( "no-subspace-drive" )
++Respawn priority: 0
++Group: 0
++Use Table Score:
++Score: 14
+
+$Name: Confederation-class 4		;! Object #4
+$Class: Confederation-class
+$Team: Friendly
+$Location: 573.738953, -0.000009, 1206.762451
+$Orientation:
+	-0.029199, 0.000000, 0.999573,
+	-0.198585, 0.980066, -0.005801,
+	-0.979648, -0.198669, -0.028617
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 2
++Subsystem: Pilot
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret16
++Subsystem: turret17
++Subsystem: turret18
++Subsystem: turret19
++Subsystem: turret20
++Subsystem: turret21
++Subsystem: turret22
++Subsystem: turret23
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret24
++Subsystem: turret25
++Subsystem: turret10
++Subsystem: turret11
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "guardian" )
++Flags2: ( "no-subspace-drive" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 2500
+
+$Name: Fralthi II-class 5		;! Object #5
+$Class: Fralthi II-class
+$Team: Hostile
+$Location: -489.825470, 0.000001, 1029.552490
+$Orientation:
+	0.020795, 0.000000, -0.999784,
+	0.159284, 0.987227, 0.003313,
+	0.987014, -0.159318, 0.020529
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 2
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret16
++Subsystem: turret17
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "guardian" )
++Flags2: ( "no-subspace-drive" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 600
+
+#Wings		;! 1 total
+
+$Name: Alpha
+$Waves: 1
+$Wave Threshold: 0
+$Special Ship: 0		;! Alpha 1
+
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Ships: (		;! 4 total
+	"Alpha 1"
+	"Alpha 2"
+	"Alpha 3"
+	"Alpha 4"
+)
++Hotkey: 0
++Flags: ( )
+
+#Events		;! 0 total
+
+
+#Goals		;! 0 total
+
+
+#Waypoints		;! 0 lists total
+
+
+#Messages		;! 0 total
+
+
+#Reinforcements		;! 0 total
+
+
+#Background bitmaps		;! 0 total
+
+$Num stars: 0
+$Ambient light level: 7895139
+
+#Asteroid Fields
+
+#Music
+
+$Event Music: Freya
+$Briefing Music: None
+
+#End
+
