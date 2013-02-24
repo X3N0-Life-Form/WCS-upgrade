@@ -1,0 +1,678 @@
+#Ship Classes
+
+;============================>> CONFEDERATION FIGHTERS <<======================
+
+;------------------------------ Arrow -----------------------------------------
+
+$Name:                          F-27B Arrow
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Ferret ----------------------------------------
+
+$Name:                          P-64C Ferret
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Hellcat ---------------------------------------
+
+$Name:                          F-86C Hellcat V
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Rapier ----------------------------------------
+
+$Name:                          F-44G Rapier II
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Thunderbolt -----------------------------------
+
+$Name:                          F-66A Thunderbolt VII
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Sabre -----------------------------------------
+
+$Name:                          F-57B Sabre
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Excalibur ----------------------------------------
+
+$Name:                          F-103A Excalibur
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Longbow ---------------------------------------
+
+$Name:                          F/A-76A Longbow
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;============================>> CONFEDERATION UTILITY CRAFT <<=================
+
+;------------------------------ Shuttle ---------------------------------------
+
+$Name:                          Shuttle
+	+nocreate ;:
+$Armor Type:				LightArmor
+	
+	
+;------------------------------ Courier ---------------------------------------
+
+$Name:                          Artemis
+	+nocreate ;:
+$Armor Type:				LightArmor
+	
+;------------------------------ Spartan ------------------------------------
+
+$Name:                          Spartan-class
+	+nocreate ;:
+$Armor Type:				LightArmor
+		
+	
+;============================>> CONFEDERATION CAP SHIPS <<=====================
+
+;------------------------------ Prowler --------------------------------------
+
+$Name:                          Prowler-class
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------ Prowler Davy Crockett -------------------------
+
+$Name:                          Prowler-class#Davy
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Prowler-class#Cloak
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Prowler-class#Decloak
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Prowler-class#Inv
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------ Clarkson --------------------------------------
+
+$Name:                          Clarkson-class
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------ Clarkson Medical ------------------------------
+
+$Name:                          Clarkson-class#Medical
+	+nocreate ;:
+$Armor Type:				MediumArmor
+		
+		
+;------------------------------ Pelileu ---------------------------------
+
+$Name:                          Pelileu-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+		
+
+;------------------------------ Venture -------------------------------------
+
+$Name:                          Venture-class
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+		
+;------------------------------ Caernaven -------------------------------------
+
+$Name:                          Caernaven-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Southampton -----------------------------------
+
+$Name:                          Southampton-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Savannah --------------------------------------
+
+$Name:                          Savannah-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Tallahassee -----------------------------------
+
+$Name:                          Tallahassee-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Harrier --------------------------------------
+
+$Name:                          Harrier-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Yorktown --------------------------------------
+
+$Name:                          Yorktown-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Jutland ---------------------------------------
+
+$Name:                          Jutland-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+
+;------------------------------ Lexington -------------------------------------
+
+$Name:                          Lexington-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+
+;------------------------------ Confederation ---------------------------------
+
+$Name:                          Confederation-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+	
+	
+;------------------------------ Behemoth ---------------------------------
+
+$Name:                          Behemoth-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+		
+;============================>> CONFEDERATION INSTALLATIONS <<=================
+
+;------------------------------ Jump Point Buoy -------------------------------
+
+$Name:                          Jump Point Buoy
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+
+;------------------------------ Turret Mine -----------------------------------
+
+$Name:                          Turret Mine
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Supply Depot ------------------------------------
+
+$Name:                          Supply Depot
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+		
+		
+;------------------------------ Naval Base ------------------------------------
+
+$Name:                          Naval Base
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Sector HQ ------------------------------------
+
+$Name:                          Sector HQ
+	+nocreate ;:
+$Armor Type:				HeavyArmor		
+
+;============================>> PIRATE FIGHTERS <<=============================
+
+;------------------------------ Razor -------------------------------------
+
+$Name:                          Razor
+	+nocreate ;:
+$Armor Type:				LightArmor
+	
+
+;------------------------------ Demon -------------------------------------
+
+$Name:                          Demon
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;============================>> PIRATE CAP SHIPS <<============================
+	
+;------------------------------ Caernaven -------------------------------------
+
+$Name:                          Caernaven-class#PR
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;============================>> KILRATHI FIGHTERS <<===========================
+
+;------------------------------ Darket ----------------------------------------
+
+$Name:                          Darket
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Darket Ace ------------------------------------
+
+$Name:                          Darket#Ace
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Ekapshi ----------------------------------------
+
+$Name:                          Ekapshi
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Dralthi IV ------------------------------------
+
+$Name:                          Dralthi IV
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Darket Ace ------------------------------------
+
+$Name:                          Dralthi IV#Ace
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Strakha ---------------------------------------
+
+$Name:                          Strakha
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Strakha#Cloak
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Strakha#Decloak
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Strakha#Inv
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Stalker ---------------------------------------
+
+$Name:                          Strakha#Ace
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Strakha#Ace Cloak
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Strakha#Ace Decloak
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------------------------------------------------------
+
+$Name:                          Strakha#Ace Inv
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Vaktoth ---------------------------------------
+
+$Name:                          Vaktoth
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+;------------------------------ Deathfang ---------------------------------------
+
+$Name:                          Vaktoth#Ace
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+$Name:                          Vaktoth#AceCloak
+	+nocreate ;:
+$Armor Type:				LightArmor
+	
+$Name:                          Vaktoth#AceDecloak
+	+nocreate ;:
+$Armor Type:				LightArmor
+	
+$Name:                          Vaktoth#AceInv
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ K'ha'haf --------------------------------------
+
+$Name:                          Khahaf
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Gothri ---------------------------------------
+
+$Name:                          Gothri
+	+nocreate ;:
+$Armor Type:				LightArmor
+	
+
+;------------------------------ Gothri (Bomber) ---------------------------------------
+
+$Name:                          Gothri#B
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Paktahn ---------------------------------------
+
+$Name:                          Paktahn
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Paktahn Ace ---------------------------------------
+
+$Name:                          Paktahn#Ace
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Sorthak ---------------------------------------
+
+$Name:                          Sorthak
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+
+;============================>> KILRATHI UTILITY CRAFT <<======================
+
+;------------------------------ Zartoth ---------------------------------------
+      
+$Name:                          Zartoth
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Naktarg ---------------------------------------
+
+$Name:                          Naktarg
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;============================>> KILRATHI CAP SHIPS <<==========================
+
+;------------------------------ Sha'Kar ---------------------------------------
+
+$Name:                          Sha'kar-class
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------ Dukara ----------------------------------------
+
+$Name:                          Dukara-class
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+;------------------------------ Kamrani ---------------------------------------
+
+$Name:                          Kamrani-class
+	+nocreate ;:
+$Armor Type:				MediumArmor
+
+
+
+;------------------------------ Zakhari ---------------------------------------
+
+$Name:                          Zakhari-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Jammer ---------------------------------------
+
+$Name:                          Zakhari-class#Jammer
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Ralarrad --------------------------------------
+
+$Name:                          Ralarrad-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Ralaxath --------------------------------------
+
+$Name:                          Ralaxath-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Fralath ---------------------------------------
+
+$Name:                          Fralath-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Fralthi II ------------------------------------
+
+$Name:                          Fralthi II-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Dubav -----------------------------------------
+
+$Name:                          Dubav-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Bhantkara -------------------------------------
+
+$Name:                          Bhantkara-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Hvar'kann ----------------------------------------
+	
+$Name:                          Hvar'kann-class
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+	
+
+;============================>> KILRATHI INSTALLATIONS <<======================
+
+;------------------------------ Jump Point Buoy -------------------------------
+
+$Name:                          Jump Point Buoy#Kilrathi
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Sentry Gun -------------------------------------
+
+$Name:                          Sentry Gun
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+
+;------------------------------ Orbital Station ------------------------------------
+
+$Name:                          Orbital Station
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+		
+		
+;------------------------------ Asteroid Base ------------------------------------
+
+$Name:                          Asteroid Base
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+	
+	
+;------------------------------ Command Station ------------------------------------
+
+$Name:                          Command Station
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+
+;------------------------------ Dry Dock ------------------------------------
+
+$Name:                          Dry Dock
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+;============================>> MISC STUFF <<==================================
+
+;------------------------------ Ghost -----------------------------------------
+
+;; $Name:                          Ghost
+
+
+;------------------------------ Cargo Container ---------------------------------------
+
+$Name:                      	Cargo Container
+	+nocreate ;:
+$Armor Type:				LightArmor
+
+;------------------------------ Debris#A --------------------------------------
+
+$Name:                          Debris#A
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+	
+;------------------------------ Debris#B --------------------------------------
+
+$Name:                          Debris#B
+	+nocreate ;:
+$Armor Type:				HeavyArmor
+
+;------------------------------ Asteroid#A --------------------------------------
+
+;; $Name:                          Asteroid#A
+
+
+;------------------------------ Predator#LR -----------------------------------
+
+;; $Name:                          Predator#LR
+
+
+;------------------------------------------------------------------------------
+
+;; $Name:                          Predator#LR-VeryEasy
+
+
+;------------------------------------------------------------------------------
+
+;; $Name:                          Predator#LR-Easy
+
+
+;------------------------------------------------------------------------------
+
+;; $Name:                          Predator#LR-Hard
+
+
+;------------------------------------------------------------------------------
+
+;; $Name:                          Predator#LR-Insane
+
+
+;------------------------------ Skipper -----------------------------------
+
+; $Name:                          Skipper
+
+
+;------------------------------------------------------------------------------
+
+; $Name:                          Skipper#Cloak
+
+
+;------------------------------------------------------------------------------
+
+; $Name:                          Skipper#Decloak
+
+
+;------------------------------------------------------------------------------
+
+; $Name:                          Skipper#Invisible
+
+
+;------------------------------ Fire -------------------------------
+
+; $Name:                          Fire
+
+
+;------------------------------ Missile-launcher -------------------------------
+
+; $Name:                          Missile-launcher
+
+
+;------------------------------ Missile-launcher#Confed -----------------------
+
+; $Name:                          Missile-launcher#Confed
+
+#End

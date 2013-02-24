@@ -1,0 +1,30 @@
+#Armor Type
+
+;; frigate and above
+$Name: HeavyArmor
+	$Damage Type: NormalWeapon
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: None
+	$Damage Type: HugeWeapon
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+
+;; corvette and civilian vessels
+$Name: MediumArmor
+	$Damage Type: NormalWeapon
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+	$Damage Type: HugeWeapon
+		+Weapon Piercing Effect Start Limit: 5
+		+Weapon Piercing Type: Default
+
+;; fighters, sentries and utility crafts
+$Name: LightArmor
+	$Damage Type: NormalWeapon
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None ;; Default
+	$Damage Type: HugeWeapon
+		+Weapon Piercing Effect Start Limit: 10
+		+Weapon Piercing Type: None
+
+#End
