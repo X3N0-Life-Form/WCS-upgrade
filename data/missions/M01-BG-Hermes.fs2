@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Brimstone 1", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/13/12 at 21:01:10
+$Modified: 02/24/13 at 19:57:14
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -23,11 +23,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 815.972656, 837.192932, -896.720947
++Viewer pos: 615.510925, 834.487610, -1025.668091
 +Viewer orient:
-	0.739623, -0.000000, 0.673021,
-	-0.382422, 0.822879, 0.420267,
-	-0.553815, -0.568217, 0.608620
+	0.927825, -0.000000, 0.373015,
+	-0.143337, 0.923222, 0.356532,
+	-0.344376, -0.384266, 0.856589
 +SquadReassignName: 811th Blood Hounds
 +SquadReassignLogo: Bloodhounds.pcx
 
@@ -2296,6 +2296,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 1", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -2447,6 +2448,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 2", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -2601,6 +2603,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 3", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -2771,6 +2774,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 4", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -3439,6 +3443,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Retreat to Nav 5", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -3565,6 +3570,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Retreat to Nav 6", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -3663,6 +3669,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 6", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 

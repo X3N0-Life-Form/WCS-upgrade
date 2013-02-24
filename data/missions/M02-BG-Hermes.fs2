@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Brimstone 2", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 01/07/12 at 00:25:31
+$Modified: 02/24/13 at 20:18:43
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -60,6 +60,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_01_briefing_02.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -2722,6 +2723,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 1", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -2818,6 +2820,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Destroy Kilrathi fighters", -1)
++Objective key:  XSTR("Comm menu: 'C'", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -2927,6 +2930,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 2", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -4002,6 +4006,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Support Bravo wing", -1)
++Objective key:  XSTR("Comm menu: 'C'", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -4106,6 +4111,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Retreat to Nav 3", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -4212,6 +4218,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Proceed to Nav 4", -1)
++Objective key:  XSTR("Alt-A", -1)
 +Team: 0
 
 $Formula: ( when 
