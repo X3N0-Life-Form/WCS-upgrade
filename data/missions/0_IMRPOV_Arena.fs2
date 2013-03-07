@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Testing Arena", -1)
 $Author: X3N0-Life-Form
 $Created: 02/24/13 at 22:09:12
-$Modified: 02/24/13 at 22:22:02
+$Modified: 03/06/13 at 14:45:28
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -26,9 +26,9 @@ $end_multi_text
 
 +Viewer pos: 0.000000, 496.120453, -0.167318
 +Viewer orient:
-	0.993338, -0.000000, 0.115238,
-	-0.042972, 0.927871, 0.370417,
-	-0.106926, -0.372901, 0.921690
+	0.996523, -0.000001, 0.083314,
+	-0.081732, 0.193909, 0.977609,
+	-0.016156, -0.981020, 0.193234
 
 
 $Skybox Model: Vega.pof
@@ -201,8 +201,9 @@ $Orientation:
 	-0.198585, 0.980066, -0.005801,
 	-0.979648, -0.198669, -0.028617
 $AI Behavior: None
++AI Class: General
 $Cargo 1:  XSTR("Nothing", -1)
-+Initial Hull: 2
++Initial Hull: 100
 +Subsystem: Pilot
 +Subsystem: turret12
 +Subsystem: turret13
@@ -233,7 +234,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "cargo-known" "guardian" )
++Flags: ( "cargo-known" )
 +Flags2: ( "no-subspace-drive" )
 +Respawn priority: 0
 +Orders Accepted: 0		;! note that this is a bitfield!!!
@@ -251,7 +252,7 @@ $Orientation:
 	0.987014, -0.159318, 0.020529
 $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
-+Initial Hull: 2
++Initial Hull: 100
 +Subsystem: Pilot
 +Subsystem: turret05
 +Subsystem: turret06
@@ -275,7 +276,7 @@ $Arrival Cue: ( true )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "guardian" )
++Flags: ( )
 +Flags2: ( "no-subspace-drive" )
 +Respawn priority: 0
 +Orders Accepted: 0		;! note that this is a bitfield!!!
