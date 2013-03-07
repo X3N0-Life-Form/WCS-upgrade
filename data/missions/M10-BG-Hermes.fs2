@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Proxima 1", -1)
 $Author: Romanyuk, Schmitt
 $Created: 02/04/07 at 14:24:24
-$Modified: 03/06/12 at 07:42:41
+$Modified: 03/07/13 at 19:41:20
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -2601,7 +2601,7 @@ $Formula: ( when
          ( - ( get-object-x "TCS Hermes" ) 500 ) 
       )
    )
-   ( do-nothing ) 
+   ( training-msg "Hint-glide" ) 
 )
 +Name: Player outside of hangar
 +Repeat Count: 1
@@ -2804,6 +2804,9 @@ $Formula: ( when
       "TCS Tranquility" 
       "High" 
       "Tranquility 1" 
+   )
+   ( training-msg 
+      "Hint afterburn before gliding" 
    )
 )
 +Name: M_Tranquility 1
@@ -3031,7 +3034,17 @@ $Formula: ( when
       )
       5000 
    )
-   ( do-nothing ) 
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "TCS Tranquility" 
+   )
 )
 +Name: Proceed to Nav 1a
 +Repeat Count: 1
@@ -3362,7 +3375,17 @@ $Formula: ( when
 
 $Formula: ( when 
    ( < ( distance-to-nav "Nav 2" ) 5000 ) 
-   ( do-nothing ) 
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "TCS Tranquility" 
+   )
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
 )
 +Name: Proceed to Nav 2
 +Repeat Count: 1
@@ -3509,6 +3532,7 @@ $Formula: ( when
    ( validate-goal 
       "Protect Fort Pegasus" 
    )
+   ( training-msg "Hint save fuel" ) 
 )
 +Name: Validate objective
 +Repeat Count: 1
@@ -4206,6 +4230,16 @@ $Formula: ( when
       "Golf 2" 
       "Golf 3" 
       "Golf 4" 
+   )
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
    )
 )
 +Name: Proceed to Nav 3
@@ -5604,7 +5638,7 @@ $List: (		;! 1 points in list
 	( -299475.718750, -500.000031, 67010.632813 )
 )
 
-#Messages		;! 53 total
+#Messages		;! 56 total
 
 
 $Name: ========== Nav 0 ==========
@@ -5948,6 +5982,23 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: Hint-glide
+$Team: -1
+$MessageNew:  XSTR("Note: The Arrow is a glide-capable fighter.
+Press Alt-G (by default) to toggle gliding.
+You can change this in the ship control options (recommended if you use tab for afterburners and are on Windows).", -1)
+$end_multi_text
+
+$Name: Hint save fuel
+$Team: -1
+$MessageNew:  XSTR("You can glide to the battlezone to save afterburner fuel.", -1)
+$end_multi_text
+
+$Name: Hint afterburn before gliding
+$Team: -1
+$MessageNew:  XSTR("It's usually a good idea to give a small afterburner burst before gliding.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
