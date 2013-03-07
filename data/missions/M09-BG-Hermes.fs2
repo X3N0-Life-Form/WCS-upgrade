@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Vega 5", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/03/12 at 20:58:02
+$Modified: 03/06/13 at 20:49:19
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -4403,7 +4403,7 @@ $Ships: (		;! 4 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 137 total
+#Events		;! 162 total
 
 $Formula: ( when 
    ( true ) 
@@ -5428,39 +5428,9 @@ $Formula: ( when
       "High" 
       "Kettle 4" 
       0 
-      "Golf 1" 
-      "High" 
-      "Lee 1" 
-      3212 
-      "Bravo 1" 
-      "High" 
-      "Kettle 5" 
-      7710 
-      "Golf 1" 
-      "High" 
-      "Lee 2" 
-      2524 
-      "Bravo 1" 
-      "High" 
-      "Kettle 6" 
-      2570 
-      "Golf 1" 
-      "High" 
-      "Lee 3" 
-      2478 
-      "Alpha 1" 
-      "High" 
-      "Phalanx 1" 
-      7985 
-      "Golf 1" 
-      "High" 
-      "Lee 4" 
-      1881 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 1" 
-      4314 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Kettle 4 to Halo Round 1
 +Repeat Count: 1
@@ -5468,15 +5438,138 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( and 
-      ( is-event-true-delay 
-         "M_Kettle 4 to Halo Round 1" 
-         37 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 1" 
+      3212 
+   )
+)
++Name: Lee 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Bravo 1" 
+      "High" 
+      "Kettle 5" 
+      7710 
+   )
+)
++Name: Kettle 5
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 2" 
+      2524 
+   )
+)
++Name: Lee 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Bravo 1" 
+      "High" 
+      "Kettle 6" 
+      2570 
+   )
+)
++Name: Kettle 6
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 3" 
+      2478 
+   )
+)
++Name: Lee 3
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Phalanx 1" 
+      7985 
+   )
+)
++Name: Phalanx 1
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 4" 
+      1881 
+   )
+)
++Name: Lee 4
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 1" 
+      4314 
+   )
+)
++Name: Halo Round 1
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( and 
+         ( is-event-true-delay 
+            "M_Kettle 4 to Halo Round 1" 
+            37 
+         )
+         ( is-event-true-delay 
+            "Destroy X-ray and Yankee" 
+            5 
+         )
       )
-      ( is-event-true-delay 
-         "Destroy X-ray and Yankee" 
-         5 
-      )
+      ( key-pressed "Alt-J" ) 
    )
    ( do-nothing ) 
 )
@@ -5507,6 +5600,7 @@ $Formula: ( when-argument
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Establish autopilot link", -1)
++Objective key:  XSTR("Link to any ship", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -6159,75 +6253,9 @@ $Formula: ( when
       "High" 
       "Hermes 2" 
       0 
-      "#TCS Hermes" 
-      "High" 
-      "Kilrathi Translation" 
-      10683 
-      "Alpha 3" 
-      "High" 
-      "Greywolf 1" 
-      9873 
-      "Bravo 1" 
-      "High" 
-      "Kettle 11" 
-      2248 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 4" 
-      2661 
-      "Bravo 1" 
-      "High" 
-      "Kettle 12" 
-      3855 
-      "Golf 1" 
-      "High" 
-      "Lee 6" 
-      5599 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 5" 
-      3075 
-      "Golf 1" 
-      "High" 
-      "Lee 7" 
-      2845 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 6" 
-      10188 
-      "Golf 1" 
-      "High" 
-      "Lee 8" 
-      6471 
-      "Alpha 1" 
-      "High" 
-      "Phalanx 2" 
-      2707 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 7" 
-      4405 
-      "Bravo 1" 
-      "High" 
-      "Kettle 13" 
-      1468 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 8" 
-      3579 
-      "Golf 1" 
-      "High" 
-      "Lee 9" 
-      9729 
-      "SS Halo Round" 
-      "High" 
-      "Halo Round 9" 
-      5415 
-      "Golf 1" 
-      "High" 
-      "Lee 10" 
-      3901 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Hermes 2 to Lee 10
 +Repeat Count: 1
@@ -6235,14 +6263,275 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( not 
-      ( percent-ships-destroyed 
-         80 
-         "FB276" 
-         "WT085" 
-         "GD192" 
-         "SS Sebastian" 
-         "SS Vega Star" 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Hermes" 
+      "High" 
+      "Kilrathi Translation" 
+      10683 
+   )
+)
++Name: Kilrathi Translation
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Alpha 3" 
+      "High" 
+      "Greywolf 1" 
+      9873 
+   )
+)
++Name: Greywolf 1
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Bravo 1" 
+      "High" 
+      "Kettle 11" 
+      2248 
+   )
+)
++Name: Kettle 11
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 4" 
+      2661 
+   )
+)
++Name: Halo Round 4
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Bravo 1" 
+      "High" 
+      "Kettle 12" 
+      3855 
+   )
+)
++Name: Kettle 12
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 6" 
+      5599 
+   )
+)
++Name: Lee 6
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 5" 
+      3075 
+   )
+)
++Name: Halo Round 5
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 7" 
+      2845 
+   )
+)
++Name: Lee 7
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 6" 
+      10188 
+   )
+)
++Name: Halo Round 6
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 8" 
+      6471 
+   )
+)
++Name: Lee 8
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Phalanx 2" 
+      2707 
+   )
+)
++Name: Phalanx 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 7" 
+      4405 
+   )
+)
++Name: Halo Round 7
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Bravo 1" 
+      "High" 
+      "Kettle 13" 
+      1468 
+   )
+)
++Name: Kettle 13
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 8" 
+      3579 
+   )
+)
++Name: Halo Round 8
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 9" 
+      9729 
+   )
+)
++Name: Lee 9
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "SS Halo Round" 
+      "High" 
+      "Halo Round 9" 
+      5415 
+   )
+)
++Name: Halo Round 9
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Lee 10" 
+      3901 
+   )
+)
++Name: Lee 10
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( percent-ships-destroyed 
+            80 
+            "FB276" 
+            "WT085" 
+            "GD192" 
+            "SS Sebastian" 
+            "SS Vega Star" 
+         )
+      )
+      ( is-event-true-delay 
+         "M_Hermes 2 to Lee 10" 
+         89 
       )
    )
    ( ship-no-guardian 
@@ -6265,7 +6554,6 @@ $Formula: ( when
 +Name: Unguard entire convoy
 +Repeat Count: 1
 +Interval: 1
-+Chained: 89
 +Team: 0
 
 $Formula: ( when 
@@ -6357,9 +6645,12 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Hermes 2 to Lee 10" 
-      95 
+   ( or 
+      ( is-event-true-delay 
+         "M_Hermes 2 to Lee 10" 
+         95 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10024,7 +10315,7 @@ $List: (		;! 1 points in list
 	( -90478.601563, -50500.000000, 145599.406250 )
 )
 
-#Messages		;! 84 total
+#Messages		;! 85 total
 
 
 $Name: ========== Nav 0 ==========
@@ -10586,6 +10877,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

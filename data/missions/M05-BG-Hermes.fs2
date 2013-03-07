@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Vega 1", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 01/07/12 at 00:24:10
+$Modified: 03/06/13 at 18:30:49
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -23,11 +23,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 543.973328, 841.606873, -1080.093506
++Viewer pos: 67002.648438, -5662.189941, -6532.754395
 +Viewer orient:
-	0.893125, 0.000000, 0.449809,
-	-0.256937, 0.820802, 0.510164,
-	-0.369204, -0.571213, 0.733078
+	-0.969724, -0.000001, -0.244204,
+	0.077013, 0.948970, -0.305819,
+	0.231743, -0.315367, -0.920238
 +SquadReassignName: 811th Blood Hounds
 +SquadReassignLogo: Bloodhounds.pcx
 
@@ -65,13 +65,15 @@ $Variables:
 		18		"EscortCharlie"		"0"		"number"
 		19		"FireclawTauntTimer"		"0"		"number"
 		20		"RunAwayStart"		"0"		"number"
-		21		"TauntTimer"		"0"		"number"
-		22		"VegaScore"		"0"		"number"		"campaign-persistent"
+		21		"Sabre-in-range"		"None"		"string"
+		22		"TauntTimer"		"0"		"number"
+		23		"VegaScore"		"0"		"number"		"campaign-persistent"
 )
 
 #Cutscenes
 $Briefing Cutscene: episode_01_briefing_05.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -1676,9 +1678,10 @@ $Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "no-arrival-warp" "no-departure-warp" "no-dynamic" )
++Flags: ( "escort" "no-arrival-warp" "no-departure-warp" "no-dynamic" )
 +Flags2: ( "no-subspace-drive" "no-builtin-messages" "hide-ship-name" "no-arrival-log" "no-departure-log" )
 +Respawn priority: 0
++Escort priority: 15
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
 +Use Table Score:
@@ -2029,6 +2032,7 @@ $Ships: (		;! 4 total
 	"X-Ray 3"
 	"X-Ray 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Whiskey
@@ -2048,6 +2052,7 @@ $Ships: (		;! 4 total
 	"Whiskey 3"
 	"Whiskey 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Victor
@@ -2072,7 +2077,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 128 total
+#Events		;! 140 total
 
 $Formula: ( when 
    ( true ) 
@@ -2376,6 +2381,16 @@ $Formula: ( when
       "TCS Olympia" 
    )
    ( unset-nav-visited "Nav 6" ) 
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
 )
 +Name: Proceed to Nav 0a
 +Repeat Count: 1
@@ -2494,7 +2509,16 @@ $Formula: ( when
 
 $Formula: ( when 
    ( < ( distance-to-nav "Nav 1" ) 5000 ) 
-   ( do-nothing ) 
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
 )
 +Name: Proceed to Nav 1
 +Repeat Count: 1
@@ -2575,51 +2599,163 @@ $Formula: ( when
       "High" 
       "Sandman 01" 
       0 
+   )
+   ( training-msg "skip dialogue" ) 
+   ( key-reset-multiple "Alt-J" ) 
+)
++Name: M_Sandman 01 to Greywolf 05
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Charlie 1" 
       "High" 
       "Wedge 01" 
       3625 
+   )
+)
++Name: Wedge 01
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Greywolf 02" 
       2845 
+   )
+)
++Name: Greywolf 02
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Charlie 1" 
       "High" 
       "Wedge 02" 
       4268 
+   )
+)
++Name: Wedge 02
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 02" 
       9270 
+   )
+)
++Name: Sandman 02
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Charlie 2" 
       "High" 
       "Backslash 01" 
       5966 
+   )
+)
++Name: Backslash 01
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Greywolf 03" 
       4268 
+   )
+)
++Name: Greywolf 03
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 03" 
       3166 
+   )
+)
++Name: Sandman 03
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Greywolf 04" 
       1422 
+   )
+)
++Name: Greywolf 04
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Charlie 1" 
       "High" 
       "Wedge 03" 
       1376 
+   )
+)
++Name: Wegde 03
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Greywolf 05" 
       3717 
    )
 )
-+Name: M_Sandman 01 to Greywolf 05
++Name: Greywolf 05
 +Repeat Count: 1
 +Interval: 1
++Chained: 3
 +Team: 0
 
 $Formula: ( when 
@@ -2652,9 +2788,12 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Sandman 01 to Greywolf 05" 
-      43 
+   ( or 
+      ( is-event-true-delay 
+         "M_Sandman 01 to Greywolf 05" 
+         43 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -2698,6 +2837,20 @@ $Formula: ( when
       "Sentry Gun#10" 
       "Sentry Gun#11" 
       "Sentry Gun#12" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
    )
 )
 +Name: Proceed to Nav 2
@@ -2893,7 +3046,20 @@ $Formula: ( when
       )
       5000 
    )
-   ( do-nothing ) 
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
 )
 +Name: Proceed to Nav 3
 +Repeat Count: 1
@@ -3019,7 +3185,20 @@ $Formula: ( when
       )
       5000 
    )
-   ( do-nothing ) 
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
 )
 +Name: Proceed to Nav 4
 +Repeat Count: 1
@@ -3167,6 +3346,40 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Destroy Kilrathi raiders", -1)
++Objective key:  XSTR("F12 to target incoming fighters", -1)
++Team: 0
+
+$Formula: ( when-argument 
+   ( any-of 
+      "X-Ray 1" 
+      "X-Ray 2" 
+      "X-Ray 3" 
+      "X-Ray 4" 
+      "Whiskey 1" 
+      "Whiskey 2" 
+      "Whiskey 3" 
+      "Whiskey 4" 
+   )
+   ( or 
+      ( < 
+         ( distance "Charlie 1" "<argument>" ) 
+         2000 
+      )
+      ( < 
+         ( distance "Charlie 2" "<argument>" ) 
+         2000 
+      )
+   )
+   ( add-goal 
+      "Charlie" 
+      ( ai-chase "<argument>" 89 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: Charlie not stupid
++Repeat Count: -1
++Trigger Count: 999
++Interval: 15
 +Team: 0
 
 $Formula: ( when 
@@ -3222,8 +3435,65 @@ $Formula: ( when
       "Alpha" 
       ( ai-chase "Corvette#2" 50 ) 
    )
+   ( add-goal 
+      "Charlie 1" 
+      ( ai-chase "Corvette#1" 75 ) 
+   )
+   ( add-goal 
+      "Charlie 2" 
+      ( ai-chase "Corvette#1" 75 ) 
+   )
+   ( add-goal 
+      "Charlie 1" 
+      ( ai-chase "Corvette#2" 67 ) 
+   )
+   ( add-goal 
+      "Charlie 2" 
+      ( ai-chase "Corvette#2" 67 ) 
+   )
 )
 +Name: X-ray destroyed
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-destroyed-delay 0 "Whiskey" ) 
+      ( not 
+         ( is-destroyed-delay 
+            0 
+            "Corvette#1" 
+            "Corvette#2" 
+         )
+      )
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Corvette#1" 67 ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "Corvette#2" 50 ) 
+   )
+   ( add-goal 
+      "Charlie 1" 
+      ( ai-chase "Corvette#1" 75 ) 
+   )
+   ( add-goal 
+      "Charlie 2" 
+      ( ai-chase "Corvette#1" 75 ) 
+   )
+   ( add-goal 
+      "Charlie 1" 
+      ( ai-chase "Corvette#2" 67 ) 
+   )
+   ( add-goal 
+      "Charlie 2" 
+      ( ai-chase "Corvette#2" 67 ) 
+   )
+)
++Name: Whiskey destroyed
 +Repeat Count: 1
 +Interval: 1
 +Team: 0
@@ -3391,7 +3661,20 @@ $Formula: ( when
       )
       5000 
    )
-   ( do-nothing ) 
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+      "Charlie 1" 
+      "Charlie 2" 
+   )
 )
 +Name: Proceed to Nav 5
 +Repeat Count: 1
@@ -4122,6 +4405,16 @@ $Formula: ( when
       5000 
    )
    ( ship-vanish "Charlie 1" "Charlie 2" ) 
+   ( set-shield-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
+   ( set-weapon-energy 
+      100 
+      "Alpha 2" 
+      "Alpha 1" 
+   )
 )
 +Name: Proceed to Nav 6
 +Repeat Count: 1
@@ -6151,7 +6444,7 @@ $List: (		;! 1 points in list
 	( -83385.101563, 29777.400391, 90213.398438 )
 )
 
-#Messages		;! 70 total
+#Messages		;! 71 total
 
 
 $Name: ========== Nav 0 ==========
@@ -6612,6 +6905,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

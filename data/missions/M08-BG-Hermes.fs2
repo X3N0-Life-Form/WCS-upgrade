@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Vega 4", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/07/12 at 15:47:00
+$Modified: 03/06/13 at 20:09:59
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -3953,7 +3953,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 95 total
+#Events		;! 107 total
 
 $Formula: ( when 
    ( true ) 
@@ -4412,39 +4412,118 @@ $Formula: ( when
       "High" 
       "Valkyrie 01" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Valkyrie 01 to Bradshaw 02
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Kettle 01" 
       4635 
+   )
+)
++Name: Kettle 01
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Valkyrie 02" 
       3442 
+   )
+)
++Name: Valkyrie 02
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Kettle 02" 
       2019 
+   )
+)
++Name: Kettle 02
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 3" 
       "High" 
       "Greywolf 01" 
       1193 
+   )
+)
++Name: Greywolf 01
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Kettle 03" 
       2983 
+   )
+)
++Name: Kettle 03
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "#TCS Bradshaw" 
       "High" 
       "Bradshaw Control 01" 
       2799 
+   )
+)
++Name: Bradshaw Control 01
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "#TCS Bradshaw" 
       "High" 
       "Bradshaw Control 02" 
       6333 
    )
 )
-+Name: M_Valkyrie 01 to Bradshaw 02
++Name: Bradshaw Control 02
 +Repeat Count: 1
 +Interval: 1
++Chained: 6
 +Team: 0
 
 $Formula: ( when 
@@ -5179,31 +5258,88 @@ $Formula: ( when
       "High" 
       "Bradshaw Control 04" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Bradshaw 04 to Kettle 06
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "#TCS Bradshaw" 
       "High" 
       "Bradshaw Control 05" 
       4451 
+   )
+)
++Name: Bradshaw Control 05
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Kettle 05" 
       8123 
+   )
+)
++Name: Kettle 05
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Valkyrie 08" 
       2983 
+   )
+)
++Name: Valkyrie 08
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 3" 
       "High" 
       "Greywolf 02" 
       1835 
+   )
+)
++Name: Greywolf 02
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Kettle 06" 
       1881 
    )
 )
-+Name: M_Bradshaw 04 to Kettle 06
++Name: Kettle 06
 +Repeat Count: 1
 +Interval: 1
++Chained: 1
 +Team: 0
 
 $Formula: ( when 
@@ -8089,7 +8225,7 @@ $List: (		;! 1 points in list
 	( -28000.000000, 15000.000000, 300000.000000 )
 )
 
-#Messages		;! 91 total
+#Messages		;! 92 total
 
 
 $Name: ========== Nav 0 ==========
@@ -8694,6 +8830,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Brimstone 3", -1)
 $Author: Romanyuk, Schmitt
 $Created: 12/28/03 at 16:05:03
-$Modified: 01/07/12 at 00:24:41
+$Modified: 03/06/13 at 15:02:11
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -25,9 +25,9 @@ $end_multi_text
 
 +Viewer pos: 319.182922, 813.974487, -1185.939575
 +Viewer orient:
-	0.965638, 0.000000, 0.259891,
-	-0.143577, 0.833547, 0.533466,
-	-0.216631, -0.552449, 0.804904
+	0.999995, 0.000000, -0.003200,
+	0.002101, 0.754287, 0.656542,
+	0.002414, -0.656545, 0.754283
 
 $Starting wing names: ( "Bravo" "AlphaX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "Bravo" "Charlie" "Delta" "Echo" )
@@ -49,6 +49,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_01_briefing_03.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -2027,7 +2028,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" "no-dynamic" )
 
-#Events		;! 73 total
+#Events		;! 74 total
 
 $Formula: ( when 
    ( true ) 
@@ -2508,6 +2509,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Protect TCS Hermes", -1)
++Objective key:  XSTR("'B' to target bombs and bombers", -1)
 
 $Formula: ( when 
    ( and 
@@ -2519,6 +2521,7 @@ $Formula: ( when
          "Player and wingmen launched" 
          1 
       )
+      ( not ( key-pressed "Alt-J" ) ) 
    )
    ( send-message-list 
       "Bravo 1" 
@@ -2534,13 +2537,14 @@ $Formula: ( when
       "Phalanx 2" 
       1376 
    )
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Phalanx 1 to Phalanx 2
 +Repeat Count: 1
 +Interval: 1
 
 $Formula: ( when 
-   ( true ) 
+   ( not ( key-pressed "Alt-J" ) ) 
    ( send-message-list 
       "TCS Hermes" 
       "High" 
@@ -2558,7 +2562,7 @@ $Formula: ( when
 +Chained: 14
 
 $Formula: ( when 
-   ( true ) 
+   ( not ( key-pressed "Alt-J" ) ) 
    ( send-message-list 
       "#Little John" 
       "High" 
@@ -2620,7 +2624,7 @@ $Formula: ( when
 +Chained: 12
 
 $Formula: ( when 
-   ( true ) 
+   ( not ( key-pressed "Alt-J" ) ) 
    ( send-message 
       "#Little John" 
       "High" 
@@ -2632,11 +2636,25 @@ $Formula: ( when
 +Interval: 1
 +Chained: 79
 
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Little John 3" 
+         6 
+      )
+      ( key-pressed "Alt-J" ) 
+   )
+   ( do-nothing ) 
+)
++Name: wave 1 trigger
++Repeat Count: 1
++Interval: 1
+
 $Formula: ( when ( true ) ( do-nothing ) ) 
 +Name: Wave 1 shows up
 +Repeat Count: 1
 +Interval: 1
-+Chained: 6
++Chained: 0
 
 $Formula: ( when 
    ( and 
@@ -4040,7 +4058,7 @@ $List: (		;! 1 points in list
 	( 1865.600098, 3333.300049, 248813.203125 )
 )
 
-#Messages		;! 120 total
+#Messages		;! 121 total
 
 
 $Name: ========== Nav 0 ==========
@@ -4816,6 +4834,11 @@ $Team: -1
 $MessageNew:  XSTR("Return to base.", -1)
 $end_multi_text
 +Wave Name: cmd_sandman_10_1.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Press Alt-J ('enter subspace' misc key) to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
