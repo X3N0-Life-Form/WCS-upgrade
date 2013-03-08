@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Proxima 3", -1)
 $Author: Schmitt
 $Created: 02/09/07 at 18:16:35
-$Modified: 01/07/12 at 00:21:48
+$Modified: 03/08/13 at 18:39:57
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -62,6 +62,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_02_briefing_03.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -2120,7 +2121,7 @@ $Ships: (		;! 3 total
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" )
 +Wave Delay Max: 10
 
-#Events		;! 109 total
+#Events		;! 113 total
 
 $Formula: ( when 
    ( true ) 
@@ -2968,27 +2969,73 @@ $Formula: ( when
       "High" 
       "Ninja 2" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Ninja 2 to Ninja 4
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Assassin 7" 
       5369 
+   )
+)
++Name: Assassin 7
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Ninja 3" 
       5323 
+   )
+)
++Name: Ninja 3
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 3" 
       10877 
+   )
+)
++Name: Hermes 3
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Ninja 4" 
       8307 
    )
 )
-+Name: M_Ninja 2 to Ninja 4
++Name: Ninja 4
 +Repeat Count: 1
 +Interval: 1
++Chained: 8
 +Team: 0
 
 $Formula: ( when 
@@ -3024,9 +3071,12 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Ninja 2 to Ninja 4" 
-      37 
+   ( or 
+      ( is-event-true-delay 
+         "M_Ninja 2 to Ninja 4" 
+         37 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -5526,7 +5576,7 @@ $List: (		;! 1 points in list
 	( 12.000000, 150.000000, 20000.000000 )
 )
 
-#Messages		;! 69 total
+#Messages		;! 70 total
 
 
 $Name: ========== Nav 0 ==========
@@ -5971,6 +6021,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

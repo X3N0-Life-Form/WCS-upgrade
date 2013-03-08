@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Proxima 4", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/18/12 at 22:07:20
+$Modified: 03/08/13 at 21:21:25
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -23,11 +23,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 545.225586, 481.990112, -1281.103394
++Viewer pos: -2827.155518, 5871.898438, -3936.324219
 +Viewer orient:
-	0.920135, -0.000001, 0.391601,
-	-0.128106, 0.944978, 0.301009,
-	-0.370054, -0.327135, 0.869507
+	0.989698, 0.000001, -0.143174,
+	0.107031, 0.664191, 0.739861,
+	0.095096, -0.747563, 0.657348
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "Foxtrot" "CharlieX" "DeltaX" "EchoX" )
@@ -42,22 +42,36 @@ $AI Profile: SAGA RETAIL
 
 $Variables:
 (
-		0		"AutoNavCamera"		"0"		"number"
-		1		"AutoNavCamTime"		"10"		"number"
-		2		"AutoNavCapshipSpeed"		"40"		"number"
-		3		"AutoNavDirX"		"0"		"number"
-		4		"AutoNavDirY"		"0"		"number"
-		5		"AutoNavDirZ"		"1"		"number"
-		6		"AutoNavFighterSpeed"		"65"		"number"
-		7		"AutoNavPhase"		"0"		"number"
-		8		"AutoNavTime"		"0"		"number"
-		9		"CamSpeed"		"0"		"number"
-		10		"EscortCap1"		"0"		"number"
-		11		"EscortCap2"		"0"		"number"
-		12		"EscortCharlie"		"0"		"number"
-		13		"EscortFoxtrot"		"0"		"number"
-		14		"SuicideRunDistance"		"9999"		"number"
-		15		"TauntTimer"		"0"		"number"
+		0		"ar_done"		" "		"string"
+		1		"ar_status"		"0"		"number"
+		2		"arg-number"		"0"		"number"
+		3		"AutoNavCamera"		"0"		"number"
+		4		"AutoNavCamTime"		"10"		"number"
+		5		"AutoNavCapshipSpeed"		"40"		"number"
+		6		"AutoNavDirX"		"0"		"number"
+		7		"AutoNavDirY"		"0"		"number"
+		8		"AutoNavDirZ"		"1"		"number"
+		9		"AutoNavFighterSpeed"		"65"		"number"
+		10		"AutoNavPhase"		"0"		"number"
+		11		"AutoNavTime"		"0"		"number"
+		12		"CamSpeed"		"0"		"number"
+		13		"display-toggle"		"0"		"number"
+		14		"EscortCap1"		"0"		"number"
+		15		"EscortCap2"		"0"		"number"
+		16		"EscortCharlie"		"0"		"number"
+		17		"EscortFoxtrot"		"0"		"number"
+		18		"he_done"		" "		"string"
+		19		"he_status"		"0"		"number"
+		20		"hide-once"		"0"		"number"
+		21		"lo_done"		" "		"string"
+		22		"lo_status"		"0"		"number"
+		23		"SuicideRunDistance"		"9999"		"number"
+		24		"TauntTimer"		"0"		"number"
+		25		"th_done"		" "		"string"
+		26		"th_status"		"0"		"number"
+		27		"x"		"0"		"number"
+		28		"y"		"0"		"number"
+		29		"z"		"0"		"number"
 )
 
 #Cutscenes
@@ -175,7 +189,7 @@ $Ship Choices: (
 	"Spiculum IR"	16
 )
 
-#Objects		;! 77 total
+#Objects		;! 78 total
 
 $Name: Alpha 2		;! Object #0
 $Class: F-27B Arrow
@@ -2458,6 +2472,32 @@ $Determination: 10
 +Use Table Score:
 +Score: 0
 
+$Name: Alpha Position		;! Object #77
+$Class: Ghost
+$Team: Friendly
+$Location: -344.592773, -0.002691, 1562.802368
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Velocity: 33
++Initial Hull: 100
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true ) 
+$Departure Location: Hyperspace
+$Departure Cue: ( false ) 
+$Determination: 10
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "invulnerable" "hidden-from-sensors" "no-dynamic" "stealth" "friendly-stealth-invisible" )
++Flags2: ( "no-subspace-drive" "no-builtin-messages" "no-death-scream" "hide-ship-name" "hide-log-entries" "is_harmless" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
 #Wings		;! 20 total
 
 $Name: Alpha
@@ -2982,7 +3022,7 @@ $AI Goals: ( goals ( ai-chase-wing "Alpha" 50 ) )
 +Wave Delay Min: 15
 +Wave Delay Max: 30
 
-#Events		;! 97 total
+#Events		;! 123 total
 
 $Formula: ( when 
    ( true ) 
@@ -3410,51 +3450,9 @@ $Formula: ( when
       "High" 
       "Ninja 1" 
       0 
-      "#Sandman" 
-      "High" 
-      "Sandman 1" 
-      3304 
-      "Foxtrot 1" 
-      "High" 
-      "Kimchee 1" 
-      3671 
-      "Alpha 1" 
-      "High" 
-      "Little John 2" 
-      4130 
-      "Foxtrot 1" 
-      "High" 
-      "Kimchee 2" 
-      2753 
-      "#Sandman" 
-      "High" 
-      "Sandman 2" 
-      1652 
-      "Alpha 4" 
-      "High" 
-      "Ninja 2" 
-      1376 
-      "#Sandman" 
-      "High" 
-      "Sandman 3" 
-      6976 
-      "Foxtrot 1" 
-      "High" 
-      "Kimchee 3" 
-      3166 
-      "Alpha 1" 
-      "High" 
-      "Little John 3" 
-      9041 
-      "Foxtrot 1" 
-      "High" 
-      "Kimchee 4" 
-      7343 
-      "Foxtrot 1" 
-      "High" 
-      "Kimchee 5" 
-      7067 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Ninja 1 to Kimchee 5
 +Repeat Count: 1
@@ -3462,9 +3460,265 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Ninja 1 to Kimchee 5" 
-      59 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 1" 
+      3304 
+   )
+)
++Name: Sandman 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Foxtrot 1" 
+      "High" 
+      "Kimchee 1" 
+      3671 
+   )
+)
++Name: Kimchee 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Little John 2" 
+      4130 
+   )
+)
++Name: Little John 2
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Foxtrot 1" 
+      "High" 
+      "Kimchee 2" 
+      2753 
+   )
+)
++Name: Kimchee 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 2" 
+      1652 
+   )
+)
++Name: Sandman 2
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 4" 
+      "High" 
+      "Ninja 2" 
+      1376 
+   )
+)
++Name: Ninja 2
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 3" 
+      6976 
+   )
+)
++Name: Sandman 3
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Foxtrot 1" 
+      "High" 
+      "Kimchee 3" 
+      3166 
+   )
+)
++Name: Kimchee 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Little John 3" 
+      9041 
+   )
+)
++Name: Little John 3
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Foxtrot 1" 
+      "High" 
+      "Kimchee 4" 
+      7343 
+   )
+)
++Name: Kimchee 4
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Autopilot linked requested" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Foxtrot 1" 
+      "High" 
+      "Kimchee 5" 
+      7067 
+   )
+)
++Name: Kimchee 5
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Ninja 1 to Kimchee 5" 
+         59 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( do-nothing ) 
 )
@@ -3609,19 +3863,9 @@ $Formula: ( when
       "High" 
       "Langley 1" 
       0 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 2" 
-      3625 
-      "TCS Langley" 
-      "High" 
-      "Langley 2" 
-      4314 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 3" 
-      16843 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Langley 1 to Hermes 3
 +Repeat Count: 1
@@ -3629,7 +3873,64 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 2" 
+      3625 
+   )
+)
++Name: Hermes 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Langley" 
+      "High" 
+      "Langley 2" 
+      4314 
+   )
+)
++Name: Langley 2
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 3" 
+      16843 
+   )
+)
++Name: Hermes 3
++Repeat Count: 1
++Interval: 1
++Chained: 16
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Langley 1 to Hermes 3" 
+         30 
+      )
+      ( and 
+         ( key-pressed "Alt-J" ) 
+         ( is-event-true-delay 
+            "M_Langley 1 to Hermes 3" 
+            0 
+         )
+      )
+   )
    ( add-goal 
       "Alpha" 
       ( ai-guard "Arrow Wing 1" 75 ) 
@@ -3638,7 +3939,6 @@ $Formula: ( when
 +Name: Launch Arrow transfer 1
 +Repeat Count: 1
 +Interval: 1
-+Chained: 30
 +Team: 0
 
 $Formula: ( when 
@@ -3662,6 +3962,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Secure fighter transfer", -1)
++Objective key:  XSTR("Alt-X to display/hide status", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -3893,6 +4194,10 @@ $Formula: ( when
       "Alpha" 
       ( ai-guard "Hellcat Wing 1" 75 ) 
    )
+   ( modify-variable 
+      "@ar_done[ ]" 
+      "- done" 
+   )
 )
 +Name: Launch Hellcat transfer 1
 +Repeat Count: 1
@@ -4016,6 +4321,10 @@ $Formula: ( when
       "Alpha" 
       ( ai-guard "Thunderbolt Wing 1" 75 ) 
    )
+   ( modify-variable 
+      "@he_done[ ]" 
+      "- done" 
+   )
 )
 +Name: Launch Thunderbolt transfer 1
 +Repeat Count: 1
@@ -4083,6 +4392,10 @@ $Formula: ( when
    ( add-goal 
       "Alpha" 
       ( ai-guard "Longbow Wing 1" 75 ) 
+   )
+   ( modify-variable 
+      "@th_done[ ]" 
+      "- done" 
    )
 )
 +Name: Launch Longbow transfer 1
@@ -4155,6 +4468,21 @@ $Formula: ( when
    )
 )
 +Name: Alpha Done 10
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( destroyed-or-departed-delay 
+      2 
+      "Longbow Wing 2" 
+   )
+   ( modify-variable 
+      "@lo_done[ ]" 
+      "- done" 
+   )
+)
++Name: longbow - done
 +Repeat Count: 1
 +Interval: 1
 +Team: 0
@@ -6322,6 +6650,287 @@ $Formula: ( when
 +Interval: 1
 +Team: 0
 
+$Formula: ( when 
+   ( key-pressed "Alt-X" ) 
+   ( modify-variable 
+      @display-toggle[0] 
+      ( abs ( - @display-toggle[0] 1 ) ) 
+   )
+   ( key-reset-multiple "Alt-X" ) 
+)
++Name: toggle transfer display
++Repeat Count: 1
++Trigger Count: 99999
++Interval: 1
++Team: 1
+
+$Formula: ( when 
+   ( and 
+      ( = @display-toggle[0] 0 ) 
+      ( = @hide-once[0] 1 ) 
+   )
+   ( training-msg "empty msg" ) 
+   ( modify-variable @hide-once[0] 0 ) 
+)
++Name: hide status
++Repeat Count: 1
++Trigger Count: 99999
++Interval: 0
+
+$Formula: ( when 
+   ( = @display-toggle[0] 1 ) 
+   ( training-msg "transfer status" ) 
+   ( modify-variable @hide-once[0] 1 ) 
+)
++Name: display status
++Repeat Count: 1
++Trigger Count: 99999
++Interval: 3
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Arrow Wing 1 1" 
+      "Arrow Wing 1 2" 
+      "Arrow Wing 1 3" 
+      "Arrow Wing 2 1" 
+      "Arrow Wing 2 2" 
+      "Arrow Wing 2 3" 
+      "Arrow Wing 3 1" 
+      "Arrow Wing 3 2" 
+      "Arrow Wing 3 3" 
+   )
+   ( has-departed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @ar_status[0] 
+      ( + @ar_status[0] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: transfered - arrow
++Repeat Count: 1
++Trigger Count: 9
++Interval: 0
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Hellcat Wing 1 1" 
+      "Hellcat Wing 1 2" 
+      "Hellcat Wing 1 3" 
+      "Hellcat Wing 1 4" 
+      "Hellcat Wing 2 1" 
+      "Hellcat Wing 2 2" 
+      "Hellcat Wing 2 3" 
+      "Hellcat Wing 2 4" 
+      "Hellcat Wing 3 1" 
+      "Hellcat Wing 3 2" 
+      "Hellcat Wing 3 3" 
+   )
+   ( has-departed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @he_status[0] 
+      ( + @he_status[0] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: transfered - hellcat
++Repeat Count: 1
++Trigger Count: 11
++Interval: 0
++Team: 1431655765
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Thunderbolt Wing 1 1" 
+      "Thunderbolt Wing 1 2" 
+      "Thunderbolt Wing 1 3" 
+      "Thunderbolt Wing 2 1" 
+      "Thunderbolt Wing 2 2" 
+      "Thunderbolt Wing 2 3" 
+   )
+   ( has-departed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @th_status[0] 
+      ( + @th_status[0] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: transfered - thunderbolt
++Repeat Count: 1
++Trigger Count: 6
++Interval: 0
++Team: 4096
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Longbow Wing 1 1" 
+      "Longbow Wing 1 2" 
+      "Longbow Wing 1 3" 
+      "Longbow Wing 2 1" 
+      "Longbow Wing 2 2" 
+   )
+   ( has-departed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @lo_status[0] 
+      ( + @lo_status[0] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: transfered - longbow
++Repeat Count: 1
++Interval: 1
++Team: 2570
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Yankee 1" 
+      "Yankee 2" 
+      "Yankee 3" 
+      "Yankee 4" 
+      "X-Ray 1" 
+      "X-Ray 2" 
+      "X-Ray 3" 
+      "X-Ray 4" 
+      "Sierra 1" 
+      "Sierra 2" 
+      "Sierra 3" 
+      "Sierra 4" 
+   )
+   ( and 
+      ( < 
+         ( distance 
+            "Alpha Position" 
+            "<argument>" 
+         )
+         3500 
+      )
+      ( false ) 
+   )
+   ( add-goal 
+      "Alpha" 
+      ( ai-chase "<argument>" 89 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+   ( training-msg "debug" ) 
+)
++Name: better interception
++Repeat Count: 1
++Trigger Count: 9999
++Interval: 4
++Team: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Launch Arrow transfer 1" 
+         0 
+      )
+      ( false ) 
+   )
+   ( do-for-valid-arguments 
+      ( when-argument 
+         ( any-of 
+            "Arrow Wing 1 1" 
+            "Arrow Wing 1 2" 
+            "Arrow Wing 1 3" 
+            "Arrow Wing 2 1" 
+            "Arrow Wing 2 2" 
+            "Arrow Wing 2 3" 
+            "Arrow Wing 3 1" 
+            "Arrow Wing 3 2" 
+            "Arrow Wing 3 3" 
+            "Hellcat Wing 1 1" 
+            "Hellcat Wing 1 2" 
+            "Hellcat Wing 1 3" 
+            "Hellcat Wing 1 4" 
+            "Hellcat Wing 2 1" 
+            "Hellcat Wing 2 2" 
+            "Hellcat Wing 2 3" 
+            "Hellcat Wing 2 4" 
+            "Hellcat Wing 3 1" 
+            "Hellcat Wing 3 2" 
+            "Hellcat Wing 3 3" 
+            "Thunderbolt Wing 1 1" 
+            "Thunderbolt Wing 1 2" 
+            "Thunderbolt Wing 1 3" 
+            "Thunderbolt Wing 2 1" 
+            "Thunderbolt Wing 2 2" 
+            "Thunderbolt Wing 2 3" 
+            "Longbow Wing 1 1" 
+            "Longbow Wing 1 2" 
+            "Longbow Wing 1 3" 
+            "Longbow Wing 2 1" 
+            "Longbow Wing 2 2" 
+         )
+         ( and 
+            ( has-arrived-delay 0 "<argument>" ) 
+            ( not 
+               ( destroyed-or-departed-delay 
+                  0 
+                  "<argument>" 
+               )
+            )
+         )
+         ( modify-variable 
+            @x[0] 
+            ( + 
+               @x[0] 
+               ( get-object-x "<argument>" ) 
+            )
+         )
+         ( modify-variable 
+            @y[0] 
+            ( + 
+               @y[0] 
+               ( get-object-y "<argument>" ) 
+            )
+         )
+         ( modify-variable 
+            @z[0] 
+            ( + 
+               @z[0] 
+               ( get-object-z "<argument>" ) 
+            )
+         )
+         ( modify-variable 
+            @arg-number[0] 
+            ( + @arg-number[0] 1 ) 
+         )
+      )
+   )
+)
++Name: calculate alpha pos
++Repeat Count: 9999
++Interval: 3
++Team: 12238108
+
+$Formula: ( when 
+   ( true ) 
+   ( set-object-position 
+      "Alpha Position" 
+      ( / @x[0] @arg-number[0] ) 
+      ( / @y[0] @arg-number[0] ) 
+      ( / @z[0] @arg-number[0] ) 
+   )
+)
++Name: set pos
++Repeat Count: 9999
++Interval: 3
++Chained: 1
++Team: 281013696
+
+$Formula: ( when 
+   ( true ) 
+   ( modify-variable @arg-number[0] 0 ) 
+   ( modify-variable @x[0] 0 ) 
+   ( modify-variable @y[0] 0 ) 
+   ( modify-variable @z[0] 0 ) 
+)
++Name: reset vars
++Repeat Count: 9999
++Interval: 3
++Chained: 2
++Team: 281013696
+
 #Goals		;! 4 total
 
 $Type: Primary
@@ -6416,7 +7025,7 @@ $List: (		;! 1 points in list
 	( -1171.699951, -10.000000, 3410.500000 )
 )
 
-#Messages		;! 71 total
+#Messages		;! 75 total
 
 
 $Name: ========== Nav 0 ==========
@@ -6880,6 +7489,29 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: transfer status
+$Team: -1
+$MessageNew:  XSTR("Arrows:       $ar_status /9  $ar_done
+Hellcats:     $he_status /11 $he_done
+Thunderbolts: $th_status /6  $th_done
+Longbows:     $lo_status /5  $lo_done", -1)
+$end_multi_text
+
+$Name: empty msg
+$Team: -1
+$MessageNew:  XSTR("", -1)
+$end_multi_text
+
+$Name: debug
+$Team: -1
+$MessageNew:  XSTR("breaking to attack", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
