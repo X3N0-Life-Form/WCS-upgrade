@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Loki 1", -1)
 $Author: Budd, Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 01/28/12 at 23:09:05
+$Modified: 03/13/13 at 18:59:05
 $Notes:
 Mission Designer Christian <Mustanger> Budd, tweaked by Tolwyn and Vidmaster, Original Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -26,7 +26,7 @@ $end_multi_text
 +Viewer pos: 769.349121, 443.100372, -1175.850830
 +Viewer orient:
 	0.836799, -0.000000, 0.547511,
-	-0.164656, 0.953708, 0.251656,
+	-0.164656, 0.953707, 0.251656,
 	-0.522165, -0.300736, 0.798061
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
@@ -74,6 +74,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_02_briefing_05.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -3285,7 +3286,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 104 total
+#Events		;! 122 total
 
 $Formula: ( when 
    ( true ) 
@@ -5076,90 +5077,304 @@ $Formula: ( when
       "High" 
       "Stingray 4" 
       0 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 5" 
-      5094 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 6" 
-      9270 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 3" 
-      3901 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 7" 
-      1652 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 4" 
-      3992 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 5" 
-      7599 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 6" 
-      7966 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 8" 
-      5920 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 7" 
-      1881 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 8" 
-      6451 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 9" 
-      7480 
-      "#TCS Jim Bowie" 
-      "High" 
-      "Jim Bowie 9" 
-      2661 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 10" 
-      4956 
-      "#Joker" 
-      "High" 
-      "Joker 1" 
-      9913 
-      "#Isis" 
-      "High" 
-      "Isis 1" 
-      1193 
-      "TCS Hermes#1" 
-      "High" 
-      "Hermes 11" 
-      3579 
-      "#Sandman" 
-      "High" 
-      "Sandman 2" 
-      9536 
-      "Alpha 3" 
-      "High" 
-      "Ninja 3" 
-      1744 
    )
+   ( training-msg "skip dialogue" ) 
+   ( key-reset-multiple "Alt-J" ) 
 )
 +Name: M_Stingray 4 to Ninja 3
 +Repeat Count: 1
 +Interval: 1
 +Team: 0
 
-$Formula: ( when ( true ) ( do-nothing ) ) 
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 5" 
+      5094 
+   )
+)
++Name: Hermes 5
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 6" 
+      9270 
+   )
+)
++Name: Hermes 6
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 3" 
+      3901 
+   )
+)
++Name: Jim Bowie 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 7" 
+      1652 
+   )
+)
++Name: Hermes 7
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 4" 
+      3992 
+   )
+)
++Name: Jim Bowie 4
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 5" 
+      7599 
+   )
+)
++Name: Jim Bowie 5
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 6" 
+      7966 
+   )
+)
++Name: Jim Bowie 6
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 8" 
+      5920 
+   )
+)
++Name: Hermes 8
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 7" 
+      1881 
+   )
+)
++Name: Jim Bowie 7
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 8" 
+      6451 
+   )
+)
++Name: Jim Bowie 8
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 9" 
+      7480 
+   )
+)
++Name: Hermes 9
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#TCS Jim Bowie" 
+      "High" 
+      "Jim Bowie 9" 
+      2661 
+   )
+)
++Name: Jim Bowie 9
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 10" 
+      4956 
+   )
+)
++Name: Hermes 10
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#Joker" 
+      "High" 
+      "Joker 1" 
+      9913 
+   )
+)
++Name: Joker 1
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#Isis" 
+      "High" 
+      "Isis 1" 
+      1193 
+   )
+)
++Name: Isis 1
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "TCS Hermes#1" 
+      "High" 
+      "Hermes 11" 
+      3579 
+   )
+)
++Name: Hermes 11
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 2" 
+      9536 
+   )
+)
++Name: Sandman 2
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( not ( key-pressed "Alt-J" ) ) 
+   ( send-message-list 
+      "Alpha 3" 
+      "High" 
+      "Ninja 3" 
+      1744 
+   )
+)
++Name: Ninja 3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Stingray 4 to Ninja 3" 
+         79 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Stingray 4 to Ninja 3" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
+   )
+   ( do-nothing ) 
+)
 +Name: Foxtrot launching
 +Repeat Count: 1
 +Interval: 1
-+Chained: 79
 +Team: 0
 
 $Formula: ( when ( true ) ( do-nothing ) ) 
@@ -5223,9 +5438,15 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Stingray 4 to Ninja 3" 
-      98 
+   ( or 
+      ( is-event-true-delay 
+         "M_Stingray 4 to Ninja 3" 
+         98 
+      )
+      ( is-event-true-delay 
+         "Golf launching" 
+         15 
+      )
    )
    ( do-nothing ) 
 )
@@ -6773,7 +6994,7 @@ $List: (		;! 6 points in list
 	( 50703.398438, 0.000000, -1032.051147 )
 )
 
-#Messages		;! 65 total
+#Messages		;! 66 total
 
 
 $Name: ========== Nav 0 ==========
@@ -7207,6 +7428,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
