@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Nephele 1", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/18/12 at 17:23:54
+$Modified: 03/15/13 at 22:29:20
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -23,11 +23,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 673.337524, 472.298798, -1222.468872
++Viewer pos: -85715.367188, -77675.609375, 38984.863281
 +Viewer orient:
-	0.875919, 0.000000, 0.482458,
-	-0.154653, 0.947231, 0.280778,
-	-0.456999, -0.320552, 0.829698
+	0.964392, -0.000001, -0.264475,
+	0.127127, 0.876900, 0.463557,
+	0.231918, -0.480673, 0.845676
 
 $Starting wing names: ( "Charlie" "AlphaX" "BravoX" )
 $Squadron wing names: ( "Charlie" "Alpha" "Bravo" "Delta" "Echo" )
@@ -66,15 +66,16 @@ $Variables:
 		21		"CloakTimerD"		"0"		"number"
 		22		"Corvette1DestrInM25"		"0"		"number"		"campaign-persistent"
 		23		"Corvette2DestrInM25"		"0"		"number"		"campaign-persistent"
-		24		"EscortAlpha"		"0"		"number"
-		25		"EscortBravo"		"0"		"number"
-		26		"LosingDialog"		"0"		"number"
-		27		"M25lost"		"0"		"number"		"campaign-persistent"
-		28		"MessageLock"		"0"		"number"
-		29		"NepheleScore"		"0"		"number"		"campaign-persistent"
-		30		"NumDestroyedTransports"		"0"		"number"
-		31		"NumDockedTransports"		"0"		"number"
-		32		"TauntTimer"		"0"		"number"
+		24		"debug-avoiding"		"none"		"string"
+		25		"EscortAlpha"		"0"		"number"
+		26		"EscortBravo"		"0"		"number"
+		27		"LosingDialog"		"0"		"number"
+		28		"M25lost"		"0"		"number"		"campaign-persistent"
+		29		"MessageLock"		"0"		"number"
+		30		"NepheleScore"		"0"		"number"		"campaign-persistent"
+		31		"NumDestroyedTransports"		"0"		"number"
+		32		"NumDockedTransports"		"0"		"number"
+		33		"TauntTimer"		"0"		"number"
 )
 
 #Cutscenes
@@ -2879,7 +2880,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 136 total
+#Events		;! 144 total
 
 $Formula: ( when 
    ( true ) 
@@ -3264,19 +3265,9 @@ $Formula: ( when
       "High" 
       "Codiene 2" 
       0 
-      "Bravo 2" 
-      "High" 
-      "Eight Ball 1" 
-      2799 
-      "Alpha 1" 
-      "High" 
-      "Codiene 3" 
-      7159 
-      "#TCS Hermes" 
-      "High" 
-      "Hermes 2" 
-      5323 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Codiene 2 to Hermes 2
 +Repeat Count: 1
@@ -3284,36 +3275,164 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Strakha show up" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "Bravo 2" 
+      "High" 
+      "Eight Ball 1" 
+      2799 
+   )
+)
++Name: Eight Ball 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Strakha show up" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Codiene 3" 
+      7159 
+   )
+)
++Name: Codiene 3
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Strakha show up" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "#TCS Hermes" 
+      "High" 
+      "Hermes 2" 
+      5323 
+   )
+)
++Name: Hermes 2
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "M_Codiene 2 to Hermes 2" 
+         22 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Strakha show up" 
+            0 
+         )
+      )
+   )
    ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 3" 
       0 
+   )
+)
++Name: M_Hermes 3 to Codiene 4
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Strakha show up" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Charlie 2" 
       "High" 
       "Avatarr 1" 
       2157 
+   )
+)
++Name: Avatarr 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Strakha show up" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Codiene 4" 
       2248 
    )
 )
-+Name: M_Hermes 3 to Codiene 4
++Name: Codiene 4
 +Repeat Count: 1
 +Interval: 1
-+Chained: 22
++Chained: 2
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( or 
+      ( is-event-true-delay 
+         "M_Hermes 3 to Codiene 4" 
+         10 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Codiene 2 to Hermes 2" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
+   )
    ( force-battle-music ( true ) ) 
 )
 +Name: Strakha show up
 +Repeat Count: 1
 +Interval: 1
-+Chained: 10
 +Team: 0
 
 $Formula: ( when 
@@ -3399,6 +3518,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Destroy Kilrathi fighters", -1)
++Objective key:  XSTR("Give orders to Avatarr", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -3937,20 +4057,60 @@ $Formula: ( when
       "High" 
       "Codiene 12" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Codiene 12 to Codiene 13
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 4" 
       6746 
+   )
+)
++Name: Hermes 4
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Codiene 13" 
       13860 
    )
 )
-+Name: M_Codiene 12 to Codiene 13
++Name: Codiene 13
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 13
 +Team: 0
 
 $Formula: ( when 
@@ -3994,9 +4154,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Codiene 12 to Codiene 13" 
-      23 
+   ( or 
+      ( is-event-true-delay 
+         "M_Codiene 12 to Codiene 13" 
+         23 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Codiene 12 to Codiene 13" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -7727,6 +7896,59 @@ $Formula: ( every-time-argument
 +Interval: 1
 +Team: 4194
 
+$Formula: ( every-time-argument 
+   ( any-of 
+      "Zulu 1" 
+      "Zulu 2" 
+      "Zulu 3" 
+      "Zulu 4" 
+      "Zulu 5" 
+      "Zulu 6" 
+   )
+   ( and 
+      ( or 
+         ( and 
+            ( = @CloakPhaseA[0] 2 ) 
+            ( string-equals "<argument>" "Zulu 1" ) 
+         )
+         ( and 
+            ( = @CloakPhaseB[0] 2 ) 
+            ( string-equals "<argument>" "Zulu 2" ) 
+         )
+         ( and 
+            ( = @CloakPhaseC[0] 2 ) 
+            ( string-equals "<argument>" "Zulu 3" ) 
+         )
+         ( and 
+            ( = @CloakPhaseD[0] 2 ) 
+            ( string-equals "<argument>" "Zulu 4" ) 
+         )
+         ( and 
+            ( = @CloakPhaseA2[0] 2 ) 
+            ( string-equals "<argument>" "Zulu 5" ) 
+         )
+         ( and 
+            ( = @CloakPhaseB2[0] 2 ) 
+            ( string-equals "<argument>" "Zulu 6" ) 
+         )
+      )
+      ( < 
+         ( distance "Charlie 1" "<argument>" ) 
+         750 
+      )
+   )
+   ( set-object-position 
+      "<argument>" 
+      ( get-object-x "<argument>" ) 
+      ( get-object-y "<argument>" ) 
+      ( get-object-z "<argument>" ) 
+   )
+)
++Name: collision avoidance
++Repeat Count: 1
++Interval: 1
++Team: 12252408
+
 #Goals		;! 3 total
 
 $Type: Bonus
@@ -7865,7 +8087,7 @@ $List: (		;! 1 points in list
 	( -86477.070313, -78000.000000, 42738.730469 )
 )
 
-#Messages		;! 121 total
+#Messages		;! 123 total
 
 
 $Name: ========== Nav 0 ==========
@@ -8628,6 +8850,16 @@ $Team: -1
 $MessageNew:  XSTR("Return to base.", -1)
 $end_multi_text
 +Wave Name: cmd_sandman_10_1.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: debug
+$Team: -1
+$MessageNew:  XSTR("avoiding: $debug-avoiding", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

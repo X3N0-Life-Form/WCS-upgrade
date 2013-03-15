@@ -14243,7 +14243,7 @@ $end_multi_text
 
 $Name: com jamming in place
 $Team: -1
-$MessageNew:  XSTR("! Comm blanket jamming detected !", -1)
+$MessageNew:  XSTR("! Comm jamming detected !", -1)
 $end_multi_text
 
 $Name: com restored

@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Torgo 3", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/25/12 at 17:19:58
+$Modified: 03/15/13 at 20:44:57
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -4933,7 +4933,7 @@ $Ships: (		;! 4 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 93 total
+#Events		;! 129 total
 
 $Formula: ( when 
    ( true ) 
@@ -5281,47 +5281,8 @@ $Formula: ( when
       "High" 
       "Rabens Control 01" 
       0 
-      "Torgo HQ" 
-      "High" 
-      "Torgo 01" 
-      10005 
-      "#TCS Rabens" 
-      "High" 
-      "Rabens Control 02" 
-      2386 
-      "#TCS Rabens" 
-      "High" 
-      "Rabens Control 03" 
-      9444 
-      "#TCS Rabens" 
-      "High" 
-      "Rabens Control 04" 
-      6599 
-      "#TCS Alameda" 
-      "High" 
-      "Alameda Control 01" 
-      5000 
-      "Torgo HQ" 
-      "High" 
-      "Torgo 02" 
-      8481 
-      "#Sandman" 
-      "High" 
-      "Sandman 01" 
-      8077 
-      "Alpha 4" 
-      "High" 
-      "Eight Ball 01" 
-      2478 
-      "Alpha 2" 
-      "High" 
-      "Avatarr 01" 
-      4635 
-      "TCS Hermes" 
-      "High" 
-      "Hermes Control 02" 
-      4864 
    )
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Rabens 01 to Hermes 02
 +Repeat Count: 1
@@ -5330,9 +5291,248 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Rabens 01 to Hermes 02" 
-      77 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "Torgo HQ" 
+      "High" 
+      "Torgo 01" 
+      10005 
+   )
+)
++Name: Torgo 01
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "#TCS Rabens" 
+      "High" 
+      "Rabens Control 02" 
+      2386 
+   )
+)
++Name: Rabens Control 02
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "#TCS Rabens" 
+      "High" 
+      "Rabens Control 03" 
+      9444 
+   )
+)
++Name: Rabens Control 03
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "#TCS Rabens" 
+      "High" 
+      "Rabens Control 04" 
+      6599 
+   )
+)
++Name: Rabens Control 04
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "#TCS Alameda" 
+      "High" 
+      "Alameda Control 01" 
+      5000 
+   )
+)
++Name: Alameda Control 01
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "Torgo HQ" 
+      "High" 
+      "Torgo 02" 
+      8481 
+   )
+)
++Name: Torgo 02
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 01" 
+      8077 
+   )
+)
++Name: Sandman 01
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "Alpha 4" 
+      "High" 
+      "Eight Ball 01" 
+      2478 
+   )
+)
++Name: Eight Ball 01
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Avatarr 01" 
+      4635 
+   )
+)
++Name: Avatarr 01
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes Control 02" 
+      4864 
+   )
+)
++Name: Hermes Control 02
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Rabens 01 to Hermes 02" 
+         77 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Rabens 01 to Hermes 02" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -5506,83 +5706,427 @@ $Formula: ( when
       "High" 
       "Greywolf 01" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Greywolf 1 to Phalanx 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Assassin 01" 
       2478 
+   )
+)
++Name: Assassin 01
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 2" 
       "High" 
       "Ninja 01" 
       11382 
+   )
+)
++Name: Ninja 01
++Repeat Count: 1
++Interval: 1
++Chained: 11
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Assassin 02" 
       15099 
+   )
+)
++Name: Assassin 02
++Repeat Count: 1
++Interval: 1
++Chained: 15
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 01" 
       8169 
+   )
+)
++Name: Psychopath 01
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 2" 
       "High" 
       "Ninja 03" 
       6195 
+   )
+)
++Name: Ninja 03
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 02" 
       14365 
+   )
+)
++Name: Psychopath 02
++Repeat Count: 1
++Interval: 1
++Chained: 14
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Assassin 03" 
       4910 
+   )
+)
++Name: Assassin 03
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Bravo 3" 
       "High" 
       "Greywolf 02" 
       6333 
+   )
+)
++Name: Greywolf 02
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Torgo HQ" 
       "High" 
       "Torgo 03" 
       8563 
+   )
+)
++Name: Torgo 03
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 2" 
       "High" 
       "Ninja 04" 
       2570 
+   )
+)
++Name: Ninja 04
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 03" 
       11978 
+   )
+)
++Name: Psychopath 03
++Repeat Count: 1
++Interval: 1
++Chained: 11
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Bravo 3" 
       "High" 
       "Greywolf 03" 
       3579 
+   )
+)
++Name: Greywolf 03
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Assassin 04" 
       3763 
+   )
+)
++Name: Assassin 04
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Phalanx 01" 
       1330 
+   )
+)
++Name: Phalanx 01
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes Control 03" 
       5819 
+   )
+)
++Name: Hermes Control 03
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes Control 04" 
       8674 
+   )
+)
++Name: Hermes Control 04
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes Control 05" 
       11611 
+   )
+)
++Name: Hermes Control 05
++Repeat Count: 1
++Interval: 1
++Chained: 11
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Phalanx 02" 
       6287 
    )
 )
-+Name: M_Greywolf 1 to Phalanx 2
++Name: Phalanx 02
 +Repeat Count: 1
 +Interval: 1
++Chained: 6
 +Team: 0
 
 $Formula: ( when 
@@ -5629,9 +6173,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Greywolf 1 to Phalanx 2" 
-      147 
+   ( or 
+      ( is-event-true-delay 
+         "M_Greywolf 1 to Phalanx 2" 
+         147 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Greywolf 1 to Phalanx 2" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -5856,20 +6409,60 @@ $Formula: ( when
       "High" 
       "White Trash 01" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_White Trash 01 to Phalanx 04
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Torgo HQ" 
       "High" 
       "Torgo 04" 
       5507 
+   )
+)
++Name: Torgo 04
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Phalanx 04" 
       7802 
    )
 )
-+Name: M_White Trash 01 to Phalanx 04
++Name: Phalanx 04
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 7
 +Team: 0
 
 $Formula: ( when 
@@ -5916,9 +6509,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_White Trash 01 to Phalanx 04" 
-      19 
+   ( or 
+      ( is-event-true-delay 
+         "M_White Trash 01 to Phalanx 04" 
+         19 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_White Trash 01 to Phalanx 04" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -6136,36 +6738,152 @@ $Formula: ( when
       "High" 
       "Ranger 01" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Ranger 01 to Psychopath 04
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Torgo HQ" 
       "High" 
       "Torgo 05" 
       10005 
+   )
+)
++Name: Torgo 05
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Ranger" 
       "High" 
       "Ranger 02" 
       1744 
+   )
+)
++Name: Ranger 02
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Torgo HQ" 
       "High" 
       "Torgo 06" 
       3533 
+   )
+)
++Name: Torgo 06
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 04" 
       10418 
+   )
+)
++Name: Sandman 04
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "#Torgo HQ" 
       "High" 
       "Torgo 07" 
       2983 
+   )
+)
++Name: Torgo 07
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 04" 
       1973 
    )
 )
-+Name: M_Ranger 01 to Psychopath 04
++Name: Psychopath 04
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 1
 +Team: 0
 
 $Formula: ( when 
@@ -6188,9 +6906,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Ranger 01 to Psychopath 04" 
-      35 
+   ( or 
+      ( is-event-true-delay 
+         "M_Ranger 01 to Psychopath 04" 
+         35 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Ranger 01 to Psychopath 04" 
+            35 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -9158,7 +9885,7 @@ $List: (		;! 1 points in list
 	( 72768.070313, 0.003222, -8234.576172 )
 )
 
-#Messages		;! 101 total
+#Messages		;! 102 total
 
 
 $Name: ========== Nav 0 ==========
@@ -9831,6 +10558,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

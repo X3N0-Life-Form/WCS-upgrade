@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Nephele 3", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/19/12 at 01:10:47
+$Modified: 03/15/13 at 22:48:08
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -55,8 +55,9 @@ $Variables:
 		10		"EscortBravo"		"0"		"number"
 		11		"EscortCharlie"		"0"		"number"
 		12		"EscortDelta"		"0"		"number"
-		13		"NepheleScore"		"0"		"number"		"campaign-persistent"
-		14		"TauntTimer"		"0"		"number"
+		13		"ETA-delta"		"229"		"number"
+		14		"NepheleScore"		"0"		"number"		"campaign-persistent"
+		15		"TauntTimer"		"0"		"number"
 )
 
 #Cutscenes
@@ -2370,7 +2371,7 @@ $Ships: (		;! 2 total
 +Wave Delay Min: 10
 +Wave Delay Max: 30
 
-#Events		;! 105 total
+#Events		;! 107 total
 
 $Formula: ( when 
    ( true ) 
@@ -3102,15 +3103,36 @@ $Formula: ( when
       "High" 
       "Mastermind 1" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Mastermind 1 to Codiene 3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+      ( not ( key-pressed "Alt-J" ) ) 
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Codiene 3" 
       13631 
    )
 )
-+Name: M_Mastermind 1 to Codiene 3
++Name: Codiene 3
 +Repeat Count: 1
 +Interval: 1
++Chained: 13
 +Team: 0
 
 $Formula: ( when 
@@ -3163,9 +3185,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Mastermind 1 to Codiene 3" 
-      18 
+   ( or 
+      ( is-event-true-delay 
+         "M_Mastermind 1 to Codiene 3" 
+         18 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Mastermind 1 to Codiene 3" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -6768,6 +6799,37 @@ $Formula: ( when
 +Interval: 1
 +Team: 0
 
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "M_Eight Ball 2 to Codiene 4" 
+         25 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Delta arrival cue" 
+            0 
+         )
+      )
+   )
+   ( training-msg "ETA delta wing" ) 
+   ( modify-variable 
+      @ETA-delta[229] 
+      ( - @ETA-delta[229] 1 ) 
+   )
+)
++Name: ETA delta wing
++Repeat Count: 1
++Trigger Count: 300
++Interval: 1
++Team: 1061074590
+
 #Goals		;! 1 total
 
 $Type: Primary
@@ -6843,7 +6905,7 @@ $List: (		;! 5 points in list
 	( 1220.716919, 0.000225, 463.321198 )
 )
 
-#Messages		;! 63 total
+#Messages		;! 65 total
 
 
 $Name: ========== Nav 0 ==========
@@ -7263,6 +7325,16 @@ $MessageNew:  XSTR("I shall smash your skull!", -1)
 $end_multi_text
 +AVI Name: Head-KA2
 +Wave Name: ge_drakhai_taunt_09.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: ETA delta wing
+$Team: -1
+$MessageNew:  XSTR("ETA to Delta wing arrival: $ETA-delta", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

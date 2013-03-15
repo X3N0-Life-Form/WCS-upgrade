@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Caliban 1", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/07 at 10:42:26
-$Modified: 01/17/12 at 20:28:44
+$Modified: 03/14/13 at 21:17:38
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -62,6 +62,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_03_briefing_01.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -1896,7 +1897,7 @@ $Ships: (		;! 4 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 80 total
+#Events		;! 110 total
 
 $Formula: ( when 
    ( true ) 
@@ -2120,64 +2121,313 @@ $Formula: ( when
       "High" 
       "Buttcheeks 1" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Buttcheeks 1 to Psychopath 8
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Buttcheeks 2" 
       3533 
+   )
+)
++Name: Buttcheeks 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 1" 
       5691 
+   )
+)
++Name: Psychopath 1
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Buttcheeks 3" 
       4360 
+   )
+)
++Name: Buttcheeks 3
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 2" 
       3855 
+   )
+)
++Name: Psychopath 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Hermes" 
       "High" 
       "Ranger 1" 
       3992 
+   )
+)
++Name: Ranger 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Delta 1" 
       "High" 
       "Buttcheeks 4" 
       5589 
+   )
+)
++Name: Buttcheeks 4
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 3" 
       1789 
+   )
+)
++Name: Psychopath 3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 4" 
       3478 
+   )
+)
++Name: Psychopath 4
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 1" 
       8857 
+   )
+)
++Name: Sandman 1
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 6" 
       4773 
+   )
+)
++Name: Psychopath 6
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 3" 
       11336 
+   )
+)
++Name: Sandman 3
++Repeat Count: 1
++Interval: 1
++Chained: 11
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 7" 
       2937 
+   )
+)
++Name: Psychopath 7
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 8" 
       6048 
    )
 )
-+Name: M_Buttcheeks 1 to Psychopath 8
++Name: Psychopath 8
 +Repeat Count: 1
 +Interval: 1
-+Chained: 1
++Chained: 6
 +Team: 0
 
 $Formula: ( when 
@@ -2196,9 +2446,12 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Buttcheeks 1 to Psychopath 8" 
-      74 
+   ( or 
+      ( is-event-true-delay 
+         "M_Buttcheeks 1 to Psychopath 8" 
+         74 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -2325,36 +2578,152 @@ $Formula: ( when
       "High" 
       "Hermes 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Hermes 3 to Psychopath 10
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 9" 
       2661 
+   )
+)
++Name: Psychopath 9
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Avatarr" 
       "High" 
       "Avatarr 1" 
       2937 
+   )
+)
++Name: Avatarr 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#White Trash" 
       "High" 
       "White Trash 1" 
       2707 
+   )
+)
++Name: White Trash 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Buttcheeks" 
       "High" 
       "Buttcheeks 5" 
       3396 
+   )
+)
++Name: Buttcheeks 5
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Mustanger" 
       "High" 
       "Mustanger 1" 
       2937 
+   )
+)
++Name: Mustanger 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 10" 
       1881 
    )
 )
-+Name: M_Hermes 3 to Psychopath 10
++Name: Psychopath 10
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 1
 +Team: 0
 
 $Formula: ( when 
@@ -2377,9 +2746,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Hermes 3 to Psychopath 10" 
-      20 
+   ( or 
+      ( is-event-true-delay 
+         "M_Hermes 3 to Psychopath 10" 
+         20 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Hermes 3 to Psychopath 10" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -2505,35 +2883,151 @@ $Formula: ( when
       "High" 
       "Hermes 4" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M Hermes 4 to Hermes 6
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 12" 
       2616 
+   )
+)
++Name: Psychopath 12
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Avatarr" 
       "High" 
       "Avatarr 2" 
       2753 
+   )
+)
++Name: Avatarr 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#White Trash" 
       "High" 
       "White Trash 2" 
       3717 
+   )
+)
++Name: White Trash 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Mustanger" 
       "High" 
       "Mustanger 2" 
       2432 
+   )
+)
++Name: Mustanger 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 5" 
       5065 
+   )
+)
++Name: Hermes 5
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 6" 
       5294 
    )
 )
-+Name: M Hermes 4 to Hermes 6
++Name: Hermes 6
 +Repeat Count: 1
 +Interval: 1
++Chained: 5
 +Team: 0
 
 $Formula: ( when 
@@ -2703,32 +3197,129 @@ $Formula: ( when
       "High" 
       "Hermes 7" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M Hermes 7 to Hermes 8
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 15" 
       2661 
+   )
+)
++Name: Psychopath 15
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Avatarr" 
       "High" 
       "Avatarr 3" 
       8031 
+   )
+)
++Name: Avatarr 3
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#White Trash" 
       "High" 
       "White Trash 3" 
       4543 
+   )
+)
++Name: White Trash 3
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Mustanger" 
       "High" 
       "Mustanger 3" 
       2983 
+   )
+)
++Name: Mustanger 3
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Proceed to Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 8" 
       1881 
    )
 )
-+Name: M Hermes 7 to Hermes 8
++Name: Hermes 8
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 1
 +Team: 0
 
 $Formula: ( when 
@@ -4184,7 +4775,7 @@ $List: (		;! 6 points in list
 	( 2000.000000, 0.000000, -3464.102295 )
 )
 
-#Messages		;! 79 total
+#Messages		;! 80 total
 
 
 $Name: ========== Nav 0 ==========
@@ -4710,6 +5301,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
