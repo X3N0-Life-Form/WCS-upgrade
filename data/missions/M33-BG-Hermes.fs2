@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Cairo 2", -1)
 $Author: Romanyuk, Schmitt, Hartz
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/20/12 at 17:59:54
+$Modified: 03/17/13 at 20:23:54
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -3665,7 +3665,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" )
 
-#Events		;! 127 total
+#Events		;! 133 total
 
 $Formula: ( when 
    ( true ) 
@@ -4265,36 +4265,152 @@ $Formula: ( when
       "High" 
       "Hermes 02" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Hermes 02 to Mastermind 02
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Delta 2" 
       "High" 
       "Greywolf 01" 
       6884 
+   )
+)
++Name: Greywolf 01
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 01" 
       3075 
+   )
+)
++Name: Sandman 01
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Bravo 3" 
       "High" 
       "Avatarr 01" 
       5461 
+   )
+)
++Name: Avatarr 01
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Bravo 2" 
       "High" 
       "Honeybear 01" 
       7802 
+   )
+)
++Name: Honeybear 01
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Bravo 3" 
       "High" 
       "Avatarr 02" 
       8398 
+   )
+)
++Name: Avatarr 02
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Mastermind 02" 
       4635 
    )
 )
-+Name: M_Hermes 02 to Mastermind 02
++Name: Mastermind 02
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 4
 +Team: 0
 
 $Formula: ( when 
@@ -4345,9 +4461,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Hermes 02 to Mastermind 02" 
-      50 
+   ( or 
+      ( is-event-true-delay 
+         "M_Hermes 02 to Mastermind 02" 
+         50 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Hermes 02 to Mastermind 02" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -4902,6 +5027,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Break through outer defenses", -1)
++Objective key:  XSTR("Give targets to Bravo", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -8417,7 +8543,7 @@ $List: (		;! 4 points in list
 	( -119518.898438, 133.000000, 162855.906250 )
 )
 
-#Messages		;! 114 total
+#Messages		;! 115 total
 
 
 $Name: ========== Nav 0 ==========
@@ -9138,6 +9264,11 @@ $Team: -1
 $MessageNew:  XSTR("Return to base.", -1)
 $end_multi_text
 +Wave Name: cmd_sandman_10_1.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

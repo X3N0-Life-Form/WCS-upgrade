@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Loki 5", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/27/12 at 14:25:41
+$Modified: 03/17/13 at 18:23:23
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -1771,7 +1771,7 @@ $Ships: (		;! 2 total
 +Wave Delay Min: 5
 +Wave Delay Max: 15
 
-#Events		;! 96 total
+#Events		;! 118 total
 
 $Formula: ( when 
    ( true ) 
@@ -1900,23 +1900,8 @@ $Formula: ( when
       "High" 
       "Hermes 1" 
       0 
-      "#Sandman" 
-      "High" 
-      "Sandman 1" 
-      2983 
-      "Alpha 2" 
-      "High" 
-      "Avatarr 1" 
-      6700 
-      "Golf 2" 
-      "High" 
-      "Greywolf 1" 
-      7626 
-      "Golf 1" 
-      "High" 
-      "Phalanx 1" 
-      5828 
    )
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Hermes 1 to Phalanx 1
 +Repeat Count: 1
@@ -1924,7 +1909,102 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 1" 
+      2983 
+   )
+)
++Name: Sandman 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Avatarr 1" 
+      6700 
+   )
+)
++Name: Avatarr 1
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 2" 
+      "High" 
+      "Greywolf 1" 
+      7626 
+   )
+)
++Name: Greywolf 1
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Phalanx 1" 
+      5828 
+   )
+)
++Name: Phalanx 1
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Hermes 1 to Phalanx 1" 
+      5 
+   )
    ( add-goal 
       "Alpha 2" 
       ( ai-waypoints-once 
@@ -1936,7 +2016,6 @@ $Formula: ( when
 +Name: Launch Alpha 2
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
 +Team: 0
 
 $Formula: ( when 
@@ -2025,14 +2104,23 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( and 
-      ( is-event-true-delay 
-         "M_Hermes 1 to Phalanx 1" 
-         33 
+   ( or 
+      ( and 
+         ( is-event-true-delay 
+            "M_Hermes 1 to Phalanx 1" 
+            33 
+         )
+         ( is-event-true-delay 
+            "Player and wingmen launched" 
+            1 
+         )
       )
-      ( is-event-true-delay 
-         "Player and wingmen launched" 
-         1 
+      ( and 
+         ( is-event-true-delay 
+            "M_Hermes 1 to Phalanx 1" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
       )
    )
    ( set-object-position 
@@ -2434,31 +2522,128 @@ $Formula: ( when
       "High" 
       "Avatarr 4" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Avatarr 3 to Hermes 2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Golf 2" 
       "High" 
       "Greywolf 2" 
       8307 
+   )
+)
++Name: Greywolf 2
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Golf 1" 
       "High" 
       "Phalanx 2" 
       2983 
+   )
+)
++Name: Phalanx 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 2" 
       "High" 
       "Avatarr 5" 
       5461 
+   )
+)
++Name: Avatarr 5
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Golf 1" 
       "High" 
       "Phalanx 3" 
       3891 
+   )
+)
++Name: Phalanx 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 2" 
       9270 
    )
 )
-+Name: M_Avatarr 3 to Hermes 2
++Name: Hermes 2
 +Repeat Count: 1
 +Interval: 1
++Chained: 9
 +Team: 0
 
 $Formula: ( when 
@@ -2492,9 +2677,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Avatarr 3 to Hermes 2" 
-      34 
+   ( or 
+      ( is-event-true-delay 
+         "M_Avatarr 3 to Hermes 2" 
+         34 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Avatarr 3 to Hermes 2" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -2631,19 +2825,9 @@ $Formula: ( when
       "High" 
       "Avatarr 6" 
       0 
-      "Golf 1" 
-      "High" 
-      "Phalanx 5" 
-      5874 
-      "Golf 1" 
-      "High" 
-      "Phalanx 6" 
-      8353 
-      "Golf 1" 
-      "High" 
-      "Phalanx 7" 
-      13254 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Avatarr 6 to Phalanx 7
 +Repeat Count: 1
@@ -2652,8 +2836,124 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Phalanx 5" 
+      5874 
+   )
+)
++Name: Phalanx 5
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Phalanx 6" 
+      8353 
+   )
+)
++Name: Phalanx 6
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Phalanx 7" 
+      13254 
+   )
+)
++Name: Phalanx 7
++Repeat Count: 1
++Interval: 1
++Chained: 13
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay "Phalanx 6" 5 ) 
+   ( training-msg "Shutdown sequence 1" ) 
+)
++Name: Shutdown sequence 1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
    ( true ) 
+   ( training-msg "Shutdown sequence 2" ) 
+)
++Name: Shutdown sequence 2
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( true ) 
+   ( training-msg "Shutdown sequence 3" ) 
+)
++Name: Shutdown sequence 3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Avatarr 6 to Phalanx 7" 
+         29 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Avatarr 6 to Phalanx 7" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
+   )
    ( ship-invisible 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Golf 1" 
+      "Golf 2" 
+   )
+   ( shields-off 
       "Alpha 1" 
       "Alpha 2" 
       "Golf 1" 
@@ -2663,7 +2963,6 @@ $Formula: ( when
 +Name: Stealth confeds
 +Repeat Count: 1
 +Interval: 1
-+Chained: 29
 +Team: 0
 
 $Formula: ( when 
@@ -2697,9 +2996,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Avatarr 6 to Phalanx 7" 
-      35 
+   ( or 
+      ( is-event-true-delay 
+         "M_Avatarr 6 to Phalanx 7" 
+         35 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Avatarr 6 to Phalanx 7" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -2727,6 +3035,19 @@ $Formula: ( when
    ( < ( distance-to-nav "Nav 4" ) 5000 ) 
    ( ship-vanish "Ghost#1" "Ghost#2" ) 
    ( ship-visible 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Golf 1" 
+      "Golf 2" 
+   )
+   ( shields-on 
+      "Alpha 1" 
+      "Alpha 2" 
+      "Golf 1" 
+      "Golf 2" 
+   )
+   ( set-shield-energy 
+      100 
       "Alpha 1" 
       "Alpha 2" 
       "Golf 1" 
@@ -2893,6 +3214,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Destroy Kilrathi ships", -1)
++Objective key:  XSTR("Dual fire torpedoes vs cruiser", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -2921,35 +3243,9 @@ $Formula: ( when
       "High" 
       "Phalanx 9" 
       0 
-      "TCS Talon" 
-      "High" 
-      "Talon 2" 
-      2157 
-      "#Sandman" 
-      "High" 
-      "Sandman 4" 
-      7067 
-      "TCS Talon" 
-      "High" 
-      "Talon 3" 
-      1789 
-      "Alpha 2" 
-      "High" 
-      "Avatarr 8" 
-      6838 
-      "Golf 2" 
-      "High" 
-      "Greywolf 3" 
-      1789 
-      "Alpha 2" 
-      "High" 
-      "Avatarr 9" 
-      6379 
-      "Golf 1" 
-      "High" 
-      "Phalanx 10" 
-      6609 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Phalanx 9 to Phalanx 10
 +Repeat Count: 1
@@ -2957,11 +3253,186 @@ $Formula: ( when
 +Chained: 5
 +Team: 0
 
-$Formula: ( when ( true ) ( do-nothing ) ) 
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "TCS Talon" 
+      "High" 
+      "Talon 2" 
+      2157 
+   )
+)
++Name: Talon 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 4" 
+      7067 
+   )
+)
++Name: Sandman 4
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "TCS Talon" 
+      "High" 
+      "Talon 3" 
+      1789 
+   )
+)
++Name: Talon 3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Avatarr 8" 
+      6838 
+   )
+)
++Name: Avatarr 8
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 2" 
+      "High" 
+      "Greywolf 3" 
+      1789 
+   )
+)
++Name: Greywolf 3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Avatarr 9" 
+      6379 
+   )
+)
++Name: Avatarr 9
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Need autopilot link Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Golf 1" 
+      "High" 
+      "Phalanx 10" 
+      6609 
+   )
+)
++Name: Phalanx 10
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Phalanx 9 to Phalanx 10" 
+         39 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Phalanx 9 to Phalanx 10" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
+   )
+   ( do-nothing ) 
+)
 +Name: Need autopilot link Nav 4
 +Repeat Count: 1
 +Interval: 1
-+Chained: 39
 +Team: 0
 
 $Formula: ( when-argument 
@@ -4900,7 +5371,7 @@ $List: (		;! 4 points in list
 	( 0.000000, 0.000000, -5000.000000 )
 )
 
-#Messages		;! 95 total
+#Messages		;! 99 total
 
 
 $Name: ========== Nav 0 ==========
@@ -5503,6 +5974,29 @@ $Team: -1
 $MessageNew:  XSTR("Return to base.", -1)
 $end_multi_text
 +Wave Name: cmd_sandman_10_1.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: Shutdown sequence 1
+$Team: -1
+$MessageNew:  XSTR("Active sensors: Offline", -1)
+$end_multi_text
+
+$Name: Shutdown sequence 2
+$Team: -1
+$MessageNew:  XSTR("Active sensors: Offline
+Iff transponder: Offline", -1)
+$end_multi_text
+
+$Name: Shutdown sequence 3
+$Team: -1
+$MessageNew:  XSTR("Active sensors: Offline
+Iff transponder: Offline
+Shields: Offline", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

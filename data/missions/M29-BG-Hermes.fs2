@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Nephele 4", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/07 at 10:42:26
-$Modified: 01/15/12 at 00:44:53
+$Modified: 03/17/13 at 16:16:05
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -24,7 +24,7 @@ $end_multi_text
 
 +Viewer pos: 1299.204224, 698.151978, -258.408936
 +Viewer orient:
-	-0.229675, -0.000001, 0.973268,
+	-0.229675, -0.000001, 0.973267,
 	-0.414398, 0.904827, -0.097790,
 	-0.880638, -0.425780, -0.207816
 
@@ -60,6 +60,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_05_briefing_01.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -4149,7 +4150,7 @@ $Ships: (		;! 3 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 134 total
+#Events		;! 139 total
 
 $Formula: ( when 
    ( true ) 
@@ -4642,16 +4643,37 @@ $Formula: ( when
       "High" 
       "Sandman 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Sandman 3 to Jaws 3
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Echo 1" 
       "High" 
       "Jaws 3" 
       3200 
    )
 )
-+Name: M_Sandman 3 to Jaws 3
++Name: Jaws 3
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 3
 +Team: 0
 
 $Formula: ( when 
@@ -4818,9 +4840,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Sandman 3 to Jaws 3" 
-      12 
+   ( or 
+      ( is-event-true-delay 
+         "M_Sandman 3 to Jaws 3" 
+         12 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Sandman 3 to Jaws 3" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -5005,20 +5036,60 @@ $Formula: ( when
       "High" 
       "Hermes 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Hermes 3 to Psychopath 2
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Foxtrot 2" 
       "High" 
       "Ninja 1" 
       8577 
+   )
+)
++Name: Ninja 1
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 2" 
       8349 
    )
 )
-+Name: M_Hermes 3 to Psychopath 2
++Name: Psychopath 2
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 8
 +Team: 0
 
 $Formula: ( when 
@@ -5052,9 +5123,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Hermes 3 to Psychopath 2" 
-      24 
+   ( or 
+      ( is-event-true-delay 
+         "M_Hermes 3 to Psychopath 2" 
+         24 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Hermes 3 to Psychopath 2" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -5362,16 +5442,37 @@ $Formula: ( when
       "High" 
       "John Paul Jones 2" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_JPJ 2 to Psychopath 6
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Psychopath 6" 
       9500 
    )
 )
-+Name: M_JPJ 2 to Psychopath 6
++Name: Psychopath 6
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 9
 +Team: 0
 
 $Formula: ( when 
@@ -5405,9 +5506,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_JPJ 2 to Psychopath 6" 
-      15 
+   ( or 
+      ( is-event-true-delay 
+         "M_JPJ 2 to Psychopath 6" 
+         15 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_JPJ 2 to Psychopath 6" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -5829,16 +5939,37 @@ $Formula: ( when
       "High" 
       "Phalanx 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Phalanx 3 to Hermes 5
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 5" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 5" 
       4774 
    )
 )
-+Name: M_Phalanx 3 to Hermes 5
++Name: Hermes 5
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 4
 +Team: 0
 
 $Formula: ( when 
@@ -5881,9 +6012,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Phalanx 3 to Hermes 5" 
-      13 
+   ( or 
+      ( is-event-true-delay 
+         "M_Phalanx 3 to Hermes 5" 
+         13 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Phalanx 3 to Hermes 5" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -8171,7 +8311,7 @@ $List: (		;! 5 points in list
 	( 0.000000, 0.000000, 0.000000 )
 )
 
-#Messages		;! 73 total
+#Messages		;! 74 total
 
 
 $Name: ========== Nav 0 ==========
@@ -8656,6 +8796,11 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

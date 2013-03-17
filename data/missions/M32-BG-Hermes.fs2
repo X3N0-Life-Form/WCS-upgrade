@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Cairo 1", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/07 at 10:42:26
-$Modified: 01/07/12 at 00:12:12
+$Modified: 03/17/13 at 20:16:46
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -24,7 +24,7 @@ $end_multi_text
 
 +Viewer pos: 477.887695, 491.419617, -1304.214966
 +Viewer orient:
-	0.938952, 0.000001, 0.344049,
+	0.938952, 0.000002, 0.344049,
 	-0.114753, 0.942739, 0.313170,
 	-0.324348, -0.333532, 0.885186
 
@@ -81,6 +81,7 @@ $Variables:
 #Cutscenes
 $Briefing Cutscene: episode_05_briefing_04.ogg
 +formula: ( true ) 
+
 #end
 
 #Command Briefing
@@ -1723,9 +1724,10 @@ $Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "cargo-known" "ignore-count" "protect-ship" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" "beam-protect-ship" )
++Flags: ( "cargo-known" "ignore-count" "protect-ship" "escort" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "invulnerable" "hidden-from-sensors" "no-dynamic" "beam-protect-ship" )
 +Flags2: ( "no-subspace-drive" "hide-ship-name" "no-arrival-log" "no-departure-log" )
 +Respawn priority: 0
++Escort priority: 15
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
 +Use Table Score:
@@ -3283,7 +3285,7 @@ $Ships: (		;! 4 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 171 total
+#Events		;! 185 total
 
 $Formula: ( when 
    ( true ) 
@@ -3651,16 +3653,37 @@ $Formula: ( when
       "High" 
       "Sandman 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Sandman 3 to Honeybear 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 2" 
       "High" 
       "Honeybear 2" 
       5186 
    )
 )
-+Name: M_Sandman 3 to Honeybear 2
++Name: Honeybear 2
 +Repeat Count: 1
 +Interval: 1
-+Chained: 2
++Chained: 5
 +Team: 0
 
 $Formula: ( when 
@@ -3702,9 +3725,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Sandman 3 to Honeybear 2" 
-      8 
+   ( or 
+      ( is-event-true-delay 
+         "M_Sandman 3 to Honeybear 2" 
+         8 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Sandman 3 to Honeybear 2" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -3804,6 +3836,7 @@ $Formula: ( when
 +Interval: 1
 +Chained: 0
 +Objective:  XSTR("Destroy Kilrathi fighters", -1)
++Objective key:  XSTR("Give orders to Honeybear", -1)
 +Team: 0
 
 $Formula: ( when 
@@ -3822,19 +3855,9 @@ $Formula: ( when
       "High" 
       "Honeybear 4" 
       0 
-      "#Sandman" 
-      "High" 
-      "Sandman 4" 
-      5920 
-      "Alpha 2" 
-      "High" 
-      "Honeybear 5" 
-      1193 
-      "#Sandman" 
-      "High" 
-      "Sandman 5" 
-      2937 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Honeybear 4 to Sandman 5
 +Repeat Count: 1
@@ -3842,11 +3865,85 @@ $Formula: ( when
 +Chained: 5
 +Team: 0
 
-$Formula: ( when ( true ) ( do-nothing ) ) 
-+Name: Scanning Nav 2
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 4" 
+      5920 
+   )
+)
++Name: Sandman 4
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Honeybear 5" 
+      1193 
+   )
+)
++Name: Honeybear 5
 +Repeat Count: 1
 +Interval: 1
 +Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 5" 
+      2937 
+   )
+)
++Name: Sandman 5
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Honeybear 4 to Sandman 5" 
+      1 
+   )
+   ( do-nothing ) 
+)
++Name: Scanning Nav 2
++Repeat Count: 1
++Interval: 1
 +Team: 0
 
 $Formula: ( when 
@@ -3897,9 +3994,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Honeybear 4 to Sandman 5" 
-      13 
+   ( or 
+      ( is-event-true-delay 
+         "M_Honeybear 4 to Sandman 5" 
+         13 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Honeybear 4 to Sandman 5" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -4027,19 +4133,9 @@ $Formula: ( when
       "High" 
       "Honeybear 8" 
       0 
-      "#Sandman" 
-      "High" 
-      "Sandman 7" 
-      5232 
-      "Alpha 2" 
-      "High" 
-      "Honeybear 9" 
-      2799 
-      "Alpha 2" 
-      "High" 
-      "Honeybear 10" 
-      1514 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Honeybear 8 to Honeybear 10
 +Repeat Count: 1
@@ -4047,11 +4143,85 @@ $Formula: ( when
 +Chained: 5
 +Team: 0
 
-$Formula: ( when ( true ) ( do-nothing ) ) 
-+Name: Scanning Nav 3
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Sandman" 
+      "High" 
+      "Sandman 7" 
+      5232 
+   )
+)
++Name: Sandman 7
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Honeybear 9" 
+      2799 
+   )
+)
++Name: Honeybear 9
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 4" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 2" 
+      "High" 
+      "Honeybear 10" 
+      1514 
+   )
+)
++Name: Honeybear 10
 +Repeat Count: 1
 +Interval: 1
 +Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Honeybear 8 to Honeybear 10" 
+      1 
+   )
+   ( do-nothing ) 
+)
++Name: Scanning Nav 3
++Repeat Count: 1
++Interval: 1
 +Team: 0
 
 $Formula: ( when 
@@ -4102,9 +4272,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Honeybear 8 to Honeybear 10" 
-      12 
+   ( or 
+      ( is-event-true-delay 
+         "M_Honeybear 8 to Honeybear 10" 
+         12 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Honeybear 8 to Honeybear 10" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -4176,27 +4355,105 @@ $Formula: ( when
       "High" 
       "Honeybear 11" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Honeybear 11 to Sandman 9
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 5" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 8" 
       6471 
+   )
+)
++Name: Sandman 8
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 5" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 2" 
       "High" 
       "Honeybear 12" 
       2983 
+   )
+)
++Name: Honeybear 12
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 5" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 2" 
       "High" 
       "Honeybear 13" 
       5084 
+   )
+)
++Name: Honeybear 13
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 5" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 9" 
       2937 
    )
 )
-+Name: M_Honeybear 11 to Sandman 9
++Name: Sandman 9
 +Repeat Count: 1
 +Interval: 1
++Chained: 2
 +Team: 0
 
 $Formula: ( when 
@@ -4242,9 +4499,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Honeybear 11 to Sandman 9" 
-      20 
+   ( or 
+      ( is-event-true-delay 
+         "M_Honeybear 11 to Sandman 9" 
+         20 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Honeybear 11 to Sandman 9" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -4575,24 +4841,83 @@ $Formula: ( when
       "High" 
       "Honeybear 16" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Honeybear 16 to Sandman 12
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 6" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 11" 
       6012 
+   )
+)
++Name: Sandman 11
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 6" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 2" 
       "High" 
       "Honeybear 17" 
       1330 
+   )
+)
++Name: Honeybear 17
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 6" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#Sandman" 
       "High" 
       "Sandman 12" 
       4727 
    )
 )
-+Name: M_Honeybear 16 to Sandman 12
++Name: Sandman 12
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 4
 +Team: 0
 
 $Formula: ( when 
@@ -4619,9 +4944,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Honeybear 16 to Sandman 12" 
-      15 
+   ( or 
+      ( is-event-true-delay 
+         "M_Honeybear 16 to Sandman 12" 
+         15 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Honeybear 16 to Sandman 12" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -8270,7 +8604,7 @@ $List: (		;! 1 points in list
 	( -100000.000000, -250.000000, -166700.000000 )
 )
 
-#Messages		;! 133 total
+#Messages		;! 134 total
 
 
 $Name: ========== Nav 0 ==========
@@ -9110,6 +9444,11 @@ $Team: -1
 $MessageNew:  XSTR("Return to base.", -1)
 $end_multi_text
 +Wave Name: cmd_sandman_10_1.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
