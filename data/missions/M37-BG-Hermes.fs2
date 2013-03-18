@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Hyperion 1", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/18/13 at 00:05:54
+$Modified: 03/18/13 at 15:09:05
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -91,9 +91,10 @@ $Variables:
 		44		"PlanetVariable"		"0"		"number"
 		45		"RunAwayStart"		"0"		"number"
 		46		"sentry-count"		"11"		"number"
-		47		"target-1"		"None"		"string"
-		48		"target-2"		"None"		"string"
-		49		"TauntTimer"		"0"		"number"
+		47		"tac-init"		"."		"string"
+		48		"target-cruisers"		" "		"string"
+		49		"target-destroyers"		"None"		"string"
+		50		"TauntTimer"		"0"		"number"
 )
 
 #Cutscenes
@@ -5601,7 +5602,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 170 total
+#Events		;! 165 total
 
 $Formula: ( when 
    ( true ) 
@@ -6597,7 +6598,10 @@ $Formula: ( when
          "TCS Rage#1" 
       )
    )
-   ( do-nothing ) 
+   ( modify-variable 
+      "@target-cruisers[ ]" 
+      "Cruisers firing at will" 
+   )
 )
 +Name: Cruisers jump in
 +Repeat Count: 1
@@ -10808,7 +10812,10 @@ $Formula: ( when-argument
       "TCS Rage#1" 
    )
    ( has-arrived-delay 0 "<argument>" ) 
-   ( turret-lock "<argument>" "turret02" ) 
+   ( turret-tagged-specific 
+      "<argument>" 
+      "turret02" 
+   )
    ( invalidate-argument "<argument>" ) 
 )
 +Name: lock destroyer CSMs
@@ -10833,11 +10840,55 @@ $Formula: ( when
    ( training-msg 
       "tactical board - init" 
    )
+   ( when-argument 
+      ( in-sequence 
+         ".." 
+         "..." 
+         "." 
+         ".." 
+         "..." 
+         "." 
+         ".." 
+         "..." 
+         " - Destroyer Group 1" 
+         " - Destroyer Group 1" 
+         " - Destroyer Group 1" 
+         " - Destroyer Group 1" 
+         " - Destroyer Group 1" 
+         " - CSM targeting data linked" 
+         " - CSM targeting data linked" 
+         " - CSM targeting data linked" 
+         " - Destroyer Group 2" 
+         " - Destroyer Group 2" 
+         " - Destroyer Group 2" 
+         " - Destroyer Group 2" 
+         " - Destroyer Group 2" 
+         " - CSM targeting data linked" 
+         " - CSM targeting data linked" 
+         " - CSM targeting data linked" 
+         " - Scanning for targets" 
+         " - Scanning for targets ." 
+         " - Scanning for targets .." 
+         " - Scanning for targets ..." 
+         " - CSM firing mode: Focused" 
+         " - CSM firing mode: Focused" 
+         " - CSM firing mode: Focused" 
+         " - CSM firing mode: Focused" 
+         " - CSM firing mode: Focused" 
+         " - Stand By" 
+      )
+      ( true ) 
+      ( modify-variable 
+         "@tac-init[.]" 
+         "<argument>" 
+      )
+      ( invalidate-argument "<argument>" ) 
+   )
 )
 +Name: jump point - init tac
 +Repeat Count: 1
-+Trigger Count: 99
-+Interval: 3
++Trigger Count: 999
++Interval: 1
 +Team: 1431655765
 
 $Formula: ( when 
@@ -10861,7 +10912,7 @@ $Formula: ( when
    ( and 
       ( is-event-true-delay 
          "destroyers arrived" 
-         0 
+         3 
       )
       ( not 
          ( is-event-true-delay 
@@ -10876,7 +10927,8 @@ $Formula: ( when
 )
 +Name: jump point - tactical display
 +Repeat Count: 1
-+Interval: 1
++Trigger Count: 999
++Interval: 3
 +Team: 1431655765
 
 $Formula: ( when-argument 
@@ -10896,9 +10948,6 @@ $Formula: ( when-argument
          0 
       )
       ( not 
-         ( is-destroyed-delay 0 "<argument>" ) 
-      )
-      ( not 
          ( is-event-true-delay 
             "Jump Point secured" 
             0 
@@ -10906,173 +10955,30 @@ $Formula: ( when-argument
       )
    )
    ( modify-variable 
-      "@target-1[None]" 
+      "@target-destroyers[None]" 
       "<argument>" 
    )
+   ( ship-tag 
+      "@target-destroyers[None]" 
+      2 
+      3 
+   )
+   ( good-secondary-time 
+      "Friendly" 
+      100 
+      "Warhammer CSM" 
+      "@target-destroyers[None]" 
+   )
+   ( when 
+      ( is-destroyed-delay 0 "<argument>" ) 
+      ( invalidate-argument "<argument>" ) 
+   )
 )
-+Name: group 1 - pick targets
++Name: pick targets
 +Repeat Count: 1
 +Trigger Count: 999
 +Interval: 29
 +Team: 1431655765
-
-$Formula: ( when-argument 
-   ( in-sequence 
-      "Light Destroyer#1" 
-      "Heavy Destroyer#4" 
-      "Heavy Cruiser#2" 
-      "Heavy Cruiser#1" 
-      "Heavy Destroyer#3" 
-      "Heavy Destroyer#2" 
-      "Heavy Destroyer#1" 
-      "Outpost" 
-   )
-   ( and 
-      ( is-event-true-delay 
-         "destroyers arrived" 
-         0 
-      )
-      ( not 
-         ( is-destroyed-delay 0 "<argument>" ) 
-      )
-      ( not 
-         ( is-event-true-delay 
-            "Jump Point secured" 
-            0 
-         )
-      )
-   )
-   ( modify-variable 
-      "@target-2[None]" 
-      "<argument>" 
-   )
-)
-+Name: group 2 - pick targets
-+Repeat Count: 1
-+Trigger Count: 999
-+Interval: 29
-+Team: 2048
-
-$Formula: ( when-argument 
-   ( every-of 
-      "TCS John Paul Jones#1" 
-      "TCS McFaul#1" 
-      "TCS Vengeance#1" 
-   )
-   ( and 
-      ( not 
-         ( is-event-true-delay 
-            "Jump Point secured" 
-            0 
-         )
-      )
-      ( = @firing-group[1] 1 ) 
-      ( is-event-true-delay 
-         "destroyers arrived" 
-         0 
-      )
-   )
-   ( turret-free "<argument>" "turret02" ) 
-   ( good-secondary-time 
-      "Friendly" 
-      100 
-      "Warhammer CSM" 
-      "@target-1[None]" 
-   )
-)
-+Name: fire CSMs - group 1
-+Repeat Count: 1
-+Trigger Count: 999
-+Interval: 30
-
-$Formula: ( when-argument 
-   ( every-of 
-      "TCS John Paul Jones#1" 
-      "TCS McFaul#1" 
-      "TCS Vengeance#1" 
-   )
-   ( and 
-      ( not 
-         ( is-event-true-delay 
-            "Jump Point secured" 
-            0 
-         )
-      )
-      ( is-event-true-delay 
-         "destroyers arrived" 
-         0 
-      )
-   )
-   ( turret-lock "<argument>" "turret02" ) 
-   ( modify-variable @firing-group[1] 2 ) 
-)
-+Name: lock group 1
-+Repeat Count: 1
-+Trigger Count: 999
-+Interval: 30
-+Chained: 3
-+Team: 2048
-
-$Formula: ( when-argument 
-   ( every-of 
-      "TCS Damascus#1" 
-      "TCS Hammer#1" 
-      "TCS Rage#1" 
-   )
-   ( and 
-      ( not 
-         ( is-event-true-delay 
-            "Jump Point secured" 
-            0 
-         )
-      )
-      ( = @firing-group[1] 2 ) 
-      ( is-event-true-delay 
-         "destroyers arrived" 
-         0 
-      )
-   )
-   ( turret-free "<argument>" "turret02" ) 
-   ( good-secondary-time 
-      "Friendly" 
-      100 
-      "Warhammer CSM" 
-      "@target-2[None]" 
-   )
-)
-+Name: fire CSMs - group 2
-+Repeat Count: 1
-+Trigger Count: 999
-+Interval: 30
-+Team: 2048
-
-$Formula: ( when-argument 
-   ( every-of 
-      "TCS Damascus#1" 
-      "TCS Hammer#1" 
-      "TCS Rage#1" 
-   )
-   ( and 
-      ( not 
-         ( is-event-true-delay 
-            "Jump Point secured" 
-            0 
-         )
-      )
-      ( is-event-true-delay 
-         "destroyers arrived" 
-         0 
-      )
-   )
-   ( turret-lock "<argument>" "turret02" ) 
-   ( modify-variable @firing-group[1] 1 ) 
-)
-+Name: lock group 2
-+Repeat Count: 1
-+Trigger Count: 999
-+Interval: 30
-+Chained: 3
-+Team: 134221824
 
 #Goals		;! 3 total
 
@@ -11860,14 +11766,15 @@ $end_multi_text
 $Name: tactical board - init
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical Board <<<
-Initializing ...", -1)
+Initializing $tac-init", -1)
 $end_multi_text
 
 $Name: tactical board - jump point
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical Board <<<
-Group 1 target: $target-1
-Group 2 target: $target-2", -1)
+Destroyers target:
+$target-destroyers
+$target-cruisers", -1)
 $end_multi_text
 
 #Reinforcements		;! 0 total
