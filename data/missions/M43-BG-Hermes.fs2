@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Freya 1", -1)
 $Author: Hartz, Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/27/12 at 23:04:34
+$Modified: 03/30/13 at 21:11:24
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -22,11 +22,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: -350.515594, 493.963440, -1343.126587
++Viewer pos: 98349.601563, 7491.611816, 41785.382813
 +Viewer orient:
-	0.967594, 0.000000, -0.252513,
-	0.084665, 0.942115, 0.324425,
-	0.237896, -0.335290, 0.911584
+	-0.945650, -0.000002, -0.325187,
+	0.171269, 0.850062, -0.498058,
+	0.276431, -0.526683, -0.803860
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "Bravo" "Charlie" "Delta" "Echo" )
@@ -52,20 +52,21 @@ $Variables:
 		8		"AutoNavFighterSpeed"		"65"		"number"
 		9		"AutoNavPhase"		"0"		"number"
 		10		"AutoNavTime"		"0"		"number"
-		11		"BourrasqueDestroyed"		"0"		"number"		"campaign-persistent"
-		12		"CamSpeed"		"0"		"number"
-		13		"Cheat1"		"0"		"number"
-		14		"Cheat2"		"0"		"number"
-		15		"CloakDeathfang"		"0"		"number"
-		16		"CloakPhase"		"0"		"number"
-		17		"CloakTimer"		"0"		"number"
-		18		"EscortBravo"		"0"		"number"
-		19		"EscortCharlie"		"0"		"number"
-		20		"KarnesDestroyed"		"0"		"number"		"campaign-persistent"
-		21		"MessageLock"		"0"		"number"
-		22		"TassafarongaDestroyed"		"0"		"number"		"campaign-persistent"
-		23		"TauntTimer"		"0"		"number"
-		24		"TramontaneDestroyed"		"0"		"number"		"campaign-persistent"
+		11		"bomber-count"		"10"		"number"
+		12		"BourrasqueDestroyed"		"0"		"number"		"campaign-persistent"
+		13		"CamSpeed"		"0"		"number"
+		14		"Cheat1"		"0"		"number"
+		15		"Cheat2"		"0"		"number"
+		16		"CloakDeathfang"		"0"		"number"
+		17		"CloakPhase"		"0"		"number"
+		18		"CloakTimer"		"0"		"number"
+		19		"EscortBravo"		"0"		"number"
+		20		"EscortCharlie"		"0"		"number"
+		21		"KarnesDestroyed"		"0"		"number"		"campaign-persistent"
+		22		"MessageLock"		"0"		"number"
+		23		"TassafarongaDestroyed"		"0"		"number"		"campaign-persistent"
+		24		"TauntTimer"		"0"		"number"
+		25		"TramontaneDestroyed"		"0"		"number"		"campaign-persistent"
 )
 
 #Cutscenes
@@ -8752,6 +8753,7 @@ $Ships: (		;! 5 total
 	"Tango#1 4"
 	"Tango#1 5"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Quebec#1
@@ -8773,6 +8775,7 @@ $Ships: (		;! 5 total
 	"Quebec#1 4"
 	"Quebec#1 5"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Sierra#1
@@ -9209,7 +9212,7 @@ $Ships: (		;! 2 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" )
 
-#Events		;! 153 total
+#Events		;! 179 total
 
 $Formula: ( when 
    ( true ) 
@@ -9764,24 +9767,83 @@ $Formula: ( when
       "High" 
       "Dellaciel 2" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Dellaciel 2 to Venom 6
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 5" 
       11657 
+   )
+)
++Name: Venom 5
++Repeat Count: 1
++Interval: 1
++Chained: 11
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Golf 1" 
       "High" 
       "Dellaciel 3" 
       3717 
+   )
+)
++Name: Dellaciel 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 6" 
       2111 
    )
 )
-+Name: M_Dellaciel 2 to Venom 6
++Name: Venom 6
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 2
 +Team: 0
 
 $Formula: ( when 
@@ -9847,9 +9909,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Dellaciel 2 to Venom 6" 
-      20 
+   ( or 
+      ( is-event-true-delay 
+         "M_Dellaciel 2 to Venom 6" 
+         20 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Dellaciel 2 to Venom 6" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10099,64 +10170,313 @@ $Formula: ( when
       "High" 
       "Saintsword 1" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Saintsword 1 to Saintsword 7
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 3" 
       "High" 
       "Avatarr 3" 
       3442 
+   )
+)
++Name: Avatarr 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "India 1" 
       "High" 
       "Saintsword 2" 
       5002 
+   )
+)
++Name: Saintsword 2
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 4" 
       "High" 
       "Avatarr 4" 
       8995 
+   )
+)
++Name: Avatarr 4
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "India 1" 
       "High" 
       "Saintsword 3" 
       3717 
+   )
+)
++Name: Saintsword 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 3" 
       "High" 
       "Avatarr 5" 
       8720 
+   )
+)
++Name: Avatarr 5
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "India 1" 
       "High" 
       "Saintsword 4" 
       2753 
+   )
+)
++Name: Saintsword 4
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 4" 
       "High" 
       "Psychopath 1" 
       4543 
+   )
+)
++Name: Psychopath 1
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "India 1" 
       "High" 
       "Saintsword 5" 
       2616 
+   )
+)
++Name: Saintsword 5
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 4" 
       "High" 
       "Psychopath 2" 
       3442 
+   )
+)
++Name: Psychopath 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 8" 
       9729 
+   )
+)
++Name: Venom 8
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "India 1" 
       "High" 
       "Saintsword 6" 
       5278 
+   )
+)
++Name: Saintsword 6
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 9" 
       1652 
+   )
+)
++Name: Venom 9
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "India 1" 
       "High" 
       "Saintsword 7" 
       10510 
    )
 )
-+Name: M_Saintsword 1 to Saintsword 7
++Name: Saintsword 7
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 10
 +Team: 0
 
 $Formula: ( when 
@@ -10204,9 +10524,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Saintsword 1 to Saintsword 7" 
-      77 
+   ( or 
+      ( is-event-true-delay 
+         "M_Saintsword 1 to Saintsword 7" 
+         77 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Saintsword 1 to Saintsword 7" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10734,32 +11063,129 @@ $Formula: ( when
       "High" 
       "Saintsword 8" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Saintsword 8 to Venom 16
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Langley" 
       "High" 
       "Langley 4" 
       8674 
+   )
+)
++Name: Langley 4
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 3" 
       "High" 
       "Avatarr 7" 
       10785 
+   )
+)
++Name: Avatarr 7
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 15" 
       13401 
+   )
+)
++Name: Venom 15
++Repeat Count: 1
++Interval: 1
++Chained: 13
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Langley" 
       "High" 
       "Langley 5" 
       3212 
+   )
+)
++Name: Langley 5
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 16" 
       9316 
    )
 )
-+Name: M_Saintsword 8 to Venom 16
++Name: Venom 16
 +Repeat Count: 1
 +Interval: 1
-+Chained: 1
++Chained: 9
 +Team: 0
 
 $Formula: ( when 
@@ -10788,9 +11214,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Saintsword 8 to Venom 16" 
-      50 
+   ( and 
+      ( is-event-true-delay 
+         "M_Saintsword 8 to Venom 16" 
+         50 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Saintsword 8 to Venom 16" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -11056,14 +11491,14 @@ $Formula: ( when
       "High" 
       "Deathfang 3_1" 
       8485 
-	  "Deathfang" 
+      "Deathfang" 
       "High" 
       "Deathfang 3_2" 
       15136 
       "Deathfang" 
       "High" 
       "Deathfang 4" 
-      6458
+      6458 
    )
    ( modify-variable @MessageLock[0] 1 ) 
 )
@@ -14755,6 +15190,102 @@ $Formula: ( every-time
 +Interval: 1
 +Team: 6564692
 
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 2" 
+      3 
+   )
+   ( training-msg "tac board - init" ) 
+)
++Name: tac board - init
++Repeat Count: 1
++Interval: 1
++Team: 1
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "Zartoth arrival cue" 
+         0 
+      )
+   )
+   ( training-msg "tac board - display" ) 
+)
++Name: tac board - display1
++Repeat Count: 1
++Trigger Count: 99
++Interval: 3
++Chained: 0
++Team: 1431655765
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Zartoth arrival cue" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Zartoth Nav 2 destroyed" 
+            0 
+         )
+      )
+   )
+   ( training-msg "tac board - jammed" ) 
+)
++Name: tac board - jammed
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 0
++Team: 2048
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Zartoth Nav 2 destroyed" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Protect TCS Langley" 
+            0 
+         )
+      )
+   )
+   ( training-msg "tac board - display" ) 
+)
++Name: tac board - display for real
++Repeat Count: 1
++Trigger Count: 9999
++Interval: 3
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Quebec#1 1" 
+      "Quebec#1 2" 
+      "Quebec#1 3" 
+      "Quebec#1 4" 
+      "Quebec#1 5" 
+      "Tango#1 1" 
+      "Tango#1 2" 
+      "Tango#1 3" 
+      "Tango#1 4" 
+      "Tango#1 5" 
+   )
+   ( is-destroyed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @bomber-count[10] 
+      ( - @bomber-count[10] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update bomber count
++Repeat Count: 1
++Trigger Count: 99
++Interval: 0
++Team: 1
+
 #Goals		;! 1 total
 
 $Type: Primary
@@ -14923,7 +15454,7 @@ $List: (		;! 2 points in list
 	( 94980.453125, 1100.000000, -98400.820313 )
 )
 
-#Messages		;! 145 total
+#Messages		;! 150 total
 
 
 $Name: ========== Nav 0 ==========
@@ -15907,6 +16438,30 @@ $MessageNew:  XSTR("I shall smash your skull!", -1)
 $end_multi_text
 +AVI Name: Head-KA1
 +Wave Name: ge_drakhai_taunt_09.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: tac board - init
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Initializing ...", -1)
+$end_multi_text
+
+$Name: tac board - jammed
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Inbound Bombers: Unknown
+Warning: Sensor Jammed", -1)
+$end_multi_text
+
+$Name: tac board - display
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Inbound Bombers (F12): $bomber-count", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

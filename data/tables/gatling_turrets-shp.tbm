@@ -1,0 +1,45 @@
+#Ship Classes
+
+$Name:                          Hvar'kann-class
+	+nocreate ;:
+;; Gatling Lasers start here
+     
+$Subsystem:                     turret41, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret42, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret43, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret44, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret45, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret46, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret47, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret48, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret49, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret50, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret51, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+$Subsystem:                     turret52, 0.11364, 4.0
+    $Alt Subsystem Name:        Gatling Turret
+    $Default PBanks:            ( "Gatling Turret" )
+
+
+#End

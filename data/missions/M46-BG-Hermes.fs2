@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Freya 4", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 02/26/12 at 20:30:16
+$Modified: 03/31/13 at 18:17:45
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -22,11 +22,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 556.626404, 583.588440, -1233.068970
++Viewer pos: -32339.005859, 5421.056152, -85720.687500
 +Viewer orient:
-	0.911438, 0.000000, 0.411437,
-	-0.162965, 0.918213, 0.361008,
-	-0.377787, -0.396087, 0.836894
+	-0.030016, 0.000004, 0.999549,
+	-0.542503, 0.839896, -0.016295,
+	-0.839518, -0.542747, -0.025208
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "BravoX" "CharlieX" "DeltaX" "Hotel" )
@@ -52,18 +52,20 @@ $Variables:
 		8		"AutoNavFighterSpeed"		"70"		"number"
 		9		"AutoNavPhase"		"0"		"number"
 		10		"AutoNavTime"		"0"		"number"
-		11		"BourrasqueDestroyed"		"0"		"number"		"campaign-persistent"
-		12		"CamSpeed"		"0"		"number"
-		13		"CutsceneStart"		"0"		"number"
-		14		"CutsceneTimer"		"0"		"number"
-		15		"KarnesDestroyed"		"0"		"number"		"campaign-persistent"
-		16		"MessageLock"		"0"		"number"
-		17		"ProtectSheridan"		"0"		"number"
-		18		"ProtectTico"		"0"		"number"
-		19		"SheridanUndock"		"0"		"number"
-		20		"TassafarongaDestroyed"		"0"		"number"		"campaign-persistent"
-		21		"TauntTimer"		"0"		"number"
-		22		"TramontaneDestroyed"		"0"		"number"		"campaign-persistent"
+		11		"bomber-count"		"8"		"number"
+		12		"BourrasqueDestroyed"		"0"		"number"		"campaign-persistent"
+		13		"CamSpeed"		"0"		"number"
+		14		"CutsceneStart"		"0"		"number"
+		15		"CutsceneTimer"		"0"		"number"
+		16		"KarnesDestroyed"		"0"		"number"		"campaign-persistent"
+		17		"MessageLock"		"0"		"number"
+		18		"ProtectSheridan"		"0"		"number"
+		19		"ProtectTico"		"0"		"number"
+		20		"SheridanUndock"		"0"		"number"
+		21		"sorthak-count"		"6"		"number"
+		22		"TassafarongaDestroyed"		"0"		"number"		"campaign-persistent"
+		23		"TauntTimer"		"0"		"number"
+		24		"TramontaneDestroyed"		"0"		"number"		"campaign-persistent"
 )
 
 #Cutscenes
@@ -220,17 +222,17 @@ $Ship Choices: (
 )
 
 +Weaponry Pool: (
-	"Dart Dumbfire"	100
-	"Pilum FF"	100
+	"Dart Dumbfire"	112
+	"Pilum FF"	94
 	"Javelin HS"	100
-	"Spiculum IR"	100
+	"Spiculum IR"	94
 	"Porcupine"	100
 	"Lance"	100
 	"Reaper"	4
 	"Tachyon"	4
 )
 
-#Objects		;! 267 total
+#Objects		;! 268 total
 
 $Name: Alpha 2		;! Object #0
 $Class: F-103A Excalibur
@@ -246,6 +248,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
++Secondary Banks: ( "Dart Dumbfire" "Dart Dumbfire" "Dart Dumbfire" "Dart Dumbfire" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
 $Departure Location: Hyperspace
@@ -270,7 +273,7 @@ $Orientation:
 	-0.000000, 0.999973, -0.007374,
 	0.000000, 0.007374, 0.999973
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $AI Goals: ( goals ( ai-play-dead 89 ) )
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
@@ -1275,6 +1278,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret03
 +Subsystem: turret04
 +Subsystem: turret16
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1352,6 +1357,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret03
 +Subsystem: turret04
 +Subsystem: turret06
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1425,6 +1432,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret10
 +Subsystem: turret01
 +Subsystem: turret02
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1460,6 +1469,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret10
 +Subsystem: turret01
 +Subsystem: turret02
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1529,6 +1540,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret10
 +Subsystem: turret01
 +Subsystem: turret02
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1662,6 +1675,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret05
 +Subsystem: turret06
 +Subsystem: turret07
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1733,6 +1748,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret03
 +Subsystem: turret04
 +Subsystem: turret16
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1779,6 +1796,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret03
 +Subsystem: turret04
 +Subsystem: turret06
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( = @AchillesDestroyed[0] 0 ) 
 $Departure Location: Hyperspace
@@ -1854,6 +1873,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret10
 +Subsystem: turret01
 +Subsystem: turret02
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -1971,6 +1992,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret03
 +Subsystem: turret04
 +Subsystem: turret06
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( = @TassafarongaDestroyed[0] 0 ) 
 $Departure Location: Hyperspace
@@ -2042,6 +2065,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret10
 +Subsystem: turret01
 +Subsystem: turret02
++Secondary Banks: ( "Warhammer CSM#long_range" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( = @TramontaneDestroyed[0] 0 ) 
 $Departure Location: Hyperspace
@@ -3215,6 +3240,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
++AI Class: General
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 27
 +Initial Shields: 50
@@ -8547,6 +8573,53 @@ $Determination: 10
 +Use Table Score:
 +Score: 0
 
+$Name: Outbound CSM target		;! Object #267
+$Class: Fralthi II-class
+$Team: Hostile
+$Location: -561.170593, 1119.396729, 20953.683594
+$Orientation:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", -1)
++Initial Hull: 100
++Subsystem: Pilot
++Subsystem: turret05
++Subsystem: turret06
++Subsystem: turret07
++Subsystem: turret08
++Subsystem: turret09
++Subsystem: turret10
++Subsystem: turret11
++Subsystem: turret12
++Subsystem: turret13
++Subsystem: turret14
++Subsystem: turret15
++Subsystem: turret01
++Subsystem: turret02
++Subsystem: turret03
++Subsystem: turret04
++Subsystem: turret16
++Subsystem: turret17
+$Arrival Location: Hyperspace
+$Arrival Cue: ( is-event-true-delay 
+   "M_Problem Child 1 to Venom 1" 
+   4 
+)
+$Departure Location: Hyperspace
+$Departure Cue: ( is-event-true-delay 
+   "Proceed to Nav 1" 
+   0 
+)
+$Determination: 10
++Flags: ( "cargo-known" "no-arrival-music" "no-arrival-warp" "no-departure-warp" "no-dynamic" "vaporize" )
++Flags2: ( "no-subspace-drive" "no-death-scream" "always-death-scream" "hide-log-entries" "no-arrival-log" "no-departure-log" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Score: 0
+
 #Wings		;! 49 total
 
 $Name: Alpha
@@ -8584,7 +8657,6 @@ $Ships: (		;! 2 total
 	"Delta 2"
 )
 $AI Goals: ( goals ( ai-guard "TCS Ticonderoga" 75 ) ( ai-chase-any 67 ) ( ai-stay-near-ship "Alpha 2" 50 ) )
-+Hotkey: 3
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Echo
@@ -8604,7 +8676,6 @@ $Ships: (		;! 2 total
 	"Echo 2"
 )
 $AI Goals: ( goals ( ai-chase "Heavy Cruiser#1" 75 ) ( ai-guard "TCS Ticonderoga" 70 ) ( ai-chase-any 65 ) ( ai-stay-near-ship "Alpha 2" 50 ) )
-+Hotkey: 4
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 +Wave Delay Min: 3
 +Wave Delay Max: 5
@@ -8627,7 +8698,6 @@ $Ships: (		;! 4 total
 	"Foxtrot 3"
 	"Foxtrot 4"
 )
-+Hotkey: 5
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Golf
@@ -8648,7 +8718,6 @@ $Ships: (		;! 4 total
 	"Golf 3"
 	"Golf 4"
 )
-+Hotkey: 6
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Hotel
@@ -8667,7 +8736,6 @@ $Ships: (		;! 4 total
 	"Hotel 4"
 )
 $AI Goals: ( goals ( ai-guard "TCS Hermes" 75 ) ( ai-waypoints-once "CAP Path" 50 ) )
-+Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Hotel#1
@@ -8689,7 +8757,6 @@ $Ships: (		;! 4 total
 	"Hotel#1 4"
 )
 $AI Goals: ( goals ( ai-waypoints-once "CAP Path" 50 ) )
-+Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: India
@@ -8801,6 +8868,7 @@ $Ships: (		;! 4 total
 	"X-ray 3"
 	"X-ray 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" "no-dynamic" )
 
 $Name: Whiskey
@@ -8818,6 +8886,7 @@ $Ships: (		;! 4 total
 	"Whiskey 3"
 	"Whiskey 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" "no-dynamic" )
 
 $Name: Victor
@@ -8896,6 +8965,7 @@ $Ships: (		;! 4 total
 	"Yankee#Nav 1 3"
 	"Yankee#Nav 1 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: X-ray#Nav 1
@@ -9006,6 +9076,7 @@ $Ships: (		;! 4 total
 	"Tango#Nav 1 3"
 	"Tango#Nav 1 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Sierra#Nav 1
@@ -9023,6 +9094,7 @@ $Ships: (		;! 4 total
 	"Sierra#Nav 1 3"
 	"Sierra#Nav 1 4"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Zulu#Nav 2
@@ -9085,6 +9157,7 @@ $Ships: (		;! 2 total
 	"X-ray#Nav 2 2"
 )
 $AI Goals: ( goals ( ai-chase "TCS Ticonderoga" 75 ) ( ai-chase-any 50 ) )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Whiskey#Nav 2
@@ -9104,6 +9177,7 @@ $Ships: (		;! 2 total
 	"Whiskey#Nav 2 2"
 )
 $AI Goals: ( goals ( ai-chase "TCS Ticonderoga" 75 ) ( ai-chase-any 50 ) )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Victor#Nav 2
@@ -9123,6 +9197,7 @@ $Ships: (		;! 2 total
 	"Victor#Nav 2 2"
 )
 $AI Goals: ( goals ( ai-chase "TCS Ticonderoga" 75 ) ( ai-chase-any 50 ) )
++Hotkey: 7
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Zulu#Nav 3
@@ -9546,7 +9621,7 @@ $Ships: (		;! 5 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 170 total
+#Events		;! 194 total
 
 $Formula: ( when 
    ( true ) 
@@ -10084,23 +10159,9 @@ $Formula: ( when
       "High" 
       "Problem Child 1" 
       0 
-      "#TCS Courageous" 
-      "High" 
-      "Courageous 1" 
-      2340 
-      "Alpha 3" 
-      "High" 
-      "Assassin 1" 
-      4635 
-      "TCS Hermes" 
-      "High" 
-      "Hermes 2" 
-      1789 
-      "Alpha 1" 
-      "High" 
-      "Venom 1" 
-      8123 
    )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Problem Child 1 to Venom 1
 +Repeat Count: 1
@@ -10109,7 +10170,102 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#TCS Courageous" 
+      "High" 
+      "Courageous 1" 
+      2340 
+   )
+)
++Name: Courageous 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 3" 
+      "High" 
+      "Assassin 1" 
+      4635 
+   )
+)
++Name: Assassin 1
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 2" 
+      1789 
+   )
+)
++Name: Hermes 2
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 1" 
+      8123 
+   )
+)
++Name: Venom 1
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Problem Child 1 to Venom 1" 
+      0 
+   )
    ( ship-copy-damage 
       "TCS Hermes" 
       "TCS Hermes#1" 
@@ -10162,7 +10318,6 @@ $Formula: ( when
 +Name: Save Battlegroup Hull
 +Repeat Count: 1
 +Interval: 1
-+Chained: 0
 +Team: 0
 
 $Formula: ( when 
@@ -10191,9 +10346,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Problem Child 1 to Venom 1" 
-      20 
+   ( or 
+      ( is-event-true-delay 
+         "M_Problem Child 1 to Venom 1" 
+         20 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Problem Child 1 to Venom 1" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10498,19 +10662,59 @@ $Formula: ( when
       "High" 
       "Hermes 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Hermes 3 to Venom 4 #1
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Vanoc" 
       "High" 
       "Vanoc 1" 
       7756 
+   )
+)
++Name: Vanoc 1#1
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 4" 
       3855 
    )
 )
-+Name: M_Hermes 3 to Venom 4 #1
++Name: Venom 4#1
 +Repeat Count: 1
 +Interval: 1
++Chained: 3
 +Team: 0
 
 $Formula: ( when 
@@ -10532,19 +10736,59 @@ $Formula: ( when
       "High" 
       "Hermes 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Hermes 3 to Venom 4 #2
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Halyburton" 
       "High" 
       "Halyburton 1" 
       7756 
+   )
+)
++Name: Halyburton 1#2
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 4" 
       3901 
    )
 )
-+Name: M_Hermes 3 to Venom 4 #2
++Name: Venom 4#2
 +Repeat Count: 1
 +Interval: 1
++Chained: 3
 +Team: 0
 
 $Formula: ( when 
@@ -10564,19 +10808,59 @@ $Formula: ( when
       "High" 
       "Venom 5" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Hermes 3 to Venom 4 #3
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 3" 
       1468 
+   )
+)
++Name: Hermes 3#3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 6" 
       7756 
    )
 )
-+Name: M_Hermes 3 to Venom 4 #3
++Name: Venom 6#3
 +Repeat Count: 1
 +Interval: 1
++Chained: 7
 +Team: 0
 
 $Formula: ( when 
@@ -10617,6 +10901,23 @@ $Formula: ( when
       ( is-event-true-delay 
          "M_Hermes 3 to Venom 4 #3" 
          12 
+      )
+      ( and 
+         ( or 
+            ( is-event-true-delay 
+               "M_Hermes 3 to Venom 4 #1" 
+               0 
+            )
+            ( is-event-true-delay 
+               "M_Hermes 3 to Venom 4 #2" 
+               0 
+            )
+            ( is-event-true-delay 
+               "M_Hermes 3 to Venom 4 #3" 
+               0 
+            )
+         )
+         ( key-pressed "Alt-J" ) 
       )
    )
    ( set-object-position 
@@ -12503,11 +12804,11 @@ $Formula: ( when
       "TCS Agincourt" 
       "High" 
       "McAllister 6_2" 
-      10573
+      10573 
       "TCS Agincourt" 
       "High" 
       "McAllister 7" 
-      11762
+      11762 
       "TCS Agincourt" 
       "High" 
       "Jackson 2" 
@@ -14664,6 +14965,232 @@ $Formula: ( every-time-argument
 +Interval: 1
 +Team: 0
 
+$Formula: ( when 
+   ( true ) 
+   ( training-msg "tac board - init" ) 
+)
++Name: tac board - mission start init
++Repeat Count: 1
++Interval: 1
++Team: 0
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "M_Problem Child 1 to Venom 1" 
+         0 
+      )
+   )
+   ( training-msg 
+      "tac board - mission start" 
+   )
+)
++Name: tac board - mission start
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Hermes survives" 
+      0 
+   )
+   ( change-ai-class 
+      "Excalibur" 
+      "Alpha 1" 
+   )
+)
++Name: reset Alpha 1 AI
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Outbound CSM target" 
+   )
+   ( training-msg "outbound CSM strike" ) 
+   ( good-secondary-time 
+      "Friendly" 
+      100 
+      "Warhammer CSM#long_range" 
+      "Outbound CSM target" 
+   )
+)
++Name: Outbound CSM strike
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when 
+   ( true ) 
+   ( ship-vanish "Outbound CSM target" ) 
+)
++Name: vanish target
++Repeat Count: 1
++Interval: 1
++Chained: 2
+
+$Formula: ( when 
+   ( targeted "Outbound CSM target" ) 
+   ( ship-invisible 
+      "Outbound CSM target" 
+   )
+)
++Name: no targeting CSM target
++Repeat Count: 1
++Trigger Count: 999
++Interval: 0
++Team: 0
+
+$Formula: ( when-argument 
+   ( any-of 
+      "X-Ray 1" 
+      "X-Ray 2" 
+      "X-Ray 3" 
+      "X-Ray 4" 
+      "Whiskey 1" 
+      "Whiskey 2" 
+      "Whiskey 3" 
+      "Whiskey 4" 
+      "Tango#Nav 1 1" 
+      "Tango#Nav 1 2" 
+      "Tango#Nav 1 3" 
+      "Tango#Nav 1 4" 
+      "Sierra#Nav 1 1" 
+      "Sierra#Nav 1 2" 
+      "Sierra#Nav 1 3" 
+      "Sierra#Nav 1 4" 
+      "Yankee#Nav 1 1" 
+      "Yankee#Nav 1 2" 
+      "Yankee#Nav 1 3" 
+      "Yankee#Nav 1 4" 
+   )
+   ( is-destroyed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @bomber-count[8] 
+      ( - @bomber-count[8] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update bomber count
++Repeat Count: 1
++Trigger Count: 999
++Interval: 0
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 1" 
+      0 
+   )
+   ( training-msg "tac board - init" ) 
+   ( modify-variable @bomber-count[8] 4 ) 
+)
++Name: tac board - nav 1 init
++Repeat Count: 1
++Interval: 1
++Team: 1755867222
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "All forces destroyed" 
+         0 
+      )
+   )
+   ( training-msg 
+      "tac board - mission start" 
+   )
+)
++Name: tac board - nav 1
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 5
++Team: 1536115306
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Tango#Nav 1" 
+      "Sierra#Nav 1" 
+   )
+   ( modify-variable @bomber-count[8] 8 ) 
+)
++Name: nav 1 wave 2 bomber count
++Repeat Count: 1
++Interval: 1
++Team: 1536115306
+
+$Formula: ( when 
+   ( true ) 
+   ( add-goal 
+      "Alpha 1" 
+      ( ai-chase "Tango#Nav 1" 89 ) 
+   )
+   ( add-goal 
+      "Alpha 1" 
+      ( ai-chase "Sierra#Nav 1" 90 ) 
+   )
+)
++Name: Venom engages bombers
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 839473998
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Reset Cutscene #1" 
+      0 
+   )
+   ( training-msg "tac board - init" ) 
+)
++Name: tac board - nav 2 init
++Repeat Count: 1
++Interval: 1
++Team: 839473998
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "Cruiser and fighters destroyed" 
+         0 
+      )
+   )
+   ( training-msg "tac board - nav 2" ) 
+)
++Name: tac board - nav 2
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 5
++Team: 33587287
+
+$Formula: ( when-argument 
+   ( any-of 
+      "X-Ray#Nav 2 1" 
+      "X-Ray#Nav 2 2" 
+      "Whiskey#Nav 2 1" 
+      "Whiskey#Nav 2 2" 
+      "Victor#Nav 2 1" 
+      "Victor#Nav 2 2" 
+   )
+   ( is-destroyed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @sorthak-count[6] 
+      ( - @sorthak-count[6] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update sorthak count
++Repeat Count: 1
++Trigger Count: 99
++Interval: 0
++Team: 837245838
+
 #Goals		;! 1 total
 
 $Type: Primary
@@ -14771,7 +15298,7 @@ $List: (		;! 6 points in list
 	( 1500.000000, 0.000000, -2598.075928 )
 )
 
-#Messages		;! 141 total
+#Messages		;! 147 total
 
 
 $Name: ========== Nav 0 ==========
@@ -15716,6 +16243,36 @@ $MessageNew:  XSTR("I shall smash your skull!", -1)
 $end_multi_text
 +AVI Name: Head-KA1
 +Wave Name: ge_drakhai_taunt_09.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: tac board - init
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Initializing ...", -1)
+$end_multi_text
+
+$Name: tac board - mission start
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Inbound bombers (F12): $bomber-count", -1)
+$end_multi_text
+
+$Name: tac board - nav 2
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Inbound Sorthaks (F12): $sorthak-count
+Eliminate Heavy Turrets and CSM Launchers", -1)
+$end_multi_text
+
+$Name: outbound CSM strike
+$Team: -1
+$MessageNew:  XSTR("Warning: Outbound CSM Strike
+Stay clear of friendly warheads", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

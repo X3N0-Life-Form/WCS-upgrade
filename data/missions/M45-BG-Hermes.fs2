@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Freya 3", -1)
 $Author: Romanyuk, Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/04/12 at 02:39:21
+$Modified: 03/31/13 at 15:31:51
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -23,11 +23,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 722.649231, 754.434509, -1038.954834
++Viewer pos: 92492.726563, 10056.555664, 41307.019531
 +Viewer orient:
-	0.820943, -0.000000, 0.571010,
-	-0.292404, 0.858937, 0.420390,
-	-0.490462, -0.512082, 0.705138
+	-0.592558, 0.000001, 0.805528,
+	-0.175852, 0.975880, -0.129360,
+	-0.786099, -0.218307, -0.578265
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "Bravo" "Charlie" "DeltaX" "EchoX" )
@@ -58,21 +58,24 @@ $Variables:
 		13		"ConfedTauntEvent"		"0"		"number"
 		14		"ConfedTauntTimer"		"0"		"number"
 		15		"CruiserWingsDestroyed"		"0"		"number"
-		16		"EscortBravo"		"0"		"number"
-		17		"EscortCap1"		"0"		"number"
-		18		"EscortCap2"		"0"		"number"
-		19		"EscortCharlie"		"0"		"number"
-		20		"GoalNav1"		"0"		"number"
-		21		"GoalNav2"		"0"		"number"
-		22		"GoalNav3"		"0"		"number"
-		23		"JammingActive"		"0"		"number"
-		24		"KarnesDestroyed"		"0"		"number"		"campaign-persistent"
-		25		"MessageLock"		"0"		"number"
-		26		"TassafarongaDestroyed"		"0"		"number"		"campaign-persistent"
-		27		"TauntingConfed"		"<default>"		"string"
-		28		"TauntPart"		"0"		"number"
-		29		"TauntTimer"		"0"		"number"
-		30		"TramontaneDestroyed"		"0"		"number"		"campaign-persistent"
+		16		"csm-status"		"Standing By"		"string"
+		17		"EscortBravo"		"0"		"number"
+		18		"EscortCap1"		"0"		"number"
+		19		"EscortCap2"		"0"		"number"
+		20		"EscortCharlie"		"0"		"number"
+		21		"GoalNav1"		"0"		"number"
+		22		"GoalNav2"		"0"		"number"
+		23		"GoalNav3"		"0"		"number"
+		24		"golf-target"		"Light Cruiser#4"		"string"
+		25		"hotkey"		"(F12)"		"string"
+		26		"JammingActive"		"0"		"number"
+		27		"KarnesDestroyed"		"0"		"number"		"campaign-persistent"
+		28		"MessageLock"		"0"		"number"
+		29		"TassafarongaDestroyed"		"0"		"number"		"campaign-persistent"
+		30		"TauntingConfed"		"<default>"		"string"
+		31		"TauntPart"		"0"		"number"
+		32		"TauntTimer"		"0"		"number"
+		33		"TramontaneDestroyed"		"0"		"number"		"campaign-persistent"
 )
 
 #Cutscenes
@@ -4015,6 +4018,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	-0.731146, 0.000000, 0.682221
 $AI Behavior: None
++AI Class: Colonel
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Velocity: 33
 +Initial Hull: 100
@@ -4055,6 +4059,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.179030, 0.000000, 0.983844
 $AI Behavior: None
++AI Class: Colonel
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -8095,6 +8100,7 @@ $Determination: 10
 +Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
 +Respawn priority: 0
 +Escort priority: 80
++Hotkey: 4
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
 +Use Table Score:
@@ -8144,6 +8150,7 @@ $Determination: 10
 +Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
 +Respawn priority: 0
 +Escort priority: 70
++Hotkey: 5
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
 +Use Table Score:
@@ -8193,6 +8200,7 @@ $Determination: 10
 +Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
 +Respawn priority: 0
 +Escort priority: 60
++Hotkey: 6
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
 +Score: 100
@@ -8241,6 +8249,7 @@ $Determination: 10
 +Flags2: ( "no-subspace-drive" "always-death-scream" "no-arrival-log" "no-departure-log" )
 +Respawn priority: 0
 +Escort priority: 50
++Hotkey: 7
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
 +Score: 100
@@ -8721,7 +8730,6 @@ $Ships: (		;! 4 total
 	"Golf 3"
 	"Golf 4"
 )
-+Hotkey: 6
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: India
@@ -9598,7 +9606,7 @@ $AI Goals: ( goals ( ai-guard "Corvette#2" 75 ) ( ai-chase-any 50 ) )
 +Wave Delay Min: 5
 +Wave Delay Max: 20
 
-#Events		;! 98 total
+#Events		;! 114 total
 
 $Formula: ( when 
    ( true ) 
@@ -9816,6 +9824,7 @@ $Formula: ( when
       "Viking 2" 
       1560 
    )
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Viking 1 to Viking 2
 +Repeat Count: 1
@@ -9824,9 +9833,12 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Viking 1 to Viking 2" 
-      7 
+   ( or 
+      ( is-event-true-delay 
+         "M_Viking 1 to Viking 2" 
+         7 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10219,11 +10231,11 @@ $Formula: ( when
 $Formula: ( when 
    ( or 
       ( has-arrived-delay 
-         60 
+         65 
          "Missile Strike" 
       )
       ( has-arrived-delay 
-         60 
+         65 
          "Missile Strike#1" 
       )
       ( is-destroyed-delay 
@@ -10349,20 +10361,60 @@ $Formula: ( when
       "High" 
       "Radarhead 3" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Radarhead 3 to Viking 8
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Foxtrot 1" 
       "High" 
       "Cordoba 4" 
       5645 
+   )
+)
++Name: Cordoba 4
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Viking 8" 
       1330 
    )
 )
-+Name: M_Radarhead 3 to Viking 8
++Name: Viking 8
 +Repeat Count: 1
 +Interval: 1
-+Chained: 5
++Chained: 1
 +Team: 0
 
 $Formula: ( when 
@@ -10410,9 +10462,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Radarhead 3 to Viking 8" 
-      12 
+   ( or 
+      ( is-event-true-delay 
+         "M_Radarhead 3 to Viking 8" 
+         12 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Radarhead 3 to Viking 8" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10751,28 +10812,106 @@ $Formula: ( when
       "High" 
       "Voice 1" 
       0 
+   )
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Voice 1 to Viking 13
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Iver Huitfeldt" 
       "High" 
       "Iver Huitfeldt 2" 
       5140 
+   )
+)
++Name: Iver Huitfeldt 2
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Mike 1" 
       "High" 
       "Voice 2" 
       6471 
+   )
+)
++Name: Voice 2
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Juliett 1" 
       "High" 
       "Exterminator 6" 
       7802 
+   )
+)
++Name: Extermintor 6
++Repeat Count: 1
++Interval: 1
++Chained: 7
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Viking 13" 
       6792 
    )
 )
-+Name: M_Voice 1 to Viking 13
++Name: Viking 13
 +Repeat Count: 1
 +Interval: 1
-+Chained: 0
++Chained: 6
 +Team: 0
 
 $Formula: ( when 
@@ -10829,9 +10968,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Voice 1 to Viking 13" 
-      34 
+   ( or 
+      ( is-event-true-delay 
+         "M_Voice 1 to Viking 13" 
+         34 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Voice 1 to Viking 13" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -12830,6 +12978,346 @@ $Formula: ( every-time-argument
 +Interval: 1
 +Team: 0
 
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 1" 
+      3 
+   )
+   ( training-msg "tac board - init" ) 
+)
++Name: tac board - nav 1 init
++Repeat Count: 1
++Interval: 1
++Team: 12245544
+
+$Formula: ( when-argument 
+   ( in-sequence 
+      "Light Cruiser#3" 
+      "Light Cruiser#2" 
+      "Light Cruiser#1" 
+      "Light Cruiser#4" 
+   )
+   ( and 
+      ( has-arrived-delay 0 "<argument>" ) 
+      ( not 
+         ( is-destroyed-delay 0 "<argument>" ) 
+      )
+   )
+   ( add-goal 
+      "Golf" 
+      ( ai-chase "<argument>" 90 ) 
+   )
+   ( modify-variable 
+      "@golf-target[Light Cruiser#4]" 
+      "<argument>" 
+   )
+   ( when 
+      ( is-destroyed-delay 
+         0 
+         "@golf-target[Light Cruiser#4]" 
+      )
+      ( invalidate-argument 
+         "@golf-target[Light Cruiser#4]" 
+      )
+   )
+)
++Name: Golf's targeting orders
++Repeat Count: 1
++Trigger Count: 4
++Interval: 0
++Team: 12248976
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "Cruiser squadron destroyed" 
+         0 
+      )
+   )
+   ( when 
+      ( string-equals 
+         "@golf-target[Light Cruiser#4]" 
+         "Light Cruiser#4" 
+      )
+      ( modify-variable 
+         "@hotkey[(F12)]" 
+         "(F12)" 
+      )
+   )
+   ( when 
+      ( string-equals 
+         "@golf-target[Light Cruiser#4]" 
+         "Light Cruiser#3" 
+      )
+      ( modify-variable 
+         "@hotkey[(F12)]" 
+         "(F11)" 
+      )
+   )
+   ( when 
+      ( string-equals 
+         "@golf-target[Light Cruiser#4]" 
+         "Light Cruiser#2" 
+      )
+      ( modify-variable 
+         "@hotkey[(F12)]" 
+         "(F10)" 
+      )
+   )
+   ( when 
+      ( string-equals 
+         "@golf-target[Light Cruiser#4]" 
+         "Light Cruiser#1" 
+      )
+      ( modify-variable 
+         "@hotkey[(F12)]" 
+         "(F9)" 
+      )
+   )
+)
++Name: hotkey - nav 1 cruisers
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Team: 1
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "tac board - nav 1 init" 
+         5 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "tac board - nav 1 csm" 
+            0 
+         )
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Cruiser squadron destroyed" 
+            0 
+         )
+      )
+   )
+   ( training-msg "tac board - nav 1" ) 
+)
++Name: tac board - nav 1
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Team: 394501704
+
+$Formula: ( when-argument 
+   ( every-of 
+      "Missile Strike 1" 
+      "Missile Strike 2" 
+      "Missile Strike 3" 
+      "Missile Strike 4" 
+      "Missile Strike#1 1" 
+      "Missile Strike#1 2" 
+      "Missile Strike#1 3" 
+      "Missile Strike#1 4" 
+   )
+   ( is-event-true-delay 
+      "Missile strike arrival" 
+      0 
+   )
+   ( turret-tagged-only "<argument>" ) 
+)
++Name: tag-lock missile strikes
++Repeat Count: 1
++Interval: 1
++Team: 12249548
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Light Cruiser#4" 
+      "Light Cruiser#3" 
+      "Light Cruiser#2" 
+      "Light Cruiser#1" 
+   )
+   ( and 
+      ( is-event-true-delay 
+         "Missile strike arrival" 
+         0 
+      )
+      ( not 
+         ( is-destroyed-delay 0 "<argument>" ) 
+      )
+   )
+   ( ship-tag "<argument>" 2 30 ) 
+   ( good-secondary-time 
+      "Friendly" 
+      100 
+      "Warhammer CSM#long_range" 
+      "<argument>" 
+   )
+   ( modify-variable 
+      "@csm-status[Standing By]" 
+      "<argument>" 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: csm targets - nav 1
++Repeat Count: 1
++Trigger Count: 10
++Interval: 28
++Team: 12249548
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Vanish missile strike" 
+      20 
+   )
+   ( modify-variable 
+      "@csm-status[Standing By]" 
+      "Unavailable" 
+   )
+)
++Name: csm strike over
++Repeat Count: 1
++Interval: 1
++Team: 12239252
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Missile strike available" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Cruiser squadron destroyed" 
+            0 
+         )
+      )
+   )
+   ( training-msg 
+      "tac board - nav 1 - csm" 
+   )
+)
++Name: tac board - nav 1 csm
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Team: 7035968
+
+$Formula: ( when-argument 
+   ( every-of 
+      "turret01" 
+      "turret02" 
+      "turret03" 
+      "turret04" 
+      "turret05" 
+      "turret06" 
+      "turret07" 
+   )
+   ( has-arrived-delay 
+      0 
+      "TCS Iver Huitfeldt" 
+   )
+   ( ship-subsys-guardian-threshold 
+      ( rand-multiple 47 95 ) 
+      "TCS Iver Huitfeldt" 
+      "<argument>" 
+   )
+)
++Name: silly invul frigate turrets
++Repeat Count: 1
++Interval: 1
++Team: 7035968
+
+$Formula: ( when-argument 
+   ( any-of 
+      "Wave 1#1 1" 
+      "Wave 1#1 2" 
+      "Wave 1#1 3" 
+      "Wave 1#1 4" 
+      "Wave 1#1 5" 
+      "Wave 1#1 6" 
+      "Wave 1#2 1" 
+      "Wave 1#2 2" 
+      "Wave 1#2 3" 
+      "Wave 1#2 4" 
+      "Wave 1#2 5" 
+      "Wave 1#2 6" 
+      "Wave 1#3 1" 
+      "Wave 1#3 2" 
+      "Wave 1#3 3" 
+      "Wave 1#3 4" 
+      "Wave 1#3 5" 
+      "Wave 1#3 6" 
+      "Wave 1#4 1" 
+      "Wave 1#4 2" 
+      "Wave 1#4 3" 
+      "Wave 1#4 4" 
+      "Wave 1#4 5" 
+      "Wave 1#4 6" 
+      "Wave 1#5 1" 
+      "Wave 1#5 2" 
+      "Wave 1#5 3" 
+      "Wave 1#5 4" 
+      "Wave 1#5 5" 
+      "Wave 1#5 6" 
+      "Wave 1#6 1" 
+      "Wave 1#6 2" 
+      "Wave 1#6 3" 
+      "Wave 1#6 4" 
+      "Wave 1#6 5" 
+      "Wave 1#6 6" 
+      "Wave 1#7 1" 
+      "Wave 1#7 2" 
+      "Wave 1#7 3" 
+      "Wave 1#7 4" 
+      "Wave 1#7 5" 
+      "Wave 1#7 6" 
+      "Wave 1#9 1" 
+      "Wave 1#9 2" 
+      "Wave 1#9 3" 
+      "Wave 1#9 4" 
+      "Wave 1#9 5" 
+      "Wave 1#9 6" 
+      "Wave 2#1 1" 
+      "Wave 2#1 2" 
+      "Wave 2#1 3" 
+      "Wave 2#1 4" 
+      "Wave 2#1 5" 
+      "Wave 2#1 6" 
+      "Wave 2#2 1" 
+      "Wave 2#2 2" 
+      "Wave 2#2 3" 
+      "Wave 2#2 4" 
+      "Wave 2#2 5" 
+      "Wave 2#2 6" 
+      "Wave 2#3 1" 
+      "Wave 2#3 2" 
+      "Wave 2#3 3" 
+      "Wave 2#3 4" 
+      "Wave 2#3 5" 
+      "Wave 2#3 6" 
+      "Wave 2#4 1" 
+      "Wave 2#4 2" 
+      "Wave 2#4 3" 
+      "Wave 2#4 4" 
+      "Wave 2#4 5" 
+      "Wave 2#4 6" 
+      "Wave 2#5 1" 
+      "Wave 2#5 2" 
+      "Wave 2#5 3" 
+      "Wave 2#5 4" 
+      "Wave 2#5 5" 
+      "Wave 2#5 6" 
+   )
+   ( has-arrived-delay 0 "<argument>" ) 
+   ( lock-secondary-weapon "<argument>" ) 
+)
++Name: actually jam
++Repeat Count: 1
++Trigger Count: 200
++Interval: 0
++Team: 7035968
+
 #Goals		;! 1 total
 
 $Type: Primary
@@ -12883,7 +13371,7 @@ $List: (		;! 1 points in list
 	( 75000.000000, 65000.000000, -85000.007813 )
 )
 
-#Messages		;! 131 total
+#Messages		;! 135 total
 
 
 $Name: ========== Nav 0 ==========
@@ -13750,6 +14238,31 @@ $MessageNew:  XSTR("End of the day, you're just meat, cat.", -1)
 $end_multi_text
 +AVI Name: Head-VIPER
 +Wave Name: viper_30.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: tac board - init
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Initializing ...", -1)
+$end_multi_text
+
+$Name: tac board - nav 1
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Golf's target: $golf-target $hotkey", -1)
+$end_multi_text
+
+$Name: tac board - nav 1 - csm
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Golf's target: $golf-target $hotkey
+CSM strike: $csm-status
+Destroy Weapons subsystems", -1)
+$end_multi_text
 
 #Reinforcements		;! 1 total
 

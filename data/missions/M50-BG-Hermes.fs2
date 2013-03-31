@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Freya 8", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/02/12 at 00:00:59
+$Modified: 03/31/13 at 23:43:30
 $Notes:
 Story by Ryan Anderson$End Notes:
 
@@ -22,11 +22,11 @@ $end_multi_text
 
 +Subsystem Repair Ceiling: 100.000000
 
-+Viewer pos: 503.510559, 611.864380, -1242.163330
++Viewer pos: -56453.441406, 100492.242188, 51783.382813
 +Viewer orient:
-	0.926757, 0.000000, 0.375661,
-	-0.156004, 0.909695, 0.384861,
-	-0.341737, -0.415277, 0.843066
+	-0.996565, 0.000001, -0.082817,
+	0.051336, 0.784710, -0.617734,
+	0.064987, -0.619863, -0.782014
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "Bravo" "Charlie" "Delta" "Echo" )
@@ -50,35 +50,40 @@ $Variables:
 		6		"AutoNavFighterSpeed"		"65"		"number"
 		7		"AutoNavPhase"		"0"		"number"
 		8		"AutoNavTime"		"0"		"number"
-		9		"CamSpeed"		"0"		"number"
-		10		"CloakPhaseA"		"0"		"number"
-		11		"CloakPhaseA2"		"0"		"number"
-		12		"CloakPhaseB"		"0"		"number"
-		13		"CloakPhaseB2"		"0"		"number"
-		14		"CloakPhaseC"		"0"		"number"
-		15		"CloakPhaseC2"		"0"		"number"
-		16		"CloakPhaseD"		"0"		"number"
-		17		"CloakPhaseD2"		"0"		"number"
-		18		"CloakTimerA"		"0"		"number"
-		19		"CloakTimerA2"		"0"		"number"
-		20		"CloakTimerB"		"0"		"number"
-		21		"CloakTimerB2"		"0"		"number"
-		22		"CloakTimerC"		"0"		"number"
-		23		"CloakTimerC2"		"0"		"number"
-		24		"CloakTimerD"		"0"		"number"
-		25		"CloakTimerD2"		"0"		"number"
-		26		"EscortBravo"		"0"		"number"
-		27		"EscortCap1"		"0"		"number"
-		28		"EscortCap2"		"0"		"number"
-		29		"EscortCharlie"		"0"		"number"
-		30		"MessageLock"		"0"		"number"
-		31		"NumTurretsDestroyed"		"0"		"number"
-		32		"PlanetSizeAfter"		"0"		"number"
-		33		"PlanetSizeBefore"		"0"		"number"
-		34		"PlanetStage"		"0"		"number"
-		35		"PlanetVariable"		"0"		"number"
-		36		"SunVariable"		"0"		"number"
-		37		"TauntTimer"		"0"		"number"
+		9		"bomber-count"		"6"		"number"
+		10		"CamSpeed"		"0"		"number"
+		11		"CloakPhaseA"		"0"		"number"
+		12		"CloakPhaseA2"		"0"		"number"
+		13		"CloakPhaseB"		"0"		"number"
+		14		"CloakPhaseB2"		"0"		"number"
+		15		"CloakPhaseC"		"0"		"number"
+		16		"CloakPhaseC2"		"0"		"number"
+		17		"CloakPhaseD"		"0"		"number"
+		18		"CloakPhaseD2"		"0"		"number"
+		19		"CloakTimerA"		"0"		"number"
+		20		"CloakTimerA2"		"0"		"number"
+		21		"CloakTimerB"		"0"		"number"
+		22		"CloakTimerB2"		"0"		"number"
+		23		"CloakTimerC"		"0"		"number"
+		24		"CloakTimerC2"		"0"		"number"
+		25		"CloakTimerD"		"0"		"number"
+		26		"CloakTimerD2"		"0"		"number"
+		27		"echo-loadout"		"16"		"number"
+		28		"EscortBravo"		"0"		"number"
+		29		"EscortCap1"		"0"		"number"
+		30		"EscortCap2"		"0"		"number"
+		31		"EscortCharlie"		"0"		"number"
+		32		"loadout-status"		"100"		"number"
+		33		"MessageLock"		"0"		"number"
+		34		"NumTurretsDestroyed"		"0"		"number"
+		35		"PlanetSizeAfter"		"0"		"number"
+		36		"PlanetSizeBefore"		"0"		"number"
+		37		"PlanetStage"		"0"		"number"
+		38		"PlanetVariable"		"0"		"number"
+		39		"shield-status"		"100"		"number"
+		40		"str-status"		"- Online"		"string"
+		41		"SunVariable"		"0"		"number"
+		42		"TauntTimer"		"0"		"number"
 )
 
 #Cutscenes
@@ -144,10 +149,10 @@ $Ship Choices: (
 )
 
 +Weaponry Pool: (
-	"Dart Dumbfire"	100
-	"Pilum FF"	100
+	"Dart Dumbfire"	112
+	"Pilum FF"	94
 	"Javelin HS"	100
-	"Spiculum IR"	100
+	"Spiculum IR"	94
 	"Porcupine"	100
 	"Lance"	100
 	"Reaper"	4
@@ -170,6 +175,7 @@ $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
++Secondary Banks: ( "Dart Dumbfire" "Dart Dumbfire" "Dart Dumbfire" "Dart Dumbfire" )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( false ) 
 $Departure Location: Hyperspace
@@ -194,7 +200,7 @@ $Orientation:
 	-0.000000, 0.999973, -0.007374,
 	0.000000, 0.007374, 0.999973
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $AI Goals: ( goals ( ai-play-dead 89 ) )
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
@@ -225,7 +231,7 @@ $Orientation:
 	-0.000000, 0.999973, -0.007300,
 	0.000000, 0.007300, 0.999973
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $AI Goals: ( goals ( ai-play-dead 89 ) )
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
@@ -256,7 +262,7 @@ $Orientation:
 	-0.000000, 0.999974, -0.007263,
 	0.000000, 0.007263, 0.999974
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $AI Goals: ( goals ( ai-play-dead 89 ) )
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
@@ -287,7 +293,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -318,7 +324,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -349,7 +355,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -380,7 +386,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -411,7 +417,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -442,7 +448,7 @@ $Orientation:
 	0.000000, 1.000000, 0.000000,
 	0.000000, 0.000000, 1.000000
 $AI Behavior: None
-+AI Class: Excalibur
++AI Class: General#Custom
 $Cargo 1:  XSTR("Nothing", -1)
 +Initial Hull: 100
 +Subsystem: Pilot
@@ -1102,6 +1108,8 @@ $Cargo 1:  XSTR("Nothing", -1)
 +Subsystem: turret03
 +Subsystem: turret04
 +Subsystem: turret16
++Secondary Banks: ( "Warhammer CSM#Swarm_4" )
++Sbank Ammo: ( 0 )
 $Arrival Location: Hyperspace
 $Arrival Cue: ( is-event-true-delay 
    "Phase IV complete" 
@@ -7071,7 +7079,6 @@ $Ships: (		;! 3 total
 	"Bravo 2"
 	"Bravo 3"
 )
-+Hotkey: 1
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Charlie
@@ -7088,7 +7095,6 @@ $Ships: (		;! 3 total
 	"Charlie 2"
 	"Charlie 3"
 )
-+Hotkey: 2
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Delta
@@ -7112,7 +7118,6 @@ $Ships: (		;! 4 total
 	"Delta 4"
 )
 $AI Goals: ( goals ( ai-chase "Light Destroyer#1" 70 ) ( ai-chase "Light Destroyer#2" 65 ) ( ai-chase "Light Destroyer#3" 60 ) ( ai-chase "Light Cruiser#1" 55 ) ( ai-chase "KIS Wratghar" 50 ) )
-+Hotkey: 3
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Echo
@@ -7133,7 +7138,6 @@ $Ships: (		;! 4 total
 	"Echo 4"
 )
 $AI Goals: ( goals ( ai-chase "KIS Wratghar" 75 ) ( ai-chase-any 50 ) )
-+Hotkey: 4
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: India
@@ -7277,6 +7281,7 @@ $Ships: (		;! 6 total
 	"X-ray#Nav 1 5"
 	"X-ray#Nav 1 6"
 )
++Hotkey: 7
 +Flags: ( "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
 $Name: Zulu#Nav 1a
@@ -7813,7 +7818,7 @@ $Ships: (		;! 4 total
 +Wave Delay Min: 30
 +Wave Delay Max: 45
 
-#Events		;! 190 total
+#Events		;! 257 total
 
 $Formula: ( when 
    ( true ) 
@@ -8186,47 +8191,8 @@ $Formula: ( when
       "High" 
       "Antfish 1" 
       0 
-      "#TCS Saratoga" 
-      "High" 
-      "Saratoga 1" 
-      6654 
-      "#TCS Wasp" 
-      "High" 
-      "Wasp 1" 
-      2432 
-      "Charlie 3" 
-      "High" 
-      "Greywolf 1" 
-      11014 
-      "Bravo 2" 
-      "High" 
-      "Avatarr 1" 
-      3992 
-      "#TCS Wasp" 
-      "High" 
-      "Wasp 2" 
-      4956 
-      "#Oath" 
-      "High" 
-      "Oath 1" 
-      10280 
-      "Alpha 1" 
-      "High" 
-      "Venom 1" 
-      8949 
-      "TCS Hermes" 
-      "High" 
-      "Hermes 2_1" 
-      2753 
-      "TCS Hermes" 
-      "High" 
-      "Hermes 2_2" 
-      13623 
-      "Alpha 1" 
-      "High" 
-      "Venom 2" 
-      9782 
    )
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Antfish 1 to Venom 2
 +Repeat Count: 1
@@ -8234,9 +8200,242 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "M_Antfish 1 to Venom 2" 
-      80 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#TCS Saratoga" 
+      "High" 
+      "Saratoga 1" 
+      6654 
+   )
+)
++Name: Saratoga 1
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#TCS Wasp" 
+      "High" 
+      "Wasp 1" 
+      2432 
+   )
+)
++Name: Wasp 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Charlie 3" 
+      "High" 
+      "Greywolf 1" 
+      11014 
+   )
+)
++Name: Greywolf 1
++Repeat Count: 1
++Interval: 1
++Chained: 11
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Bravo 2" 
+      "High" 
+      "Avatarr 1" 
+      3992 
+   )
+)
++Name: Avatarr 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#TCS Wasp" 
+      "High" 
+      "Wasp 2" 
+      4956 
+   )
+)
++Name: Wasp 2
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#Oath" 
+      "High" 
+      "Oath 1" 
+      10280 
+   )
+)
++Name: Oath 1
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 1" 
+      8949 
+   )
+)
++Name: Venom 1
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 2_1" 
+      2753 
+   )
+)
++Name: Hermes 2_1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "TCS Hermes" 
+      "High" 
+      "Hermes 2_2" 
+      13623 
+   )
+)
++Name: Hermes 2_2
++Repeat Count: 1
++Interval: 1
++Chained: 13
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 2" 
+      9782 
+   )
+)
++Name: Venom 2
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "M_Antfish 1 to Venom 2" 
+         80 
+      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -8350,57 +8549,209 @@ $Formula: ( when
       "High" 
       "Phalanx 1" 
       0 
+   )
+   ( modify-variable @MessageLock[0] 1 ) 
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
+)
++Name: M_Phalanx 1 to Rotherham 2
++Repeat Count: 1
++Interval: 1
++Chained: 0
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "#TCS Hermes" 
       "High" 
       "Hermes 3" 
       4314 
+   )
+)
++Name: Hermes 3
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Bravo 1" 
       "High" 
       "Viking 1" 
       16935 
+   )
+)
++Name: Viking 1
++Repeat Count: 1
++Interval: 1
++Chained: 16
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Bravo 3" 
       "High" 
       "Psychopath 1" 
       5323 
+   )
+)
++Name: Psychopath 1
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Charlie 2" 
       "High" 
       "Twilight 1" 
       6179 
+   )
+)
++Name: Twilight 1
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Rotherham" 
       "High" 
       "Rotherham 1" 
       3212 
+   )
+)
++Name: Rotherham 1
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "Alpha 1" 
       "High" 
       "Venom 3" 
       6425 
+   )
+)
++Name: Venom 3
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Kilrathi Nav 1 arrival cue" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
       "TCS Rotherham" 
       "High" 
       "Rotherham 2" 
       2203 
    )
-   ( modify-variable @MessageLock[0] 1 ) 
 )
-+Name: M_Phalanx 1 to Rotherham 2
++Name: Rotherham 2
 +Repeat Count: 1
 +Interval: 1
++Chained: 2
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( is-event-true-delay 
+      "M_Phalanx 1 to Rotherham 2" 
+      49 
+   )
    ( modify-variable @MessageLock[0] 0 ) 
 )
 +Name: R_Phalanx 1 to Rotherham 2
 +Repeat Count: 1
 +Interval: 1
-+Chained: 49
 +Team: 0
 
-$Formula: ( when ( true ) ( do-nothing ) ) 
+$Formula: ( when 
+   ( or 
+      ( is-event-true-delay 
+         "R_Phalanx 1 to Rotherham 2" 
+         2 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Phalanx 1 to Rotherham 2" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
+   )
+   ( do-nothing ) 
+)
 +Name: Kilrathi Nav 1 arrival cue
 +Repeat Count: 1
 +Interval: 1
-+Chained: 2
 +Team: 0
 
 $Formula: ( when 
@@ -8476,28 +8827,10 @@ $Formula: ( when
       "High" 
       "Rotherham 3" 
       0 
-      "Alpha 1" 
-      "High" 
-      "Venom 5" 
-      12345 
-      "TCS Rotherham" 
-      "High" 
-      "Rotherham 4" 
-      1101 
-      "Alpha 1" 
-      "High" 
-      "Venom 6" 
-      1606 
-      "#TCS Hermes" 
-      "High" 
-      "Hermes 4" 
-      2616 
-      "Alpha 1" 
-      "High" 
-      "Venom 7" 
-      9087 
    )
    ( modify-variable @MessageLock[0] 1 ) 
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Rotherham 3 to Venom 3
 +Repeat Count: 1
@@ -8506,13 +8839,130 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 5" 
+      12345 
+   )
+)
++Name: Venom 5
++Repeat Count: 1
++Interval: 1
++Chained: 12
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "TCS Rotherham" 
+      "High" 
+      "Rotherham 4" 
+      1101 
+   )
+)
++Name: Rotherham 4
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 6" 
+      1606 
+   )
+)
++Name: Venom 6
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#TCS Hermes" 
+      "High" 
+      "Hermes 4" 
+      2616 
+   )
+)
++Name: Hermes 4
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 1a" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 7" 
+      9087 
+   )
+)
++Name: Venom 7
++Repeat Count: 1
++Interval: 1
++Chained: 9
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Rotherham 3 to Venom 3" 
+      30 
+   )
    ( modify-variable @MessageLock[0] 0 ) 
 )
 +Name: R_Rotherham 3 to Venom 3
 +Repeat Count: 1
 +Interval: 1
-+Chained: 30
 +Team: 0
 
 $Formula: ( when 
@@ -8590,9 +9040,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "R_Rotherham 3 to Venom 3" 
-      0 
+   ( or 
+      ( is-event-true-delay 
+         "R_Rotherham 3 to Venom 3" 
+         0 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Rotherham 3 to Venom 3" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -8792,60 +9251,10 @@ $Formula: ( when
       "High" 
       "Assassin 1" 
       0 
-      "Alpha 1" 
-      "High" 
-      "Venom 9" 
-      2799 
-      "India 1" 
-      "High" 
-      "Barr 1" 
-      2661 
-      "India 2" 
-      "High" 
-      "Shorty 1" 
-      6792 
-      "India 3" 
-      "High" 
-      "Docfish 1" 
-      3992 
-      "Kilo 1" 
-      "High" 
-      "Lew 1" 
-      2845 
-      "Kilo 2" 
-      "High" 
-      "Haruhost 1" 
-      4222 
-      "India 1" 
-      "High" 
-      "Barr 2" 
-      3625 
-      "India 1" 
-      "High" 
-      "Barr 3" 
-      10097 
-      "Bravo 3" 
-      "High" 
-      "Psychopath 2" 
-      5186 
-      "Charlie 2" 
-      "High" 
-      "Twilight 2" 
-      3717 
-      "Bravo 2" 
-      "High" 
-      "Avatarr 2" 
-      3166 
-      "Alpha 1" 
-      "High" 
-      "Venom 10" 
-      2845 
-      "India 1" 
-      "High" 
-      "Barr 4" 
-      5140 
    )
    ( modify-variable @MessageLock[0] 1 ) 
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Assassin 1 to Barr 4
 +Repeat Count: 1
@@ -8854,13 +9263,314 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 9" 
+      2799 
+   )
+)
++Name: Venom 9
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "India 1" 
+      "High" 
+      "Barr 1" 
+      2661 
+   )
+)
++Name: Barr 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "India 2" 
+      "High" 
+      "Shorty 1" 
+      6792 
+   )
+)
++Name: Shorty 1
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "India 3" 
+      "High" 
+      "Docfish 1" 
+      3992 
+   )
+)
++Name: Docfish 1
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Kilo 1" 
+      "High" 
+      "Lew 1" 
+      2845 
+   )
+)
++Name: Lew 1
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Kilo 2" 
+      "High" 
+      "Haruhost 1" 
+      4222 
+   )
+)
++Name: Haruhost 1
++Repeat Count: 1
++Interval: 1
++Chained: 4
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "India 1" 
+      "High" 
+      "Barr 2" 
+      3625 
+   )
+)
++Name: Barr 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "India 1" 
+      "High" 
+      "Barr 3" 
+      10097 
+   )
+)
++Name: Barr 3
++Repeat Count: 1
++Interval: 1
++Chained: 10
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Bravo 3" 
+      "High" 
+      "Psychopath 2" 
+      5186 
+   )
+)
++Name: Psychopath 2
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Charlie 2" 
+      "High" 
+      "Twilight 2" 
+      3717 
+   )
+)
++Name: Twilight 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Bravo 2" 
+      "High" 
+      "Avatarr 2" 
+      3166 
+   )
+)
++Name: Avatarr 2
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 10" 
+      2845 
+   )
+)
++Name: Venom 10
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 2" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "India 1" 
+      "High" 
+      "Barr 4" 
+      5140 
+   )
+)
++Name: Barr 4
++Repeat Count: 1
++Interval: 1
++Chained: 5
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Assassin 1 to Barr 4" 
+      62 
+   )
    ( modify-variable @MessageLock[0] 0 ) 
 )
 +Name: R_Assassin 1 to Barr 4
 +Repeat Count: 1
 +Interval: 1
-+Chained: 62
 +Team: 0
 
 $Formula: ( when 
@@ -8911,9 +9621,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "R_Assassin 1 to Barr 4" 
-      0 
+   ( or 
+      ( is-event-true-delay 
+         "R_Assassin 1 to Barr 4" 
+         0 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Assassin 1 to Barr 4" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -9092,52 +9811,10 @@ $Formula: ( when
       "High" 
       "Venom 12" 
       0 
-      "#M.D." 
-      "High" 
-      "MD 1" 
-      6563 
-      "Alpha 1" 
-      "High" 
-      "Venom 13" 
-      16201 
-      "#M.D." 
-      "High" 
-      "MD 2" 
-      2891 
-      "Alpha 1" 
-      "High" 
-      "Venom 14" 
-      3029 
-      "#M.D." 
-      "High" 
-      "MD 3" 
-      1422 
-      "#M.D." 
-      "High" 
-      "MD 4" 
-      8444 
-      "Alpha 1" 
-      "High" 
-      "Venom 15" 
-      8031 
-      "#M.D." 
-      "High" 
-      "MD 5" 
-      2845 
-      "Alpha 1" 
-      "High" 
-      "Venom 16" 
-      3488 
-      "Charlie 2" 
-      "High" 
-      "Twilight 4" 
-      2753 
-      "Bravo 3" 
-      "High" 
-      "Psychopath 3" 
-      3763 
    )
    ( modify-variable @MessageLock[0] 1 ) 
+   ( key-reset-multiple "Alt-J" ) 
+   ( training-msg "skip dialogue" ) 
 )
 +Name: M_Venom to Psychopath 3
 +Repeat Count: 1
@@ -9146,13 +9823,268 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( true ) 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#M.D." 
+      "High" 
+      "MD 1" 
+      6563 
+   )
+)
++Name: MD 1
++Repeat Count: 1
++Interval: 1
++Chained: 6
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 13" 
+      16201 
+   )
+)
++Name: Venom 13
++Repeat Count: 1
++Interval: 1
++Chained: 16
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#M.D." 
+      "High" 
+      "MD 2" 
+      2891 
+   )
+)
++Name: MD 2
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 14" 
+      3029 
+   )
+)
++Name: Venom 14
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#M.D." 
+      "High" 
+      "MD 3" 
+      1422 
+   )
+)
++Name: MD 3
++Repeat Count: 1
++Interval: 1
++Chained: 1
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#M.D." 
+      "High" 
+      "MD 4" 
+      8444 
+   )
+)
++Name: MD 4
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 15" 
+      8031 
+   )
+)
++Name: Venom 15
++Repeat Count: 1
++Interval: 1
++Chained: 8
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "#M.D." 
+      "High" 
+      "MD 5" 
+      2845 
+   )
+)
++Name: MD 5
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Alpha 1" 
+      "High" 
+      "Venom 16" 
+      3488 
+   )
+)
++Name: Venom 16
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Charlie 2" 
+      "High" 
+      "Twilight 4" 
+      2753 
+   )
+)
++Name: Twilight 4
++Repeat Count: 1
++Interval: 1
++Chained: 2
++Team: 0
+
+$Formula: ( when 
+   ( and 
+      ( not ( key-pressed "Alt-J" ) ) 
+      ( not 
+         ( is-event-true-delay 
+            "Activate Nav 3" 
+            0 
+         )
+      )
+   )
+   ( send-message-list 
+      "Bravo 3" 
+      "High" 
+      "Psychopath 3" 
+      3763 
+   )
+)
++Name: Psychopath 3
++Repeat Count: 1
++Interval: 1
++Chained: 3
++Team: 0
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "M_Venom to Psychopath 3" 
+      69 
+   )
    ( modify-variable @MessageLock[0] 0 ) 
 )
 +Name: R_Venom to Psychopath 3
 +Repeat Count: 1
 +Interval: 1
-+Chained: 69
 +Team: 0
 
 $Formula: ( when 
@@ -9203,9 +10135,18 @@ $Formula: ( when
 +Team: 0
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "R_Venom to Psychopath 3" 
-      0 
+   ( or 
+      ( is-event-true-delay 
+         "R_Venom to Psychopath 3" 
+         0 
+      )
+      ( and 
+         ( is-event-true-delay 
+            "M_Venom to Psychopath 3" 
+            0 
+         )
+         ( key-pressed "Alt-J" ) 
+      )
    )
    ( set-object-position 
       "NextNav:1" 
@@ -14426,6 +15367,371 @@ $Formula: ( every-time
 +Interval: 1
 +Team: 6564692
 
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Kilrathi Nav 1 arrival cue" 
+      0 
+   )
+   ( training-msg "tac board - init" ) 
+)
++Name: tac board - nav 1 init
++Repeat Count: 1
++Interval: 1
++Team: 1
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "Kilrathi Nav 1 destroyed" 
+         0 
+      )
+   )
+   ( training-msg "tac board - nav 1" ) 
+)
++Name: tac board nav 1
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 5
++Team: 1431655765
+
+$Formula: ( when-argument 
+   ( any-of 
+      "X-Ray#Nav 1 1" 
+      "X-Ray#Nav 1 2" 
+      "X-Ray#Nav 1 3" 
+      "X-Ray#Nav 1 4" 
+      "X-Ray#Nav 1 5" 
+      "X-Ray#Nav 1 6" 
+   )
+   ( is-destroyed-delay 0 "<argument>" ) 
+   ( modify-variable 
+      @bomber-count[6] 
+      ( - @bomber-count[6] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update bomber count
++Repeat Count: 1
++Trigger Count: 999
++Interval: 0
++Team: 1
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Proceed to Nav 3" 
+      0 
+   )
+   ( training-msg "tac board - init" ) 
+)
++Name: tac board - wratghar init
++Repeat Count: 1
++Interval: 1
++Team: 12238108
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "Mastermind arrival que" 
+         0 
+      )
+   )
+   ( training-msg "tac board - shields" ) 
+)
++Name: tac board - shields
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 5
++Team: 12238108
+
+$Formula: ( every-time 
+   ( not 
+      ( is-event-true-delay 
+         "Wratghar shields weakened" 
+         0 
+      )
+   )
+   ( modify-variable 
+      @shield-status[100] 
+      ( shields-left "KIS Wratghar" ) 
+   )
+)
++Name: update shield status
++Repeat Count: 1
++Interval: 1
++Team: 7035968
+
+$Formula: ( when 
+   ( < 
+      ( shields-left "KIS Wratghar" ) 
+      22 
+   )
+   ( modify-variable 
+      "@str-status[- Online]" 
+      "- Compromised" 
+   )
+)
++Name: shields = 21 - compromised
++Repeat Count: 1
++Interval: 1
++Team: 12261560
+
+$Formula: ( when 
+   ( < 
+      ( shields-left "KIS Wratghar" ) 
+      20 
+   )
+   ( modify-variable 
+      "@str-status[- Online]" 
+      "- Collapsing" 
+   )
+)
++Name: shields = 19 - collapsing
++Repeat Count: 1
++Interval: 1
++Team: 12261560
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Wratghar shields weakened" 
+      2 
+   )
+   ( modify-variable 
+      "@str-status[- Online]" 
+      "- Negative" 
+   )
+   ( modify-variable 
+      @shield-status[100] 
+      0 
+   )
+)
++Name: shields down - status negative
++Repeat Count: 1
++Interval: 1
++Team: 12261560
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Mastermind arrival que" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Capship missile launchers cue" 
+            0 
+         )
+      )
+   )
+   ( training-msg "tac board - longbows" ) 
+)
++Name: tac board - longbows
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Mastermind arrival que" 
+      0 
+   )
+   ( modify-variable 
+      "@str-status[- Online]" 
+      " " 
+   )
+)
++Name: reset str-status
++Repeat Count: 1
++Interval: 1
++Team: 2048
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Mastermind arrival que" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Wratghar at 67% damage" 
+            0 
+         )
+      )
+   )
+   ( modify-variable 
+      @loadout-status[100] 
+      ( mod 
+         ( + 
+            ( * 
+               ( / 
+                  ( - ( hits-left "KIS Wratghar" ) 67 ) 
+                  33 
+               )
+               50 
+            )
+            ( / 
+               ( + 
+                  ( hits-left "Light Destroyer#1" ) 
+                  ( hits-left "Light Destroyer#2" ) 
+                  ( hits-left "Light Destroyer#3" ) 
+                  ( hits-left "Light Cruiser#1" ) 
+               )
+               8 
+            )
+         )
+         100 
+      )
+   )
+)
++Name: update longbows status
++Repeat Count: 1
++Trigger Count: 9999
++Interval: 2
++Team: 2048
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Wratghar at 67% damage" 
+      0 
+   )
+   ( modify-variable 
+      @loadout-status[100] 
+      0 
+   )
+   ( modify-variable 
+      "@str-status[- Online]" 
+      "- Empty" 
+   )
+)
++Name: longbows empty
++Repeat Count: 1
++Interval: 1
++Team: 8978431
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Capship missile launchers cue" 
+      0 
+   )
+   ( training-msg 
+      "tac board - GSM strike warning" 
+   )
+)
++Name: tac board - GSM strike warning
++Repeat Count: 1
++Interval: 1
++Team: 12232388
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "Capship missile launchers cue" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Wratghar at 50%" 
+            0 
+         )
+      )
+   )
+   ( training-msg 
+      "tac board - GSM strike" 
+   )
+)
++Name: tac board - GSM strike
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 7
+
+$Formula: ( when 
+   ( has-arrived-delay 0 "TCS Hermes#1" ) 
+   ( turret-lock 
+      "TCS Hermes#1" 
+      "turret16" 
+   )
+)
++Name: lock Hermes launcher
++Repeat Count: 1
++Interval: 1
++Team: 551124672
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "tac board - Hermes" 
+      0 
+   )
+   ( turret-free 
+      "TCS Hermes#1" 
+      "turret16" 
+   )
+   ( good-secondary-time 
+      "Friendly" 
+      100 
+      "Warhammer CSM#Swarm_4" 
+      "KIS Wratghar" 
+   )
+)
++Name: unlock 'em
++Repeat Count: 1
++Interval: 1
++Team: 551124672
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Hermes arrival cue" 
+      0 
+   )
+   ( training-msg 
+      "tac board - Hermes arrival" 
+   )
+)
++Name: tac board - Hermes arrival
++Repeat Count: 1
++Interval: 1
++Team: 551124672
+
+$Formula: ( when 
+   ( not 
+      ( is-event-true-delay 
+         "Wratghar destroyed" 
+         0 
+      )
+   )
+   ( training-msg "tac board - Hermes" ) 
+)
++Name: tac board - Hermes
++Repeat Count: 1
++Trigger Count: 999
++Interval: 3
++Chained: 7
++Team: 7035968
+
+$Formula: ( when 
+   ( is-destroyed-delay 0 "KIS Wratghar" ) 
+   ( training-msg 
+      "tac board - target destroyed" 
+   )
+)
++Name: tac board - target destroyed
++Repeat Count: 1
++Interval: 1
++Team: 12245544
+
+$Formula: ( when 
+   ( is-event-true-delay 
+      "Mission Complete" 
+      5 
+   )
+   ( training-msg "thanks" ) 
+)
++Name: thanks
++Repeat Count: 1
++Interval: 1
++Team: 973611366
+
 #Goals		;! 1 total
 
 $Type: Primary
@@ -14497,7 +15803,7 @@ $List: (		;! 1 points in list
 	( 0.000000, 0.000000, 0.000000 )
 )
 
-#Messages		;! 244 total
+#Messages		;! 255 total
 
 
 $Name: ========== Nav 0 ==========
@@ -16133,6 +17439,75 @@ $MessageNew:  XSTR("(snarling)", -1)
 $end_multi_text
 +AVI Name: Head-KP1
 +Wave Name: ge_kilrathi_taunt_12.wav
+
+$Name: skip dialogue
+$Team: -1
+$MessageNew:  XSTR("Alt-J to skip dialogue.", -1)
+$end_multi_text
+
+$Name: tac board - init
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Initializing ...", -1)
+$end_multi_text
+
+$Name: tac board - nav 1
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Inbound bombers (F12): $bomber-count", -1)
+$end_multi_text
+
+$Name: tac board - shields
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Wratghar shield status: $shield-status $str-status", -1)
+$end_multi_text
+
+$Name: tac board - longbows
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Loadout status: $loadout-status % $str-status", -1)
+$end_multi_text
+
+$Name: tac board - GSM strike
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical board <<<
+Inbound GSM Strikes
+Clear turrets facing the planet", -1)
+$end_multi_text
+
+$Name: tac board - GSM strike warning
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Warning: Inbound Ground-to-Space Missile Strike detected", -1)
+$end_multi_text
+
+$Name: tac board - Hermes arrival
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical board <<<
+Inbound GSM Strikes
+Establishing link to CVA 98 ...", -1)
+$end_multi_text
+
+$Name: tac board - Hermes
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical board <<<
+Inbound GSM Strikes
+Launching CSM Alpha Strikes", -1)
+$end_multi_text
+
+$Name: tac board - target destroyed
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Target destroyed
+GSM Strike canceled
+CSM Alpha Strike canceled", -1)
+$end_multi_text
+
+$Name: thanks
+$Team: -1
+$MessageNew:  XSTR("Thank you for playing.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 
