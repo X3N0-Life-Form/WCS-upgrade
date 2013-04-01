@@ -1,0 +1,476 @@
+#Primary Weapons
+
+$Name:										@Ion#Async_2
+;+Title:									XSTR("Ion Cannon", -1)
+;+Description:
+;XSTR("Damage: 	86 cm/s
+;Energy usage: 	86 nJ/s
+;Range:		4500 m", -1)
+;$end_multi_text	
+    +Tech Title:							XSTR("Ion Cannon", -1)
+    +Tech Anim:								2_tech_ion
+    +Tech Description:
+        XSTR("Found mainly on fighters and also used as an anti-fighter cannon the ion cannon imparts energy and radiation damage to targets. Charged atomic particles are magnetically accelerated to high speeds, then discharged in pulses. This cannon delivers more damage than a laser and can cause severe pilot injuries. However, the ion cannon has higher energy consumption and a slower refire rate than the laser.", -1)
+    $end_multi_text
+$Model File:								none
+@Laser Bitmap:								Ion_Bitmap
+@Laser Glow:								Ion_Glow
+@Laser Color:								212, 16, 229
+@Laser Color2:								0, 0, 0
+@Laser Length:								10.0
+@Laser Head Radius: 						0.9
+@Laser Tail Radius: 						0.9
+$Mass:										0.2
+$Velocity:									810
+$Fire Wait: 								0.70		; 0.35
+$Damage:									30
+$Armor Factor:								1.0
+$Shield Factor: 							1.2
+$Subsystem Factor:							0.7
+$Lifetime:									1.12
+$Energy Consumed:							3.5
+$Cargo Size:								0.0
+$Homing:									NO
+$LaunchSnd: 								80
+$ImpactSnd: 								85
++Weapon Range:								900
+$Flags: 									( "player allowed" "no pierce shields" "cycle" )
+$Icon:										IconIon
+$Anim:										LoadoutIon
+$Impact Explosion:							Mekhu_Impact
+$Impact Explosion Radius:					1.8
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                                  	@Laser#Async_2
++Tech Title:				    			XSTR("Laser Cannon", -1)
++Tech Anim:					    			2_tech_laser
++Tech Description:
+XSTR("The laser is the backbone of today's energy guns. Consistently improved upon and perfected over the last half-century, the laser provides the standard against which most other blasters are judged. Low maintenance and a low energy cost make it standard armament for almost every ship in existence. The laser is ideally suited to deep-space combat (in atmospheric conditions, rays refract and lose their effectiveness). However, it has no effect against shields on larger ships.", -1)
+$end_multi_text
+$Model File:								none
+@Laser Bitmap:			                    Laser_Bitmap
+@Laser Glow:			                    Laser_Glow
+@Laser Color:			                    229, 31, 28
+@Laser Color2:								0, 0, 0
+@Laser Length:			                    12.0
+@Laser Head Radius: 	                    0.7
+@Laser Tail Radius: 	                    0.7
+$Mass:										0.3
+$Velocity:									900.0			
+$Fire Wait: 								0.50		; 0.25				
+$Damage:									18
+$Armor Factor:								1.0
+$Shield Factor: 							1.0
+$Subsystem Factor:							0.3
+$Lifetime:									1.11				
+$Energy Consumed:							0.6825                  ;was then 0.625		
+$Cargo Size:								0.0 			
+$Homing:									NO
+$LaunchSnd: 								76				
+$ImpactSnd: 								85				
++Weapon Range:								1000			
+$Flags: 									( "player allowed" "stream" "no pierce shields" "cycle" )
+$Icon:										IconLaser
+$Anim:										LoadoutLaser
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                                  	@Light Tachyon#Async_4
++Tech Title:				   				XSTR("Light Tachyon Gun", -1)
++Tech Description:
+XSTR("A light version of power-hungry blaster, the light tachyon gun is one of the most devastating energy gun found on Terran fighters. It slows down tachyon particles, which naturally travel faster than the speed of light. Once these particles ore decelerated and forced into streams, their potential damage increases monumentally. In several documented cases, the powerful tachyon gun has been used to attack the shields of capital ships.", -1)
+$end_multi_text
+$Model File:								none
+@Laser Bitmap:								tachyon
+@Laser Glow:								tachyon_glow
+@Laser Color:								229, 229, 229
+@Laser Color2:								0, 0, 0
+@Laser Length:								14.0
+@Laser Head Radius:							0.75
+@Laser Tail Radius:							0.65
+$Mass:                               		0.3
+$Velocity:                             		855.0
+$Fire Wait:                            		1.40	; 0.35	
+$Damage:                               		50.0
+$Armor Factor:								0.8
+$Shield Factor:								0.75
+$Subsystem Factor:							0.30
+$Lifetime:                             		0.88
+$Energy Consumed:							3.14		
+$Cargo Size:								0.0	
+$Homing:                               		NO
+$LaunchSnd:                            		115   
+$ImpactSnd:                            		85 
++Weapon Range:								750
+$Flags:                                		( "player allowed" "no pierce shields" "cycle" )
+$Icon:                                 		IconTachyon
+$Anim:                                 		LoadoutLightTachyon
+$Impact Explosion:							MS_Impact
+$Impact Explosion Radius:					1.2
+$Burst Shots:						4
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                          			@Mass Driver#Async_2
++Tech Title:                   			 	XSTR("Mass Driver Cannon", -1)
++Tech Anim:                     			2_tech_massdriver
++Tech Description:
+XSTR("A solid gun in either case, the mass driver cannon is common on both fighters and light defender ships in the fleet. It uses a linear accelerator to fire projectiles of metallic mass at a target. The mass driver is a staple in the Terran arsenal and has even been used against planets and asteroids. A short-range gun, it requires less energy per shot than most blasters and has a relatively fast refire rate.", -1)
+$end_multi_text
+$Model File:                  				none
+@Laser Bitmap:                				Massd
+@Laser Glow:                  				none
+@Laser Color:                 				0, 0, 0
+@Laser Color2:                				0, 0, 0
+@Laser Length:               				1.0
+@Laser Head Radius:           				0.9
+@Laser Tail Radius:           				0.8
+$Mass:                        				0.6
+$Velocity:                    				720
+$Fire Wait:                   				0.70		; 0.35
+$Damage:                      				45
+$Armor Factor:				  				1.0
+$Shield Factor:				  				1.0
+$Subsystem Factor:			  				0.2
+$Lifetime:                    				0.56
+$Energy Consumed:             				1.2
+$Cargo Size:                  				0.0
+$Homing:                      				NO
+$LaunchSnd:                   				79
+$ImpactSnd:                   				85
++Weapon Range:                				400
+$Flags:                       				( "player allowed" "no pierce shields" "cycle" )
+$Icon:                        				IconMass
+$Anim:                        				LoadoutMassDriver
+$Impact Explosion:            				Vapula_Impact
+$Impact Explosion Radius:	  				2.0
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                          			@Meson#Async_2
++Tech Title:                    			XSTR("Meson Blaster", -1)
++Tech Anim:                     			2_tech_meson
++Tech Description:
+XSTR("The meson blaster is a unique, powerful gun that utilises subatomic particles with a short half-life. These particles, called mesons, are accelerated and flung toward a target. The most damage occurs once the particles decay inside the target - they cause internal explosions and give off radiation. Energised shields can stop these particles, and atmospheric conditions render this gun ineffective.", -1)
+$end_multi_text
+$Model File:                  				none
+@Laser Bitmap:								meson
+@Laser Glow:								meson_glow
+@Laser Color:								70, 229, 7
+@Laser Color2:								0, 0, 0
+@Laser Length:								13.0	
+@Laser Head Radius:							0.9
+@Laser Tail Radius:							0.9
+$Mass:										0.2
+$Velocity:                    				765
+$Fire Wait:                   				0.8		; 0.4
+$Damage:                      				35
+$Armor Factor:								1.3
+$Shield Factor:								0.75
+$Subsystem Factor:							0.3
+$Lifetime:                    				1.18
+$Energy Consumed:             				2.2                     ;was 1.6
+$Cargo Size:                  				0.0
+$Homing:                      				NO
+$LaunchSnd:                   				81
+$ImpactSnd:                   				85
++Weapon Range:                				900  
+$Flags:                       				( "player allowed" "cycle" "stream" "particle spew" "no pierce shields" )
+$Icon:                        				IconMeson
+$Anim:                        				LoadoutMeson
+$Impact Explosion:              			Maxim_Impact
+$Impact Explosion Radius:					3.3
+$Pspew: 
++Count: 	                                1 
++Time: 		                                17
++Vel: 		                                0.40 
++Radius: 	                                0.40 
++Life: 		                                0.2 
++Scale: 	                                0.65 
++Bitmap: 	                                Vepar_Particle
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                          			@Neutron#Async_2
++Tech Title:                   	 			XSTR("Neutron Gun", -1)
++Tech Anim:                     			2_tech_neutron
++Tech Description:
+XSTR("Neutron guns do heavy damage, but only at close range. No other projectile weapon provides an equivalent level of destructive capability. The down side is that neutron guns heat up rapidly and eat up power at an alarming rate. Also, the neutron gun's lack of range had led many foolhardy and underskilled pilots into close-quarter combat for which they were ill-prepared. Some of these pilots never made it home.", -1)
+$end_multi_text
+$Model File:                  				none
+@Laser Bitmap:			                    Neutron_Bitmap
+@Laser Glow:			                    Neutron_Glow
+@Laser Color:			                    229, 107, 25
+@Laser Color2:			                    0, 0, 0
+@Laser Length:       	                    5.0
+@Laser Head Radius:		                    0.95
+@Laser Tail Radius:		                    0.90
+$Mass:										0.2
+$Velocity:                   				675 
+$Fire Wait:                   				0.70		; 0.35
+$Damage:                      				30.0
+$Armor Factor:								1.1
+$Shield Factor:								1.0
+$Subsystem Factor:							0.3
+$Lifetime:                    				1.5
+$Energy Consumed:             				1.25                    ;was 2.0
+$Cargo Size:                  				0.0
+$Homing:                      				NO
+$LaunchSnd:                   				84
+$ImpactSnd:                   				85
++Weapon Range:                				800
+$Flags:                       				( "player allowed" "cycle" "stream" "particle spew" "no pierce shields" )
+$Trail:																									
+	+Start Width:            			    1.0                                      
+	+End Width: 	           			    0.7                                     
+	+Start Alpha:						    1.2
+	+End Alpha:							    0.0
+	+Max Life:							    0.1                                    
+	+Bitmap:								neutrontrail2
+$Icon:                                 		IconNeutron
+$Anim:                                 		LoadoutNeutron
+$Impact Explosion:							Circe_Impact
+$Impact Explosion Radius:					2.2
+$Pspew: 
++Count: 			                        1 
++Time: 				                        17
++Vel: 				                        0.40 
++Radius: 			                        0.40 
++Life: 				                        0.2 
++Scale: 			                        0.65 
++Bitmap: 			                        Vapula_Particle
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                          			@Particle#Async_2
++Tech Title:                    			XSTR("Particle Cannon", -1)
++Tech Anim:                     			2_tech_particle
++Tech Description:
+XSTR("The particle cannon is perhaps the most significant energy technology we possess. Prototypes were first developed three years into the war, when a similar cannon was extracted from a captured Kilrathi fighter. Engineers built a comparable version capable of hurling minute nuclear particles at high speeds. Any impact results in a small nuclear explosion that gives off blast, heat and radiation damage. This cannon is useless, however, in atmospheric conditions.", -1)
+$end_multi_text
+$Model File:                  				none
+@Laser Bitmap:                              Particle_Bitmap
+@Laser Glow:                                Particle_Glow
+@Laser Color:                               229, 168, 0
+@Laser Color2:                              0, 0, 0
+@Laser Length:			                    5.0
+@Laser Head Radius:		                    2.0
+@Laser Tail Radius:		                    2.0
+$Mass:                        				0.4
+$Velocity:                    				945
+$Fire Wait:                   				0.80		; 0.4
+$Damage:                      				43
+$Armor Factor:								1.0
+$Shield Factor:								1.0
+$Subsystem Factor:							0.35
+$Lifetime:                    				0.89
+$Energy Consumed:             				2.2
+$Cargo Size:                  				0.0
+$Homing:                      				NO
+$LaunchSnd:                   				83
+$ImpactSnd:                   				85
++Weapon Range:                				840
+$Flags:                       				( "player allowed" "cycle" "stream" "no pierce shields" )
+$Icon:                                 		IconParticle
+$Anim:                                 		LoadoutParticle
+$Impact Explosion:							Shivan_Impact01
+$Impact Explosion Radius:					2.4
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                          			@Photon#Async_2
++Tech Title:                    			XSTR("Photon Cannon", -1)
++Tech Anim:                     			2_tech_photon
++Tech Description:
+XSTR("When Terran forces first went to war, the photon cannon was the most popular gun next to the standard laser. It emits laser pulses and solicits similar effects upon impact. However, the photon cannon drains more energy and has a slower refire rate. This gun requires little maintenance - the mirror robotics are the only adjustable component - and functions best in deep-space combat.", -1)
+$end_multi_text
+$Model File:                  				none
+@Laser Bitmap:								Photon
+@Laser Glow:								Photon_Glow
+@Laser Color:								229, 212, 18
+@Laser Color2:								0, 0, 0
+@Laser Length:								10.0
+@Laser Head Radius:							0.7
+@Laser Tail Radius:							0.7
+$Mass:                        				0.2
+$Velocity:                    				800
+$Fire Wait:                   				0.90		; 0.45
+$Damage:                      				30.0
+$Armor Factor:                				1.0
+$Shield Factor:               				1.0
+$Subsystem Factor:            				0.40
+$Lifetime:                    				0.63
+$Energy Consumed:             				3.2 ;was 3.2
+$Cargo Size:                  				0.0
+$Homing:                      				NO
+$LaunchSnd:                   				86
+$ImpactSnd:                   				85
++Weapon Range:                				500
+$Flags:                       				( "player allowed" "stream" "no pierce shields" )
+$Icon:                        				IconParticle
+$Anim:                        				LoadoutPhoton
+$Impact Explosion:							Lamprey_Impact
+$Impact Explosion Radius:					1.9
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                          			@Plasma#Async_2
++Tech Title:                    			XSTR("Plasma Gun", -1)
++Tech Anim:                     			2_tech_plasma
++Tech Description:
+XSTR("The plasma gun was originally developed to attack heavy fighters and corvettes with light armor. It uses electrically charged hydrogen molecules that are in a state of near-fusion. These molecules are similar to those found in the inner plasma of most young stars. Upon impact, plasma projectiles cause radiation, blast and heat damage.", -1)
+$end_multi_text
+$Model File:                    			none
+@Laser Bitmap:								Plasma_Bitmap
+@Laser Glow:								Laser_Glow
+@Laser Color:								41, 229, 189
+@Laser Color2:								0, 0, 0
+@Laser Length:								15.0
+@Laser Head Radius:							1.5
+@Laser Tail Radius:							1.0
+$Mass:                        				1.0
+$Velocity:                    				540
+$Fire Wait:                   				1.0		; 0.5
+$Damage:                      				67
+$Armor Factor:								1.0
+$Shield Factor:								1.0
+$Subsystem Factor:							1.0
+$Lifetime:                    				0.9
+$Energy Consumed:             				4.4
+$Cargo Size:                  				0.0
+$Homing:                      				NO
+$LaunchSnd:                   				77
+$ImpactSnd:                   				85
++Weapon Range:                				600
+$Flags:                       				( "player allowed" "cycle" "particle spew" "no pierce shields" )
+$Icon:                        				IconPlasma
+$Anim:                       				LoadoutPlasma
+$Impact Explosion:							Akheton_Impact
+$Impact Explosion Radius:					3
+$Pspew: 
++Count: 	                                1 
++Time: 		                                17
++Vel: 		                                0.40 
++Radius: 	                                0.45 
++Life: 		                                0.2 
++Scale: 	                                0.65 
++Bitmap: 	                                Kayser_Particle
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                                  	@Reaper#Async_2
++Tech Title:				    			XSTR("Reaper cannon", -1)
++Tech Anim:							    	2_tech_reaper
++Tech Description:
+XSTR("The reaper cannon evolved from the standard ion cannon, and its refire rate is slightly faster. This cannon delivers high-speed pulses of charged atomic particles that give off energy and radiation damage. Fighters find this cannon especially useful against ships with shields that regenerate quickly, and any ship with slow shield generation is sure to take damage.", -1)
+$end_multi_text
+$Model File:								none
+@Laser Bitmap:			                    Reaper_Bitmap
+@Laser Glow:			                    Reaper_Glow
+@Laser Color:			                    223, 30, 229
+@Laser Color2:			                    0, 0, 0
+@Laser Length:			                    13.0
+@Laser Head Radius: 	                    0.7
+@Laser Tail Radius: 	                    0.7
+$Mass:										0.3
+$Velocity:									880.0
+$Fire Wait: 								0.60		; 0.30
+$Damage:									35
+$Armor Factor:                				1.3
+$Shield Factor:               				0.7
+$Subsystem Factor:            				1.0
+$Lifetime:									1.03
+$Energy Consumed:							1.2 ;was 1.7
+$Cargo Size:								0.0
+$Homing:									NO
+$LaunchSnd: 								78	
+$ImpactSnd: 								85	
++Weapon Range:								900	
+$Flags: 									( "player allowed" "cycle" "stream" "no pierce shields" )
+$Icon:                        				IconReaper
+$Anim:                        				LoadoutReaper
+$Impact Explosion:							Shivan_Impact02
+$Impact Explosion Radius:					1.5
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                                  	@Tachyon#Async_2
++Tech Title:				   				XSTR("Tachyon Gun", -1)
++Tech Anim:					   				2_tech_tachyon
++Tech Description:
+XSTR("A power-hungry blaster, the tachyon gun is the most devastating energy gun found on Terran fighters. It slows down tachyon particles, which naturally travel faster than the speed of light. Once these particles are decelerated and forced into streams, their potential damage increases monumentally. In several documented cases, the powerful tachyon cannon has been used to attack the shields of capital ships.", -1)
+$end_multi_text
+$Model File:								none
+@Laser Bitmap:								tachyon
+@Laser Glow:								tachyon_glow
+@Laser Color:								197, 208, 229
+@Laser Color2:								0, 0, 0
+@Laser Length:								14.0
+@Laser Head Radius:							0.75
+@Laser Tail Radius:							0.65
+$Mass:                                 		0.3
+$Velocity:                             		720.0
+$Fire Wait:                            		0.70	; 0.35	
+$Damage:                               		70.0
+$Armor Factor:								1.0
+$Shield Factor:								0.9
+$Subsystem Factor:							0.35
+$Lifetime:                            		0.89
+$Energy Consumed:							4.0
+$Cargo Size:								0.0	
+$Homing:                               		NO
+$LaunchSnd:                            		82
+$ImpactSnd:                            		85 
++Weapon Range:								640
+$Flags:                                		( "player allowed" "cycle" "no pierce shields" )
+$Icon:                       				IconTachyon
+$Anim:                        				LoadoutTachyon
+$Impact Explosion:							MS_Impact
+$Impact Explosion Radius:					1.2
+$Burst Shots:						2
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+$Name:                                  	Tachyon#Async_4
+$Model File:								none
+@Laser Bitmap:								tachyon
+@Laser Glow:								tachyon_glow
+@Laser Color:								197, 208, 229
+@Laser Color2:								0, 0, 0
+@Laser Length:								14.0
+@Laser Head Radius:							0.75
+@Laser Tail Radius:							0.65
+$Mass:                                 		0.3
+$Velocity:                             		720.0
+$Fire Wait:                            		1.40	; 0.35	
+$Damage:                               		70.0
+$Armor Factor:								1.0
+$Shield Factor:								0.9
+$Subsystem Factor:							0.35
+$Lifetime:                            		0.89
+$Energy Consumed:							4.0
+$Cargo Size:								0.0	
+$Homing:                               		NO
+$LaunchSnd:                            		82
+$ImpactSnd:                            		85 
++Weapon Range:								640
+$Flags:                                		( "player allowed" "no pierce shields" "cycle" )
+$Icon:                       				IconTachyon
+$Anim:                        				LoadoutTachyon
+$Impact Explosion:							MS_Impact
+$Impact Explosion Radius:					1.2
+$Burst Shots:						4
+$Burst Delay: 						100
+$Burst Flags: 						( "fast firing" )
+
+#End

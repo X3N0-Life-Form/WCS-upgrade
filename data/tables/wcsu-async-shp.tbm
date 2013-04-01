@@ -1,0 +1,44 @@
+#Ship Classes
+
+$Name:                          F-27B Arrow
+	+nocreate ;:
+$Allowed PBanks:                ( "Laser" "Laser#Async_2" ) ( "Ion" "Ion#Async_2" )
+
+
+;------------------------------ Hellcat ---------------------------------------
+
+$Name:                          F-86C Hellcat V
+	+nocreate ;:
+$Allowed PBanks:                ( "Ion" "Ion#Async_2" ) ( "Neutron" "Neutron#Async_2" )
+
+
+;------------------------------ Thunderbolt -----------------------------------
+
+$Name:                          F-66A Thunderbolt VII
+	+nocreate ;:
+$Allowed PBanks:                ( "Meson" "Meson#Async_2" ) ( "Photon" "Photon#Async_2" ) ( "Plasma" "Plasma#Async_2" )
+
+
+;------------------------------ Sabre -----------------------------------------
+
+$Name:                          F-57B Sabre
+	+nocreate ;:
+$Allowed PBanks:                ( "Mass Driver" "Mass Driver#Async_2" ) ( "Particle" "Particle#Async_2" )
+
+
+;------------------------------ Excalibur ----------------------------------------
+
+$Name:                          F-103A Excalibur
+	+nocreate ;:
+$Allowed PBanks:                ( "Tachyon" "Tachyon#Async_4" ) ( "Reaper" "Reaper#Async_2" )
+
+
+;------------------------------ Longbow ---------------------------------------
+
+$Name:                          F/A-76A Longbow
+	+nocreate ;:
+$Allowed PBanks:                ( "Neutron" "Neutron#Async_2" ) ( "Plasma" "Plasma#Async_2" )
+
+
+
+#End
