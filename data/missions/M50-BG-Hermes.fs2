@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Freya 8", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/31/13 at 23:43:30
+$Modified: 04/09/13 at 20:53:01
 $Notes:
 Story by Ryan Anderson$End Notes:
 
@@ -24,9 +24,9 @@ $end_multi_text
 
 +Viewer pos: -56453.441406, 100492.242188, 51783.382813
 +Viewer orient:
-	-0.996565, 0.000001, -0.082817,
-	0.051336, 0.784710, -0.617734,
-	0.064987, -0.619863, -0.782014
+	0.985944, 0.000000, 0.167076,
+	0.010526, 0.998013, -0.062118,
+	-0.166744, 0.063004, 0.983985
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
 $Squadron wing names: ( "Alpha" "Bravo" "Charlie" "Delta" "Echo" )
@@ -73,17 +73,19 @@ $Variables:
 		29		"EscortCap1"		"0"		"number"
 		30		"EscortCap2"		"0"		"number"
 		31		"EscortCharlie"		"0"		"number"
-		32		"loadout-status"		"100"		"number"
-		33		"MessageLock"		"0"		"number"
-		34		"NumTurretsDestroyed"		"0"		"number"
-		35		"PlanetSizeAfter"		"0"		"number"
-		36		"PlanetSizeBefore"		"0"		"number"
-		37		"PlanetStage"		"0"		"number"
-		38		"PlanetVariable"		"0"		"number"
-		39		"shield-status"		"100"		"number"
-		40		"str-status"		"- Online"		"string"
-		41		"SunVariable"		"0"		"number"
-		42		"TauntTimer"		"0"		"number"
+		32		"MessageLock"		"0"		"number"
+		33		"NumTurretsDestroyed"		"0"		"number"
+		34		"PlanetSizeAfter"		"0"		"number"
+		35		"PlanetSizeBefore"		"0"		"number"
+		36		"PlanetStage"		"0"		"number"
+		37		"PlanetVariable"		"0"		"number"
+		38		"shield-status"		"100"		"number"
+		39		"str-status"		"- Online"		"string"
+		40		"SunVariable"		"0"		"number"
+		41		"TauntTimer"		"0"		"number"
+		42		"turrets-gatling"		"12"		"number"
+		43		"turrets-laser"		"24"		"number"
+		44		"turrets-tachyon"		"4"		"number"
 )
 
 #Cutscenes
@@ -7818,7 +7820,7 @@ $Ships: (		;! 4 total
 +Wave Delay Min: 30
 +Wave Delay Max: 45
 
-#Events		;! 257 total
+#Events		;! 260 total
 
 $Formula: ( when 
    ( true ) 
@@ -15538,7 +15540,7 @@ $Formula: ( when
    )
    ( modify-variable 
       "@str-status[- Online]" 
-      " " 
+      "Assist Bomber Strike" 
    )
 )
 +Name: reset str-status
@@ -15547,61 +15549,22 @@ $Formula: ( when
 +Team: 2048
 
 $Formula: ( when 
-   ( and 
-      ( is-event-true-delay 
-         "Mastermind arrival que" 
-         0 
-      )
-      ( not 
-         ( is-event-true-delay 
-            "Wratghar at 67% damage" 
-            0 
-         )
-      )
-   )
-   ( modify-variable 
-      @loadout-status[100] 
-      ( mod 
-         ( + 
-            ( * 
-               ( / 
-                  ( - ( hits-left "KIS Wratghar" ) 67 ) 
-                  33 
-               )
-               50 
-            )
-            ( / 
-               ( + 
-                  ( hits-left "Light Destroyer#1" ) 
-                  ( hits-left "Light Destroyer#2" ) 
-                  ( hits-left "Light Destroyer#3" ) 
-                  ( hits-left "Light Cruiser#1" ) 
-               )
-               8 
-            )
-         )
-         100 
-      )
-   )
-)
-+Name: update longbows status
-+Repeat Count: 1
-+Trigger Count: 9999
-+Interval: 2
-+Team: 2048
-
-$Formula: ( when 
-   ( is-event-true-delay 
-      "Wratghar at 67% damage" 
-      0 
-   )
-   ( modify-variable 
-      @loadout-status[100] 
-      0 
-   )
+   ( < ( hits-left "KIS Wratghar" ) 71 ) 
    ( modify-variable 
       "@str-status[- Online]" 
-      "- Empty" 
+      "Warning - Bomber Loadout Low" 
+   )
+)
++Name: loadout warning
++Repeat Count: 1
++Interval: 1
++Team: 8978431
+
+$Formula: ( when 
+   ( < ( hits-left "KIS Wratghar" ) 69 ) 
+   ( modify-variable 
+      "@str-status[- Online]" 
+      "Bomber Loadout Critical" 
    )
 )
 +Name: longbows empty
@@ -15680,9 +15643,17 @@ $Formula: ( when
 +Team: 551124672
 
 $Formula: ( when 
-   ( is-event-true-delay 
-      "Hermes arrival cue" 
-      0 
+   ( and 
+      ( is-event-true-delay 
+         "Hermes arrival cue" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "tac board - Hermes" 
+            0 
+         )
+      )
    )
    ( training-msg 
       "tac board - Hermes arrival" 
@@ -15690,7 +15661,8 @@ $Formula: ( when
 )
 +Name: tac board - Hermes arrival
 +Repeat Count: 1
-+Interval: 1
++Trigger Count: 99
++Interval: 3
 +Team: 551124672
 
 $Formula: ( when 
@@ -15706,7 +15678,7 @@ $Formula: ( when
 +Repeat Count: 1
 +Trigger Count: 999
 +Interval: 3
-+Chained: 7
++Chained: 21
 +Team: 7035968
 
 $Formula: ( when 
@@ -15731,6 +15703,106 @@ $Formula: ( when
 +Repeat Count: 1
 +Interval: 1
 +Team: 973611366
+
+$Formula: ( when-argument 
+   ( any-of 
+      "turret13" 
+      "turret14" 
+      "turret15" 
+      "turret16" 
+      "turret17" 
+      "turret18" 
+      "turret19" 
+      "turret20" 
+      "turret21" 
+      "turret22" 
+      "turret23" 
+      "turret24" 
+      "turret25" 
+      "turret27" 
+      "turret29" 
+      "turret30" 
+      "turret31" 
+      "turret32" 
+      "turret33" 
+      "turret34" 
+      "turret35" 
+      "turret38" 
+      "turret39" 
+      "turret40" 
+   )
+   ( is-subsystem-destroyed-delay 
+      "KIS Wratghar" 
+      "<argument>" 
+      0 
+   )
+   ( modify-variable 
+      @turrets-laser[24] 
+      ( - @turrets-laser[24] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update turret status - laser
++Repeat Count: 1
++Trigger Count: 99
++Interval: 0
++Team: 973611366
+
+$Formula: ( when-argument 
+   ( any-of 
+      "turret26" 
+      "turret28" 
+      "turret36" 
+      "turret37" 
+   )
+   ( is-subsystem-destroyed-delay 
+      "KIS Wratghar" 
+      "<argument>" 
+      0 
+   )
+   ( modify-variable 
+      @turrets-tachyon[4] 
+      ( - @turrets-tachyon[4] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update turret status - tachyon
++Repeat Count: 1
++Trigger Count: 99
++Interval: 0
++Team: 9755726
+
+$Formula: ( when-argument 
+   ( any-of 
+      "turret41" 
+      "turret42" 
+      "turret43" 
+      "turret44" 
+      "turret45" 
+      "turret46" 
+      "turret47" 
+      "turret48" 
+      "turret49" 
+      "turret50" 
+      "turret51" 
+      "turret52" 
+   )
+   ( is-subsystem-destroyed-delay 
+      "KIS Wratghar" 
+      "<argument>" 
+      0 
+   )
+   ( modify-variable 
+      @turrets-gatling[12] 
+      ( - @turrets-gatling[12] 1 ) 
+   )
+   ( invalidate-argument "<argument>" ) 
+)
++Name: update turret status - gatling
++Repeat Count: 1
++Trigger Count: 99
++Interval: 0
++Team: 9755726
 
 #Goals		;! 1 total
 
@@ -17466,14 +17538,22 @@ $end_multi_text
 $Name: tac board - longbows
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical Board <<<
-Loadout status: $loadout-status % $str-status", -1)
+$str-status
+Eliminate Dreadnaught turrets:
+Laser turrets: $turrets-laser
+Tachyon turrets: $turrets-tachyon
+Gatling turrets: $turrets-gatling", -1)
 $end_multi_text
 
 $Name: tac board - GSM strike
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical board <<<
 Inbound GSM Strikes
-Clear turrets facing the planet", -1)
+Clear turrets facing the planet
+Eliminate Dreadnaught turrets:
+Laser turrets: $turrets-laser
+Tachyon turrets: $turrets-tachyon
+Gatling turrets: $turrets-gatling", -1)
 $end_multi_text
 
 $Name: tac board - GSM strike warning

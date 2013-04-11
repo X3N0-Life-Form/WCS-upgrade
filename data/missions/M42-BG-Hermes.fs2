@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Kurasawa 1", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/30/13 at 19:38:40
+$Modified: 04/09/13 at 21:02:19
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -6196,7 +6196,7 @@ $Ships: (		;! 4 total
 )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" "no-departure-warp" "no-departure-log" )
 
-#Events		;! 203 total
+#Events		;! 209 total
 
 $Formula: ( when 
    ( true ) 
@@ -14565,6 +14565,91 @@ $Formula: ( when-argument
 +Trigger Count: 100
 +Interval: 0
 
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Heavy Cruiser#3" 
+   )
+   ( turret-lock 
+      "Heavy Cruiser#3" 
+      "turret17" 
+      "turret16" 
+   )
+)
++Name: lock ambushed kitty CSMs - HC#3
++Repeat Count: 1
++Interval: 1
++Team: 12256984
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Light Destroyer#1" 
+   )
+   ( turret-lock 
+      "Light Destroyer#1" 
+      "turret09" 
+   )
+)
++Name: lock LD#1
++Repeat Count: 1
++Interval: 1
++Team: 1
+
+$Formula: ( when 
+   ( has-arrived-delay 
+      0 
+      "Light Destroyer#2" 
+   )
+   ( turret-lock 
+      "Light Destroyer#2" 
+      "turret09" 
+   )
+)
++Name: lock LD#2
++Repeat Count: 1
++Interval: 1
++Team: 12251836
+
+$Formula: ( when 
+   ( has-arrived-delay 0 "Frigate#1" ) 
+   ( turret-lock "Frigate#1" "turret07" ) 
+)
++Name: lock F#1
++Repeat Count: 1
++Interval: 1
++Team: 248416068
+
+$Formula: ( when 
+   ( has-arrived-delay 0 "Frigate#2" ) 
+   ( turret-lock "Frigate#2" "turret07" ) 
+)
++Name: lock F#2
++Repeat Count: 1
++Interval: 1
++Team: 7035968
+
+$Formula: ( when 
+   ( and 
+      ( is-event-true-delay 
+         "All fighters retreat" 
+         0 
+      )
+      ( not 
+         ( is-event-true-delay 
+            "Minefield Blow Up" 
+            0 
+         )
+      )
+   )
+   ( training-msg "tac board - nukes" ) 
+)
++Name: tac board - nukes
++Repeat Count: 1
++Trigger Count: 99
++Interval: 3
++Team: 12257556
+
 #Goals		;! 1 total
 
 $Type: Primary
@@ -14674,7 +14759,7 @@ $List: (		;! 1 points in list
 	( -27800.000000, 200.000000, 36548.800781 )
 )
 
-#Messages		;! 147 total
+#Messages		;! 148 total
 
 
 $Name: ========== Nav 0 ==========
@@ -15646,6 +15731,12 @@ $Name: tac board - init
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical Board <<<
 Initializing ...", -1)
+$end_multi_text
+
+$Name: tac board - nukes
+$Team: -1
+$MessageNew:  XSTR(">>> Tactical Board <<<
+Move away from Nuclear Mines", -1)
 $end_multi_text
 
 #Reinforcements		;! 0 total
