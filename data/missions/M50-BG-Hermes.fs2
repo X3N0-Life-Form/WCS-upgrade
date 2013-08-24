@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Freya 8", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 04/09/13 at 20:53:01
+$Modified: 06/14/13 at 01:08:10
 $Notes:
 Story by Ryan Anderson$End Notes:
 
@@ -24,8 +24,8 @@ $end_multi_text
 
 +Viewer pos: -56453.441406, 100492.242188, 51783.382813
 +Viewer orient:
-	0.985944, 0.000000, 0.167076,
-	0.010526, 0.998013, -0.062118,
+	0.985944, 0.000001, 0.167076,
+	0.010526, 0.998013, -0.062119,
 	-0.166744, 0.063004, 0.983985
 
 $Starting wing names: ( "Alpha" "BravoX" "CharlieX" )
@@ -15666,10 +15666,16 @@ $Formula: ( when
 +Team: 551124672
 
 $Formula: ( when 
-   ( not 
+   ( and 
+      ( not 
+         ( is-event-true-delay 
+            "Wratghar destroyed" 
+            0 
+         )
+      )
       ( is-event-true-delay 
-         "Wratghar destroyed" 
-         0 
+         "tac board - Hermes arrival" 
+         21 
       )
    )
    ( training-msg "tac board - Hermes" ) 
@@ -15678,7 +15684,6 @@ $Formula: ( when
 +Repeat Count: 1
 +Trigger Count: 999
 +Interval: 3
-+Chained: 21
 +Team: 7035968
 
 $Formula: ( when 
@@ -17532,7 +17537,7 @@ $end_multi_text
 $Name: tac board - shields
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical Board <<<
-Wratghar shield status: $shield-status $str-status", -1)
+Wratghar shield status: $shield-status % $str-status", -1)
 $end_multi_text
 
 $Name: tac board - longbows

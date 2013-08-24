@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Testing Arena", -1)
 $Author: X3N0-Life-Form
 $Created: 02/24/13 at 22:09:12
-$Modified: 04/01/13 at 18:48:31
+$Modified: 06/14/13 at 00:21:33
 $Notes:
 This is a FRED2_OPEN created mission.
 $End Notes:
@@ -26,14 +26,21 @@ $end_multi_text
 
 +Viewer pos: -60.683151, 483.721313, -588.214966
 +Viewer orient:
-	0.999718, -0.000001, -0.023756,
-	0.009639, 0.913999, 0.405602,
-	0.021713, -0.405716, 0.913741
+	0.936282, -0.000001, 0.351250,
+	-0.142507, 0.913999, 0.379865,
+	-0.321043, -0.405716, 0.855761
 
 
 $Skybox Model: sky_vega.pof
 
 $AI Profile: SAGA RETAIL
+
+#Sexp_variables
+
+$Variables:
+(
+		0		"turret-count"		"5"		"number"
+)
 
 #Command Briefing
 
@@ -88,7 +95,7 @@ $Ship Choices: (
 	"Lance"	500
 )
 
-#Objects		;! 3 total
+#Objects		;! 2 total
 
 $Name: Alpha 1		;! Object #0
 $Class: F-103A Excalibur
@@ -107,14 +114,14 @@ $Arrival Cue: ( false )
 $Departure Location: Hyperspace
 $Departure Cue: ( false ) 
 $Determination: 10
-+Flags: ( "cargo-known" "player-start" )
++Flags: ( "cargo-known" "protect-ship" "player-start" "invulnerable" )
 +Flags2: ( "no-subspace-drive" )
 +Respawn priority: 0
 +Group: 0
 +Score: 10
 
 $Name: Evil Dude		;! Object #1
-$Class: Fralthi II-class
+$Class: Kamrani-class
 $Team: Hostile
 $Location: -448.203156, -0.000014, 821.756836
 $Orientation:
@@ -123,26 +130,14 @@ $Orientation:
 	0.980284, -0.188859, -0.058104
 $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", -1)
-+Initial Velocity: 33
 +Initial Hull: 100
 +Subsystem: Pilot
-+Subsystem: turret05
-+Subsystem: turret06
-+Subsystem: turret07
-+Subsystem: turret08
-+Subsystem: turret09
-+Subsystem: turret10
-+Subsystem: turret11
-+Subsystem: turret12
-+Subsystem: turret13
-+Subsystem: turret14
-+Subsystem: turret15
 +Subsystem: turret01
 +Subsystem: turret02
 +Subsystem: turret03
 +Subsystem: turret04
-+Subsystem: turret16
-+Subsystem: turret17
++Subsystem: turret05
++Subsystem: turret06
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true ) 
 $Departure Location: Hyperspace
@@ -154,48 +149,6 @@ $Determination: 10
 +Escort priority: 5
 +Orders Accepted: 0		;! note that this is a bitfield!!!
 +Group: 0
-+Use Table Score:
-+Score: 600
-
-$Name: Plasma dude		;! Object #2
-$Class: Tallahassee-class#Plasma
-$Team: Friendly
-$Location: 493.601135, -0.000176, 683.798950
-$Orientation:
-	0.000796, -0.039989, 0.999199,
-	0.188859, 0.981224, 0.039119,
-	-0.982004, 0.188676, 0.008334
-$AI Behavior: None
-$Cargo 1:  XSTR("Nothing", -1)
-+Initial Velocity: 33
-+Initial Hull: 100
-+Subsystem: Pilot
-+Subsystem: turret07
-+Subsystem: turret08
-+Subsystem: turret09
-+Subsystem: turret10
-+Subsystem: turret11
-+Primary Banks: ( "Plasma Cannon" )
-+Subsystem: turret12
-+Subsystem: turret13
-+Subsystem: turret14
-+Subsystem: turret01
-+Subsystem: turret02
-+Subsystem: turret03
-+Subsystem: turret04
-+Subsystem: turret06
-$Arrival Location: Hyperspace
-$Arrival Cue: ( true ) 
-$Departure Location: Hyperspace
-$Departure Cue: ( false ) 
-$Determination: 10
-+Flags: ( "cargo-known" "escort" )
-+Flags2: ( "no-subspace-drive" )
-+Respawn priority: 0
-+Escort priority: 15
-+Orders Accepted: 0		;! note that this is a bitfield!!!
-+Group: 0
-+Use Table Score:
 +Score: 600
 
 #Wings		;! 1 total
@@ -215,8 +168,32 @@ $Ships: (		;! 1 total
 +Hotkey: 0
 +Flags: ( )
 
-#Events		;! 0 total
+#Events		;! 1 total
 
+$Formula: ( when-argument 
+   ( any-of 
+      "turret01" 
+      "turret02" 
+      "turret03" 
+      "turret04" 
+      "turret05" 
+   )
+   ( is-subsystem-destroyed-delay 
+      "Evil Dude" 
+      "<argument>" 
+      0 
+   )
+   ( training-msg "test" ) 
+   ( invalidate-argument "<argument>" ) 
+   ( modify-variable 
+      @turret-count[5] 
+      ( - @turret-count[5] 1 ) 
+   )
+)
++Name: Event name
++Repeat Count: 1
++Trigger Count: 99
++Interval: 0
 
 #Goals		;! 0 total
 
@@ -224,8 +201,18 @@ $Ships: (		;! 1 total
 #Waypoints		;! 0 lists total
 
 
-#Messages		;! 0 total
+#Messages		;! 2 total
 
+
+$Name: test
+$Team: -1
+$MessageNew:  XSTR("triggered! --> $turret-count", -1)
+$end_multi_text
+
+$Name: <new message>
+$Team: -1
+$MessageNew:  XSTR("<put description here>", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

@@ -4,7 +4,7 @@ $Version: 0.10
 $Name:  XSTR("Hyperion 1", -1)
 $Author: Schmitt
 $Created: 03/26/06 at 10:42:26
-$Modified: 03/18/13 at 15:09:05
+$Modified: 06/17/13 at 13:10:11
 $Notes:
 Story by Nick Huynh and Brian Swift$End Notes:
 
@@ -85,16 +85,17 @@ $Variables:
 		38		"JumpTimer"		"0"		"number"
 		39		"KillScore"		"0"		"number"
 		40		"MessageLock"		"0"		"number"
-		41		"PlanetAfter"		"600"		"number"
-		42		"PlanetBefore"		"600"		"number"
-		43		"PlanetSwitchActive"		"0"		"number"
-		44		"PlanetVariable"		"0"		"number"
-		45		"RunAwayStart"		"0"		"number"
-		46		"sentry-count"		"11"		"number"
-		47		"tac-init"		"."		"string"
-		48		"target-cruisers"		" "		"string"
-		49		"target-destroyers"		"None"		"string"
-		50		"TauntTimer"		"0"		"number"
+		41		"pick"		"1"		"number"
+		42		"PlanetAfter"		"600"		"number"
+		43		"PlanetBefore"		"600"		"number"
+		44		"PlanetSwitchActive"		"0"		"number"
+		45		"PlanetVariable"		"0"		"number"
+		46		"RunAwayStart"		"0"		"number"
+		47		"sentry-count"		"11"		"number"
+		48		"tac-init"		"."		"string"
+		49		"target-cruisers"		" "		"string"
+		50		"target-destroyers"		"None"		"string"
+		51		"TauntTimer"		"0"		"number"
 )
 
 #Cutscenes
@@ -5602,7 +5603,7 @@ $Ships: (		;! 6 total
 )
 +Flags: ( "no-arrival-warp" "no-departure-warp" "no-arrival-log" "no-departure-log" )
 
-#Events		;! 165 total
+#Events		;! 166 total
 
 $Formula: ( when 
    ( true ) 
@@ -6009,13 +6010,7 @@ $Formula: ( when
          "M_Greywolf 1 to Venom 2" 
          20 
       )
-      ( and 
-         ( is-event-true-delay 
-            "M_Greywolf 1 to Venom 2" 
-            0 
-         )
-         ( key-pressed "Alt-J" ) 
-      )
+      ( key-pressed "Alt-J" ) 
    )
    ( set-object-position 
       "NextNav:1" 
@@ -10932,6 +10927,32 @@ $Formula: ( when
 +Team: 1431655765
 
 $Formula: ( when-argument 
+   ( any-of 
+      "Light Destroyer#1" 
+      "Heavy Destroyer#1" 
+      "Heavy Cruiser#1" 
+      "Heavy Cruiser#2" 
+      "Heavy Destroyer#4" 
+      "Heavy Destroyer#3" 
+      "Heavy Destroyer#2" 
+      "Outpost" 
+   )
+   ( and 
+      ( is-destroyed-delay 0 "<argument>" ) 
+      ( string-equals 
+         "<argument>" 
+         "@target-destroyers[None]" 
+      )
+   )
+   ( modify-variable @pick[1] 1 ) 
+)
++Name: target destroyed
++Repeat Count: 1
++Trigger Count: 9999
++Interval: 2
++Team: 1431655765
+
+$Formula: ( when-argument 
    ( in-sequence 
       "Light Destroyer#1" 
       "Heavy Destroyer#1" 
@@ -10953,6 +10974,10 @@ $Formula: ( when-argument
             0 
          )
       )
+      ( = @pick[1] 1 ) 
+      ( not 
+         ( is-destroyed-delay 0 "<argument>" ) 
+      )
    )
    ( modify-variable 
       "@target-destroyers[None]" 
@@ -10969,10 +10994,8 @@ $Formula: ( when-argument
       "Warhammer CSM" 
       "@target-destroyers[None]" 
    )
-   ( when 
-      ( is-destroyed-delay 0 "<argument>" ) 
-      ( invalidate-argument "<argument>" ) 
-   )
+   ( modify-variable @pick[1] 0 ) 
+   ( invalidate-argument "<argument>" ) 
 )
 +Name: pick targets
 +Repeat Count: 1
@@ -11773,7 +11796,7 @@ $Name: tactical board - jump point
 $Team: -1
 $MessageNew:  XSTR(">>> Tactical Board <<<
 Destroyers target:
-$target-destroyers
+$target-destroyers
 $target-cruisers", -1)
 $end_multi_text
 
